@@ -1,0 +1,1071 @@
+<title>Kaleidoscope Box Builder</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: control desk on the right (RTL), a work area with tabs (3D box · cut sheets · view through the window · parts & steps · research).
+   Single dark look on purpose, shared with Kaleidoscope Studio: a workshop bench at night, wood and mirror glow on black. */
+:root {
+  --bg: #07090d; --panel: #11151d; --panel2: #171c26; --line: #252d3b; --fg: #e8edf4; --muted: #8b96a8;
+  --accent: #7cf2dc; --on-accent: #032620; --sel: #0f2e2a; --hot: #ff4f7b; --amber: #ffb547; --well: #0a0d13; --ok: #7be38f;
+  --cut: #ff5a5a; --eng: #6aa8ff;
+  --display: "Heebo", "Segoe UI", "Arial Hebrew", system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  color-scheme: dark;
+}
+html, body { height: 100%; }
+[hidden] { display: none !important; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 14px/1.45 var(--display); overflow: hidden; }
+* { box-sizing: border-box; }
+#app { height: 100%; display: grid; grid-template-columns: 350px minmax(0, 1fr); grid-template-rows: minmax(0, 1fr); }
+#panel { grid-column: 1; grid-row: 1; min-width: 0; min-height: 0; background: var(--panel); border-inline-start: 1px solid var(--line); display: flex; flex-direction: column; }
+#main { grid-column: 2; grid-row: 1; min-width: 0; min-height: 0; display: flex; flex-direction: column; }
+header.brand { padding: 14px 16px 10px; border-bottom: 1px solid var(--line); }
+header.brand h1 { margin: 0; font-size: 19px; font-weight: 800; }
+header.brand h1 span { background: linear-gradient(90deg, #7cf2dc, #8fb4ff, #ff7bd5, #ffb547); -webkit-background-clip: text; background-clip: text; color: transparent; }
+header.brand p { margin: 2px 0 0; color: var(--muted); font-size: 12px; }
+#presets { display: flex; gap: 6px; overflow-x: auto; padding: 10px 16px; border-bottom: 1px solid var(--line); scrollbar-width: thin; }
+#presets button { white-space: nowrap; font-size: 12px; padding: 6px 10px; }
+#ctl { flex: 1; overflow-y: auto; padding: 4px 16px 16px; scrollbar-width: thin; }
+.grp { border-bottom: 1px solid var(--line); padding: 12px 0; display: grid; gap: 9px; }
+.grp h3 { margin: 0; font-size: 12px; letter-spacing: .06em; color: var(--accent); font-weight: 700; }
+.ctl { display: grid; grid-template-columns: 112px minmax(0, 1fr) 58px; align-items: center; gap: 8px; }
+.ctl > label { color: #c3ccd9; font-size: 12.5px; }
+.ctl output { font: 12px var(--mono); color: var(--fg); text-align: end; font-variant-numeric: tabular-nums; }
+.ctl.wide select, .ctl.wide .seg { grid-column: span 2; }
+.hint { color: var(--muted); font-size: 11.5px; margin: -4px 0 0; }
+input[type=range] { width: 100%; accent-color: var(--accent); }
+select, input[type=number], textarea { background: var(--well); color: var(--fg); border: 1px solid var(--line); border-radius: 7px; padding: 6px 8px; font: 13px var(--display); min-width: 0; width: 100%; }
+input[type=number] { font-family: var(--mono); }
+.seg { display: flex; background: var(--well); border: 1px solid var(--line); border-radius: 8px; padding: 2px; gap: 2px; }
+.seg button { flex: 1; border: 0; background: transparent; padding: 5px 6px; font-size: 12.5px; border-radius: 6px; }
+.seg button[aria-pressed=true] { background: var(--sel); color: var(--accent); }
+button { background: var(--panel2); color: var(--fg); border: 1px solid var(--line); border-radius: 8px; padding: 7px 11px; font: 500 13px var(--display); cursor: pointer; }
+button:hover { border-color: #3a4558; }
+button:focus-visible, select:focus-visible, input:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+button.primary { background: var(--accent); color: var(--on-accent); border-color: var(--accent); font-weight: 700; }
+.tog { display: flex; gap: 8px; align-items: center; font-size: 12.5px; color: #c3ccd9; }
+#tabs { display: flex; gap: 2px; padding: 8px 12px 0; border-bottom: 1px solid var(--line); overflow-x: auto; background: var(--bg); }
+#tabs button { border: 0; border-bottom: 2px solid transparent; border-radius: 0; background: transparent; padding: 8px 12px; color: var(--muted); white-space: nowrap; }
+#tabs button[aria-selected=true] { color: var(--fg); border-bottom-color: var(--accent); }
+#views { flex: 1; min-height: 0; position: relative; }
+.view { position: absolute; inset: 0; overflow: auto; }
+#v3d { overflow: hidden; background: radial-gradient(ellipse at 50% 40%, #1a2130 0%, #07090d 70%); touch-action: none; }
+#v3d canvas { display: block; width: 100%; height: 100%; }
+.floatbar { position: absolute; bottom: 12px; inset-inline: 12px; display: flex; gap: 8px; flex-wrap: wrap; align-items: center; pointer-events: none; }
+.floatbar > * { pointer-events: auto; }
+.chipbox { background: rgba(8,10,14,.72); backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,.08); border-radius: 10px; padding: 6px 10px; display: flex; gap: 10px; align-items: center; font-size: 12px; }
+.chipbox input[type=range] { width: 120px; }
+#summary { border-top: 1px solid var(--line); background: var(--panel); padding: 10px 14px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.stat { display: grid; gap: 1px; min-width: 0; }
+.stat b { font: 600 13px var(--mono); font-variant-numeric: tabular-nums; }
+.stat span { font-size: 11px; color: var(--muted); }
+#summary .spacer { flex: 1; }
+#goStudio { font-size: 14px; padding: 10px 16px; display: inline-flex; gap: 8px; align-items: center; text-decoration: none; }
+.sheetwrap { padding: 16px; display: grid; gap: 18px; }
+.sheet { background: #f4f1ea08; border: 1px solid var(--line); border-radius: 10px; padding: 10px; }
+.sheet h4 { margin: 0 0 8px; font-size: 13px; display: flex; gap: 10px; flex-wrap: wrap; }
+.sheet h4 small { color: var(--muted); font-weight: 400; font-family: var(--mono); }
+.sheet svg { width: 100%; height: auto; max-height: 62vh; display: block; background: #0d1118; border-radius: 6px; }
+.toolbar { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.legend { display: flex; gap: 14px; font-size: 12px; color: var(--muted); }
+.legend i { display: inline-block; width: 18px; height: 0; border-top: 2px solid; vertical-align: middle; margin-inline-end: 5px; }
+#vin { display: flex; flex-direction: column; background: #000; }
+#vin .stagebox { flex: 1; min-height: 0; position: relative; }
+#vin canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+#vin .stagebox > [hidden] { display: none !important; }
+#vin .bar { padding: 10px 14px; background: var(--panel); border-top: 1px solid var(--line); display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+#vin .bar .ctl { grid-template-columns: auto 140px 64px; }
+.doc { max-width: 860px; padding: 20px 22px 40px; display: grid; gap: 18px; }
+.doc h2 { margin: 0; font-size: 18px; text-wrap: balance; }
+.doc h3 { margin: 6px 0 0; font-size: 14px; color: var(--accent); }
+.doc p, .doc li { line-height: 1.6; color: #d3dae5; max-width: 70ch; }
+.doc ol, .doc ul { margin: 0; padding-inline-start: 20px; display: grid; gap: 6px; }
+.doc a { color: var(--accent); }
+.tbl { overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; }
+table { border-collapse: collapse; width: 100%; font-size: 12.5px; }
+th, td { padding: 7px 10px; border-bottom: 1px solid var(--line); text-align: start; white-space: nowrap; }
+th { color: var(--muted); font-weight: 500; background: var(--panel); }
+td.n { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+.warns { display: grid; gap: 6px; }
+.warn { border: 1px solid #5a4520; background: #2a2112; color: #ffd89a; border-radius: 8px; padding: 7px 10px; font-size: 12.5px; }
+.warn.good { border-color: #1f4a35; background: #0e2219; color: #b6f0cf; }
+code, .mono { font-family: var(--mono); font-size: 12px; }
+#toast { position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%) translateY(20px); background: var(--accent); color: var(--on-accent); padding: 9px 16px; border-radius: 10px; font-weight: 700; opacity: 0; transition: .25s; pointer-events: none; z-index: 20; }
+#toast.on { opacity: 1; transform: translateX(-50%); }
+@media (max-width: 900px) {
+  body { overflow: auto; }
+  #app { height: auto; grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto; }
+  #main { grid-column: 1; grid-row: 1; height: 78vh; }
+  #panel { grid-column: 1; grid-row: 2; border-inline-start: 0; border-top: 1px solid var(--line); }
+  #ctl { overflow: visible; }
+  #tabs, #summary, header.brand, #presets, #ctl { padding-left: max(12px, env(safe-area-inset-left, 0px)); padding-right: max(12px, env(safe-area-inset-right, 0px)); }
+}
+@media (prefers-reduced-motion: reduce) { #toast { transition: none; } }
+</style>
+
+<div id="app" dir="rtl" lang="he">
+  <aside id="panel" aria-label="הגדרות">
+    <header class="brand"><h1><span>Kaleidoscope</span> Box Builder</h1><p>מחולל קופסת קליידוסקופ: מראות, מעטפת, מסך ופריסה לחיתוך</p></header>
+    <div id="presets" role="toolbar" aria-label="תבניות"></div>
+    <div id="ctl"></div>
+  </aside>
+  <main id="main">
+    <nav id="tabs" role="tablist"></nav>
+    <div id="views">
+      <section class="view" id="v3d" aria-label="תלת ממד">
+        <canvas id="c3d"></canvas>
+        <div class="floatbar">
+          <div class="chipbox"><label for="explode">פירוק</label><input type="range" id="explode" min="0" max="1" step="0.01" value="0"></div>
+          <label class="chipbox tog"><input type="checkbox" id="cutaway" checked> חתך (בלי דופן וגג)</label>
+          <label class="chipbox tog"><input type="checkbox" id="spin3d"> סיבוב אוטומטי</label>
+          <button type="button" id="resetCam" class="chipbox">איפוס מבט</button>
+        </div>
+      </section>
+      <section class="view" id="vcut" hidden aria-label="פריסה לחיתוך"></section>
+      <section class="view" id="vin" hidden aria-label="מבט דרך החלון">
+        <div class="stagebox"><canvas id="cin"></canvas><canvas id="cgl" style="touch-action:none;cursor:grab"></canvas><span class="hint" id="trHint" style="position:absolute;top:10px;inset-inline-start:12px;margin:0;background:rgba(8,10,14,.7);padding:5px 9px;border-radius:8px">מעקב קרניים אמיתי · גררו כדי להזיז את העין, גלגלת לקרב</span></div>
+        <div class="bar">
+          <div class="ctl"><label for="eyeDist">מרחק העין מהחלון</label><input type="range" id="eyeDist" min="5" max="800" step="5"><output id="o_eyeDist"></output></div><div class="ctl"><label for="fov">שדה ראייה</label><input type="range" id="fov" min="30" max="120" step="1"><output id="o_fov"></output></div><label class="tog"><input type="checkbox" id="flat"> שרטוט שטוח</label>
+          <div class="stat"><b id="inImages">–</b><span>העתקים בשדה הראייה</span></div>
+          <div class="stat"><b id="inDepth">–</b><span>שיקופים עמוקים נראים</span></div>
+          <span class="hint" id="inNote" style="margin:0"></span>
+        </div>
+      </section>
+      <section class="view" id="vparts" hidden aria-label="חלקים והוראות"></section>
+      <section class="view" id="vres" hidden aria-label="מחקר"></section>
+    </div>
+    <footer id="summary"></footer>
+  </main>
+</div>
+<div id="toast" dir="rtl" role="status" aria-live="polite"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+"use strict";
+// =============================================================================================
+//  Kaleidoscope Box Builder. One page, no build step. All lengths in millimetres, y up.
+//  1 data & state · 2 2D geometry helpers · 3 design engine (build) · 4 laser parts & finger joints
+//  5 nesting + SVG/DXF/ZIP export · 6 3D assembly (three.js) · 7 view through the window
+//  8 parts list & steps · 9 studio sync · 10 UI
+// =============================================================================================
+const $ = (s, r = document) => r.querySelector(s);
+const clamp = (x, a, b) => Math.max(a, Math.min(b, x));
+const TAU = Math.PI * 2, SQ3 = Math.sqrt(3);
+const f1 = x => (Math.round(x * 10) / 10).toString();
+const f0 = x => Math.round(x).toString();
+const store = {
+  get(k, d) { try { const v = localStorage.getItem("kscope." + k); return v ? JSON.parse(v) : d; } catch (e) { return d; } },
+  set(k, v) { try { localStorage.setItem("kscope." + k, JSON.stringify(v)); } catch (e) {} }
+};
+function toast(msg, ms = 2600) { const t = $("#toast"); t.textContent = msg; t.classList.add("on"); clearTimeout(toast._t); toast._t = setTimeout(() => t.classList.remove("on"), ms); }
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+// ---------------------------------------------------------------- 1 · data & state
+// Active area (the lit pixels) and module outline of common panels, mm. Outline and thickness are typical values: measure yours.
+const SCREENS = [
+  { name: "7″ 1024×600", w: 154.21, h: 85.92, ow: 165, oh: 100, t: 7, rx: 1024, ry: 600 },
+  { name: "10.1″ 1280×800", w: 216.96, h: 135.6, ow: 235, oh: 143, t: 6, rx: 1280, ry: 800 },
+  { name: "13.3″ 1920×1080", w: 293.76, h: 165.24, ow: 305, oh: 184, t: 6, rx: 1920, ry: 1080 },
+  { name: "15.6″ 1920×1080 (מסך נייד)", w: 344.16, h: 193.59, ow: 360, oh: 225, t: 10, rx: 1920, ry: 1080 },
+  { name: "21.5″ 1920×1080", w: 476.06, h: 267.79, ow: 495, oh: 292, t: 14, rx: 1920, ry: 1080 },
+  { name: "27″ 2560×1440", w: 596.74, h: 335.66, ow: 615, oh: 365, t: 16, rx: 2560, ry: 1440 },
+  { name: "32″ 1920×1080", w: 698.4, h: 392.85, ow: 720, oh: 425, t: 18, rx: 1920, ry: 1080 },
+  { name: "43″ 3840×2160", w: 941.18, h: 529.42, ow: 960, oh: 560, t: 22, rx: 3840, ry: 2160 },
+  { name: "מידות משלי", custom: true }
+];
+// R = reflectance per bounce. First-surface aluminium ~0.92-0.95; acrylic first-surface is softer and a little lower.
+const MIRRORS = [
+  { name: "זכוכית מראה חזיתית 1.1 מ״מ", t: 1.1, R: .94, kind: "fs" },
+  { name: "זכוכית מראה חזיתית 2 מ״מ", t: 2, R: .94, kind: "fs" },
+  { name: "זכוכית מראה חזיתית 3 מ״מ", t: 3, R: .94, kind: "fs" },
+  { name: "אקריליק מראה חזיתי 3 מ״מ", t: 3, R: .86, kind: "acr" },
+  { name: "מראה רגילה 3 מ״מ (לא מומלץ)", t: 3, R: .82, kind: "ss" }
+];
+const HOUSING = [
+  { id: "ply", name: "דיקט ליבנה", color: "#c9a273", edge: "#9a7548", line: "#5b4126" },
+  { id: "mdf", name: "MDF", color: "#a08869", edge: "#7a654c", line: "#3f3324" },
+  { id: "walnut", name: "פורניר אגוז", color: "#6f4c34", edge: "#4c3322", line: "#e2c79f" },
+  { id: "acr", name: "אקריליק שחור", color: "#1a1b20", edge: "#2b2d35", line: "#7cf2dc" }
+];
+const SHEETS = [[300, 200], [600, 400], [900, 600], [1300, 900], [2440, 1220]];
+const SYS = {
+  tri60: { name: "3 מראות · 60°-60°-60°", studio: "tri60", sym: "p3m1", desc: "שדה אינסופי של משושים. 6 העתקים סביב כל קודקוד. הקלאסי, ומתאים לחלון המשולש של המוצר." },
+  tri45: { name: "3 מראות · 90°-45°-45°", studio: "tri45", sym: "p4m", desc: "רשת ריבועים ואלכסונים. 8 העתקים סביב הפינה של 45°." },
+  tri30: { name: "3 מראות · 90°-60°-30°", studio: "tri30", sym: "p6m", desc: "כוכבים של 12 העתקים סביב הפינה של 30°. הכי עשיר מבין המשולשים." },
+  wedge: { name: "2 מראות · מנדלה", studio: "wedge", sym: "dN", desc: "מנדלה אחת במרכז, בלי ריצוף. הצלע השלישית שחורה." },
+  square: { name: "4 מראות · ריבוע", studio: "square", sym: "p4m", desc: "רשת ריבועים, כמו מנהרה. פחות מעניין מהמשולשים." }
+};
+const DEF = { system: "tri60", wedgeN: 12, taper: 0, source: "screen", screen: 3, scrW: 344.16, scrH: 193.59, scrOW: 360, scrOH: 225, scrT: 10, resX: 1920, resY: 1080,
+  sizeMode: "fit", fill: 92, D: 200, cellDepth: 14, lenMode: "auto", ratio: 3, L: 600, view: "window", lip: 4, eyeD: 14, eyeDist: 180, fov: 70,
+  mirror: 2, gap: 0.3, housing: "ply", T: 6, finger: 0, margin: 18, ribs: 3, backDepth: 30, deco: "flower", overlay: true, sheet: 2 };
+const PRESETS = [
+  { name: "המוצר · מסך 15.6″ · 60°", p: { system: "tri60", source: "screen", screen: 3, sizeMode: "fit", fill: 92, lenMode: "auto", ratio: 3, taper: 0, view: "window", lip: 4, eyeDist: 180, mirror: 2, T: 6, housing: "ply", deco: "flower", overlay: true, ribs: 3, sheet: 2 } },
+  { name: "מסך 10.1″ · 30-60-90", p: { system: "tri30", source: "screen", screen: 1, sizeMode: "fit", fill: 94, lenMode: "auto", ratio: 3.2, taper: 0, view: "window", lip: 3, eyeDist: 150, mirror: 1, T: 4, housing: "walnut", deco: "lattice", overlay: true, ribs: 2, sheet: 1 } },
+  { name: "כדור תלת-ממדי · מחודד", p: { system: "tri60", source: "screen", screen: 1, sizeMode: "fit", fill: 92, lenMode: "auto", ratio: 2.6, taper: 30, view: "window", lip: 3, eyeDist: 120, mirror: 1, T: 4, housing: "acr", deco: "rays", overlay: true, ribs: 3, sheet: 1 } },
+  { name: "מנדלה 12 · תא חפצים", p: { system: "wedge", wedgeN: 12, source: "cell", D: 60, cellDepth: 14, lenMode: "auto", ratio: 4, taper: 0, view: "eyehole", eyeD: 12, eyeDist: 15, mirror: 1, T: 4, housing: "walnut", deco: "rays", overlay: true, ribs: 2, sheet: 0 } },
+  { name: "יד קלאסי · 3 מראות", p: { system: "tri60", source: "cell", D: 32, cellDepth: 12, lenMode: "manual", L: 200, taper: 0, view: "eyehole", eyeD: 8, eyeDist: 12, mirror: 0, T: 3, housing: "ply", deco: "frame", overlay: false, ribs: 2, sheet: 0 } },
+  { name: "מיצב · מסך 32″", p: { system: "tri60", source: "screen", screen: 6, sizeMode: "fit", fill: 95, lenMode: "auto", ratio: 2.2, taper: 0, view: "window", lip: 8, eyeDist: 300, mirror: 2, T: 12, housing: "acr", deco: "flower", overlay: true, ribs: 4, sheet: 4 } }
+];
+const S = Object.assign({}, DEF, store.get("builder", {}));
+
+// ---------------------------------------------------------------- 2 · 2D geometry helpers
+const add = (a, b) => [a[0] + b[0], a[1] + b[1]], sub = (a, b) => [a[0] - b[0], a[1] - b[1]], mul = (a, s) => [a[0] * s, a[1] * s];
+const dot = (a, b) => a[0] * b[0] + a[1] * b[1], cross = (a, b) => a[0] * b[1] - a[1] * b[0], len = a => Math.hypot(a[0], a[1]);
+const norm = a => { const l = len(a) || 1; return [a[0] / l, a[1] / l]; };
+const rot = (p, deg) => { const a = deg * Math.PI / 180, c = Math.cos(a), s = Math.sin(a); return p.map(v => [v[0] * c - v[1] * s, v[0] * s + v[1] * c]); };
+function bbox(p) { let x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9; for (const v of p) { x0 = Math.min(x0, v[0]); y0 = Math.min(y0, v[1]); x1 = Math.max(x1, v[0]); y1 = Math.max(y1, v[1]); } return { x0, y0, x1, y1, w: x1 - x0, h: y1 - y0 }; }
+function area(p) { let a = 0; for (let i = 0; i < p.length; i++) a += cross(p[i], p[(i + 1) % p.length]); return a / 2; }
+function centroid(p) { let A = 0, cx = 0, cy = 0; for (let i = 0; i < p.length; i++) { const a = p[i], b = p[(i + 1) % p.length], c = cross(a, b); A += c; cx += (a[0] + b[0]) * c; cy += (a[1] + b[1]) * c; } return [cx / (3 * A), cy / (3 * A)]; }
+function diam(p) { let d = 0; for (const a of p) for (const b of p) d = Math.max(d, len(sub(a, b))); return d; }
+function lineX(p1, d1, p2, d2) { const den = cross(d1, d2); if (Math.abs(den) < 1e-12) return p2; const t = cross(sub(p2, p1), d2) / den; return add(p1, mul(d1, t)); }
+// offset a convex CCW polygon, d > 0 grows it (mitred corners)
+function offsetConvex(p, d) {
+  const n = p.length, L = [];
+  for (let i = 0; i < n; i++) { const a = p[i], b = p[(i + 1) % n], dir = norm(sub(b, a)), nr = [dir[1], -dir[0]]; L.push({ p: add(a, mul(nr, d)), d: dir }); }
+  return L.map((l, i) => lineX(L[(i + n - 1) % n].p, L[(i + n - 1) % n].d, l.p, l.d));
+}
+function incenter(p) { // triangles only; falls back to centroid
+  if (p.length !== 3) return centroid(p);
+  const a = len(sub(p[1], p[2])), b = len(sub(p[2], p[0])), c = len(sub(p[0], p[1])), s = a + b + c;
+  return [(a * p[0][0] + b * p[1][0] + c * p[2][0]) / s, (a * p[0][1] + b * p[1][1] + c * p[2][1]) / s];
+}
+function distToPoly(pt, p) { // distance from point to convex polygon boundary, negative inside
+  let inside = true, d = 1e9;
+  for (let i = 0; i < p.length; i++) { const a = p[i], b = p[(i + 1) % p.length], ab = sub(b, a); if (cross(ab, sub(pt, a)) < 0) inside = false;
+    const t = clamp(dot(sub(pt, a), ab) / dot(ab, ab), 0, 1); d = Math.min(d, len(sub(pt, add(a, mul(ab, t))))); }
+  return inside ? -d : d;
+}
+// clip segment a-b to the outside of a convex CCW polygon (Cyrus-Beck); returns a list of segments
+function segOutside(a, b, p) {
+  let t0 = 0, t1 = 1; const d = sub(b, a);
+  for (let i = 0; i < p.length; i++) { const e0 = p[i], e1 = p[(i + 1) % p.length], ed = sub(e1, e0), n = [ed[1], -ed[0]]; // outward
+    const num = dot(n, sub(a, e0)), den = dot(n, d);
+    if (Math.abs(den) < 1e-12) { if (num > 0) return [[a, b]]; continue; }
+    const t = -num / den; if (den < 0) t0 = Math.max(t0, t); else t1 = Math.min(t1, t); }
+  if (t0 >= t1) return [[a, b]];
+  const out = []; if (t0 > 1e-6) out.push([a, add(a, mul(d, t0))]); if (t1 < 1 - 1e-6) out.push([add(a, mul(d, t1)), b]); return out;
+}
+function segInRect(a, b, x0, y0, x1, y1) { // Liang-Barsky
+  let t0 = 0, t1 = 1; const dx = b[0] - a[0], dy = b[1] - a[1];
+  const P = [-dx, dx, -dy, dy], Q = [a[0] - x0, x1 - a[0], a[1] - y0, y1 - a[1]];
+  for (let i = 0; i < 4; i++) { if (P[i] === 0) { if (Q[i] < 0) return null; continue; } const t = Q[i] / P[i]; if (P[i] < 0) t0 = Math.max(t0, t); else t1 = Math.min(t1, t); }
+  return t0 < t1 ? [[a[0] + dx * t0, a[1] + dy * t0], [a[0] + dx * t1, a[1] + dy * t1]] : null;
+}
+const circlePts = (c, r, n = 64) => Array.from({ length: n }, (_, i) => [c[0] + r * Math.cos(i / n * TAU), c[1] + r * Math.sin(i / n * TAU)]);
+function roundRect(x0, y0, w, h, r) { const pts = []; const cs = [[x0 + w - r, y0 + r, -90], [x0 + w - r, y0 + h - r, 0], [x0 + r, y0 + h - r, 90], [x0 + r, y0 + r, 180]];
+  for (const [cx, cy, a0] of cs) for (let k = 0; k <= 8; k++) { const a = (a0 + k * 90 / 8) * Math.PI / 180; pts.push([cx + r * Math.cos(a), cy + r * Math.sin(a)]); } return pts; }
+const rectPts = (x0, y0, w, h) => [[x0, y0], [x0 + w, y0], [x0 + w, y0 + h], [x0, y0 + h]];
+
+// ---------------------------------------------------------------- 3 · design engine
+function basePoly(s) {
+  switch (s.system) {
+    case "tri45": return { p: [[0, 0], [1, 0], [0, 1]], m: [1, 1, 1] };
+    case "tri30": return { p: [[0, 0], [1, 0], [0, SQ3]], m: [1, 1, 1] };          // 90° at origin, 60° at (1,0), 30° at the top
+    case "wedge": { const a = TAU / s.wedgeN; return { p: [[0, 0], [1, 0], [Math.cos(a), Math.sin(a)]], m: [1, 0, 1] }; } // edge 1 is the dark third side
+    case "square": return { p: [[0, 0], [1, 0], [1, 1], [0, 1]], m: [1, 1, 1, 1] };
+    default: return { p: [[0, 0], [1, 0], [.5, SQ3 / 2]], m: [1, 1, 1] };
+  }
+}
+function screenOf(s) { const sc = SCREENS[s.screen] || SCREENS[3]; return sc.custom ? { name: "מותאם", w: +s.scrW, h: +s.scrH, ow: +s.scrOW, oh: +s.scrOH, t: +s.scrT, rx: +s.resX, ry: +s.resY } : sc; }
+function centerBox(p) { const b = bbox(p), c = [(b.x0 + b.x1) / 2, (b.y0 + b.y1) / 2]; return p.map(v => sub(v, c)); }
+
+function build(s) {
+  const G = { s, warn: [] };
+  const scr = s.source === "screen" ? screenOf(s) : null; G.scr = scr;
+  const b = basePoly(s); G.mirrorEdge = b.m;
+  let p = b.p, deg = 0;
+  if (scr && s.sizeMode === "fit") {
+    const W = scr.w * s.fill / 100, H = scr.h * s.fill / 100; let best = null;
+    for (let d = 0; d < 360; d += 5) { const bb = bbox(rot(p, d)), sc = Math.min(W / bb.w, H / bb.h); if (!best || sc > best.sc * (1 + 1e-6)) best = { sc, d }; }
+    deg = best.d; p = centerBox(rot(p, deg)).map(v => mul(v, best.sc));
+  } else { p = centerBox(p); p = p.map(v => mul(v, s.D / diam(p))); }
+  if (area(p) < 0) p.reverse();
+  G.poly = p; G.D = diam(p); G.rotDeg = deg;
+  G.L = s.lenMode === "auto" ? Math.round(s.ratio * G.D) : +s.L; G.ratio = G.L / G.D;
+  G.k = 1 - s.taper / 100;
+  const M = MIRRORS[s.mirror] || MIRRORS[1]; G.mat = M; const t = M.t; G.t = t;
+  const T = +s.T; G.T = T;
+  G.near = p.map(v => mul(v, G.k));
+  // mirrors: each edge is a planar strip from the near (eye) polygon to the far (screen) polygon
+  G.mirrors = [];
+  for (let i = 0; i < p.length; i++) {
+    const A = p[i], B = p[(i + 1) % p.length], dir = norm(sub(B, A)), F = sub(A, mul(dir, dot(A, dir))); // foot of the axis on the far line
+    const al = dot(sub(A, F), dir), be = dot(sub(B, F), dir), dF = len(F), h = Math.hypot(G.L, dF * (1 - G.k));
+    const xs = [G.k * al, G.k * be, be, al], x0 = Math.min(...xs) - 0; const g = s.gap / 2;
+    const out = [[G.k * al - x0 + g, 0], [G.k * be - x0 - g, 0], [be - x0 - g, h], [al - x0 + g, h]];
+    G.mirrors.push({ i, isMirror: !!b.m[i], A, B, far: len(sub(B, A)) - s.gap, nearW: G.k * len(sub(B, A)) - s.gap, h, outline: out, tilt: Math.atan2(dF * (1 - G.k), G.L) * 180 / Math.PI });
+  }
+  // box
+  const offFar = offsetConvex(p, t + s.margin);
+  let iw = 2 * Math.max(...offFar.map(v => Math.abs(v[0]))), ih = 2 * Math.max(...offFar.map(v => Math.abs(v[1])));
+  G.cellR = Math.max(...offsetConvex(p, t).map(v => len(v))) + 1;
+  if (scr) { iw = Math.max(iw, scr.ow + 4); ih = Math.max(ih, scr.oh + 4); }
+  else { const dc = 2 * (G.cellR + 6); iw = Math.max(iw, dc + 8); ih = Math.max(ih, dc + 8); G.cellDisc = dc; }
+  G.iw = Math.ceil(iw); G.ih = Math.ceil(ih); G.X = G.iw + 2 * T; G.Y = G.ih + 2 * T;
+  // depth stack, z from the outer front face backwards
+  G.z0 = T + .5; G.z1 = G.z0 + G.L;
+  if (scr) { G.zs = G.z1 + .5; G.zBulk = G.zs - T; G.zBack = G.zs + scr.t + s.backDepth; }
+  else { G.zCell = G.z1 + T; G.zBulk = G.z1; G.zBack = G.zCell + 6 + s.cellDepth + s.backDepth; }
+  G.Z = Math.ceil(G.zBack + T);
+  G.ribZ = []; const nR = s.ribs | 0; for (let j = 0; j < nR; j++) G.ribZ.push(G.z0 + G.L * (j + 1) / (nR + 1) - T / 2);
+  G.kAt = z => G.k + (1 - G.k) * clamp((z - G.z0) / G.L, 0, 1);
+  // optics
+  G.window = s.view === "window" ? offsetConvex(G.near, -s.lip) : null;
+  if (s.view === "eyehole") { G.eyeC = s.system === "wedge" ? mul(add(G.near[0], mul(sub(incenter(G.near), G.near[0]), .55)), 1) : incenter(G.near); }
+  G.fingerW = s.finger > 0 ? +s.finger : Math.max(12, Math.round(T * 3.5));
+  // warnings
+  const W = G.warn;
+  if (G.ratio < 2) W.push("המראות קצרות ביחס לרוחב (פחות מ-2:1). יהיו מעט שיקופים. כלל האצבע מהקהילה: 4:1 למבט ישר, 2:1 כשמסתכלים בזווית.");
+  if (G.ratio > 6.5) W.push("מראות ארוכות מאוד ביחס לרוחב: התמונה תהיה כהה ותדרוש עדשה.");
+  if (M.kind === "ss") W.push("מראה רגילה מחזירה גם מפני הזכוכית ויוצרת תמונות כפולות. בקהילה משתמשים רק במראה חזיתית (first-surface).");
+  const maxW = Math.max(...G.mirrors.map(m => m.far));
+  if (maxW > 260 && t < 3) W.push(`המראה הרחבה ${f0(maxW)} מ״מ: מומלץ זכוכית 3 מ״מ כדי שלא תתכופף.`);
+  if (s.view === "eyehole" && G.L < 230) W.push(`אורך ${f0(G.L)} מ״מ קצר מטווח המיקוד הנוח (כ-200-250 מ״מ). הוסיפו עדשה בחור ההצצה, בערך +${f1(1000 / (G.L + 10))} דיופטר.`);
+  if (s.margin < 8) W.push("השוליים סביב המראות צרים. המחיצות יהיו שבירות.");
+  if (G.fingerW < 2 * T) W.push("השיניים צרות מדי ביחס לעובי הלוח.");
+  if (s.system === "square") W.push("4 מראות נותנות רשת פשוטה. אם המטרה דקורטיבית, משולש 60° או 30° עשירים יותר.");
+  if (s.taper > 0 && s.system !== "wedge") W.push("מראות מחודדות לא מרצפות מישור: התמונה מתעקלת לכדור. התצוגה דרך החלון מראה את הגרסה הישרה בלבד.");
+  return G;
+}
+
+// ---------------------------------------------------------------- 4 · laser parts & finger joints
+// edge modes: "M" fingers reach the outer edge at both ends, "F" the opposite (inset T), "-" straight
+function fingerOutline(w, h, modes, T, fw) {
+  const C = [[0, 0], [w, 0], [w, h], [0, h]], D = [[1, 0], [0, 1], [-1, 0], [0, -1]], N = [[0, 1], [-1, 0], [0, -1], [1, 0]], Ls = [w, h, w, h];
+  const segs = Ls.map((L, i) => { if (modes[i] === "-") return { n: 1, s: L, off: [0] }; let n = Math.max(3, Math.round(L / fw)); if (n % 2 === 0) n++; const off = []; for (let k = 0; k < n; k++) off.push(((k % 2 === 0) === (modes[i] === "M")) ? 0 : T); return { n, s: L / n, off }; });
+  const pts = [];
+  for (let i = 0; i < 4; i++) {
+    const pr = (i + 3) % 4, sg = segs[i], sp = segs[pr];
+    pts.push(add(add(C[i], mul(N[i], sg.off[0])), mul(N[pr], sp.off[sp.n - 1])));
+    for (let k = 1; k < sg.n; k++) { if (sg.off[k] === sg.off[k - 1]) continue; const base = add(C[i], mul(D[i], k * sg.s)); pts.push(add(base, mul(N[i], sg.off[k - 1]))); pts.push(add(base, mul(N[i], sg.off[k]))); }
+  }
+  return pts;
+}
+// a bulkhead (rib) of the inner size with two tabs into slots of the side walls
+function ribOutline(G) { const { iw, ih, T } = G, th = tabH(G), y0 = ih / 2 - th / 2;
+  return [[0, 0], [iw, 0], [iw, y0], [iw + T, y0], [iw + T, y0 + th], [iw, y0 + th], [iw, ih], [0, ih], [0, y0 + th], [-T, y0 + th], [-T, y0], [0, y0]]; }
+const tabH = G => Math.min(G.ih * .35, 60);
+
+function decoFor(G, W, H, win, cen, holeC) { // engrave items in panel coords
+  const s = G.s, items = [], inset = 7, rIn = holeC ? holeC.r : Math.max(...win.map(v => len(sub(v, cen))));
+  const winGrow = holeC ? circlePts(cen, holeC.r + 4, 48) : offsetConvex(win, 4);
+  items.push({ pts: roundRect(inset, inset, W - 2 * inset, H - 2 * inset, 5), closed: true });
+  if (s.deco === "none") return items.slice(0, 0);
+  if (s.deco === "frame") {
+    for (const d of [5, 9, 15]) { const q = holeC ? circlePts(cen, holeC.r + d, 72) : offsetConvex(win, d); const bb = bbox(q); if (bb.x0 > inset + 3 && bb.y0 > inset + 3 && bb.x1 < W - inset - 3 && bb.y1 < H - inset - 3) items.push({ pts: q, closed: true }); }
+    items.push({ pts: roundRect(inset + 4, inset + 4, W - 2 * inset - 8, H - 2 * inset - 8, 3), closed: true });
+  } else if (s.deco === "rays") {
+    const n = 48, R = Math.hypot(W, H);
+    for (let i = 0; i < n; i++) { const a = i / n * TAU, d = [Math.cos(a), Math.sin(a)]; const A = add(cen, mul(d, rIn + 8)), B = add(cen, mul(d, R));
+      const c = segInRect(A, B, inset + 5, inset + 5, W - inset - 5, H - inset - 5); if (!c) continue; for (const sg of segOutside(c[0], c[1], winGrow)) items.push({ pts: sg, closed: false }); }
+  } else if (s.deco === "lattice") {
+    const sp = Math.max(10, Math.round(Math.min(W, H) / 14)), R = Math.hypot(W, H);
+    for (const ang of [0, 60, 120]) { const a = ang * Math.PI / 180, d = [Math.cos(a), Math.sin(a)], nrm = [-d[1], d[0]];
+      for (let k = -Math.ceil(R / sp); k <= Math.ceil(R / sp); k++) { const o = add(cen, mul(nrm, k * sp)); const c = segInRect(add(o, mul(d, -R)), add(o, mul(d, R)), inset + 5, inset + 5, W - inset - 5, H - inset - 5); if (!c) continue;
+        for (const sg of segOutside(c[0], c[1], winGrow)) items.push({ pts: sg, closed: false }); } }
+  } else if (s.deco === "flower") { // flower of life: unit circles on a triangular lattice inside one big circle
+    const Rmax = Math.min(W, H) / 2 - inset - 4, r = clamp((Rmax - rIn) / 2.2, 6, 60);
+    items.push({ pts: circlePts(cen, Rmax, 120), closed: true });
+    const n = Math.ceil(Rmax / r) + 2;
+    for (let j = -n; j <= n; j++) for (let i = -n; i <= n; i++) { const c = add(cen, [r * (i + j / 2), r * j * SQ3 / 2]);
+      if (len(sub(c, cen)) + r > Rmax + .01) continue;
+      const dd = holeC ? len(sub(c, cen)) - holeC.r : distToPoly(c, win); if (dd < r + 3) continue;
+      items.push({ pts: circlePts(c, r, 56), closed: true }); }
+  }
+  return items;
+}
+
+function makeParts(G) {
+  const s = G.s, T = G.T, X = G.X, Y = G.Y, Z = G.Z, parts = [];
+  const cen = [X / 2, Y / 2], toPanel = v => add(v, cen);
+  const fw = G.fingerW;
+  // front window (in panel coords)
+  const win = G.window ? G.window.map(toPanel) : null, holeC = s.view === "eyehole" ? { c: toPanel(G.eyeC), r: s.eyeD / 2 } : null;
+  const winHole = win ? { pts: win } : { circle: holeC };
+  const decoCen = holeC ? holeC.c : cen, decoWin = win || circlePts(holeC.c, holeC.r, 32);
+  const deco = decoFor(G, X, Y, decoWin, decoCen, holeC);
+  const P = (o) => { parts.push(Object.assign({ mat: "housing", holes: [], engrave: [], qty: 1 }, o)); return o; };
+  P({ id: "front", name: "חזית", outline: fingerOutline(X, Y, ["F", "F", "F", "F"], T, fw), holes: [winHole], engrave: s.overlay ? [] : deco, w: X, h: Y,
+      place: { kind: "xy", z: 0, ex: [0, 0, -1] } });
+  if (s.overlay) P({ id: "overlay", name: "לוח קישוט קדמי", outline: roundRect(0, 0, X, Y, Math.min(10, T * 1.6)), holes: [winHole], engrave: deco, w: X, h: Y, place: { kind: "xy", z: -T, ex: [0, 0, -1.6] } });
+  // back: cable hole + vent slots
+  const back = { id: "back", name: "גב", outline: fingerOutline(X, Y, ["F", "F", "F", "F"], T, fw), holes: [], w: X, h: Y, place: { kind: "xy", z: G.zBack, ex: [0, 0, 1] } };
+  back.holes.push({ circle: { c: [X - T - 26, T + 24], r: 11 } });
+  const nv = clamp(Math.floor((X - 4 * T - 60) / 14), 3, 14); for (let i = 0; i < nv; i++) { const x = X / 2 - (nv - 1) * 7 + i * 14; back.holes.push({ pts: roundRect(x - 2.5, Y - T - 40, 5, 26, 2.5) }); }
+  P(back);
+  const zEdge = ["M", "F", "M", "F"]; // top/bottom: front & back edges M, side edges F
+  P({ id: "top", name: "גג", outline: fingerOutline(X, Z, zEdge, T, fw), w: X, h: Z, place: { kind: "top", ex: [0, 1, 0] } });
+  P({ id: "bottom", name: "בסיס", outline: fingerOutline(X, Z, zEdge, T, fw), w: X, h: Z, place: { kind: "bottom", ex: [0, -1, 0] } });
+  const slots = []; const th = tabH(G), sv = Y / 2 - th / 2;
+  const slotZ = G.ribZ.concat([G.zBulk]);
+  for (const z of slotZ) slots.push({ pts: rectPts(z, sv, T, th) });
+  P({ id: "left", name: "דופן שמאל", outline: fingerOutline(Z, Y, ["M", "M", "M", "M"], T, fw), holes: slots.slice(), w: Z, h: Y, place: { kind: "left", ex: [-1, 0, 0] } });
+  P({ id: "right", name: "דופן ימין", outline: fingerOutline(Z, Y, ["M", "M", "M", "M"], T, fw), holes: slots.slice(), w: Z, h: Y, place: { kind: "right", ex: [1, 0, 0] } });
+  // ribs hold the mirrors from behind: polygon offset by mirror thickness + 0.4 clearance
+  const ribC = [G.iw / 2, G.ih / 2];
+  G.ribZ.forEach((z, j) => { const k = G.kAt(z + T / 2), hole = offsetConvex(G.poly.map(v => mul(v, k)), G.t + .4).map(v => add(v, ribC));
+    P({ id: "rib" + j, name: `מחיצה ${j + 1}`, outline: ribOutline(G), holes: [{ pts: hole }], w: G.iw, h: G.ih, place: { kind: "rib", z, ex: [0, 0, 0], spread: j + 1 } }); });
+  if (G.scr) {
+    const sc = G.scr, op = bbox(offsetConvex(G.poly, G.t + .4)); const ow = Math.max(sc.w + 2, op.w + 2), oh = Math.max(sc.h + 2, op.h + 2);
+    P({ id: "bulk", name: "מחיצת מסך", outline: ribOutline(G), holes: [{ pts: rectPts(ribC[0] - ow / 2, ribC[1] - oh / 2, ow, oh) }], w: G.iw, h: G.ih, place: { kind: "rib", z: G.zBulk, ex: [0, 0, .6], spread: 0 } });
+    const mw = sc.w + 8, mh = sc.h + 8;
+    P({ id: "mask", name: "מסכת מסך (קרטון שחור)", mat: "card", outline: rectPts(0, 0, mw, mh), holes: [{ pts: G.poly.map(v => add(v, [mw / 2, mh / 2])) }], w: mw, h: mh, place: { kind: "mask", ex: [0, 0, .4] } });
+  } else {
+    P({ id: "bulk", name: "מחזיק תא חפצים", outline: ribOutline(G), holes: [{ circle: { c: ribC, r: G.cellR } }], w: G.iw, h: G.ih, place: { kind: "rib", z: G.zBulk, ex: [0, 0, .6], spread: 0 } });
+    const R = G.cellDisc / 2, c = [R, R];
+    P({ id: "cellF", name: "דיסק קדמי שקוף", mat: "acrylic", outline: circlePts(c, R, 96), w: 2 * R, h: 2 * R, place: { kind: "cell", which: 0, ex: [0, 0, .8] } });
+    P({ id: "cellB", name: "דיסק אחורי חלבי", mat: "acrylic", outline: circlePts(c, R, 96), w: 2 * R, h: 2 * R, place: { kind: "cell", which: 1, ex: [0, 0, 1.2] } });
+    const nRing = Math.max(1, Math.ceil(s.cellDepth / T));
+    for (let i = 0; i < nRing; i++) P({ id: "ring" + i, name: `טבעת מרווח ${i + 1}`, outline: circlePts(c, R, 96), holes: [{ circle: { c, r: R - 5 } }], w: 2 * R, h: 2 * R, place: { kind: "ring", which: i, n: nRing, ex: [0, 0, 1] } });
+  }
+  for (const m of G.mirrors) P({ id: "m" + m.i, name: m.isMirror ? `מראה ${String.fromCharCode(1488 + m.i)}` : "צלע שחורה (קרטון)", mat: m.isMirror ? "mirror" : "card", outline: m.outline, w: bbox(m.outline).w, h: m.h, mirror: m });
+  return parts;
+}
+
+// ---------------------------------------------------------------- 5 · nesting + export
+const MATNAME = { housing: () => `${(HOUSING.find(h => h.id === S.housing) || HOUSING[0]).name} ${S.T} מ״מ`, mirror: () => MIRRORS[S.mirror].name, card: () => "קרטון / בריסטול שחור 0.5 מ״מ", acrylic: () => "אקריליק 3 מ״מ" };
+function partBounds(p) { return bbox(p.outline); }
+function nest(parts, SW, SH, gap = 4) {
+  const groups = {}; for (const p of parts) (groups[p.mat] ||= []).push(p);
+  const sheets = [];
+  for (const mat of ["housing", "acrylic", "card", "mirror"]) {
+    const list = (groups[mat] || []).map(p => { const b = partBounds(p); let w = b.w, h = b.h, r = false; if ((w > SW - 2 * gap && h <= SW - 2 * gap && w <= SH - 2 * gap) || (h > w && w <= SH - 2 * gap && h <= SW - 2 * gap && mat !== "mirror")) { r = true; [w, h] = [h, w]; } return { p, b, w, h, r }; })
+      .sort((a, b) => b.h - a.h);
+    let cur = null, x = gap, y = gap, rowH = 0;
+    const newSheet = (w = SW, h = SH, over = false) => { cur = { mat, w, h, items: [], over }; sheets.push(cur); x = gap; y = gap; rowH = 0; };
+    for (const it of list) {
+      if (mat === "mirror" || it.w > SW - 2 * gap || it.h > SH - 2 * gap) { const sh = { mat, w: it.w + 2 * gap, h: it.h + 2 * gap, items: [{ ...it, x: gap, y: gap }], over: mat !== "mirror", tpl: mat === "mirror" }; sheets.push(sh); continue; }
+      if (!cur || cur.over) newSheet();
+      if (x + it.w > SW - gap) { x = gap; y += rowH + gap; rowH = 0; }
+      if (y + it.h > SH - gap) newSheet();
+      cur.items.push({ ...it, x, y }); x += it.w + gap; rowH = Math.max(rowH, it.h);
+    }
+  }
+  return sheets;
+}
+function xf(it) { // part coords -> sheet coords (y up)
+  const b = it.b; return v => it.r ? [it.x + (v[1] - b.y0), it.y + (b.x1 - v[0])] : [it.x + (v[0] - b.x0), it.y + (v[1] - b.y0)];
+}
+function holePts(h) { return h.pts || circlePts(h.circle.c, h.circle.r, 72); }
+function sheetSVG(sh, preview) {
+  const H = sh.h, Y = v => (H - v[1]).toFixed(3), X = v => v[0].toFixed(3);
+  const path = (pts, closed) => "M" + pts.map(v => X(v) + "," + Y(v)).join(" L") + (closed ? " Z" : "");
+  const sw = preview ? Math.max(.6, sh.w / 700) : .1, cut = preview ? "var(--cut)" : "#ff0000", eng = preview ? "var(--eng)" : "#0000ff";
+  let o = `<svg xmlns="http://www.w3.org/2000/svg" width="${sh.w}mm" height="${sh.h}mm" viewBox="0 0 ${sh.w} ${sh.h}">`;
+  o += `<rect x="0" y="0" width="${sh.w}" height="${sh.h}" fill="none" stroke="${preview ? "#3a4558" : "#00ff00"}" stroke-width="${sw}" stroke-dasharray="${preview ? "6 4" : "none"}"/>`;
+  if (!preview) o += `<!-- red = cut, blue = engrave/score, green = sheet border (do not cut). Units mm, 1:1. -->`;
+  for (const it of sh.items) {
+    const t = xf(it), p = it.p;
+    o += `<g id="${p.id}">`;
+    if (p.engrave.length) o += `<path d="${p.engrave.map(e => path(e.pts.map(t), e.closed)).join(" ")}" fill="none" stroke="${eng}" stroke-width="${sw}"/>`;
+    o += `<path d="${path(p.outline.map(t), true)} ${p.holes.map(h => h.circle ? circlePath(t(h.circle.c), h.circle.r, H) : path(holePts(h).map(t), true)).join(" ")}" fill="${preview ? "rgba(124,242,220,.05)" : "none"}" fill-rule="evenodd" stroke="${cut}" stroke-width="${sw}"/>`;
+    if (preview) { const bb = bbox(p.outline.map(t)), fs = clamp(Math.min(bb.w, bb.h) / 7, 5, sh.w / 40);
+      o += `<text x="${(bb.x0 + bb.x1) / 2}" y="${H - (bb.y0 + bb.y1) / 2}" font-size="${fs}" fill="#c3ccd9" text-anchor="middle" dominant-baseline="middle" font-family="Heebo, sans-serif">${esc(p.name)}</text>`;
+      o += `<text x="${(bb.x0 + bb.x1) / 2}" y="${H - (bb.y0 + bb.y1) / 2 + fs * 1.2}" font-size="${fs * .7}" fill="#8b96a8" text-anchor="middle" dominant-baseline="middle" font-family="JetBrains Mono, monospace">${f1(p.w)}×${f1(p.h)}</text>`; }
+    o += `</g>`;
+  }
+  return o + `</svg>`;
+}
+function circlePath(c, r, H) { const y = H - c[1]; return `M${(c[0] - r).toFixed(3)},${y.toFixed(3)} a${r},${r} 0 1,0 ${2 * r},0 a${r},${r} 0 1,0 ${-2 * r},0 Z`; }
+function dxf(sheets) {
+  const L = ["0", "SECTION", "2", "HEADER", "9", "$INSUNITS", "70", "4", "0", "ENDSEC", "0", "SECTION", "2", "TABLES", "0", "TABLE", "2", "LAYER", "70", "3"];
+  for (const [n, c] of [["CUT", 1], ["ENGRAVE", 5], ["SHEET", 3]]) L.push("0", "LAYER", "2", n, "70", "0", "62", String(c), "6", "CONTINUOUS");
+  L.push("0", "ENDTAB", "0", "ENDSEC", "0", "SECTION", "2", "ENTITIES");
+  const line = (a, b, layer) => L.push("0", "LINE", "8", layer, "10", a[0].toFixed(4), "20", a[1].toFixed(4), "30", "0", "11", b[0].toFixed(4), "21", b[1].toFixed(4), "31", "0");
+  const poly = (pts, closed, layer) => { for (let i = 0; i < pts.length - (closed ? 0 : 1); i++) line(pts[i], pts[(i + 1) % pts.length], layer); };
+  let ox = 0;
+  for (const sh of sheets) {
+    const sx = v => [v[0] + ox, v[1]];
+    poly(rectPts(0, 0, sh.w, sh.h).map(sx), true, "SHEET");
+    for (const it of sh.items) { const t = xf(it), p = it.p;
+      poly(p.outline.map(t).map(sx), true, "CUT");
+      for (const h of p.holes) { if (h.circle) { const c = sx(t(h.circle.c)); L.push("0", "CIRCLE", "8", "CUT", "10", c[0].toFixed(4), "20", c[1].toFixed(4), "30", "0", "40", h.circle.r.toFixed(4)); } else poly(h.pts.map(t).map(sx), true, "CUT"); }
+      for (const e of p.engrave) poly(e.pts.map(t).map(sx), e.closed, "ENGRAVE"); }
+    ox += sh.w + 50;
+  }
+  L.push("0", "ENDSEC", "0", "EOF"); return L.join("\r\n");
+}
+// tiny ZIP writer (stored, UTF-8 names)
+const CRC = (() => { const t = new Uint32Array(256); for (let n = 0; n < 256; n++) { let c = n; for (let k = 0; k < 8; k++) c = c & 1 ? 0xEDB88320 ^ (c >>> 1) : c >>> 1; t[n] = c >>> 0; } return t; })();
+function crc32(u8) { let c = 0xFFFFFFFF; for (let i = 0; i < u8.length; i++) c = CRC[(c ^ u8[i]) & 255] ^ (c >>> 8); return (c ^ 0xFFFFFFFF) >>> 0; }
+function zip(files) {
+  const enc = new TextEncoder(), chunks = [], central = []; let off = 0;
+  for (const f of files) {
+    const name = enc.encode(f.name), data = typeof f.data === "string" ? enc.encode(f.data) : f.data, crc = crc32(data);
+    const h = new DataView(new ArrayBuffer(30)); h.setUint32(0, 0x04034b50, true); h.setUint16(4, 20, true); h.setUint16(6, 0x0800, true); h.setUint32(14, crc, true); h.setUint32(18, data.length, true); h.setUint32(22, data.length, true); h.setUint16(26, name.length, true);
+    chunks.push(new Uint8Array(h.buffer), name, data);
+    const c = new DataView(new ArrayBuffer(46)); c.setUint32(0, 0x02014b50, true); c.setUint16(4, 20, true); c.setUint16(6, 20, true); c.setUint16(8, 0x0800, true); c.setUint32(16, crc, true); c.setUint32(20, data.length, true); c.setUint32(24, data.length, true); c.setUint16(28, name.length, true); c.setUint32(42, off, true);
+    central.push(new Uint8Array(c.buffer), name); off += 30 + name.length + data.length;
+  }
+  const csz = central.reduce((a, b) => a + b.length, 0), e = new DataView(new ArrayBuffer(22));
+  e.setUint32(0, 0x06054b50, true); e.setUint16(8, files.length, true); e.setUint16(10, files.length, true); e.setUint32(12, csz, true); e.setUint32(16, off, true);
+  return new Blob([...chunks, ...central, new Uint8Array(e.buffer)], { type: "application/zip" });
+}
+async function saveFile(name, data) {
+  const blob = data instanceof Blob ? data : new Blob([data]);
+  try { const d = window.claude?.use ? await window.claude.use("downloads") : null; if (d) { await d.save({ filename: name, data: blob }); toast("נשמר: " + name); return; } } catch (e) { if (e && e.code === "declined") return; }
+  const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = name; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 4000); toast("נשמר: " + name);
+}
+function slug() { return `kaleidoscope-${S.system}${S.system === "wedge" ? S.wedgeN : ""}-${f0(G.X)}x${f0(G.Y)}x${f0(G.Z)}`; }
+function exportPackage() {
+  const files = [];
+  SHEETS_NOW.forEach((sh, i) => files.push({ name: `${String(i + 1).padStart(2, "0")}-${sh.mat}${sh.over ? "-oversize" : ""}.svg`, data: sheetSVG(sh, false) }));
+  files.push({ name: "all-parts.dxf", data: dxf(SHEETS_NOW) });
+  files.push({ name: "cut-list.csv", data: "﻿" + cutListCSV() });
+  files.push({ name: "assembly-he.txt", data: stepsText() });
+  files.push({ name: "design.json", data: JSON.stringify(designJSON(), null, 2) });
+  files.push({ name: "studio-box.json", data: JSON.stringify(studioBox(), null, 2) });
+  saveFile(slug() + ".zip", zip(files));
+}
+
+// ---------------------------------------------------------------- 6 · 3D assembly
+const V3 = { ok: typeof THREE !== "undefined" };
+const SRC = document.createElement("canvas"); SRC.width = 512; SRC.height = 512; const sx = SRC.getContext("2d");
+const BLOBS = Array.from({ length: 22 }, (_, i) => ({ x: Math.random(), y: Math.random(), r: .05 + Math.random() * .16, h: Math.random() * 360, k: i % 4, vx: (Math.random() - .5) * .05, vy: (Math.random() - .5) * .05, a: Math.random() * TAU, va: (Math.random() - .5) * .6 }));
+function drawSource(t) { // stand-in for the studio picture: drifting glass pieces
+  const w = SRC.width, h = SRC.height; const g = sx.createLinearGradient(0, 0, w, h); g.addColorStop(0, "#14092b"); g.addColorStop(1, "#04161d"); sx.globalCompositeOperation = "source-over"; sx.fillStyle = g; sx.fillRect(0, 0, w, h);
+  sx.globalCompositeOperation = "lighter";
+  for (const b of BLOBS) { const x = ((b.x + b.vx * t) % 1 + 1) % 1 * w, y = ((b.y + b.vy * t) % 1 + 1) % 1 * h, r = b.r * w, a = b.a + b.va * t;
+    sx.fillStyle = `hsla(${(b.h + t * 8) % 360},90%,58%,.55)`; sx.save(); sx.translate(x, y); sx.rotate(a); sx.beginPath();
+    if (b.k === 0) sx.arc(0, 0, r * .6, 0, TAU); else if (b.k === 1) { sx.moveTo(0, -r); sx.lineTo(r * .87, r * .5); sx.lineTo(-r * .87, r * .5); } else if (b.k === 2) sx.ellipse(0, 0, r, r * .22, 0, 0, TAU); else { for (let i = 0; i < 10; i++) { const rr = i % 2 ? r * .35 : r * .8, aa = i / 10 * TAU; sx.lineTo(rr * Math.cos(aa), rr * Math.sin(aa)); } }
+    sx.closePath(); sx.fill(); sx.restore(); }
+  sx.globalCompositeOperation = "source-over";
+}
+let R3 = null;
+function init3D() {
+  if (!V3.ok) { $("#v3d").insertAdjacentHTML("afterbegin", `<p class="hint" style="padding:20px">התצוגה התלת-ממדית צריכה את ספריית three.js מהרשת. שאר הכלים עובדים.</p>`); return; }
+  const cv = $("#c3d"), renderer = new THREE.WebGLRenderer({ canvas: cv, antialias: true, alpha: true });
+  renderer.setPixelRatio(Math.min(2, devicePixelRatio)); renderer.outputEncoding = THREE.sRGBEncoding; renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = .85;
+  const scene = new THREE.Scene(), cam = new THREE.PerspectiveCamera(35, 1, 1, 20000);
+  scene.add(new THREE.HemisphereLight(0xdfe8ff, 0x1a1410, .7));
+  const key = new THREE.DirectionalLight(0xffffff, 1.4); key.position.set(-1, 1.6, 1.4); scene.add(key);
+  const rim = new THREE.DirectionalLight(0x7cf2dc, .5); rim.position.set(1.5, .4, -1); scene.add(rim);
+  // environment for the mirrors: a dim room with a few soft panels
+  const env = new THREE.Scene(); const sky = new THREE.Mesh(new THREE.SphereGeometry(50, 32, 16), new THREE.MeshBasicMaterial({ side: THREE.BackSide, color: 0x1b2230 })); env.add(sky);
+  [[0x7cf2dc, [30, 10, 20]], [0xff7bd5, [-30, 5, -10]], [0xffffff, [0, 40, 0]], [0xffb547, [10, -20, -30]]].forEach(([c, p]) => { const m = new THREE.Mesh(new THREE.PlaneGeometry(22, 22), new THREE.MeshBasicMaterial({ color: c, side: THREE.DoubleSide })); m.position.set(...p); m.lookAt(0, 0, 0); env.add(m); });
+  const pm = new THREE.PMREMGenerator(renderer); const envTex = pm.fromScene(env, .02).texture;
+  const screenTex = new THREE.CanvasTexture(document.createElement("canvas")); screenTex.encoding = THREE.sRGBEncoding;
+  R3 = { renderer, scene, cam, group: new THREE.Group(), envTex, screenTex, yaw: -.65, pitch: .32, dist: 1, target: new THREE.Vector3(), explode: 0, auto: false };
+  scene.add(R3.group);
+  const ptr = new Map(); let pinch = 0, d0 = 1;
+  cv.addEventListener("pointerdown", e => { cv.setPointerCapture(e.pointerId); ptr.set(e.pointerId, [e.clientX, e.clientY]); if (ptr.size === 2) { const [a, b] = [...ptr.values()]; pinch = Math.hypot(a[0] - b[0], a[1] - b[1]); d0 = R3.dist; } });
+  cv.addEventListener("pointermove", e => { const p = ptr.get(e.pointerId); if (!p) return; const dx = e.clientX - p[0], dy = e.clientY - p[1]; p[0] = e.clientX; p[1] = e.clientY;
+    if (ptr.size === 2) { const [a, b] = [...ptr.values()]; const d = Math.hypot(a[0] - b[0], a[1] - b[1]); if (pinch) R3.dist = clamp(d0 * pinch / d, .25, 4); return; }
+    R3.yaw -= dx * .008; R3.pitch = clamp(R3.pitch + dy * .006, -1.4, 1.4); });
+  const up = e => { ptr.delete(e.pointerId); if (ptr.size < 2) pinch = 0; }; cv.addEventListener("pointerup", up); cv.addEventListener("pointercancel", up);
+  cv.addEventListener("wheel", e => { e.preventDefault(); R3.dist = clamp(R3.dist * Math.exp(e.deltaY * .001), .25, 4); }, { passive: false });
+}
+function shapeFrom(outline, holes) {
+  const sh = new THREE.Shape(outline.map(v => new THREE.Vector2(v[0], v[1])));
+  for (const h of holes) { if (h.circle) { const p = new THREE.Path(); p.absarc(h.circle.c[0], h.circle.c[1], h.circle.r, 0, TAU, true); sh.holes.push(p); } else sh.holes.push(new THREE.Path(h.pts.map(v => new THREE.Vector2(v[0], v[1])))); }
+  return sh;
+}
+// place a flat part: world = O + u*U + v*V + depth*Wd, depth 0..thick
+function placed(geom, O, U, V, Wd, thick) {
+  const W = new THREE.Vector3().crossVectors(U, V); let o = O.clone();
+  if (W.dot(Wd) < 0) o.addScaledVector(Wd, thick); // extrusion runs along U×V; shift so it fills O..O+thick*Wd
+  const m = new THREE.Matrix4().set(U.x, V.x, W.x, o.x, U.y, V.y, W.y, o.y, U.z, V.z, W.z, o.z, 0, 0, 0, 1);
+  geom.applyMatrix4(m); geom.computeVertexNormals(); return geom;
+}
+function engraveTexture(part, base, lineCol) {
+  const sc = clamp(1400 / Math.max(part.w, part.h), .5, 6), c = document.createElement("canvas"); c.width = Math.ceil(part.w * sc); c.height = Math.ceil(part.h * sc);
+  const x = c.getContext("2d"); x.fillStyle = base; x.fillRect(0, 0, c.width, c.height);
+  // faint grain
+  x.globalAlpha = .08; x.strokeStyle = "#000"; for (let i = 0; i < 70; i++) { x.beginPath(); const y = Math.random() * c.height; x.moveTo(0, y); x.bezierCurveTo(c.width * .3, y + 6, c.width * .7, y - 6, c.width, y + 3); x.stroke(); } x.globalAlpha = 1;
+  x.strokeStyle = lineCol; x.lineWidth = Math.max(1, .5 * sc); x.globalAlpha = .9;
+  for (const e of part.engrave) { x.beginPath(); e.pts.forEach((v, i) => { const X = v[0] * sc, Y = (part.h - v[1]) * sc; i ? x.lineTo(X, Y) : x.moveTo(X, Y); }); if (e.closed) x.closePath(); x.stroke(); }
+  const t = new THREE.CanvasTexture(c); t.encoding = THREE.sRGBEncoding; t.repeat.set(1 / part.w, 1 / part.h); t.anisotropy = 4; return t;
+}
+function rebuild3D() {
+  if (!R3) return;
+  const g = R3.group; while (g.children.length) { const c = g.children.pop(); c.geometry?.dispose(); }
+  const s = S, T = G.T, X = G.X, Y = G.Y, Z = G.Z, hs = HOUSING.find(h => h.id === s.housing) || HOUSING[0];
+  const lin = c => new THREE.Color(c).convertSRGBToLinear();
+  const wood = new THREE.MeshStandardMaterial({ color: lin(hs.color), roughness: hs.id === "acr" ? .25 : .75, metalness: 0 });
+  const edgeM = new THREE.MeshStandardMaterial({ color: lin(hs.edge), roughness: .8 });
+  const cardM = new THREE.MeshStandardMaterial({ color: 0x0b0b0d, roughness: .9 });
+  const mirM = new THREE.MeshStandardMaterial({ color: 0xffffff, metalness: 1, roughness: .04, envMap: R3.envTex, envMapIntensity: 1.25, side: THREE.DoubleSide });
+  const backM = new THREE.MeshStandardMaterial({ color: 0x9aa4b2, metalness: .6, roughness: .35, side: THREE.DoubleSide });
+  const acrM = new THREE.MeshPhysicalMaterial({ color: 0xffffff, roughness: .05, transmission: .9, transparent: true, opacity: .35 });
+  // world: x right, y up, front of the box faces +z. box z (depth from the front face) maps to wz = Z/2 - z
+  const V = (x, y, z) => new THREE.Vector3(x, y, z);
+  const add3 = (geom, mat, ex, name, mats) => { const m = new THREE.Mesh(geom, mats || mat); m.userData = { ex: new THREE.Vector3(...ex), name }; g.add(m); return m; };
+  const exGeo = (p) => new THREE.ExtrudeGeometry(shapeFrom(p.outline, p.holes), { depth: p.mat === "card" ? .5 : p.mat === "acrylic" ? 3 : T, bevelEnabled: false, curveSegments: 48 });
+  for (const p of PARTS) {
+    if (p.mat === "mirror" || p.mirror) continue;
+    const pl = p.place; let geom = exGeo(p), mats = null, mat = p.mat === "card" ? cardM : p.mat === "acrylic" ? acrM : wood;
+    if (p.engrave.length && p.mat === "housing") mats = [new THREE.MeshStandardMaterial({ map: engraveTexture(p, hs.color, hs.line), roughness: hs.id === "acr" ? .3 : .75 }), edgeM];
+    else if (p.mat === "housing") mats = [wood, edgeM];
+    let m;
+    if (pl.kind === "xy") geom = placed(geom, V(-X / 2, -Y / 2, Z / 2 - pl.z), V(1, 0, 0), V(0, 1, 0), V(0, 0, -1), T);
+    else if (pl.kind === "top") geom = placed(geom, V(-X / 2, Y / 2, Z / 2), V(1, 0, 0), V(0, 0, -1), V(0, -1, 0), T);
+    else if (pl.kind === "bottom") geom = placed(geom, V(-X / 2, -Y / 2, Z / 2), V(1, 0, 0), V(0, 0, -1), V(0, 1, 0), T);
+    else if (pl.kind === "left") geom = placed(geom, V(-X / 2, -Y / 2, Z / 2), V(0, 0, -1), V(0, 1, 0), V(1, 0, 0), T);
+    else if (pl.kind === "right") geom = placed(geom, V(X / 2, -Y / 2, Z / 2), V(0, 0, -1), V(0, 1, 0), V(-1, 0, 0), T);
+    else if (pl.kind === "rib") geom = placed(geom, V(-G.iw / 2, -G.ih / 2, Z / 2 - pl.z), V(1, 0, 0), V(0, 1, 0), V(0, 0, -1), T);
+    else if (pl.kind === "mask") geom = placed(geom, V(-p.w / 2, -p.h / 2, Z / 2 - G.z1), V(1, 0, 0), V(0, 1, 0), V(0, 0, -1), .5);
+    else if (pl.kind === "cell") { const z = G.zCell + (pl.which ? 3 + s.cellDepth : 0); geom = placed(geom, V(-p.w / 2, -p.h / 2, Z / 2 - z), V(1, 0, 0), V(0, 1, 0), V(0, 0, -1), 3); }
+    else if (pl.kind === "ring") { const z = G.zCell + 3 + pl.which * (s.cellDepth / pl.n); geom = placed(geom, V(-p.w / 2, -p.h / 2, Z / 2 - z), V(1, 0, 0), V(0, 1, 0), V(0, 0, -1), Math.min(T, s.cellDepth / pl.n)); }
+    let ex = pl.ex.map(v => v * Math.max(X, Y) * .55);
+    if (pl.kind === "rib") ex = [0, Math.max(X, Y) * .9, 0];
+    if (pl.kind === "left" || pl.kind === "right") ex = [pl.ex[0] * X * .7, 0, 0];
+    if (pl.kind === "top" || pl.kind === "bottom") ex = [0, pl.ex[1] * Y * .8, 0];
+    m = add3(geom, mat, ex, p.id, mats);
+    if (pl.kind === "rib") m.userData.ex = new THREE.Vector3(0, (pl.spread ? 1 : .6) * Math.max(X, Y) * .85, 0);
+  }
+  // mirrors: inner face from near polygon (z0) to far polygon (z1), backing offset outward by t
+  for (const mr of G.mirrors) {
+    const A = mr.A, B = mr.B, k = G.k, dir = norm(sub(B, A)), n = [dir[1], -dir[0]], t = mr.isMirror ? G.t : .5;
+    const p3 = (v, z, o) => V(v[0] + n[0] * o, v[1] + n[1] * o, Z / 2 - z);
+    const c = [p3(mul(A, k), G.z0, 0), p3(mul(B, k), G.z0, 0), p3(B, G.z1, 0), p3(A, G.z1, 0)], d = c.map((q, i) => p3(i < 2 ? mul([A, B][i], k) : [B, A][i - 2], i < 2 ? G.z0 : G.z1, t));
+    const face = (q) => [q[0], q[1], q[2], q[0], q[2], q[3]];
+    const inner = new THREE.BufferGeometry().setFromPoints(face(c)); inner.computeVertexNormals();
+    const tris = [...face([d[1], d[0], d[3], d[2]]), ...face([c[0], d[0], d[1], c[1]]), ...face([c[1], d[1], d[2], c[2]]), ...face([c[2], d[2], d[3], c[3]]), ...face([c[3], d[3], d[0], c[0]])];
+    const shell = new THREE.BufferGeometry().setFromPoints(tris); shell.computeVertexNormals();
+    const ex = [n[0] * Math.max(X, Y) * .35, n[1] * Math.max(X, Y) * .35, 0];
+    add3(inner, mr.isMirror ? mirM : cardM, ex, "m" + mr.i); add3(shell, mr.isMirror ? backM : cardM, ex, "mb" + mr.i);
+  }
+  // screen module + lit area
+  if (G.scr) {
+    const sc = G.scr, body = new THREE.Mesh(new THREE.BoxGeometry(sc.ow, sc.oh, sc.t), new THREE.MeshStandardMaterial({ color: 0x15171c, roughness: .5 }));
+    body.position.set(0, 0, Z / 2 - (G.zs + sc.t / 2)); body.userData = { ex: new THREE.Vector3(0, 0, -Math.max(X, Y) * .8), name: "screen" }; g.add(body);
+    const cvs = R3.screenTex.image; cvs.width = 512; cvs.height = Math.round(512 * sc.h / sc.w); R3.scrMap = { w: sc.w, h: sc.h };
+    const lit = new THREE.Mesh(new THREE.PlaneGeometry(sc.w, sc.h), new THREE.MeshBasicMaterial({ map: R3.screenTex, toneMapped: false }));
+    lit.position.set(0, 0, Z / 2 - G.zs + .05); lit.userData = { ex: body.userData.ex, name: "lit" }; g.add(lit); R3.screenTex.needsUpdate = true;
+  } else { const l = new THREE.Mesh(new THREE.CircleGeometry(G.cellDisc / 2 - 2, 48), new THREE.MeshBasicMaterial({ map: R3.screenTex, toneMapped: false, transparent: true, opacity: .9 }));
+    const cvs = R3.screenTex.image; cvs.width = cvs.height = 512; R3.scrMap = { w: G.cellDisc, h: G.cellDisc };
+    l.position.set(0, 0, Z / 2 - (G.zCell + 3 + s.cellDepth / 2)); l.userData = { ex: new THREE.Vector3(0, 0, -Math.max(X, Y) * .9), name: "lit" }; g.add(l); }
+  g.children.forEach(m => { m.userData.home = m.position.clone(); });
+  R3.size = Math.hypot(X, Y, Z); if (!R3.framed) { resetCam(); R3.framed = true; }
+  applyCutaway();
+}
+function applyCutaway() { if (!R3) return; const on = $("#cutaway").checked; R3.group.children.forEach(m => { if (["top", "left"].includes(m.userData.name)) m.visible = !on; }); }
+function resetCam() { if (!R3) return; R3.yaw = -.65; R3.pitch = .32; R3.dist = 1; }
+function drawScreenTex() { // the screen shows the source only inside the mirror polygon, like the studio's screen mode
+  const c = R3.screenTex.image, x = c.getContext("2d"), w = c.width, h = c.height, m = R3.scrMap; x.fillStyle = "#000"; x.fillRect(0, 0, w, h);
+  const s = w / m.w; x.save(); x.translate(w / 2, h / 2); x.scale(s, -s); x.beginPath(); G.poly.forEach((v, i) => i ? x.lineTo(v[0], v[1]) : x.moveTo(v[0], v[1])); x.closePath(); x.clip();
+  const bb = bbox(G.poly); x.scale(1, -1); x.drawImage(SRC, bb.x0, -bb.y1, bb.w, bb.h); x.restore(); R3.screenTex.needsUpdate = true;
+}
+function frame3D(dt) {
+  const v = $("#v3d"), r = v.getBoundingClientRect(); if (!r.width) return;
+  const { renderer, cam } = R3, W = Math.round(r.width), H = Math.round(r.height);
+  if (renderer.domElement.width !== Math.round(W * renderer.getPixelRatio())) { renderer.setSize(W, H, false); }
+  cam.aspect = W / H; cam.updateProjectionMatrix();
+  if ($("#spin3d").checked) R3.yaw += dt * .25;
+  const e = +$("#explode").value; R3.group.children.forEach(m => m.position.copy(m.userData.home).addScaledVector(m.userData.ex, e));
+  const d = R3.size * 1.45 * R3.dist; cam.position.set(Math.sin(R3.yaw) * Math.cos(R3.pitch) * d, Math.sin(R3.pitch) * d, Math.cos(R3.yaw) * Math.cos(R3.pitch) * d); cam.near = d / 100; cam.far = d * 10; cam.lookAt(0, 0, 0);
+  drawScreenTex(); renderer.render(R3.scene, cam);
+}
+
+// ---------------------------------------------------------------- 7 · view through the window
+// Unfold the mirrors: the far plane becomes a tiling of reflected cells (each bounce loses 1-R of the light).
+// Looking from distance e in front of the aperture, the far plane is seen through the aperture scaled by (e+L)/e.
+const CIN = $("#cin"), cx = CIN.getContext("2d");
+function cells(G, Rvis, center) {
+  const base = G.poly, me = G.mirrorEdge, out = [], seen = new Set(), key = M => { const c = apply(M, centroid(base)); return Math.round(c[0] / G.D * 400) + "," + Math.round(c[1] / G.D * 400); };
+  const I = [1, 0, 0, 1, 0, 0], q = [{ M: I, d: 0 }]; seen.add(key(I));
+  while (q.length && out.length < 3000) {
+    const c = q.shift(); out.push(c); if (c.d >= 40) continue;
+    for (let i = 0; i < base.length; i++) { if (!me[i]) continue; const a = apply(c.M, base[i]), b = apply(c.M, base[(i + 1) % base.length]); const M2 = mm(reflect(a, b), c.M), k = key(M2); if (seen.has(k)) continue; seen.add(k);
+      if (len(sub(apply(M2, centroid(base)), center)) > Rvis + G.D) continue; q.push({ M: M2, d: c.d + 1 }); }
+  }
+  return out;
+}
+const apply = (M, v) => [M[0] * v[0] + M[2] * v[1] + M[4], M[1] * v[0] + M[3] * v[1] + M[5]];
+const mm = (A, B) => [A[0] * B[0] + A[2] * B[1], A[1] * B[0] + A[3] * B[1], A[0] * B[2] + A[2] * B[3], A[1] * B[2] + A[3] * B[3], A[0] * B[4] + A[2] * B[5] + A[4], A[1] * B[4] + A[3] * B[5] + A[5]];
+function reflect(a, b) { const u = norm(sub(b, a)), r00 = 2 * u[0] * u[0] - 1, r01 = 2 * u[0] * u[1], r11 = 2 * u[1] * u[1] - 1; return [r00, r01, r01, r11, a[0] - (r00 * a[0] + r01 * a[1]), a[1] - (r01 * a[0] + r11 * a[1])]; }
+let CELLS = null;
+function prepInside() {
+  const e = Math.max(1, +S.eyeDist), f = (e + G.L) / e;
+  const E = S.view === "eyehole" ? G.eyeC : centroid(G.near);
+  const ap = S.view === "eyehole" ? circlePts(G.eyeC, S.eyeD / 2, 64) : G.window;
+  const region = ap.map(v => add(E, mul(sub(v, E), f)));
+  const Rvis = Math.max(...region.map(v => len(sub(v, E))));
+  const list = cells(G, Rvis, E); const aCell = Math.abs(area(G.poly)), aReg = Math.abs(area(region));
+  let maxD = 0; for (const c of list) { const cc = apply(c.M, centroid(G.poly)); if (distToPolyAny(cc, region) < 0) maxD = Math.max(maxD, c.d); }
+  CELLS = { list, region, E, f };
+  $("#inImages").textContent = "≈" + f0(aReg / aCell); $("#inDepth").textContent = maxD + " · אור " + f0(Math.pow(G.mat.R, maxD) * 100) + "%";
+  $("#o_eyeDist").textContent = f0(e) + " מ״מ";
+  $("#inNote").textContent = S.view === "eyehole" ? "העין צמודה לחור ההצצה." : "קרבו את העין לחלון (5-40 מ״מ) כדי לראות את העיגול הגדול שהמראות יוצרות.";
+}
+function distToPolyAny(pt, poly) { // ray-cast sign for any simple polygon
+  let ins = false; for (let i = 0, j = poly.length - 1; i < poly.length; j = i++) { const a = poly[i], b = poly[j]; if ((a[1] > pt[1]) !== (b[1] > pt[1]) && pt[0] < (b[0] - a[0]) * (pt[1] - a[1]) / (b[1] - a[1]) + a[0]) ins = !ins; } return ins ? -1 : 1;
+}
+function drawInside() {
+  const r = CIN.getBoundingClientRect(); if (!r.width || !CELLS) return; const dpr = Math.min(2, devicePixelRatio), W = Math.round(r.width * dpr), H = Math.round(r.height * dpr);
+  if (CIN.width !== W || CIN.height !== H) { CIN.width = W; CIN.height = H; }
+  cx.setTransform(1, 0, 0, 1, 0, 0); cx.fillStyle = "#000"; cx.fillRect(0, 0, W, H);
+  const bb = bbox(CELLS.region), sc = Math.min(W / bb.w, H / bb.h) * .94, mid = [(bb.x0 + bb.x1) / 2, (bb.y0 + bb.y1) / 2];
+  const view = [sc, 0, 0, -sc, W / 2 - mid[0] * sc, H / 2 + mid[1] * sc];
+  const pb = bbox(G.poly), B = [pb.w / SRC.width, 0, 0, -pb.h / SRC.height, pb.x0, pb.y1];
+  cx.save(); cx.setTransform(...view); cx.beginPath(); CELLS.region.forEach((v, i) => i ? cx.lineTo(v[0], v[1]) : cx.moveTo(v[0], v[1])); cx.closePath(); cx.clip();
+  const R = G.mat.R, poly = new Path2D(); G.poly.forEach((v, i) => i ? poly.lineTo(v[0], v[1]) : poly.moveTo(v[0], v[1])); poly.closePath();
+  for (const c of CELLS.list) {
+    const M = mm(view, c.M); cx.save(); cx.setTransform(...M); cx.clip(poly);
+    cx.save(); cx.transform(...B); cx.drawImage(SRC, 0, 0); cx.restore();
+    const dark = 1 - Math.pow(R, c.d); if (dark > .002) { cx.fillStyle = `rgba(0,0,0,${dark})`; cx.fill(poly); }
+    cx.strokeStyle = "rgba(255,255,255,.06)"; cx.lineWidth = 1 / sc; cx.stroke(poly); cx.restore();
+  }
+  cx.restore();
+  cx.setTransform(...view); cx.strokeStyle = "rgba(124,242,220,.5)"; cx.lineWidth = 1.5 / sc; cx.beginPath(); CELLS.region.forEach((v, i) => i ? cx.lineTo(v[0], v[1]) : cx.moveTo(v[0], v[1])); cx.closePath(); cx.stroke();
+}
+
+// ---------------------------------------------------------------- 7b · real mirrors: a ray tracer through the actual tube
+// Every pixel is a ray from the viewer's eye. It passes the window, bounces off the real mirror planes (tapered or not),
+// loses (1-R) of its light at each bounce, darkens on the taped seams where two mirrors meet, and finally lands on the
+// screen (or object cell) at the far end. This is what the eye sees in the real box, including the big glowing disc
+// that a 60° prism makes: the pattern fades ring by ring as the number of bounces grows.
+const TRACE_FS = `
+precision highp float;
+uniform vec2 uRes; uniform vec3 uEye; uniform float uFov; uniform vec2 uLook;
+uniform vec4 uPl[4]; uniform float uMir[4]; uniform int uNP; uniform float uL;
+uniform int uWinType; uniform vec2 uWin[4]; uniform int uNW; uniform vec3 uCirc;
+uniform vec4 uSrcBox; uniform sampler2D uTex; uniform float uR; uniform vec3 uTint; uniform float uSeam; uniform vec3 uPanel; uniform float uGhost; uniform float uGlass; uniform float uRough; uniform float uTime; uniform float uPupil;
+float hash(vec3 p){ p = fract(p * vec3(.1031, .1030, .0973)); p += dot(p, p.yxz + 33.33); return fract((p.x + p.y) * p.z); }
+bool inWin(vec2 p){
+  if (uWinType == 1) return length(p - uCirc.xy) <= uCirc.z;
+  float pos = 0., neg = 0.;
+  for (int i = 0; i < 4; i++){ if (i >= uNW) break; vec2 a = uWin[i], b = uWin[0];
+    for (int j = 1; j < 4; j++){ if (j == i + 1 && j < uNW) b = uWin[j]; }
+    vec2 e = b - a, w = p - a; float c = e.x * w.y - e.y * w.x; if (c > 0.) pos = 1.; if (c < 0.) neg = 1.; }
+  return pos * neg < .5;
+}
+vec3 screenAt(vec2 xy){
+  vec2 uv = (xy - uSrcBox.xy) / uSrcBox.zw;
+  vec3 c = texture2D(uTex, clamp(uv, 0., 1.)).rgb;
+  return c * 1.15;
+}
+vec3 trace(vec3 o, vec3 d, out float nb, float sd0){
+  nb = 0.;
+  vec3 att = vec3(1.);
+  vec3 p = o;
+  for (int k = 0; k < 90; k++){
+    float tmin = (uL - p.z) / d.z; int hit = -1;
+    for (int j = 0; j < 4; j++){ if (j >= uNP) break; float dn = dot(uPl[j].xyz, d);
+      if (dn < -1e-6){ float t = -(dot(uPl[j].xyz, p) + uPl[j].w) / dn; if (t > 1e-4 && t < tmin){ tmin = t; hit = j; } } }
+    p += d * tmin;
+    if (hit < 0) return att * screenAt(p.xy);
+    float isM = 0.; vec4 P = vec4(0.);
+    for (int j = 0; j < 4; j++){ if (j == hit){ isM = uMir[j]; P = uPl[j]; } }
+    if (isM < .5) return att * vec3(.012);
+    // taped seam where this mirror meets a neighbour
+    float sd = 1e9;
+    for (int j = 0; j < 4; j++){ if (j >= uNP || j == hit) continue; sd = min(sd, dot(uPl[j].xyz, p) + uPl[j].w); }
+    float seam = smoothstep(uSeam * .35, uSeam, sd);
+    att *= uR * uTint * mix(.08, 1., seam);
+    // real mirrors are not perfectly flat or perfectly aligned: a tiny random tilt per bounce softens deep images
+    vec3 nn = normalize(P.xyz + uRough * (vec3(hash(p + sd0), hash(p.yzx + sd0 * 1.7), hash(p.zxy + sd0 * 2.3)) - .5));
+    d = reflect(d, nn); nb += 1.;
+    if (max(att.r, max(att.g, att.b)) < .012) return vec3(0.);
+  }
+  return vec3(0.);
+}
+void main(){
+  float tf = tan(uFov * .5);
+  vec3 col = vec3(0.); float inside = 0.;
+  for (int sI = 0; sI < 4; sI++){
+    float fs = float(sI);
+    vec2 jit = vec2(mod(fs, 2.), floor(fs / 2.)) * .5 - .25;
+    vec2 q = (gl_FragCoord.xy + jit - .5 * uRes) / (.5 * min(uRes.x, uRes.y));
+    vec3 f = normalize(vec3(uLook, 1.)), r = normalize(cross(vec3(0., 1., 0.), f)), u = cross(f, r);
+    vec3 d = normalize(f + (q.x * r + q.y * u) * tf);
+    // the pupil has a size: each sample starts at another point of it and aims at the focus plane (the screen)
+    float a = (fs + hash(vec3(gl_FragCoord.xy, uTime))) * 1.5708, rr = uPupil * sqrt(.25 + .75 * hash(vec3(gl_FragCoord.yx, fs)));
+    vec3 o = uEye + vec3(cos(a), sin(a), 0.) * rr;
+    vec3 fp = uEye + d * ((uL - uEye.z) / d.z);
+    d = normalize(fp - o);
+    float t0 = -o.z / d.z; vec2 w = (o + d * t0).xy;
+    vec3 c;
+    if (d.z <= 0. || !inWin(w)){
+      float g = .55 + .45 * smoothstep(1.6, 0., length(q));
+      c = uPanel * g * .35;
+    } else {
+      inside += .25;
+      float nb; c = trace(o + d * t0, d, nb, fs + uTime);
+      if (uGhost > 0.){ // ordinary (back-surface) mirror: a faint second image, shifted by the glass
+        float nb2; vec3 g2 = trace(o + d * t0 + vec3(uGlass * .7, uGlass * .4, 0.), d, nb2, fs); c = mix(c, max(c, g2 * .8), uGhost);
+      }
+      // the eye is less sensitive away from where it looks (natural vignetting, cos^4)
+      float cz = d.z; c *= mix(1., cz * cz * cz * cz, .7);
+    }
+    col += c * .25;
+  }
+  // the eye looking into the tube sees a round field: the big circle of a real kaleidoscope
+  vec2 qc = (gl_FragCoord.xy - .5 * uRes) / (.5 * min(uRes.x, uRes.y)); col *= mix(1., smoothstep(1.0, .8, length(qc)), inside);
+  col = 1. - exp(-col * 1.5);
+  gl_FragColor = vec4(pow(col, vec3(.95)), 1.);
+}`;
+const TR = { ok: false, look: [0, 0], ex: 0, ey: 0 };
+function initTracer() {
+  const cv = $("#cgl"); const gl = cv.getContext("webgl", { antialias: false, preserveDrawingBuffer: true });
+  if (!gl) return;
+  const sh = (t, s) => { const o = gl.createShader(t); gl.shaderSource(o, s); gl.compileShader(o); if (!gl.getShaderParameter(o, gl.COMPILE_STATUS)) console.error(gl.getShaderInfoLog(o)); return o; };
+  const pr = gl.createProgram(); gl.attachShader(pr, sh(gl.VERTEX_SHADER, "attribute vec2 a; void main(){ gl_Position = vec4(a, 0., 1.); }")); gl.attachShader(pr, sh(gl.FRAGMENT_SHADER, TRACE_FS)); gl.linkProgram(pr);
+  if (!gl.getProgramParameter(pr, gl.LINK_STATUS)) { console.error(gl.getProgramInfoLog(pr)); return; }
+  gl.useProgram(pr);
+  const b = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, b); gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
+  const al = gl.getAttribLocation(pr, "a"); gl.enableVertexAttribArray(al); gl.vertexAttribPointer(al, 2, gl.FLOAT, false, 0, 0);
+  const U = {}; ["uRes", "uEye", "uFov", "uLook", "uPl[0]", "uMir[0]", "uNP", "uL", "uWinType", "uWin[0]", "uNW", "uCirc", "uSrcBox", "uTex", "uR", "uTint", "uSeam", "uPanel", "uGhost", "uGlass", "uRough", "uTime", "uPupil"].forEach(n => U[n] = gl.getUniformLocation(pr, n));
+  const tex = gl.createTexture(); gl.bindTexture(gl.TEXTURE_2D, tex);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
+  gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true);
+  Object.assign(TR, { ok: true, gl, U, cv, tex });
+  // drag moves the eye across the window, wheel moves it nearer or farther
+  const ptr = new Map();
+  cv.addEventListener("pointerdown", e => { cv.setPointerCapture(e.pointerId); ptr.set(e.pointerId, [e.clientX, e.clientY]); });
+  cv.addEventListener("pointermove", e => { const p = ptr.get(e.pointerId); if (!p) return; const dx = e.clientX - p[0], dy = e.clientY - p[1]; p[0] = e.clientX; p[1] = e.clientY;
+    const k = G.D / Math.max(200, cv.clientHeight) * 1.2; const lim = G.D * .45; TR.ex = clamp(TR.ex - dx * k, -lim, lim); TR.ey = clamp(TR.ey + dy * k, -lim, lim); });
+  const up = e => ptr.delete(e.pointerId); cv.addEventListener("pointerup", up); cv.addEventListener("pointercancel", up);
+  cv.addEventListener("dblclick", () => { TR.ex = TR.ey = 0; });
+  cv.addEventListener("wheel", e => { e.preventDefault(); S.eyeDist = clamp(Math.round(S.eyeDist * Math.exp(e.deltaY * .001)), 5, 800); $("#eyeDist").value = S.eyeDist; prepInside(); }, { passive: false });
+}
+function tracePlanes() { // inward planes of the real (possibly tapered) tube, window at z=0, screen at z=L
+  const p = G.poly, k = G.k, L = G.L, out = [];
+  const c = centroid(p);
+  for (let i = 0; i < p.length; i++) {
+    const A = p[i], B = p[(i + 1) % p.length];
+    const P0 = [A[0] * k, A[1] * k, 0], P1 = [B[0] * k, B[1] * k, 0], P2 = [A[0], A[1], L];
+    const u = [P1[0] - P0[0], P1[1] - P0[1], 0], v = [P2[0] - P0[0], P2[1] - P0[1], L];
+    let n = [u[1] * v[2] - u[2] * v[1], u[2] * v[0] - u[0] * v[2], u[0] * v[1] - u[1] * v[0]]; const l = Math.hypot(...n); n = n.map(x => x / l);
+    const C = [c[0] * (k + 1) / 2, c[1] * (k + 1) / 2, L / 2];
+    if (n[0] * (C[0] - P0[0]) + n[1] * (C[1] - P0[1]) + n[2] * (C[2] - P0[2]) < 0) n = n.map(x => -x);
+    out.push([...n, -(n[0] * P0[0] + n[1] * P0[1] + n[2] * P0[2])]);
+  }
+  return out;
+}
+function drawTrace() {
+  const { gl, U, cv } = TR, r = cv.getBoundingClientRect(); if (!r.width) return;
+  const dpr = Math.min(1.25, devicePixelRatio), W = Math.round(r.width * dpr), H = Math.round(r.height * dpr);
+  if (cv.width !== W || cv.height !== H) { cv.width = W; cv.height = H; gl.viewport(0, 0, W, H); }
+  gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, TR.tex); gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGB, gl.RGB, gl.UNSIGNED_BYTE, SRC);
+  const pl = tracePlanes(), P = new Float32Array(16), Mi = new Float32Array(4); pl.forEach((q, i) => { P.set(q, i * 4); Mi[i] = G.mirrorEdge[i] ? 1 : 0; });
+  gl.uniform2f(U.uRes, W, H); gl.uniform4fv(U["uPl[0]"], P); gl.uniform1fv(U["uMir[0]"], Mi); gl.uniform1i(U.uNP, pl.length); gl.uniform1f(U.uL, G.L);
+  const e = Math.max(2, +S.eyeDist); let ec;
+  if (S.view === "eyehole") { ec = G.eyeC; gl.uniform1i(U.uWinType, 1); gl.uniform3f(U.uCirc, G.eyeC[0], G.eyeC[1], S.eyeD / 2); gl.uniform1i(U.uNW, 0); }
+  else { const w = G.window, Wf = new Float32Array(8); w.forEach((v, i) => { Wf[i * 2] = v[0]; Wf[i * 2 + 1] = v[1]; }); gl.uniform1i(U.uWinType, 0); gl.uniform2fv(U["uWin[0]"], Wf); gl.uniform1i(U.uNW, w.length); ec = centroid(G.near); }
+  gl.uniform3f(U.uEye, ec[0] + TR.ex, ec[1] + TR.ey, -e);
+  gl.uniform1f(U.uFov, (+S.fov || 70) * Math.PI / 180); gl.uniform2f(U.uLook, 0, 0);
+  const pb = bbox(G.poly); gl.uniform4f(U.uSrcBox, pb.x0, pb.y0, pb.w, pb.h); gl.uniform1i(U.uTex, 0);
+  const M = G.mat; gl.uniform1f(U.uR, M.R); gl.uniform3fv(U.uTint, M.kind === "acr" ? [.99, .985, .97] : M.kind === "ss" ? [.97, 1, .975] : [.985, .99, 1]);
+  gl.uniform1f(U.uSeam, Math.max(.25, S.gap * .5 + .25)); gl.uniform1f(U.uGhost, M.kind === "ss" ? .35 : 0); gl.uniform1f(U.uGlass, M.t); gl.uniform1f(U.uRough, M.kind === "acr" ? .006 : M.kind === "ss" ? .003 : .0015); gl.uniform1f(U.uTime, (performance.now() / 1000) % 100); gl.uniform1f(U.uPupil, 1.2);
+  const hs = HOUSING.find(h => h.id === S.housing) || HOUSING[0], hc = parseInt(hs.color.slice(1), 16); gl.uniform3f(U.uPanel, (hc >> 16 & 255) / 255, (hc >> 8 & 255) / 255, (hc & 255) / 255);
+  gl.drawArrays(gl.TRIANGLES, 0, 3);
+}
+
+// ---------------------------------------------------------------- 8 · parts list, steps, research
+function cutList() {
+  const rows = [], seen = new Map();
+  for (const p of PARTS) { const k = p.mat + "|" + p.name.replace(/\d+$/, "") + "|" + f1(p.w) + "|" + f1(p.h); if (seen.has(k)) { seen.get(k).qty++; continue; } const r = { name: p.name.replace(/ \d+$/, ""), mat: MATNAME[p.mat](), w: p.w, h: p.h, qty: 1, note: "" };
+    if (p.mirror && p.mirror.isMirror) r.note = G.k < 1 ? `טרפז: ${f1(p.mirror.nearW)} ליד העין, ${f1(p.mirror.far)} ליד המסך` : "חיתוך בגלגל קרביד, משיכה אחת"; seen.set(k, r); rows.push(r); }
+  return rows;
+}
+function cutListCSV() { return ["חלק,חומר,רוחב (מ״מ),גובה (מ״מ),כמות,הערה", ...cutList().map(r => [r.name, r.mat, f1(r.w), f1(r.h), r.qty, r.note].map(x => `"${String(x).replace(/"/g, '""')}"`).join(","))].join("\n"); }
+function steps() {
+  const s = S, nm = G.mirrors.filter(m => m.isMirror).length, sc = G.scr;
+  const a = [
+    `חתכו בלייזר את לוחות המעטפת (${MATNAME.housing()}). קווים אדומים לחיתוך, כחולים לחריטה. כדאי לחתוך קודם ריבוע ניסיון של שן ושקע ולכוון את ה-kerf בתוכנת הלייזר.`,
+    `הזמינו או חתכו ${nm} מראות (${G.mat.name}): ${G.mirrors.filter(m => m.isMirror).map(m => `${f1(m.far)}×${f1(m.h)}`).join(", ")} מ״מ. כבר הורדנו ${s.gap} מ״מ מכל רוחב כדי שהקצוות לא יידחקו. אל תסירו את הניילון המגן עד ההרכבה.`,
+    `הרכיבו את הבסיס, שתי הדפנות והחזית. ${G.ribZ.length ? `הכניסו את ${G.ribZ.length} המחיצות לחריצים בדפנות.` : ""} עוד לא מדביקים את הגג.`,
+    `הניחו את המראות צד אל צד כשהפנים המחזירות כלפי מטה, הצמידו בסרט הדבקה לאורך החיבורים מבחוץ, וקפלו לצורת ${s.system === "square" ? "ריבוע" : "משולש"}. הסירו את הניילון ממש לפני הקיפול. ${s.system === "wedge" ? "את הצלע השלישית סוגרים בקרטון שחור." : ""}`,
+    `החליקו את צינור המראות דרך המחיצות עד שהקצה נשען על החזית. השפה של החלון (${s.view === "window" ? s.lip + " מ״מ" : "חור ההצצה"}) מסתירה את קצות המראות. מלאו מרווחים קטנים בספוג דק או בסיליקון, לא בדבק קשיח, כדי שהזכוכית לא תיסדק.`,
+    sc ? `הדביקו את מסכת הקרטון השחורה על זכוכית המסך, כשהחור המשולש באמצע, והכניסו את המסך (${sc.name}) מאחורי מחיצת המסך. המראות צריכות לגעת במסכה.` : `הכינו את תא החפצים: דיסק שקוף, טבעות מרווח, חרוזים וזכוכיות צבעוניות, ודיסק חלבי. אפשר למלא בשמן מינרלי לתנועה איטית. הניחו את התא מאחורי המחזיק.`,
+    sc ? `העבירו את כבל המסך דרך החור בגב. הפעילו את הסטודיו הוויזואלי במצב "מסך למוצר" במסך מלא. הפינות כבר מגיעות מכפתור המעבר כאן, ונשאר רק לכוונן אם צריך.` : `מקמו תאורה אחורית (רצועת LED חמה או לבנה) בתא האחורי, בעומק ${s.backDepth} מ״מ, כדי שהאור יתפזר דרך הדיסק החלבי.`,
+    `בדקו דרך החלון שהתפרים בין המראות דקים ושאין תמונה כפולה. אחר כך הדביקו את הגג והגב${s.overlay ? " ואת לוח הקישוט הקדמי" : ""}.`
+  ];
+  return a;
+}
+function stepsText() { return `קופסת קליידוסקופ: ${SYS[S.system].name}\nמידות חוץ: ${f0(G.X)}×${f0(G.Y)}×${f0(G.Z)} מ״מ\nאורך מראות: ${f0(G.L)} מ״מ (יחס ${f1(G.ratio)}:1)\n\n` + steps().map((x, i) => `${i + 1}. ${x}`).join("\n") + `\n\nרשימת חיתוך:\n` + cutList().map(r => `- ${r.name} × ${r.qty}: ${f1(r.w)}×${f1(r.h)} מ״מ, ${r.mat}${r.note ? " (" + r.note + ")" : ""}`).join("\n") + "\n"; }
+function designJSON() { return { app: "Kaleidoscope Box Builder", version: 1, settings: S, derived: { outer_mm: [G.X, G.Y, G.Z], mirror_length_mm: G.L, ratio: G.ratio, cross_section_mm: G.poly, mirrors: G.mirrors.map(m => ({ far_mm: m.far, near_mm: m.nearW, length_mm: m.h, mirror: m.isMirror })) } }; }
+function renderParts() {
+  const rows = cutList(); const sc = G.scr;
+  let h = `<div class="doc"><h2>חלקים, מידות והרכבה</h2>`;
+  h += `<div class="warns">${G.warn.length ? G.warn.map(w => `<div class="warn">${esc(w)}</div>`).join("") : `<div class="warn good">התכנון בתוך הטווחים שבוני קליידוסקופים ממליצים עליהם.</div>`}</div>`;
+  h += `<div class="tbl"><table><thead><tr><th>חלק</th><th>חומר</th><th>רוחב</th><th>גובה</th><th>כמות</th><th>הערה</th></tr></thead><tbody>${rows.map(r => `<tr><td>${esc(r.name)}</td><td>${esc(r.mat)}</td><td class="n">${f1(r.w)}</td><td class="n">${f1(r.h)}</td><td class="n">${r.qty}</td><td>${esc(r.note)}</td></tr>`).join("")}</tbody></table></div>`;
+  h += `<h3>הגיאומטריה</h3><ul><li>${esc(SYS[S.system].name)}${S.system === "wedge" ? `, זווית ${f1(360 / S.wedgeN)}°, ${S.wedgeN} העתקים` : ""}. ${esc(SYS[S.system].desc)}</li>
+    <li>חתך: ${G.poly.map((v, i) => `צלע ${i + 1} ${f1(len(sub(G.poly[(i + 1) % G.poly.length], v)))}`).join(" · ")} מ״מ. מידה גדולה ${f1(G.D)} מ״מ.</li>
+    <li>אורך מראות ${f0(G.L)} מ״מ, יחס ${f1(G.ratio)}:1.${G.k < 1 ? ` התחדדות ${S.taper}%: החלון ליד העין קטן פי ${f1(1 / G.k)}, הטיית מראה ${f1(Math.max(...G.mirrors.map(m => m.tilt)))}°.` : ""}</li>
+    <li>מעטפת: חוץ ${f0(G.X)}×${f0(G.Y)}×${f0(G.Z)} מ״מ, פנים ${f0(G.iw)}×${f0(G.ih)} מ״מ, לוח ${G.T} מ״מ, שן ${G.fingerW} מ״מ.</li>
+    ${sc ? `<li>מסך ${esc(sc.name)}: שטח מואר ${f1(sc.w)}×${f1(sc.h)} מ״מ. המשולש תופס ${S.sizeMode === "fit" ? S.fill + "%" : "מידה ידנית"} ממנו.</li><li>פינות החלון על המסך בפיקסלים: <code dir="ltr">${studioBox().px.map(p => `(${p[0]}, ${p[1]})`).join(" ")}</code></li>` : `<li>תא חפצים: קוטר ${f1(G.cellDisc)} מ״מ, עומק ${S.cellDepth} מ״מ.</li>`}</ul>`;
+  h += `<h3>הרכבה</h3><ol>${steps().map(x => `<li>${esc(x)}</li>`).join("")}</ol></div>`;
+  $("#vparts").innerHTML = h;
+}
+function renderResearch() {
+  $("#vres").innerHTML = `<div class="doc"><h2>מה למדנו מעולם בוני הקליידוסקופים</h2>
+  <p>סרקנו את אגודת Brewster (הקהילה הבינלאומית של אמני הקליידוסקופ), מדריכי בנייה של יוצרים, את פורום Glowforge (חיתוך לייזר) ופרויקטים פתוחים של Adafruit ו-Instructables. הערכים בכלי נקבעו לפי זה.</p>
+  <h3>אורך ורוחב</h3><ul>
+    <li>כלל האצבע: אורך המראות לפחות פי 4 מהמידה הגדולה של החלון, למבט ישר. במבט בזווית של כ-45° מספיק יחס של 2:1, אבל המראות צריכות להיות רחבות יותר. ברירת המחדל כאן היא 3:1, כי בקופסה מסתכלים מקרוב ובזווית.</li>
+    <li>כ-200 מ״מ (8 אינץ׳) זה האורך שבו רוב האנשים ממקדים בלי עדשה. קצר או ארוך מזה צריך עדשה בחור ההצצה. הכלי מציע עדשה כשצריך.</li>
+    <li>רוחב המראה לא משנה את התמונה כל עוד הוא גדול מהחלון. מראות רחבות מכניסות יותר אור.</li></ul>
+  <h3>זוויות</h3><ul>
+    <li>בשתי מראות, הזווית צריכה לחלק 360° למספר זוגי: 60° נותן 6 העתקים, 45° 8, 36° 10, 30° 12, 22.5° 16, 20° 18. מספר אי-זוגי יוצר תפרים שבורים. מתחת ל-20° הפתח נעשה צר מאוד.</li>
+    <li>בשלוש מראות, סכום הזוויות 180°, ורק שלושה משולשים מרצפים בלי שבירה: 60-60-60, 90-45-45 ו-90-60-30. זה מה שהכלי מציע.</li>
+    <li>התחדדות (taper) מעקמת את התמונה לכדור. התחדדות קטנה יותר נותנת כדור גדול יותר.</li></ul>
+  <h3>מראות</h3><ul>
+    <li>כל המקורות מסכימים: מראה חזיתית (first-surface), כי מראה רגילה מחזירה גם מהזכוכית ויוצרת תמונות כפולות. כ-4% אור הולך לאיבוד בכל החזרה, וזה מצטבר.</li>
+    <li>חותכים בגלגל קרביד, משיכה אחת, ולא משייפים. כל המראות באותו מידה בדיוק. נוגעים רק בקצוות.</li>
+    <li>מחברים בסרט הדבקה, סיליקון או דבק חם, ומרפדים בתוך הצינור כדי שהזכוכית לא תזוז ולא תיסדק.</li></ul>
+  <h3>תא חפצים ותאורה</h3><ul>
+    <li>תא נוזלי מתמלא בשמן מינרלי או סיליקון (גליצרין סופג לחות), ונסגר בדבק UV. אור מלא, לא חם מדי, ולא שמש ישירה.</li>
+    <li>במוצר שלנו המסך מחליף את תא החפצים. לכן הוא מציג רק את התא המקורי, והמראות האמיתיות עושות את השיקוף. כך עובד מצב "מסך למוצר" בסטודיו הוויזואלי.</li></ul>
+  <h3>מקורות</h3><ul>
+    <li><a href="https://brewstersociety.com/f-a-q/" target="_blank" rel="noopener">Brewster Kaleidoscope Society · שאלות נפוצות</a></li>
+    <li><a href="https://brewstersociety.com/encyclopedia/angle-analysis-in-kaleidoscopes" target="_blank" rel="noopener">Brewster Society · Angle Analysis in Kaleidoscopes</a></li>
+    <li><a href="https://www.waynesthisandthat.com/kaleidoscopes2.html" target="_blank" rel="noopener">Wayne's This and That · ניסויים במראות, זוויות והתחדדות</a></li>
+    <li><a href="https://www.waynesthisandthat.com/HowToBuildAGiantKaleidoscope.html" target="_blank" rel="noopener">Wayne's This and That · קליידוסקופ ענק</a></li>
+    <li><a href="https://www.oocities.org/possumjim/xhtml/kaleidoscope_construction.html" target="_blank" rel="noopener">Making a Kaleidoscope · חיתוך מראות חזיתיות</a></li>
+    <li><a href="https://community.glowforge.com/t/its-all-done-with-smoke-and-mirrors/7673" target="_blank" rel="noopener">Glowforge Community · קופסת 3 מראות בלייזר</a></li>
+    <li><a href="https://learn.adafruit.com/3d-printed-light-up-kaleidoscope" target="_blank" rel="noopener">Adafruit · קליידוסקופ מודפס עם תאורה</a></li>
+    <li><a href="https://demonstrations.wolfram.com/MakingKaleidoscopes/" target="_blank" rel="noopener">Wolfram Demonstrations · Making Kaleidoscopes</a></li></ul></div>`;
+}
+
+// ---------------------------------------------------------------- 9 · studio sync
+// Kaleidoscope Studio reads this: mirror system for its simulation, and the window polygon on the screen for its screen mode.
+const STUDIO_ARTIFACT = "https://claude.ai/artifact/N637eQ5B6Dkn8S5EtN57ku";
+// anywhere but inside a claude.ai artifact frame, the studio sits next to this page (local server, file, or the website)
+const LOCAL = location.protocol === "file:" || !/claude|anthropic/i.test(location.hostname);
+function studioBox() {
+  const sc = G.scr || { w: G.cellDisc, h: G.cellDisc, rx: 1000, ry: 1000 };
+  const pts = G.poly.map(v => [(v[0] + sc.w / 2) / sc.w, (sc.h / 2 - v[1]) / sc.h]);
+  // the cell as the studio samples it: same shape, centred, farthest vertex at radius 0.5
+  const c = centroid(G.poly), r = Math.max(...G.poly.map(v => len(sub(v, c)))), cell = G.poly.map(v => [(v[0] - c[0]) * .5 / r, (v[1] - c[1]) * .5 / r]);
+  return { v: 1, at: Date.now(), system: SYS[S.system].studio, wedge: S.system === "wedge" ? S.wedgeN / 2 : undefined, corners: pts.map(p => p.map(x => +x.toFixed(5))), cell: cell.map(p => p.map(x => +x.toFixed(5))),
+    px: pts.map(p => [Math.round(p[0] * sc.rx), Math.round(p[1] * sc.ry)]), screen: G.scr ? { name: G.scr.name, w: G.scr.w, h: G.scr.h, rx: G.scr.rx, ry: G.scr.ry } : null,
+    box: { outer: [G.X, G.Y, G.Z].map(f0).map(Number), L: G.L, R: G.mat.R, ratio: +G.ratio.toFixed(2) } };
+}
+function studioCode() { return "KBOX:" + btoa(unescape(encodeURIComponent(JSON.stringify(studioBox())))); }
+async function goStudio(e) {
+  const box = Object.assign(studioBox(), { from: "go" }); store.set("box", box); // same-origin studio picks this up live
+  if (LOCAL) { e.currentTarget.href = "kaleidoscope-studio.html#kbox=" + encodeURIComponent(JSON.stringify(box)); return; }
+  try { await navigator.clipboard.writeText(studioCode()); toast("קוד הקופסה הועתק. בסטודיו: לשונית פלט, הדבקה.", 4200); } catch (er) { toast("פתחו את הסטודיו והדביקו את הקוד מלשונית חלקים", 4200); }
+}
+
+// ---------------------------------------------------------------- 10 · UI
+const isCustom = s => (SCREENS[s.screen] || {}).custom;
+const CTL = [
+  { g: "מערכת המראות" },
+  { id: "system", l: "סוג", t: "sel", o: Object.entries(SYS).map(([k, v]) => [k, v.name]) },
+  { id: "wedgeN", l: "העתקים", t: "sel", o: [6, 8, 10, 12, 16, 18, 24].map(n => [n, `${n} · ${f1(360 / n)}°`]), show: s => s.system === "wedge" },
+  { id: "taper", l: "התחדדות לעין", t: "rng", min: 0, max: 45, step: 1, u: "%", hint: "0 מנסרה ישרה. מעל 0 התמונה מתעקלת לכדור." },
+  { g: "מקור התמונה" },
+  { id: "source", t: "seg", o: [["screen", "מסך מאחורי המראות"], ["cell", "תא חפצים"]] },
+  { id: "screen", l: "מסך", t: "sel", o: SCREENS.map((x, i) => [i, x.name]), show: s => s.source === "screen" },
+  { id: "scrW", l: "שטח מואר רוחב", t: "num", u: "מ״מ", show: s => s.source === "screen" && isCustom(s) },
+  { id: "scrH", l: "שטח מואר גובה", t: "num", u: "מ״מ", show: s => s.source === "screen" && isCustom(s) },
+  { id: "scrOW", l: "מסגרת רוחב", t: "num", u: "מ״מ", show: s => s.source === "screen" && isCustom(s) },
+  { id: "scrOH", l: "מסגרת גובה", t: "num", u: "מ״מ", show: s => s.source === "screen" && isCustom(s) },
+  { id: "scrT", l: "עובי מסך", t: "num", u: "מ״מ", show: s => s.source === "screen" && isCustom(s) },
+  { id: "resX", l: "רזולוציה X", t: "num", u: "px", show: s => s.source === "screen" && isCustom(s) },
+  { id: "resY", l: "רזולוציה Y", t: "num", u: "px", show: s => s.source === "screen" && isCustom(s) },
+  { id: "sizeMode", t: "seg", o: [["fit", "החתך ממלא את המסך"], ["manual", "מידה ידנית"]], show: s => s.source === "screen" },
+  { id: "fill", l: "ניצול המסך", t: "rng", min: 50, max: 100, step: 1, u: "%", show: s => s.source === "screen" && s.sizeMode === "fit" },
+  { id: "D", l: "מידה גדולה", t: "rng", min: 20, max: 900, step: 1, u: "מ״מ", show: s => !(s.source === "screen" && s.sizeMode === "fit") },
+  { id: "cellDepth", l: "עומק תא", t: "rng", min: 4, max: 40, step: 1, u: "מ״מ", show: s => s.source === "cell" },
+  { g: "אורך וצפייה" },
+  { id: "lenMode", t: "seg", o: [["auto", "אורך לפי יחס"], ["manual", "אורך ידני"]] },
+  { id: "ratio", l: "יחס אורך:רוחב", t: "rng", min: 1.5, max: 7, step: .1, u: ":1", show: s => s.lenMode === "auto", hint: "4:1 למבט ישר, 2:1 למבט בזווית" },
+  { id: "L", l: "אורך מראות", t: "rng", min: 60, max: 2400, step: 5, u: "מ״מ", show: s => s.lenMode === "manual" },
+  { id: "view", t: "seg", o: [["window", "חלון מלא"], ["eyehole", "חור הצצה"]] },
+  { id: "lip", l: "שפה מסתירה", t: "rng", min: 0, max: 20, step: .5, u: "מ״מ", show: s => s.view === "window" },
+  { id: "eyeD", l: "קוטר חור", t: "rng", min: 5, max: 40, step: 1, u: "מ״מ", show: s => s.view === "eyehole" },
+  { g: "חומרים" },
+  { id: "mirror", l: "מראות", t: "sel", o: MIRRORS.map((m, i) => [i, m.name]) },
+  { id: "gap", l: "הפחתה ברוחב", t: "rng", min: 0, max: 1.5, step: .1, u: "מ״מ" },
+  { id: "housing", l: "מעטפת", t: "sel", o: HOUSING.map(h => [h.id, h.name]) },
+  { id: "T", l: "עובי לוח", t: "sel", o: [3, 4, 5, 6, 9, 12, 18].map(n => [n, n + " מ״מ"]) },
+  { id: "finger", l: "רוחב שן", t: "rng", min: 0, max: 80, step: 1, u: "מ״מ", fmt: v => +v ? v + " מ״מ" : "אוטו" },
+  { g: "מעטפת וקישוט" },
+  { id: "margin", l: "שוליים", t: "rng", min: 5, max: 120, step: 1, u: "מ״מ" },
+  { id: "ribs", l: "מחיצות", t: "rng", min: 0, max: 8, step: 1, u: "" },
+  { id: "backDepth", l: "תא אחורי", t: "rng", min: 10, max: 150, step: 1, u: "מ״מ", hint: "מקום לאלקטרוניקה, לכבלים או לתאורה" },
+  { id: "deco", l: "חריטה", t: "sel", o: [["flower", "פרח החיים"], ["lattice", "רשת משולשים"], ["rays", "קרני שמש"], ["frame", "מסגרות"], ["none", "בלי"]] },
+  { id: "overlay", l: "לוח קישוט בחזית", t: "chk" },
+  { g: "ייצור" },
+  { id: "sheet", l: "גודל לוח לייזר", t: "sel", o: SHEETS.map((x, i) => [i, `${x[0]}×${x[1]} מ״מ`]) }
+];
+function renderControls() {
+  let h = "", open = false;
+  for (const c of CTL) {
+    if (c.g) { if (open) h += "</section>"; h += `<section class="grp"><h3>${c.g}</h3>`; open = true; continue; }
+    if (c.show && !c.show(S)) continue;
+    const v = S[c.id];
+    if (c.t === "sel") h += `<div class="ctl wide"><label for="c_${c.id}">${c.l}</label><select id="c_${c.id}" data-k="${c.id}">${c.o.map(([k, n]) => `<option value="${k}"${String(v) === String(k) ? " selected" : ""}>${esc(n)}</option>`).join("")}</select></div>`;
+    else if (c.t === "seg") h += `<div class="seg" role="group">${c.o.map(([k, n]) => `<button type="button" data-seg="${c.id}" data-v="${k}" aria-pressed="${v === k}">${n}</button>`).join("")}</div>`;
+    else if (c.t === "rng") h += `<div class="ctl"><label for="c_${c.id}">${c.l}</label><input type="range" id="c_${c.id}" data-k="${c.id}" min="${c.min}" max="${c.max}" step="${c.step}" value="${v}"><output id="o_${c.id}">${c.fmt ? c.fmt(v) : v + (c.u ? " " + c.u : "")}</output></div>`;
+    else if (c.t === "num") h += `<div class="ctl"><label for="c_${c.id}">${c.l}</label><input type="number" id="c_${c.id}" data-k="${c.id}" value="${v}" step="0.01"><output>${c.u}</output></div>`;
+    else if (c.t === "chk") h += `<label class="tog"><input type="checkbox" id="c_${c.id}" data-k="${c.id}"${v ? " checked" : ""}> ${c.l}</label>`;
+    if (c.hint) h += `<p class="hint">${c.hint}</p>`;
+  }
+  $("#ctl").innerHTML = h + "</section>";
+}
+const TABS = [["v3d", "קופסה בתלת-ממד"], ["vcut", "פריסה לחיתוך"], ["vin", "מבט דרך החלון"], ["vparts", "חלקים והרכבה"], ["vres", "מחקר"]];
+let tab = store.get("builderTab", "v3d"); if (!TABS.some(t => t[0] === tab)) tab = "v3d";
+function renderTabs() { $("#tabs").innerHTML = TABS.map(([id, n]) => `<button type="button" role="tab" data-tab="${id}" aria-selected="${tab === id}">${n}</button>`).join(""); TABS.forEach(([id]) => $("#" + id).hidden = id !== tab); }
+function renderCut() {
+  const [SW, SH] = SHEETS[S.sheet] || SHEETS[2]; const nH = SHEETS_NOW.filter(s => s.mat === "housing").length;
+  let h = `<div class="sheetwrap"><div class="toolbar"><button type="button" class="primary" id="xZip">הורדת חבילת ייצור (ZIP)</button><button type="button" id="xSvg">SVG של הלוחות</button><button type="button" id="xDxf">DXF</button><button type="button" id="xCsv">רשימת חיתוך CSV</button>
+    <span class="legend"><span><i style="border-color:var(--cut)"></i>חיתוך</span><span><i style="border-color:var(--eng)"></i>חריטה</span></span></div>
+    <p class="hint" style="margin:0">${nH} לוחות מעטפת בגודל ${SW}×${SH} מ״מ. המראות מוצגות כתבנית 1:1 לחיתוך זכוכית או להזמנה מזגג. הקבצים בקנה מידה 1:1 במילימטרים.</p>`;
+  SHEETS_NOW.forEach((sh, i) => { h += `<div class="sheet"><h4>${i + 1}. ${esc(MATNAME[sh.mat]())}<small>${f0(sh.w)}×${f0(sh.h)} מ״מ · ${sh.items.length} חלקים${sh.over ? " · גדול מהלוח, צריך לוח מיוחד" : ""}${sh.tpl ? " · תבנית 1:1 לזגג" : ""}</small></h4>${sheetSVG(sh, true)}</div>`; });
+  $("#vcut").innerHTML = h + "</div>";
+}
+function renderSummary() {
+  const box = G.scr ? studioBox() : null;
+  $("#summary").innerHTML = `
+    <div class="stat"><b>${esc(SYS[S.system].name.split("·")[1] || SYS[S.system].name)}${S.system === "wedge" ? " ×" + S.wedgeN : ""}</b><span>מראות</span></div>
+    <div class="stat"><b>${f0(G.X)}×${f0(G.Y)}×${f0(G.Z)}</b><span>קופסה, מ״מ</span></div>
+    <div class="stat"><b>${f0(G.L)} · ${f1(G.ratio)}:1</b><span>אורך מראה · יחס</span></div>
+    <div class="stat"><b>${G.mirrors.filter(m => m.isMirror).map(m => f0(m.far)).join("/")}</b><span>רוחבי מראות</span></div>
+    <div class="stat"><b>${SHEETS_NOW.filter(s => s.mat === "housing").length}</b><span>לוחות לחיתוך</span></div>
+    ${G.warn.length ? `<div class="stat"><b style="color:var(--amber)">${G.warn.length}</b><span>הערות</span></div>` : ""}
+    <span class="spacer"></span>
+    <a class="primary" id="goStudio" role="button" href="${LOCAL ? "kaleidoscope-studio.html" : STUDIO_ARTIFACT}" target="_blank" rel="noopener" style="border-radius:8px;background:var(--accent);color:var(--on-accent);font-weight:700">המוצר מוכן · מעבר לסטודיו הוויזואלי ◂</a>`;
+  $("#goStudio").addEventListener("click", goStudio);
+}
+let G = null, PARTS = [], SHEETS_NOW = [];
+function update(full = true) {
+  store.set("builder", S);
+  G = build(S); PARTS = makeParts(G); const [SW, SH] = SHEETS[S.sheet] || SHEETS[2]; SHEETS_NOW = nest(PARTS, SW, SH);
+  if (full) renderControls();
+  renderSummary(); prepInside(); renderParts(); if (tab === "vcut") renderCut(); else $("#vcut").dataset.stale = "1";
+  rebuild3D(); store.set("box", studioBox());
+}
+$("#presets").innerHTML = PRESETS.map((p, i) => `<button type="button" data-preset="${i}">${esc(p.name)}</button>`).join("");
+document.addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  if (b.dataset.preset) { Object.assign(S, DEF, PRESETS[+b.dataset.preset].p); if (R3) R3.framed = false; $("#eyeDist").value = S.eyeDist; update(); toast(PRESETS[+b.dataset.preset].name); return; }
+  if (b.dataset.seg) { S[b.dataset.seg] = b.dataset.v; update(); return; }
+  if (b.dataset.tab) { tab = b.dataset.tab; store.set("builderTab", tab); renderTabs(); if (tab === "vcut") renderCut(); return; }
+  switch (b.id) {
+    case "xZip": exportPackage(); break;
+    case "xSvg": SHEETS_NOW.length === 1 ? saveFile(slug() + ".svg", sheetSVG(SHEETS_NOW[0], false)) : saveFile(slug() + "-sheets.zip", zip(SHEETS_NOW.map((sh, i) => ({ name: `${String(i + 1).padStart(2, "0")}-${sh.mat}.svg`, data: sheetSVG(sh, false) })))); break;
+    case "xDxf": saveFile(slug() + ".zip", zip([{ name: slug() + ".dxf", data: dxf(SHEETS_NOW) }])); break;
+    case "xCsv": saveFile(slug() + "-cut-list.csv", "﻿" + cutListCSV()); break;
+    case "resetCam": resetCam(); break;
+  }
+});
+$("#ctl").addEventListener("input", e => {
+  const el = e.target, k = el.dataset.k; if (!k) return;
+  const num = el.type === "range" || el.type === "number" || /^(screen|mirror|sheet|T|wedgeN)$/.test(k);
+  S[k] = el.type === "checkbox" ? el.checked : num ? +el.value : el.value;
+  if (k === "screen") { const sc = SCREENS[S.screen]; if (!sc.custom) Object.assign(S, { scrW: sc.w, scrH: sc.h, scrOW: sc.ow, scrOH: sc.oh, scrT: sc.t, resX: sc.rx, resY: sc.ry }); }
+  const c = CTL.find(x => x.id === k), o = $("#o_" + k); if (o && c) o.textContent = c.fmt ? c.fmt(S[k]) : S[k] + (c.u ? " " + c.u : "");
+  clearTimeout(update._t); update._t = setTimeout(() => update(el.tagName === "SELECT" || el.type === "checkbox"), el.type === "range" ? 60 : 0);
+});
+$("#eyeDist").value = S.eyeDist; $("#eyeDist").addEventListener("input", e => { S.eyeDist = +e.target.value; store.set("builder", S); prepInside(); });
+$("#cutaway").addEventListener("change", applyCutaway);
+
+// boot
+renderTabs(); renderResearch(); init3D(); initTracer(); update();
+$("#fov").value = S.fov || 70; $("#o_fov").textContent = (S.fov || 70) + "°";
+$("#fov").addEventListener("input", e => { S.fov = +e.target.value; $("#o_fov").textContent = S.fov + "°"; store.set("builder", S); });
+const syncFlat = () => { const f = !TR.ok || $("#flat").checked; $("#cgl").hidden = f; $("#trHint").hidden = f; }; $("#flat").addEventListener("change", syncFlat); syncFlat();
+let last = performance.now();
+function loop(now) {
+  const dt = Math.min(.1, (now - last) / 1000); last = now; drawSource(now / 1000);
+  if (tab === "v3d" && R3) frame3D(dt); else if (tab === "vin") { if (TR.ok && !$("#flat").checked) drawTrace(); else drawInside(); }
+  requestAnimationFrame(loop);
+}
+requestAnimationFrame(loop);
+</script>
