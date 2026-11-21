@@ -1,0 +1,10 @@
+{
+  "name": "קליידוסקופ לטלפון",
+  "short_name": "קליידוסקופ",
+  "start_url": "/phone#app",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "background_color": "#000000",
+  "theme_color": "#07090d",
+  "icons": [{ "src": "/assets/icon.svg", "sizes": "any", "type": "image/svg+xml" }]
+}

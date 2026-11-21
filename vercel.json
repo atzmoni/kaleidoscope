@@ -12,6 +12,10 @@
     {
       "source": "/guides",
       "destination": "/guides.html"
+    },
+    {
+      "source": "/phone",
+      "destination": "/kaleidoscope-phone.html"
     }
   ],
   "headers": [
