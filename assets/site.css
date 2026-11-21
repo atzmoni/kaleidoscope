@@ -55,6 +55,16 @@ section h2 { font-size: clamp(26px, 3.4vw, 36px); margin: 0 0 12px; line-height:
 .download p { color: #cfd7e3; }
 .small { color: var(--muted) !important; font-size: 14.5px; margin-top: 16px; }
 .foot { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; padding: 28px 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
+.videos { padding: 64px max(16px, 5vw); max-width: 1280px; margin: 0 auto; }
+.videos > p { color: var(--muted); margin: 0 0 24px; }
+.vgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px; }
+.vid { margin: 0; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+.vid video { width: 100%; aspect-ratio: 1; display: block; background: #000; }
+.vid figcaption { display: grid; grid-template-columns: 1fr auto; gap: 0 12px; padding: 12px 14px; align-items: center; }
+.vid b { font-size: 16px; }
+.vid span { grid-row: 2; color: var(--muted); font-size: 14px; }
+.vid a { grid-row: 1 / 3; grid-column: 2; font-size: 14px; text-decoration: none; border: 1px solid var(--line); padding: 6px 12px; border-radius: 10px; color: var(--fg); }
+.vid a:hover { border-color: var(--accent); }
 /* guides */
 .guide { max-width: 860px; margin: 0 auto; padding: 48px max(16px, 4vw) 80px; }
 .guide h1 { font-size: clamp(32px, 5vw, 48px); }

@@ -1,12 +1,46 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "rewrites": [
-    { "source": "/builder", "destination": "/kaleidoscope-builder.html" },
-    { "source": "/studio", "destination": "/kaleidoscope-studio.html" },
-    { "source": "/guides", "destination": "/guides.html" }
+    {
+      "source": "/builder",
+      "destination": "/kaleidoscope-builder.html"
+    },
+    {
+      "source": "/studio",
+      "destination": "/kaleidoscope-studio.html"
+    },
+    {
+      "source": "/guides",
+      "destination": "/guides.html"
+    }
   ],
   "headers": [
-    { "source": "/download/(.*)", "headers": [{ "key": "Content-Disposition", "value": "attachment" }] },
-    { "source": "/fonts/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }] }
+    {
+      "source": "/download/(.*)",
+      "headers": [
+        {
+          "key": "Content-Disposition",
+          "value": "attachment"
+        }
+      ]
+    },
+    {
+      "source": "/fonts/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/videos/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800"
+        }
+      ]
+    }
   ]
 }
