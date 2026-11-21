@@ -234,13 +234,14 @@ input[type=range]{width:100%;accent-color:var(--accent)}
           <h2 style="margin-top:0">פותחים בטלפון</h2>
           <p>סורקים את הקוד בטלפון שעליו תשב התפסנית. הקישור נושא איתו את המידות מהתבנית, כך שהמשולש נופל בדיוק מתחת למראות.</p>
           <p class="applink" id="appLink"></p>
-          <div class="actions"><a class="btn primary" id="appGo" href="#app">פתיחה כאן</a><button class="btn" id="bCopyLink">העתקת הקישור</button></div>
+          <div class="actions"><a class="btn primary" id="appGo" href="#app">פתיחה כאן</a><a class="btn" id="studioGo" href="studio?phone=">הסטודיו המלא בחצי מסך</a><button class="btn" id="bCopyLink">העתקת הקישור</button></div>
+          <p><b>שתי אפשרויות בטלפון:</b> האפליקציה הקלה (למעלה), או <b>הסטודיו המלא בחצי מסך</b>: כל הלשוניות של הסטודיו, סנכרון למוזיקה, ומופע הסלפי במצלמה הקדמית עם כמה שניות להחזיר את הטלפון לתפסנית.</p>
           <h3>מה יש באפליקציה</h3>
           <ul>
             <li><b>חצי תחתון:</b> משולש המקור מתחת למראות, כל השאר שחור.</li>
             <li><b>חצי עליון:</b> תצוגה חיה של מה שהעין רואה, 6 מצבים, ציור באצבע לתוך המשולש, פלטות, מהירות וגודל.</li>
             <li><b>חיישנים:</b> מיקרופון שמגיב למוזיקה, הטיית הטלפון מזיזה את התמונה, ניעור מחליף מצב, מצלמה אחורית כמקור.</li>
-            <li><b>תפריט:</b> דגם טלפון, כיול בעין דרך העינית, הפיכת צד, מסך מלא ומסך דלוק.</li>
+            <li><b>תפריט:</b> דגם טלפון, כיול בעין דרך העינית, הפיכת צד, מסך מלא ומסך דלוק, ומעבר לסטודיו המלא.</li>
           </ul>
           <p class="small">באייפון אין מסך מלא בדפדפן. כדי להסתיר את סרגל Safari: שיתוף ← "הוספה למסך הבית", ופותחים משם.</p>
         </div>
@@ -323,7 +324,7 @@ input[type=range]{width:100%;accent-color:var(--accent)}
         <div class="tg"><div>מסך דלוק<small>הטלפון לא נכבה באמצע</small></div><input type="checkbox" class="sw" id="mWake"></div>
         <div class="nudge" style="grid-template-columns:1fr 1fr"><button id="bFull">מסך מלא</button><button id="bReset">איפוס כיול</button></div>
         <p class="hint" id="calInfo"></p>
-        <div class="nudge" style="grid-template-columns:1fr"><button id="bExit">חזרה לתבנית ולאתר</button></div>
+        <div class="nudge" style="grid-template-columns:1fr"><button id="bStudio" style="background:var(--accent);color:var(--on-accent);border-color:var(--accent);font-weight:700">הסטודיו המלא בחצי מסך · סלפי ומוזיקה</button><button id="bExit">חזרה לתבנית ולאתר</button></div>
       </div>
     </div>
   </div>
@@ -747,6 +748,7 @@ function renderTemplate() {
   $('appLink').textContent = appURL(k);
   $('appGo').href = '#app=' + kitCode(k);
   $('openApp').href = '#app=' + kitCode(k);
+  $('studioGo').href = 'studio?phone=' + kitCode(k);
   if (qrReady) drawQR();
   if (V3.ready) V3.rebuild();
 }
@@ -1131,6 +1133,7 @@ const A = {
       else this.toast('מסך מלא לא זמין כאן. באייפון: שיתוף ← הוספה למסך הבית.', 3600);
     });
     $('bReset').addEventListener('click', () => { this.cal = { dx: 0, dy: 0, px: 1, sz: 1, flip: false }; this.saveCal(); });
+    $('bStudio').addEventListener('click', () => { location.href = 'studio?phone=' + btoa(unescape(encodeURIComponent(JSON.stringify(this.kit)))).replace(/=+$/, ''); });
     $('bExit').addEventListener('click', () => { history.replaceState(null, '', location.pathname); this.stop(); });
     document.addEventListener('visibilitychange', () => { if (!document.hidden && $('mWake').checked) this.setWake(true); });
   },
