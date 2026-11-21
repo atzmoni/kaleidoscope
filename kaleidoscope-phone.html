@@ -1,0 +1,1221 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>קליידוסקופ לטלפון</title>
+<meta name="description" content="תבנית לבניית קליידוסקופ קטן שנצמד לסמארטפון: חצי מסך מקרין לתוך המראות, והחצי השני נשאר בחוץ לעריכה, מצבים ותפריט.">
+<meta name="theme-color" content="#07090d">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="assets/phone.webmanifest">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="fonts/fonts.css">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+.kit-hero{padding:40px max(16px,5vw) 8px;max-width:1360px;margin:0 auto}
+.kit-hero h1{font-size:clamp(32px,5vw,54px);margin:0 0 10px}
+.kit-hero .lead{max-width:780px;margin:0 0 20px}
+.kit-wrap{display:grid;grid-template-columns:320px 1fr;gap:20px;padding:16px max(16px,5vw) 64px;max-width:1360px;margin:0 auto;align-items:start}
+.params{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px;position:sticky;top:76px;max-height:calc(100vh - 92px);overflow:auto}
+.params h3{font-size:14px;color:var(--accent);margin:16px 0 8px;font-family:var(--mono);letter-spacing:.03em}
+.params h3:first-child{margin-top:0}
+.fld{display:grid;grid-template-columns:1fr 92px;gap:8px;align-items:center;margin:6px 0;font-size:14.5px}
+.fld.full{grid-template-columns:1fr}
+.fld span{color:#cfd7e3}
+.fld small{grid-column:1/-1;color:var(--muted);font-size:12.5px;margin-top:-4px}
+input[type=number],select{width:100%;background:var(--bg);color:var(--fg);border:1px solid var(--line);border-radius:8px;padding:6px 8px;font:inherit;font-size:14px}
+input[type=number]{font-family:var(--mono);direction:ltr;text-align:left}
+input[type=range]{width:100%;accent-color:var(--accent)}
+.stage{min-width:0}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+.tabs button,.chip{background:var(--panel);color:var(--fg);border:1px solid var(--line);border-radius:999px;padding:8px 16px;font:inherit;font-size:15px;cursor:pointer}
+.tabs button.on,.chip.on{background:var(--accent);color:var(--on-accent);border-color:var(--accent);font-weight:700}
+.pane{display:none}.pane.on{display:block}
+.stats{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 12px}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:8px 12px;font-size:13px;color:var(--muted)}
+.stat b{display:block;color:var(--fg);font-family:var(--mono);font-size:16px;direction:ltr;text-align:right}
+.warn{background:#2a1a10;border:1px solid #6b3d1a;border-inline-start:3px solid var(--amber);border-radius:10px;padding:8px 12px;margin:6px 0;font-size:14.5px}
+.ok{background:#0f2420;border:1px solid #1d5a4c;border-inline-start:3px solid var(--accent);border-radius:10px;padding:8px 12px;margin:6px 0;font-size:14.5px}
+.actions{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.actions .btn{font-size:15px;padding:9px 16px;cursor:pointer}
+.sheets{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.sheet{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:10px}
+.sheet .sv{background:#f4f1ea;border-radius:8px;overflow:hidden}
+.sheet .sv svg{display:block;width:100%;height:auto}
+.sheet header{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:2px 2px 8px;font-size:14.5px}
+.sheet header button{background:var(--bg);color:var(--fg);border:1px solid var(--line);border-radius:8px;padding:4px 10px;cursor:pointer;font:inherit;font-size:13px}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:13.5px;color:var(--muted);margin:8px 0}
+.legend i{display:inline-block;width:18px;height:3px;vertical-align:middle;margin-inline-end:6px}
+.cut3d{position:relative;background:#05070a;border:1px solid var(--line);border-radius:16px;overflow:hidden;height:min(68vh,640px);touch-action:none}
+.cut3d canvas{display:block;width:100%;height:100%}
+.cut3d .ovl{position:absolute;inset-inline-end:12px;top:12px;display:flex;flex-direction:column;gap:6px;width:230px;background:rgba(10,13,19,.82);border:1px solid var(--line);border-radius:12px;padding:10px;font-size:13.5px}
+.cut3d .ovl label{display:flex;gap:8px;align-items:center}
+.cut3d .eyelbl{position:absolute;inset-inline-start:14px;bottom:12px;font-size:12.5px;color:var(--muted);pointer-events:none}
+.cut3d .loading{position:absolute;inset:0;display:grid;place-items:center;color:var(--muted)}
+.safety{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin-top:14px}
+.safety div{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px;font-size:14.5px}
+.safety b{display:block;color:var(--accent);margin-bottom:2px}
+.appbox{display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:start;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px}
+#qr{background:#fff;padding:10px;border-radius:12px;width:220px;height:220px;display:grid;place-items:center;color:#333;font-size:13px}
+#qr svg{width:200px;height:200px;display:block}
+.applink{font-family:var(--mono);font-size:12.5px;word-break:break-all;color:var(--muted);direction:ltr;text-align:left}
+.steps{counter-reset:s;list-style:none;padding:0;display:grid;gap:10px}
+.steps li{counter-increment:s;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px 12px 14px;display:grid;grid-template-columns:34px 1fr;gap:10px}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--accent);color:var(--on-accent);font-weight:800}
+.steps li b{display:block}
+.bom{width:100%;border-collapse:collapse;font-size:14.5px;margin:10px 0 18px}
+.bom th,.bom td{border-bottom:1px solid var(--line);padding:7px 8px;text-align:start}
+.bom td.n{font-family:var(--mono);direction:ltr;text-align:right}
+#printArea{display:none}
+@media (max-width:520px){.top nav a:first-child{display:none}}
+@media print{
+  body>*:not(#printArea){display:none!important}
+  #printArea{display:block}
+  #printArea svg{display:block;page-break-after:always;break-after:page}
+  body{background:#fff}
+}
+@media (max-width:900px){
+  .kit-wrap{grid-template-columns:1fr}
+  .params{position:static;max-height:none}
+  .appbox{grid-template-columns:1fr}
+  .cut3d .ovl{width:auto;inset-inline-start:12px;top:auto;bottom:12px;flex-direction:row;flex-wrap:wrap}
+  .cut3d .eyelbl{display:none}
+}
+
+/* ---------- phone app ---------- */
+#app{position:fixed;inset:0;background:#000;z-index:50;overflow:hidden;user-select:none;-webkit-user-select:none;touch-action:none}
+#app[hidden]{display:none}
+#gl{position:absolute;inset:0;width:100%;height:100%;display:block}
+#panel{position:absolute;inset-inline:0;top:0;display:flex;flex-direction:column;background:linear-gradient(#0c1017,#0a0d13);color:var(--fg);font-size:14px;border-bottom:1px solid #2b3446;padding-top:env(safe-area-inset-top)}
+#panel.flip{top:auto;bottom:0;border-bottom:0;border-top:1px solid #2b3446;padding-top:0;padding-bottom:env(safe-area-inset-bottom)}
+.ph-top{display:flex;align-items:center;gap:8px;padding:6px 10px 4px}
+#prevHole{width:72px;height:72px;border-radius:50%;flex:none;box-shadow:0 0 0 2px #2b3446,0 0 24px rgba(124,242,220,.18)}
+.ph-title{flex:1;min-width:0}
+.ph-title b{display:block;font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ph-title span{color:var(--muted);font-size:12px;display:block;line-height:1.3}
+.ib{background:#151b26;border:1px solid #2b3446;color:var(--fg);border-radius:11px;min-width:38px;height:38px;font-size:19px;display:grid;place-items:center;cursor:pointer;padding:0 8px;font-family:inherit}
+.ib.on{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.ph-tabs{display:flex;gap:4px;padding:0 10px 6px}
+.ph-tabs button{flex:1;background:#121722;color:var(--muted);border:1px solid #232b3a;border-radius:10px;padding:5px 2px;font:inherit;font-size:13.5px}
+.ph-tabs button.on{color:var(--on-accent);background:var(--accent);border-color:var(--accent);font-weight:700}
+.ph-body{flex:1;min-height:0;overflow:auto;padding:4px 10px 10px;-webkit-overflow-scrolling:touch;touch-action:pan-y}
+.ph-pane{display:none}.ph-pane.on{display:block}
+.modes{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.modes button{background:#121722;border:1px solid #232b3a;color:var(--fg);border-radius:12px;padding:8px 4px;font:inherit;font-size:14px}
+.modes button.on{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent);color:var(--accent);font-weight:700}
+.row{display:flex;align-items:center;gap:8px;margin:7px 0}
+.row label{flex:none;width:74px;color:#cfd7e3;font-size:13.5px}
+.row input[type=range]{flex:1}
+.tg{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#121722;border:1px solid #232b3a;border-radius:12px;padding:9px 12px;margin:6px 0}
+.tg small{display:block;color:var(--muted);font-size:12px}
+.sw{appearance:none;-webkit-appearance:none;width:44px;height:26px;border-radius:13px;background:#2b3446;position:relative;flex:none;margin:0}
+.sw::after{content:"";position:absolute;top:3px;inset-inline-start:3px;width:20px;height:20px;border-radius:50%;background:#cfd7e3;transition:.15s}
+.sw:checked{background:var(--accent)}
+.sw:checked::after{inset-inline-start:21px;background:var(--on-accent)}
+.edit{display:flex;gap:10px;align-items:flex-start}
+#pad{width:128px;height:128px;flex:none;border-radius:10px;background:#05070a;border:1px solid #2b3446;touch-action:none;position:relative}
+#pad canvas{width:100%;height:100%;display:block;border-radius:10px}
+#pad svg{position:absolute;inset:0;pointer-events:none}
+.brushes{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:6px}
+.brushes button{width:30px;height:30px;border-radius:50%;border:2px solid #2b3446}
+.brushes button.on{border-color:#fff}
+.pals{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.pals button{border:1px solid #232b3a;border-radius:10px;padding:6px;background:#121722;color:var(--fg);font:inherit;font-size:12.5px}
+.pals button.on{border-color:var(--accent)}
+.pals i{display:block;height:12px;border-radius:6px;margin-bottom:4px}
+.capline{position:absolute;inset-inline:0;bottom:-1px;height:0;pointer-events:none}
+.capline span{position:absolute;inset-inline-start:50%;transform:translate(50%,2px);font-size:11px;color:#5b6678;white-space:nowrap}
+#panel.flip .capline{bottom:auto;top:-1px}
+#menu{position:absolute;inset:0;background:#0a0d13;z-index:3;display:none;flex-direction:column}
+#menu.on{display:flex}
+#menu .ph-body{padding-top:8px}
+.nudge{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:6px 0}
+.nudge button{background:#121722;border:1px solid #232b3a;color:var(--fg);border-radius:10px;padding:9px 0;font:inherit;font-size:14px}
+.mono{font-family:var(--mono);direction:ltr;display:inline-block}
+.hint{color:var(--muted);font-size:12.5px;margin:4px 0 8px}
+.toast{position:absolute;left:50%;transform:translateX(-50%);top:40%;background:rgba(12,16,23,.92);border:1px solid #2b3446;border-radius:12px;padding:10px 16px;font-size:14px;color:var(--fg);z-index:5;opacity:0;transition:opacity .25s;pointer-events:none;max-width:86%;text-align:center}
+.toast.on{opacity:1}
+</style>
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="./"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 21 19H3Z"/></svg>קליידוסקופ</a>
+  <nav><a href="./#tools">הכלים</a><a href="#kit">תבנית לטלפון</a><a href="guides#phone">מדריך</a></nav>
+</header>
+
+<main id="kit">
+<section class="kit-hero">
+  <p class="eyebrow">ערכה קטנה · סמארטפון · 3 מראות</p>
+  <h1>קליידוסקופ שנצמד לטלפון</h1>
+  <p class="lead">תפסנית מרופדת נכנסת על החצי התחתון של הטלפון. החצי הזה מקרין משולש אחד לתוך המראות, והחצי העליון נשאר בחוץ לעריכה, החלפת מצבים ותפריט. בוחרים דגם, מורידים את התבנית, ופותחים את האפליקציה בטלפון.</p>
+  <div class="cta">
+    <a class="btn primary" href="#app" id="openApp">פתיחת האפליקציה בטלפון</a>
+    <a class="btn" href="#kit" data-go="template">לתבנית החיתוך</a>
+    <a class="btn" href="#kit" data-go="3d">להדגמת התלת-ממד</a>
+  </div>
+</section>
+
+<div class="kit-wrap">
+  <aside class="params" id="params">
+    <h3>הטלפון</h3>
+    <div class="fld full"><select id="pModel"></select></div>
+    <div class="fld"><span>רוחב (מ״מ)</span><input type="number" id="pW" step="0.1"></div>
+    <div class="fld"><span>גובה (מ״מ)</span><input type="number" id="pH" step="0.1"></div>
+    <div class="fld"><span>עובי (מ״מ)</span><input type="number" id="pD" step="0.1"></div>
+    <div class="fld"><span>רוחב המסך</span><input type="number" id="pSW" step="0.1"></div>
+    <div class="fld"><span>גובה המסך</span><input type="number" id="pSH" step="0.1"></div>
+    <div class="fld"><span>הכפתור הנמוך מהתחתית</span><input type="number" id="pBtn" step="1"><small>המרחק מתחתית הטלפון לקצה התחתון של הכפתור הנמוך בצד. המספרים בדגמים משוערים, כדאי למדוד.</small></div>
+    <div class="fld"><span>עובי כיסוי (0 בלי)</span><input type="number" id="pCase" step="0.1" min="0"></div>
+
+    <h3>התפסנית</h3>
+    <div class="fld"><span>אורך התפסנית (0 אוטומטי)</span><input type="number" id="pLc" step="1" min="0"></div>
+    <div class="fld"><span>עובי הלוח</span><input type="number" id="pT" step="0.5" min="1"></div>
+    <div class="fld"><span>עובי ריפוד EVA</span><input type="number" id="pF" step="0.5" min="0"></div>
+    <div class="fld"><span>מרווח חיכוך</span><input type="number" id="pC" step="0.1" min="0"></div>
+
+    <h3>המראות</h3>
+    <div class="fld"><span>צלע המשולש (0 אוטומטי)</span><input type="number" id="pS" step="1" min="0"></div>
+    <div class="fld"><span>עובי המראה</span><input type="number" id="pM" step="0.5" min="0.5"></div>
+    <div class="fld"><span>אורך : צלע</span><input type="number" id="pR" step="0.1" min="1.5" max="5"></div>
+    <div class="fld full"><select id="pEye"><option value="peep">עינית עם חור הצצה (חד ועגול)</option><option value="full">עינית פתוחה (משולש מלא)</option></select></div>
+
+    <h3>גיליון</h3>
+    <div class="fld full"><select id="pSheet"><option value="a4">הדפסה A4 (210×297)</option><option value="l300">לייזר 300×200</option><option value="l400">לייזר 400×300</option><option value="l600">לייזר 600×400</option></select></div>
+  </aside>
+
+  <div class="stage">
+    <nav class="tabs" id="tabs">
+      <button data-t="template" class="on">תבנית לחיתוך</button>
+      <button data-t="3d">הדגמת תלת-ממד</button>
+      <button data-t="app">אפליקציה בטלפון</button>
+      <button data-t="steps">הרכבה</button>
+    </nav>
+
+    <div class="pane on" id="t-template">
+      <div class="stats" id="stats"></div>
+      <div id="warns"></div>
+      <div class="actions">
+        <button class="btn primary" id="bPrint">הדפסה בגודל אמיתי</button>
+        <button class="btn" id="bSvgAll">כל הגיליונות (SVG)</button>
+        <button class="btn" id="bDxf">DXF ללייזר</button>
+        <button class="btn" id="bJson">קובץ תכנון (JSON)</button>
+      </div>
+      <div class="legend"><span><i style="background:#e0201b"></i>חיתוך</span><span><i style="background:#1f5bd8"></i>קיפול / חריטה</span><span><i style="background:#1d8f3a"></i>הערות, לא לחתוך</span></div>
+      <div class="sheets" id="sheets"></div>
+    </div>
+
+    <div class="pane" id="t-3d">
+      <div class="cut3d" id="box3d">
+        <div class="loading" id="load3d">טוען תלת-ממד…</div>
+        <div class="ovl">
+          <button class="btn primary" id="bAttach" style="padding:8px 12px">החלקת הטלפון לתפסנית</button>
+          <label style="display:block">פירוק לחלקים<input type="range" id="explode" min="0" max="1" step="0.01" value="0"></label>
+          <label><input type="checkbox" id="xSleeve"> שרוול שקוף (לראות את המראות)</label>
+          <label><input type="checkbox" id="xBtn" checked> הדגשת הכפתורים החופשיים</label>
+          <label><input type="checkbox" id="xSpin"> סיבוב אוטומטי</label>
+        </div>
+        <div class="eyelbl" id="eyeLbl">מבט דרך העינית ↑</div>
+      </div>
+      <div class="safety">
+        <div><b>ריפוד בכל נקודת מגע</b>קצף EVA בין הלוחות לטלפון, מכל ארבעת הצדדים. עץ או אקריליק לא נוגעים בזכוכית או במסגרת.</div>
+        <div><b>המראות לא נוגעות במסך</b>קצות המראות נחים על אטם הקצף, כ-2 מ״מ מעל הזכוכית.</div>
+        <div><b>כפתורים, מצלמות ושקע חופשיים</b>התפסנית נעצרת מתחת לכפתור הנמוך. בתחתית יש חלון לשקע, לרמקולים ולדחיפה.</div>
+        <div><b>חיכוך, בלי דבק</b>שום דבר לא נדבק לטלפון. נכנס ביד, יוצא בדחיפת אגודל דרך החריץ התחתון.</div>
+        <div><b>מסך פתוח לעריכה</b>החצי העליון של המסך נשאר בחוץ, למגע, לתפריט ולהחלפת מצבים.</div>
+      </div>
+    </div>
+
+    <div class="pane" id="t-app">
+      <div class="appbox">
+        <div id="qr">טוען קוד QR…</div>
+        <div>
+          <h2 style="margin-top:0">פותחים בטלפון</h2>
+          <p>סורקים את הקוד בטלפון שעליו תשב התפסנית. הקישור נושא איתו את המידות מהתבנית, כך שהמשולש נופל בדיוק מתחת למראות.</p>
+          <p class="applink" id="appLink"></p>
+          <div class="actions"><a class="btn primary" id="appGo" href="#app">פתיחה כאן</a><button class="btn" id="bCopyLink">העתקת הקישור</button></div>
+          <h3>מה יש באפליקציה</h3>
+          <ul>
+            <li><b>חצי תחתון:</b> משולש המקור מתחת למראות, כל השאר שחור.</li>
+            <li><b>חצי עליון:</b> תצוגה חיה של מה שהעין רואה, 6 מצבים, ציור באצבע לתוך המשולש, פלטות, מהירות וגודל.</li>
+            <li><b>חיישנים:</b> מיקרופון שמגיב למוזיקה, הטיית הטלפון מזיזה את התמונה, ניעור מחליף מצב, מצלמה אחורית כמקור.</li>
+            <li><b>תפריט:</b> דגם טלפון, כיול בעין דרך העינית, הפיכת צד, מסך מלא ומסך דלוק.</li>
+          </ul>
+          <p class="small">באייפון אין מסך מלא בדפדפן. כדי להסתיר את סרגל Safari: שיתוף ← "הוספה למסך הבית", ופותחים משם.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="pane" id="t-steps">
+      <h2>רשימת חלקים</h2>
+      <div class="tblwrap"><table class="bom" id="bom"></table></div>
+      <h2>הרכבה</h2>
+      <ol class="steps" id="steps"></ol>
+    </div>
+  </div>
+</div>
+</main>
+<footer class="foot">
+  <span>קליידוסקופ · Atzmoni</span>
+  <a href="./">ראשי</a><a href="builder">מחולל הקופסה</a><a href="studio">סטודיו</a><a href="guides#phone">מדריך הטלפון</a>
+</footer>
+<div id="printArea"></div>
+
+<!-- ================= phone app ================= -->
+<div id="app" hidden>
+  <canvas id="gl"></canvas>
+  <div id="panel">
+    <div class="ph-top">
+      <canvas id="prevHole" width="240" height="240" title="מה שרואים דרך העינית"></canvas>
+      <div class="ph-title"><b id="modeName">נוזל</b><span id="subName">בעיגול: מה שרואים בעינית</span></div>
+      <button class="ib" id="bPrev" aria-label="מצב קודם">›</button>
+      <button class="ib" id="bNext" aria-label="מצב הבא">‹</button>
+      <button class="ib" id="bMenu" aria-label="תפריט">☰</button>
+    </div>
+    <div class="ph-tabs" id="phTabs">
+      <button data-p="modes" class="on">מצבים</button>
+      <button data-p="edit">עריכה</button>
+      <button data-p="color">צבע</button>
+      <button data-p="sense">חיישנים</button>
+    </div>
+    <div class="ph-body">
+      <div class="ph-pane on" id="pp-modes">
+        <div class="modes" id="modeBtns"></div>
+        <div class="tg"><div>החלפה אוטומטית<small>כל 20 שניות, עם מעבר רך</small></div><input type="checkbox" class="sw" id="aAuto"></div>
+      </div>
+      <div class="ph-pane" id="pp-edit">
+        <div class="edit">
+          <div id="pad"><canvas id="padc" width="512" height="512"></canvas><svg viewBox="0 0 1 1" preserveAspectRatio="none"><polygon points="0,0.933 1,0.933 0.5,0.067" fill="none" stroke="#7cf2dc" stroke-width="0.008" stroke-dasharray="0.02 0.015"/></svg></div>
+          <div style="flex:1;min-width:0">
+            <div class="brushes" id="brushes"></div>
+            <div class="row"><label>מכחול</label><input type="range" id="aBrush" min="4" max="60" value="18"></div>
+            <div class="tg" style="padding:6px 10px"><div>דהייה</div><input type="checkbox" class="sw" id="aFade" checked></div>
+            <button class="ib" id="bClear" style="width:100%;font-size:14px">ניקוי הציור</button>
+          </div>
+        </div>
+        <p class="hint">מציירים באצבע בתוך המשולש. הציור נכנס למראות מיד, מעל המצב הנוכחי.</p>
+      </div>
+      <div class="ph-pane" id="pp-color">
+        <div class="pals" id="palBtns"></div>
+        <div class="row"><label>מהירות</label><input type="range" id="aSpeed" min="0" max="3" step="0.01" value="1"></div>
+        <div class="row"><label>גודל</label><input type="range" id="aScale" min="0.4" max="3" step="0.01" value="1"></div>
+        <div class="row"><label>גוון</label><input type="range" id="aHue" min="0" max="1" step="0.005" value="0"></div>
+        <div class="row"><label>בהירות</label><input type="range" id="aBright" min="0.3" max="1.8" step="0.01" value="1.1"></div>
+      </div>
+      <div class="ph-pane" id="pp-sense">
+        <div class="tg"><div>מיקרופון<small>התמונה פועמת עם המוזיקה בחדר</small></div><input type="checkbox" class="sw" id="aMic"></div>
+        <div class="tg"><div>הטיה<small>הטיית הטלפון מזיזה את הדפוס</small></div><input type="checkbox" class="sw" id="aTilt"></div>
+        <div class="tg"><div>ניעור<small>ניעור קל עובר למצב הבא</small></div><input type="checkbox" class="sw" id="aShake"></div>
+        <div class="tg"><div>מצלמה אחורית<small>מה שמול הטלפון נכנס למראות</small></div><input type="checkbox" class="sw" id="aCam"></div>
+      </div>
+    </div>
+    <div class="capline"><span id="capTxt">▼ כאן נכנסת התפסנית ▼</span></div>
+    <div id="menu">
+      <div class="ph-top"><div class="ph-title"><b>תפריט</b><span id="kitName"></span></div><button class="ib" id="bClose" aria-label="סגירה">✕</button></div>
+      <div class="ph-body">
+        <div class="row"><label>טלפון</label><select id="mModel" style="flex:1"></select></div>
+        <div class="tg"><div>מצב כיול<small>קו לבן סביב המשולש. מסתכלים בעינית ומזיזים עד שהקווים נעלמים בתפרים</small></div><input type="checkbox" class="sw" id="mCal"></div>
+        <div class="nudge"><button data-n="up">▲ למעלה</button><button data-n="down">▼ למטה</button><button data-n="right">▶ ימינה</button><button data-n="left">◀ שמאלה</button></div>
+        <div class="row"><label>קנה מידה</label><input type="range" id="mPx" min="0.85" max="1.15" step="0.002" value="1"><span class="mono" id="mPxV">100%</span></div>
+        <div class="row"><label>גודל משולש</label><input type="range" id="mSz" min="0.9" max="1.1" step="0.002" value="1"><span class="mono" id="mSzV">100%</span></div>
+        <div class="tg"><div>תפסנית למעלה<small>כשהתפסנית יושבת על הקצה העליון של הטלפון</small></div><input type="checkbox" class="sw" id="mFlip"></div>
+        <div class="tg"><div>מסך דלוק<small>הטלפון לא נכבה באמצע</small></div><input type="checkbox" class="sw" id="mWake"></div>
+        <div class="nudge" style="grid-template-columns:1fr 1fr"><button id="bFull">מסך מלא</button><button id="bReset">איפוס כיול</button></div>
+        <p class="hint" id="calInfo"></p>
+        <div class="nudge" style="grid-template-columns:1fr"><button id="bExit">חזרה לתבנית ולאתר</button></div>
+      </div>
+    </div>
+  </div>
+  <div class="toast" id="toast"></div>
+</div>
+
+<script>
+"use strict";
+/* =====================================================================
+   Kaleidoscope phone kit: geometry, template sheets, 3D demo, phone app
+   ===================================================================== */
+const SQ3 = Math.sqrt(3);
+const $ = id => document.getElementById(id);
+const store = {
+  get(k, d) { try { const v = localStorage.getItem(k); return v == null ? d : JSON.parse(v); } catch (e) { return d; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+};
+
+/* ---------- phones (approximate public dimensions, mm) ---------- */
+const PHONES = [
+  { id: 'iphone15', n: 'iPhone 15 / 16', W: 71.6, H: 147.6, D: 7.8, diag: 6.1, rx: 1179, ry: 2556, btn: 77 },
+  { id: 'iphone15pro', n: 'iPhone 15 Pro', W: 70.6, H: 146.6, D: 8.25, diag: 6.1, rx: 1179, ry: 2556, btn: 76 },
+  { id: 'iphone16pro', n: 'iPhone 16 Pro', W: 71.5, H: 149.6, D: 8.25, diag: 6.3, rx: 1206, ry: 2622, btn: 77 },
+  { id: 'iphone15plus', n: 'iPhone 15 / 16 Plus', W: 77.8, H: 160.9, D: 7.8, diag: 6.7, rx: 1290, ry: 2796, btn: 84 },
+  { id: 'iphone16pm', n: 'iPhone 16 Pro Max', W: 77.6, H: 163.0, D: 8.25, diag: 6.9, rx: 1320, ry: 2868, btn: 86 },
+  { id: 's24', n: 'Galaxy S24', W: 70.6, H: 147.0, D: 7.6, diag: 6.2, rx: 1080, ry: 2340, btn: 76 },
+  { id: 's24u', n: 'Galaxy S24 Ultra', W: 79.0, H: 162.3, D: 8.6, diag: 6.8, rx: 1440, ry: 3120, btn: 82 },
+  { id: 'a55', n: 'Galaxy A55', W: 77.4, H: 161.1, D: 8.2, diag: 6.6, rx: 1080, ry: 2340, btn: 80 },
+  { id: 'pixel8', n: 'Pixel 8', W: 70.8, H: 150.5, D: 8.9, diag: 6.2, rx: 1080, ry: 2400, btn: 68 },
+  { id: 'pixel8pro', n: 'Pixel 8 Pro', W: 76.5, H: 162.6, D: 8.8, diag: 6.7, rx: 1344, ry: 2992, btn: 72 },
+  { id: 'custom', n: 'מידות אחרות (מזינים ידנית)' }
+];
+PHONES.forEach(p => { if (p.diag) { const k = p.diag * 25.4 / Math.hypot(p.rx, p.ry); p.SW = +(p.rx * k).toFixed(1); p.SH = +(p.ry * k).toFixed(1); } });
+const phoneById = id => PHONES.find(p => p.id === id) || PHONES[0];
+
+const DEF = { model: 'iphone15', W: 71.6, H: 147.6, D: 7.8, SW: 0, SH: 0, btn: 77, caseT: 0, Lc: 0, t: 3, f: 2, c: 0.4, s: 0, m: 2, ratio: 2.5, eye: 'peep', sheet: 'a4' };
+function paramsForModel(id, base) {
+  const p = phoneById(id), o = Object.assign({}, DEF, base || {}, { model: id });
+  if (p.diag) Object.assign(o, { W: p.W, H: p.H, D: p.D, SW: p.SW, SH: p.SH, btn: p.btn });
+  return o;
+}
+
+/* ---------- kit geometry ---------- */
+function computeKit(P) {
+  const k = { P };
+  const ct = Math.max(0, +P.caseT || 0);
+  const Wp = P.W + 2 * ct, Hp = P.H + 2 * ct, Dp = P.D + 2 * ct;
+  const t = P.t, f = P.f, c = P.c;
+  const b = (Hp - P.SH) / 2;                       // screen bottom above body bottom
+  const Wi = Wp + 2 * c + 2 * f, Di = Dp + c + 2 * f; // inner cavity of the boards
+  const btn = P.btn + ct;
+  const Lc = P.Lc > 0 ? P.Lc : Math.round(Math.min(Hp * 0.47, btn - 4));
+  const Lp = Lc + t + f, Wo = Wi + 2 * t;
+  const lo = b + 1.5, hi = Lc - 3;
+  const sAuto = Math.floor(Math.min(P.SW - 6, (hi - lo) * 2 / SQ3, 62));
+  const s = P.s > 0 ? P.s : sAuto;
+  const hs = s * SQ3 / 2;
+  const cy = (lo + hi) / 2 - hs / 2 + hs / 3;       // triangle centroid above body bottom
+  const so = s + 2 * SQ3 * P.m + 0.6;               // outer side of the mirror prism (+ clearance)
+  const rim = 5, C = so + 2 * SQ3 * rim, tcut = 4;  // collar outer triangle (tips trimmed)
+  const Lt = Math.round(s * P.ratio);
+  const collarTop = cy + C / SQ3 - tcut;            // top of the collar above body bottom
+  Object.assign(k, { ct, Wp, Hp, Dp, t, f, c, b, Wi, Di, Lc, Lp, Wo, s, sAuto, hs, cy, so, rim, C, tcut, Lt, btn,
+    m: P.m, eye: P.eye,
+    tri: { tx: P.SW / 2, ty: cy - b },             // centroid in screen mm (from screen bottom-left)
+    capS: Math.max(Lc, collarTop) - b + 1.5        // screen height that the cradle hides
+  });
+  const w = [];
+  if (Lc > btn - 2) w.push('התפסנית מגיעה לגובה הכפתור הנמוך. מקצרים את "אורך התפסנית" או מודדים שוב את הכפתור.');
+  if (s < 36) w.push('המשולש קטן מ-36 מ״מ. הדפוס יעבוד, אבל נראה צפוף. שקלו טלפון גדול יותר או תפסנית ארוכה יותר.');
+  if (s > sAuto + 0.5) w.push('הצלע גדולה מהשטח שמתחת לתפסנית (' + sAuto + ' מ״מ). חלק מהמשולש ייפול מחוץ למסך או מתחת לשפה.');
+  if (Lt < 100) w.push('צינור קצר מ-100 מ״מ: לרוב העיניים קשה למקד כל כך קרוב. הגדילו את היחס אורך : צלע.');
+  if (P.ratio > 3.6) w.push('צינור ארוך מאוד ביחס לצלע: יותר החזרות, התמונה כהה יותר בשוליים.');
+  if (collarTop > Lc + 1) w.push('הצווארון בולט ' + (collarTop - Lc).toFixed(0) + ' מ״מ מעבר לתפסנית, מעל המסך ולא נוגע בו. האפליקציה מתחשבת בזה.');
+  if (P.SH > Hp - 1 || P.SW > Wp - 1) w.push('מידות המסך גדולות ממידות הטלפון. בדקו את השדות.');
+  k.warns = w;
+  k.parts = buildParts(k);
+  return k;
+}
+
+/* ---------- 2D helpers (part coords: mm, y up) ---------- */
+function triPts(cx, cy, side) { const r = side / (2 * SQ3); return [[cx - side / 2, cy - r], [cx + side / 2, cy - r], [cx, cy + 2 * r]]; }
+function truncTri(cx, cy, side, cut) {
+  const v = triPts(cx, cy, side), out = [];
+  for (let i = 0; i < 3; i++) {
+    const p = v[i], a = v[(i + 2) % 3], b = v[(i + 1) % 3];
+    const da = Math.hypot(a[0] - p[0], a[1] - p[1]), db = Math.hypot(b[0] - p[0], b[1] - p[1]);
+    out.push([p[0] + (a[0] - p[0]) * cut / da, p[1] + (a[1] - p[1]) * cut / da]);
+    out.push([p[0] + (b[0] - p[0]) * cut / db, p[1] + (b[1] - p[1]) * cut / db]);
+  }
+  return out;
+}
+function circlePts(cx, cy, r, n) { const o = []; n = n || 40; for (let i = 0; i < n; i++) { const a = i / n * Math.PI * 2; o.push([cx + Math.cos(a) * r, cy + Math.sin(a) * r]); } return o; }
+function roundRectPts(x, y, w, h, r, n) {
+  r = Math.min(r, w / 2, h / 2); n = n || 6; const o = [];
+  const cs = [[x + w - r, y + r, -90], [x + w - r, y + h - r, 0], [x + r, y + h - r, 90], [x + r, y + r, 180]];
+  cs.forEach(([cx, cy, a0]) => { for (let i = 0; i <= n; i++) { const a = (a0 + 90 * i / n) * Math.PI / 180; o.push([cx + Math.cos(a) * r, cy + Math.sin(a) * r]); } });
+  return o;
+}
+// walk from A to B, adding rectangular notches (depth>0, to the left = inward for CCW) or tabs (depth<0)
+function edgeWalk(out, A, B, ivs, depth) {
+  const L = Math.hypot(B[0] - A[0], B[1] - A[1]), d = [(B[0] - A[0]) / L, (B[1] - A[1]) / L], n = [-d[1], d[0]];
+  out.push(A.slice());
+  ivs.slice().sort((p, q) => p[0] - q[0]).forEach(([a, b]) => {
+    const P = s => [A[0] + d[0] * s, A[1] + d[1] * s];
+    const p1 = P(a), p2 = P(b);
+    out.push(p1, [p1[0] + n[0] * depth, p1[1] + n[1] * depth], [p2[0] + n[0] * depth, p2[1] + n[1] * depth], p2);
+  });
+}
+function spread(from, to, count, len) { const o = []; for (let i = 0; i < count; i++) { const c = from + (to - from) * (i + 0.5) / count; o.push([c - len / 2, c + len / 2]); } return o; }
+
+function buildParts(k) {
+  const { t, f, Wo, Lp, Wi, Di, Dp, Wp, c, s, so, C, tcut, Lt, cy } = k;
+  const parts = [];
+  const nSide = Math.max(2, Math.round((Lp - t) / 24));
+  const sideIv = spread(t + 2, Lp - 2, nSide, Math.min(10, (Lp - t) / nSide * 0.55));       // along plate y
+  const botIv = spread(t + 4, Wo - t - 4, 2, Math.min(12, Wi * 0.18));                        // along plate x
+  const winC = [Wo / 2, t + f + cy];
+
+  function plate(withThumb) {
+    const o = [];
+    edgeWalk(o, [0, 0], [Wo, 0], botIv, t);
+    edgeWalk(o, [Wo, 0], [Wo, Lp], sideIv, t);
+    if (withThumb) {
+      const r = 10; o.push([Wo, Lp], [Wo / 2 + r, Lp]);
+      for (let i = 1; i < 16; i++) { const a = -i / 16 * Math.PI; o.push([Wo / 2 + Math.cos(a) * r, Lp + Math.sin(a) * r]); }
+      o.push([Wo / 2 - r, Lp]);
+    } else o.push([Wo, Lp]);
+    edgeWalk(o, [0, Lp], [0, 0], sideIv.map(([a, b]) => [Lp - b, Lp - a]), t);
+    return o;
+  }
+  parts.push({ id: 'front', name: 'לוח קדמי (עם חלון)', mat: 'board', qty: 1, w: Wo, h: Lp, out: plate(false), holes: [triPts(winC[0], winC[1], so)], lab: [Wo / 2, 6] });
+  parts.push({ id: 'back', name: 'לוח אחורי', mat: 'board', qty: 1, w: Wo, h: Lp, out: plate(true), holes: [], lab: [Wo / 2, Lp / 2] });
+
+  // side wall: u along length (=plate y), v across (0 back .. Di front); tabs outward into the plates
+  const sw = []; edgeWalk(sw, [0, 0], [Lp, 0], sideIv, -t); edgeWalk(sw, [Lp, 0], [Lp, Di], [], 0); edgeWalk(sw, [Lp, Di], [0, Di], sideIv.map(([a, b]) => [Lp - b, Lp - a]), -t); sw.push([0, Di]);
+  parts.push({ id: 'side', name: 'דופן צד', mat: 'board', qty: 2, w: Lp, h: Di, yOff: t, out: sw, holes: [], lab: [Lp / 2, Di / 2] });
+
+  // bottom wall: x along width between the side walls, with a window for the port, speakers and thumb push
+  const bw = [], bIv = botIv.map(([a, b]) => [a - t, b - t]);
+  edgeWalk(bw, [0, 0], [Wi, 0], bIv, -t); edgeWalk(bw, [Wi, 0], [Wi, Di], [], 0); edgeWalk(bw, [Wi, Di], [0, Di], bIv.map(([a, b]) => [Wi - b, Wi - a]), -t); bw.push([0, Di]);
+  const pw = Math.min(Wi - 14, Wp * 0.62), ph = Math.max(3.5, Math.min(Di - 2 * f - 0.5, Dp * 0.7));
+  const port = roundRectPts(Wi / 2 - pw / 2, f + (Dp + c) / 2 - ph / 2, pw, ph, ph / 2, 6);
+  parts.push({ id: 'bottom', name: 'דופן תחתונה (חלון לשקע)', mat: 'board', qty: 1, w: Wi, h: Di, yOff: t, out: bw, holes: [port], lab: [Wi / 2, Di + 0.1] , labOut: true });
+
+  // collars and eyepiece: truncated triangles centred on the prism
+  const cc = [C / 2, C / (2 * SQ3)];
+  parts.push({ id: 'collar', name: 'צווארון למראות', mat: 'board', qty: 3, w: C, h: C * SQ3 / 2, out: truncTri(cc[0], cc[1], C, tcut), holes: [triPts(cc[0], cc[1], so)], lab: [cc[0], 3] });
+  const eyeHole = k.eye === 'full' ? triPts(cc[0], cc[1], Math.max(10, s - 3)) : circlePts(cc[0], cc[1], 4.5, 36);
+  parts.push({ id: 'cap', name: 'עינית', mat: 'board', qty: 1, w: C, h: C * SQ3 / 2, out: truncTri(cc[0], cc[1], C, tcut), holes: [eyeHole], lab: [cc[0], 3] });
+
+  // foam (EVA) liners
+  const gH = Lp - t;
+  parts.push({ id: 'gasket', name: 'אטם קדמי (קצף)', mat: 'foam', qty: 1, w: Wi, h: gH, out: roundRectPts(0, 0, Wi, gH, 0.01, 1), holes: [triPts(Wi / 2, f + cy, s + 0.4)], lab: [Wi / 2, 5] });
+  parts.push({ id: 'bliner', name: 'ריפוד אחורי (קצף)', mat: 'foam', qty: 1, w: Wi, h: gH, out: roundRectPts(0, 0, Wi, gH, 0.01, 1), holes: [], lab: [Wi / 2, gH / 2] });
+  parts.push({ id: 'sliner', name: 'ריפוד צד (קצף)', mat: 'foam', qty: 2, w: Lp - t - f, h: Di - 2 * f, out: roundRectPts(0, 0, Lp - t - f, Di - 2 * f, 0.01, 1), holes: [], lab: [(Lp - t - f) / 2, (Di - 2 * f) / 2] });
+  const blH = Di - 2 * f;
+  parts.push({ id: 'botliner', name: 'ריפוד תחתון (קצף)', mat: 'foam', qty: 1, w: Wi, h: blH, out: roundRectPts(0, 0, Wi, blH, 0.01, 1), holes: [roundRectPts(Wi / 2 - pw / 2, blH / 2 - ph / 2, pw, ph, ph / 2, 6)], lab: [Wi / 2, blH + 0.1], labOut: true });
+
+  // paper sleeve around the mirror prism (3 panels + glue tab), score lines between panels
+  const pnl = so + 0.4, tab = 9, sl = Lt;
+  const sleeve = [[0, 0], [3 * pnl, 0], [3 * pnl + tab, 3], [3 * pnl + tab, sl - 3], [3 * pnl, sl], [0, sl]];
+  parts.push({ id: 'sleeve', name: 'שרוול לצינור (קרטון שחור)', mat: 'paper', qty: 1, w: 3 * pnl + tab, h: sl, out: sleeve, holes: [], score: [[[pnl, 0], [pnl, sl]], [[2 * pnl, 0], [2 * pnl, sl]], [[3 * pnl, 0], [3 * pnl, sl]]], lab: [pnl * 1.5, sl / 2] });
+
+  // mirrors (for a glass/acrylic cutter or to order)
+  const mw = +(s - 0.3).toFixed(1);
+  parts.push({ id: 'mirror', name: 'מראה חזיתית ' + mw + '×' + Lt, mat: 'mirror', qty: 3, w: mw, h: Lt, out: roundRectPts(0, 0, mw, Lt, 0.01, 1), holes: [], lab: [mw / 2, Lt / 2] });
+  return parts;
+}
+
+/* ---------- sheet packing ---------- */
+const SHEETS = { a4: [210, 297, 'A4'], l300: [300, 200, '300×200'], l400: [400, 300, '400×300'], l600: [600, 400, '600×400'] };
+const MATS = { board: 'לוח ' , foam: 'קצף EVA ', paper: 'קרטון / נייר', mirror: 'מראה' };
+function pack(k, sheetKey) {
+  const [SW, SH] = SHEETS[sheetKey], M = 7, G = 4, out = [];
+  ['board', 'foam', 'paper', 'mirror'].forEach(mat => {
+    const items = [];
+    k.parts.filter(p => p.mat === mat).forEach(p => { for (let i = 0; i < p.qty; i++) items.push(p); });
+    items.sort((a, b) => Math.max(b.w, b.h) - Math.max(a.w, a.h));
+    let sheet = null, x = M, y = M, rowH = 0;
+    const newSheet = () => { sheet = { mat, W: SW, H: SH, items: [] }; out.push(sheet); x = M; y = M; rowH = 0; };
+    items.forEach(p => {
+      const ext = p.yOff || 0; // tabs below/above
+      const dims = [[p.w, p.h + 2 * ext, false], [p.h + 2 * ext, p.w, true]];
+      const fits = d => d[0] <= SW - 2 * M && d[1] <= SH - 2 * M - 10;
+      let tries = 0;
+      for (;;) {
+        if (!sheet) newSheet();
+        // prefer orientation that keeps rows low
+        let cand = dims.filter(fits).sort((a, b) => a[1] - b[1]);
+        if (!cand.length) { cand = [dims[0]]; }
+        let placed = false;
+        for (const d of cand) {
+          if (x + d[0] <= SW - M) { if (y + d[1] <= SH - M - 10) { sheet.items.push({ p, x, y, rot: d[2], w: d[0], h: d[1] }); x += d[0] + G; rowH = Math.max(rowH, d[1]); placed = true; break; } }
+        }
+        if (placed) break;
+        if (x > M) { x = M; y += rowH + G; rowH = 0; } else { newSheet(); }
+        if (++tries > 8) { sheet.items.push({ p, x: M, y: M, rot: false, w: p.w, h: p.h, over: true }); break; }
+      }
+    });
+  });
+  return out;
+}
+
+/* ---------- SVG / DXF ---------- */
+const COL = { cut: '#e0201b', score: '#1f5bd8', note: '#1d8f3a' };
+function placeFn(it, H) { // part coords (y up) -> sheet coords (y down)
+  const p = it.p, ext = p.yOff || 0;
+  return ([x, y]) => {
+    let X, Y;
+    if (!it.rot) { X = it.x + x; Y = it.y + (p.h + ext) - y; }
+    else { X = it.x + (y + ext); Y = it.y + x; }
+    return [X, Y];
+  };
+}
+const fmt = v => (Math.round(v * 100) / 100).toString();
+function polyD(pts, tf, close) { return pts.map((q, i) => { const [X, Y] = tf(q); return (i ? 'L' : 'M') + fmt(X) + ' ' + fmt(Y); }).join('') + (close ? 'Z' : ''); }
+function sheetSVG(sh, idx, total, k, forPrint) {
+  const { W, H } = sh;
+  let s = `<svg xmlns="http://www.w3.org/2000/svg" width="${W}mm" height="${H}mm" viewBox="0 0 ${W} ${H}">`;
+  s += `<rect x="0" y="0" width="${W}" height="${H}" fill="#fff"/>`;
+  sh.items.forEach(it => {
+    const tf = placeFn(it, H), p = it.p;
+    s += `<path d="${polyD(p.out, tf, true)}${p.holes.map(h => polyD(h, tf, true)).join('')}" fill="${p.mat === 'mirror' ? '#dfe7ef' : 'none'}" fill-rule="evenodd" stroke="${COL.cut}" stroke-width="0.2"/>`;
+    (p.score || []).forEach(l => { s += `<path d="${polyD(l, tf, false)}" fill="none" stroke="${COL.score}" stroke-width="0.2" stroke-dasharray="2 1.2"/>`; });
+    const [lx, ly] = tf(p.lab), fs = Math.max(2.2, Math.min(4, Math.min(p.w, p.h) * 0.3));
+    const dy = p.labOut ? (it.rot ? 0 : -1.2) : fs * 0.35;
+    s += `<text x="${fmt(lx)}" y="${fmt(ly + dy)}" font-size="${fs}" fill="${COL.note}" text-anchor="middle" font-family="Arial, sans-serif"${it.rot ? ` transform="rotate(-90 ${fmt(lx)} ${fmt(ly)})"` : ''}>${p.name}</text>`;
+  });
+  // scale bar + title (notes layer)
+  const y0 = H - 6;
+  s += `<path d="M7 ${y0}h50M7 ${y0 - 2}v4M57 ${y0 - 2}v4" stroke="${COL.note}" stroke-width="0.3" fill="none"/>`;
+  s += `<text x="60" y="${y0 + 1.2}" font-size="3" fill="${COL.note}" font-family="Arial, sans-serif">50 mm · בדקו בסרגל לפני החיתוך</text>`;
+  s += `<text x="${W - 7}" y="${y0 + 1.2}" font-size="3" fill="${COL.note}" text-anchor="end" font-family="Arial, sans-serif">${esc(k.P.modelName || '')} · ${MATS[sh.mat]}${sh.mat === 'board' ? k.t + ' mm' : sh.mat === 'foam' ? k.f + ' mm' : ''} · ${idx + 1}/${total}</text>`;
+  return s + '</svg>';
+}
+function esc(t) { return String(t).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c])); }
+function dxfAll(sheets) {
+  const L = ['0', 'SECTION', '2', 'ENTITIES'];
+  let ox = 0;
+  sheets.forEach(sh => {
+    if (sh.mat === 'mirror') return;
+    const line = (a, b, layer) => { L.push('0', 'LINE', '8', layer, '10', fmt(a[0] + ox), '20', fmt(sh.H - a[1]), '11', fmt(b[0] + ox), '21', fmt(sh.H - b[1])); };
+    sh.items.forEach(it => {
+      const tf = placeFn(it, sh.H), p = it.p;
+      [p.out].concat(p.holes).forEach(poly => { const q = poly.map(tf); for (let i = 0; i < q.length; i++) line(q[i], q[(i + 1) % q.length], 'CUT_' + sh.mat.toUpperCase()); });
+      (p.score || []).forEach(l => { const q = l.map(tf); for (let i = 0; i < q.length - 1; i++) line(q[i], q[i + 1], 'SCORE'); });
+    });
+    // sheet border on its own layer
+    [[0, 0], [sh.W, 0], [sh.W, sh.H], [0, sh.H]].forEach((a, i, arr) => line(a, arr[(i + 1) % 4], 'SHEET'));
+    ox += sh.W + 20;
+  });
+  L.push('0', 'ENDSEC', '0', 'EOF');
+  return L.join('\n');
+}
+function download(name, text, type) {
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([text], { type: type || 'text/plain' }));
+  a.download = name; document.body.appendChild(a); a.click();
+  setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
+}
+
+/* =====================================================================
+   Shared GLSL: the source image that goes under the mirrors
+   ===================================================================== */
+const GLSL_SRC = `
+uniform float uT, uMode, uScale, uHue, uBright, uAudio, uDrawOn, uCamOn, uFade, uCamAsp;
+uniform vec2 uTilt;
+uniform vec3 uC1, uC2, uC3;
+uniform sampler2D uDraw, uCam;
+const float TH = 0.8660254;
+mat2 rot2(float a){ float c=cos(a), s=sin(a); return mat2(c,-s,s,c); }
+float h21(vec2 p){ return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453); }
+vec2 h22(vec2 p){ return fract(sin(vec2(dot(p,vec2(127.1,311.7)),dot(p,vec2(269.5,183.3))))*43758.5453); }
+float vnoise(vec2 p){ vec2 i=floor(p), f=fract(p); f=f*f*(3.-2.*f);
+  return mix(mix(h21(i),h21(i+vec2(1.,0.)),f.x),mix(h21(i+vec2(0.,1.)),h21(i+vec2(1.,1.)),f.x),f.y); }
+float fbm(vec2 p){ float s=0., a=.5; for(int i=0;i<5;i++){ s+=a*vnoise(p); p=p*2.03+vec2(1.7,9.2); a*=.5; } return s; }
+vec3 pal(float x){ x=fract(x); vec3 c;
+  if(x<1./3.) c=mix(uC1,uC2,x*3.); else if(x<2./3.) c=mix(uC2,uC3,x*3.-1.); else c=mix(uC3,uC1,x*3.-2.);
+  return c; }
+float triSD(vec2 p){ float r=0.288675; return max(-p.y-r, max(dot(p,vec2(TH,.5))-r, dot(p,vec2(-TH,.5))-r)); }
+vec3 baseColor(vec2 p, float m){
+  float t=uT, au=uAudio;
+  vec2 q=p/uScale + uTilt*0.22;
+  vec3 c=vec3(0.);
+  if(m<0.5){ // liquid ink
+    vec2 w=q*2.4;
+    float a=fbm(w+vec2(t*.13,-t*.09));
+    float b=fbm(w*1.3+vec2(a*2.,t*.1));
+    float v=fbm(w+vec2(b*2.6,a*2.)-t*.05);
+    c=pal(v*1.7+uHue+t*.015)*(0.25+v*1.25);
+  } else if(m<1.5){ // beads
+    c=vec3(0.015,0.02,0.035);
+    for(int i=0;i<11;i++){ float fi=float(i);
+      vec2 o=vec2(sin(t*(.31+.06*fi)+fi*2.1), cos(t*(.23+.05*fi)+fi*1.3))*vec2(.42,.36)+vec2(0.,.06);
+      float r=(.05+.06*h21(vec2(fi,3.)))*(1.+au*.5);
+      float d=length(q-o);
+      vec3 col=pal(fi*.137+uHue);
+      c=mix(c, col*(1.2-d/r*.55), smoothstep(r, r*.6, d)*.92);
+      c+=col*.22*exp(-d*d/(r*r*5.));
+    }
+  } else if(m<2.5){ // flower of life
+    vec2 z=rot2(t*.04)*q*4.2;
+    vec2 l=vec2(z.x - z.y/1.7320508, z.y/TH);
+    vec2 li=floor(l); float dm=9.;
+    for(int j=-2;j<=2;j++) for(int i=-2;i<=2;i++){
+      vec2 g=li+vec2(float(i),float(j)); vec2 cc=vec2(g.x+g.y*.5, g.y*TH);
+      dm=min(dm, abs(length(z-cc)-1.));
+    }
+    float ln=exp(-dm*dm*600.), gl=exp(-dm*14.);
+    float pulse=.75+.25*sin(t*.8+length(z)*1.3)+au*.6;
+    c=mix(uC3*.18, pal(.12+uHue+length(z)*.04+t*.01), ln)*pulse + pal(.4+uHue)*gl*.35;
+  } else if(m<3.5){ // rings
+    float v=0.;
+    for(int i=0;i<3;i++){ float fi=float(i); vec2 o=vec2(sin(t*.21+fi*2.),cos(t*.17+fi*1.3))*.4; v+=sin(length(q-o)*(22.+au*10.)-t*2.+fi*1.7); }
+    c=pal(v*.12+uHue+t*.03)*(0.5+0.5*sin(v*1.4+.5));
+  } else if(m<4.5){ // glass shards (voronoi)
+    vec2 z=q*5.2; vec2 i0=floor(z), f0=fract(z); float md=8., md2=8.; vec2 id=vec2(0.);
+    for(int y=-1;y<=1;y++) for(int x=-1;x<=1;x++){
+      vec2 g=vec2(float(x),float(y)); vec2 o=h22(i0+g); o=.5+.42*sin(t*.35+6.2831*o);
+      vec2 r=g+o-f0; float d=dot(r,r);
+      if(d<md){ md2=md; md=d; id=i0+g; } else if(d<md2) md2=d;
+    }
+    float e=sqrt(md2)-sqrt(md);
+    c=pal(h21(id)+uHue+t*.01)*(0.55+0.6*h21(id+7.))*smoothstep(.015,.07,e);
+    c+=vec3(1.)*pow(max(0.,1.-e*9.),8.)*.08;
+  } else { // camera
+    vec2 uv=vec2(p.x/uScale, (p.y-0.144)/uScale)*0.95 + .5;
+    if(uCamAsp>1.) uv.x=(uv.x-.5)/uCamAsp+.5; else uv.y=(uv.y-.5)*uCamAsp+.5;
+    c = uCamOn>.5 ? texture2D(uCam, clamp(uv,0.,1.)).rgb : vec3(0.05);
+    c = mix(c, c*pal(uHue+.2)*1.6, step(.001,uHue));
+  }
+  return c;
+}
+vec3 srcColor(vec2 p){
+  vec3 c=baseColor(p, uMode);
+  if(uDrawOn>.5){ vec4 d=texture2D(uDraw, vec2(p.x+.5, p.y+0.355662)); c=mix(c, d.rgb, d.a); }
+  return c*uBright*(1.+uAudio*.5)*uFade;
+}
+// fold any point into the base triangle (60-60-60 mirrors) and count the bounces
+vec3 kaleido(vec2 p){
+  float k=0.;
+  for(int i=0;i<14;i++){
+    float d0=-p.y-0.288675; if(d0>0.){ p.y+=2.*d0; k+=1.; }
+    float d1=dot(p,vec2(TH,.5))-0.288675; if(d1>0.){ p-=2.*d1*vec2(TH,.5); k+=1.; }
+    float d2=dot(p,vec2(-TH,.5))-0.288675; if(d2>0.){ p-=2.*d2*vec2(-TH,.5); k+=1.; }
+  }
+  vec3 c=srcColor(p)*pow(.93,k);
+  float e=-triSD(p); c*=smoothstep(0.,.012,e)*.35+.65; // faint seams
+  return c;
+}`;
+
+const PALS = [
+  ['אורורה', '#7cf2dc', '#7b5cff', '#ff4f7b'],
+  ['פרח החיים', '#ffd36b', '#3bd16f', '#0b3d2e'],
+  ['שקיעה', '#ff7a3d', '#ff3d7f', '#ffd166'],
+  ['אוקיינוס', '#00c2ff', '#1f3fbf', '#7cf2dc'],
+  ['לילך', '#c86bff', '#ff9de2', '#4a2a8e'],
+  ['מונו', '#ffffff', '#7f8a99', '#202733']
+];
+const MODES = ['נוזל', 'חרוזים', 'פרח החיים', 'גלים', 'זכוכית', 'מצלמה'];
+const hex3 = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16) / 255);
+
+/* =====================================================================
+   Template page UI
+   ===================================================================== */
+const FIELDS = { pW: 'W', pH: 'H', pD: 'D', pSW: 'SW', pSH: 'SH', pBtn: 'btn', pCase: 'caseT', pLc: 'Lc', pT: 't', pF: 'f', pC: 'c', pS: 's', pM: 'm', pR: 'ratio' };
+let P = store.get('kphone.params', null) || paramsForModel('iphone15');
+P = Object.assign({}, DEF, P);
+if (!P.SW) P = paramsForModel(P.model, P);
+let KIT = null, SHEETS_CUR = [];
+
+function fillModelSelect(sel) { sel.innerHTML = PHONES.map(p => `<option value="${p.id}">${p.n}</option>`).join(''); }
+function syncForm() {
+  $('pModel').value = P.model;
+  for (const id in FIELDS) $(id).value = +(+P[FIELDS[id]]).toFixed(2);
+  $('pEye').value = P.eye; $('pSheet').value = P.sheet;
+}
+function readForm() {
+  for (const id in FIELDS) { const v = parseFloat($(id).value); if (!isNaN(v)) P[FIELDS[id]] = v; }
+  P.eye = $('pEye').value; P.sheet = $('pSheet').value;
+}
+function kitCode(k) {
+  const o = { n: phoneById(k.P.model).n, sw: k.P.SW, sh: k.P.SH, s: k.s, tx: +k.tri.tx.toFixed(2), ty: +k.tri.ty.toFixed(2), cap: +k.capS.toFixed(1), id: k.P.model };
+  return btoa(unescape(encodeURIComponent(JSON.stringify(o)))).replace(/=+$/, '');
+}
+function appURL(k) {
+  const base = /^https?:/.test(location.protocol) ? location.origin + location.pathname : 'https://kaleidoscope-tab2.vercel.app/phone';
+  return base + '#app=' + kitCode(k);
+}
+
+function renderTemplate() {
+  P.modelName = phoneById(P.model).n;
+  KIT = computeKit(P);
+  store.set('kphone.params', P);
+  const k = KIT;
+  const st = [
+    ['צלע המשולש', k.s + ' מ״מ'], ['אורך הצינור', k.Lt + ' מ״מ'], ['התפסנית', fmt(k.Wo) + '×' + fmt(k.Lp) + '×' + fmt(k.Di + 2 * k.t)],
+    ['מסתירה מהמסך', Math.round(k.capS / k.P.SH * 100) + '%'], ['מראות', '3 × ' + fmt(k.s - 0.3) + '×' + k.Lt], ['גובה כולל', Math.round(k.Di + 2 * k.t + k.Lt + k.t) + ' מ״מ']
+  ];
+  $('stats').innerHTML = st.map(([a, b]) => `<div class="stat">${a}<b>${b}</b></div>`).join('');
+  $('warns').innerHTML = k.warns.length ? k.warns.map(w => `<div class="warn">${w}</div>`).join('') : `<div class="ok">הכול מסתדר: הכפתורים חופשיים, המשולש בתוך המסך, והצינור באורך נוח למיקוד.</div>`;
+  SHEETS_CUR = pack(k, P.sheet);
+  $('sheets').innerHTML = SHEETS_CUR.map((sh, i) => `<div class="sheet"><header><span>${MATS[sh.mat]}${sh.mat === 'board' ? k.t + ' מ״מ' : sh.mat === 'foam' ? k.f + ' מ״מ' : ''} · גיליון ${i + 1}</span><button data-svg="${i}">SVG</button></header><div class="sv">${sheetSVG(sh, i, SHEETS_CUR.length, k)}</div></div>`).join('');
+  // BOM + steps
+  const rows = k.parts.map(p => `<tr><td>${p.name}</td><td>${MATS[p.mat]}${p.mat === 'board' ? k.t + ' מ״מ' : p.mat === 'foam' ? k.f + ' מ״מ' : ''}</td><td class="n">${p.qty}</td><td class="n">${fmt(p.w)} × ${fmt(p.h + 2 * (p.yOff || 0))}</td></tr>`).join('');
+  $('bom').innerHTML = `<tr><th>חלק</th><th>חומר</th><th>כמות</th><th>מידות (מ״מ)</th></tr>${rows}<tr><td>סרט הדבקה שחור</td><td>בד או נייר</td><td class="n">1</td><td class="n">≈ ${Math.round(k.Lt * 3 / 10) * 10 + 200} mm</td></tr>`;
+  const steps = [
+    ['מדפיסים או חותכים', 'בהדפסה בוחרים "גודל אמיתי" (100%) ובודקים את קו ה-50 מ״מ בסרגל. בלייזר: אדום חיתוך, כחול חריטה קלה, ירוק לא לחתוך.'],
+    ['מרכיבים את התפסנית', 'שתי דפנות הצד והדופן התחתונה נכנסות בשיניים ללוח האחורי, ואז הלוח הקדמי מלמעלה. דבק עץ או דבק מגע בשוליים בלבד.'],
+    ['מרפדים', 'מדביקים את הקצף על הדפנות, על הלוח האחורי ועל צד הפנים של הלוח הקדמי. החלון באטם הקדמי חייב להתיישר עם החלון בלוח.'],
+    ['מנסים את הטלפון בלי מראות', 'הטלפון צריך להיכנס בדחיפה עדינה ולא ליפול כשהופכים. רפוי: עוד שכבת קצף דקה מאחור. צפוף: משייפים את הקצף, לא את הטלפון.'],
+    ['מקפלים את המראות', 'שלוש המראות צד אל צד, הצד המחזיר כלפי מטה, סרט לאורך שני התפרים מבחוץ, ומקפלים למשולש. הניילון יורד רק עכשיו.'],
+    ['עוטפים בשרוול', 'השרוול מתקפל על הקווים הכחולים ונסגר בלשונית. הוא מגן על קצוות הזכוכית ומחשיך את הצינור.'],
+    ['מחברים את הצינור', 'מדביקים שני צווארונים זה על זה מעל החלון. מחליקים את הצינור דרך הצווארונים עד שהוא נח על הקצף, לא על הזכוכית.'],
+    ['סוגרים בעינית', 'הצווארון השלישי והעינית מודבקים יחד ונלבשים על הקצה העליון של הצינור.'],
+    ['מכיילים', 'פותחים את האפליקציה בטלפון, מחליקים אותו לתפסנית, ובתפריט ← מצב כיול מזיזים עד שהקו הלבן נעלם בתפרים.']
+  ];
+  $('steps').innerHTML = steps.map(([a, b]) => `<li><div><b>${a}</b>${b}</div></li>`).join('');
+  // app link
+  $('appLink').textContent = appURL(k);
+  $('appGo').href = '#app=' + kitCode(k);
+  $('openApp').href = '#app=' + kitCode(k);
+  if (qrReady) drawQR();
+  if (V3.ready) V3.rebuild();
+}
+
+let qrReady = false, qrLoading = false;
+function loadScript(src) { return new Promise((res, rej) => { const s = document.createElement('script'); s.src = src; s.onload = res; s.onerror = rej; document.head.appendChild(s); }); }
+function drawQR() {
+  const el = $('qr'); el.innerHTML = '';
+  try { const q = qrcode(0, 'M'); q.addData(appURL(KIT)); q.make(); el.innerHTML = q.createSvgTag(4, 0); const sv = el.querySelector('svg'); sv.setAttribute('width', 200); sv.setAttribute('height', 200); } catch (e) { el.textContent = 'לא הצלחתי ליצור קוד QR. העתיקו את הקישור.'; }
+}
+function ensureQR() {
+  if (qrReady || qrLoading) return; qrLoading = true;
+  loadScript('assets/qrcode-generator.js').then(() => { qrReady = true; drawQR(); })
+    .catch(() => { $('qr').textContent = 'לא הצלחתי לטעון את קוד ה-QR. העתיקו את הקישור.'; });
+}
+
+function setTab(t) {
+  document.querySelectorAll('#tabs button').forEach(b => b.classList.toggle('on', b.dataset.t === t));
+  document.querySelectorAll('.pane').forEach(p => p.classList.toggle('on', p.id === 't-' + t));
+  if (t === '3d') V3.init();
+  if (t === 'app') ensureQR();
+  V3.visible = t === '3d';
+  store.set('kphone.tab', t);
+}
+
+function initTemplate() {
+  fillModelSelect($('pModel'));
+  syncForm();
+  $('pModel').addEventListener('change', e => { P = paramsForModel(e.target.value, P); if (e.target.value === 'custom') P.model = 'custom'; P.Lc = 0; P.s = 0; syncForm(); renderTemplate(); });
+  document.querySelectorAll('#params input, #params select:not(#pModel)').forEach(el => el.addEventListener('input', () => { readForm(); if (P.model !== 'custom' && ['pW', 'pH', 'pD', 'pSW', 'pSH', 'pBtn'].includes(el.id)) { P.model = 'custom'; $('pModel').value = 'custom'; } renderTemplate(); }));
+  document.querySelectorAll('#tabs button').forEach(b => b.addEventListener('click', () => setTab(b.dataset.t)));
+  document.querySelectorAll('[data-go]').forEach(a => a.addEventListener('click', () => setTab(a.dataset.go)));
+  $('sheets').addEventListener('click', e => { const i = e.target.dataset && e.target.dataset.svg; if (i != null) download(`phone-kaleidoscope-${SHEETS_CUR[i].mat}-${+i + 1}.svg`, sheetSVG(SHEETS_CUR[i], +i, SHEETS_CUR.length, KIT), 'image/svg+xml'); });
+  $('bSvgAll').addEventListener('click', () => SHEETS_CUR.forEach((sh, i) => setTimeout(() => download(`phone-kaleidoscope-${sh.mat}-${i + 1}.svg`, sheetSVG(sh, i, SHEETS_CUR.length, KIT), 'image/svg+xml'), i * 350)));
+  $('bDxf').addEventListener('click', () => download('phone-kaleidoscope.dxf', dxfAll(SHEETS_CUR), 'application/dxf'));
+  $('bJson').addEventListener('click', () => download('phone-kaleidoscope.json', JSON.stringify({ params: P, kit: { s: KIT.s, Lt: KIT.Lt, Lc: KIT.Lc, outer: [KIT.Wo, KIT.Lp, KIT.Di + 2 * KIT.t], screenTriangle: KIT.tri, capScreenMm: KIT.capS }, parts: KIT.parts.map(p => ({ name: p.name, mat: p.mat, qty: p.qty, w: p.w, h: p.h })) }, null, 2), 'application/json'));
+  $('bPrint').addEventListener('click', () => {
+    const pa = $('printArea');
+    pa.innerHTML = SHEETS_CUR.filter(sh => sh.mat !== 'mirror').map((sh, i) => sheetSVG(sh, i, SHEETS_CUR.length, KIT)).join('');
+    let st = $('pageSize'); if (!st) { st = document.createElement('style'); st.id = 'pageSize'; document.head.appendChild(st); }
+    const [w, h] = SHEETS[P.sheet]; st.textContent = `@page{size:${w}mm ${h}mm;margin:0}`;
+    setTimeout(() => window.print(), 50);
+  });
+  $('bCopyLink').addEventListener('click', () => { const u = appURL(KIT); (navigator.clipboard ? navigator.clipboard.writeText(u) : Promise.reject()).then(() => { $('bCopyLink').textContent = 'הועתק'; }, () => { prompt('הקישור:', u); }); });
+  renderTemplate();
+  const t0 = store.get('kphone.tab', 'template'); setTab(['template', '3d', 'app', 'steps'].includes(t0) ? t0 : 'template');
+}
+
+/* =====================================================================
+   3D demo (three.js r128, loaded on demand)
+   ===================================================================== */
+const V3 = {
+  ready: false, loading: false, visible: false, a: 1, target: 1, explode: 0,
+  init() {
+    if (this.ready || this.loading) return; this.loading = true;
+    loadScript('assets/three.min.js').then(() => this.setup()).catch(() => { $('load3d').textContent = 'לא הצלחתי לטעון את three.js.'; });
+  },
+  setup() {
+    const box = $('box3d');
+    const R = this.renderer = new THREE.WebGLRenderer({ antialias: true });
+    R.setPixelRatio(Math.min(2, devicePixelRatio)); R.autoClear = false;
+    box.insertBefore(R.domElement, box.firstChild); $('load3d').remove();
+    this.scene = new THREE.Scene(); this.scene.background = new THREE.Color(0x05070a);
+    this.cam = new THREE.PerspectiveCamera(38, 1, 1, 4000);
+    this.scene.add(new THREE.HemisphereLight(0xcfe3ff, 0x101318, 0.75));
+    const d1 = new THREE.DirectionalLight(0xffffff, 0.9); d1.position.set(160, 260, 140); this.scene.add(d1);
+    const d2 = new THREE.DirectionalLight(0x7cf2dc, 0.35); d2.position.set(-200, 80, -160); this.scene.add(d2);
+    const floor = new THREE.Mesh(new THREE.CircleGeometry(420, 64), new THREE.MeshPhongMaterial({ color: 0x0b0e14, shininess: 5 }));
+    floor.rotation.x = -Math.PI / 2; floor.position.y = -0.5; this.scene.add(floor);
+    this.root = new THREE.Group(); this.scene.add(this.root);
+    // uniforms shared with the source shader
+    const dummy = new THREE.DataTexture(new Uint8Array([0, 0, 0, 0]), 1, 1, THREE.RGBAFormat); dummy.needsUpdate = true;
+    const pal = PALS[0].slice(1).map(h => new THREE.Vector3(...hex3(h)));
+    this.U = { uT: { value: 0 }, uMode: { value: 0 }, uScale: { value: 1 }, uHue: { value: 0 }, uBright: { value: 1.15 }, uAudio: { value: 0 }, uDrawOn: { value: 0 }, uCamOn: { value: 0 }, uFade: { value: 1 }, uCamAsp: { value: 1 },
+      uTilt: { value: new THREE.Vector2() }, uC1: { value: pal[0] }, uC2: { value: pal[1] }, uC3: { value: pal[2] }, uDraw: { value: dummy }, uCam: { value: dummy } };
+    // eyepiece inset (orthographic quad with the fold shader)
+    this.eyeScene = new THREE.Scene(); this.eyeCam = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
+    this.eyeMat = new THREE.ShaderMaterial({ uniforms: this.U, vertexShader: 'varying vec2 vP; void main(){ vP=position.xy; gl_Position=vec4(position.xy,0.,1.); }',
+      fragmentShader: 'precision highp float; varying vec2 vP;' + GLSL_SRC + ' void main(){ float r=length(vP); if(r>1.) { gl_FragColor=vec4(0.02,0.027,0.04,1.); return; } vec3 c=kaleido(vP*1.25)*smoothstep(1.,.82,r); gl_FragColor=vec4(c,1.); }' });
+    this.eyeScene.add(new THREE.Mesh(new THREE.PlaneGeometry(2, 2), this.eyeMat));
+    // orbit
+    this.th = 0.85; this.ph = 0.62; this.dist = 560; this.tgt = new THREE.Vector3(0, 40, -60);
+    let drag = null;
+    const el = R.domElement;
+    el.addEventListener('pointerdown', e => { drag = { x: e.clientX, y: e.clientY, th: this.th, ph: this.ph }; el.setPointerCapture(e.pointerId); $('xSpin').checked = false; });
+    el.addEventListener('pointermove', e => { if (!drag) return; this.th = drag.th - (e.clientX - drag.x) * 0.008; this.ph = Math.max(0.12, Math.min(1.5, drag.ph - (e.clientY - drag.y) * 0.008)); });
+    el.addEventListener('pointerup', () => drag = null);
+    el.addEventListener('wheel', e => { e.preventDefault(); this.dist = Math.max(150, Math.min(1100, this.dist * (1 + Math.sign(e.deltaY) * 0.08))); }, { passive: false });
+    $('bAttach').addEventListener('click', () => { this.a = 0; this.target = 1; $('explode').value = 0; this.explode = 0; });
+    $('explode').addEventListener('input', e => { this.explode = +e.target.value; });
+    $('xSleeve').addEventListener('change', () => this.applyLook());
+    $('xBtn').addEventListener('change', () => this.applyLook());
+    new ResizeObserver(() => this.resize()).observe(box);
+    this.ready = true; this.rebuild(); this.resize();
+    this.a = 0; this.target = 1;
+    const loop = (ts) => { requestAnimationFrame(loop); if (this.visible) this.frame(ts / 1000); };
+    requestAnimationFrame(loop);
+  },
+  resize() { const b = $('box3d'), w = b.clientWidth, h = b.clientHeight; this.renderer.setSize(w, h); this.cam.aspect = w / h; this.cam.updateProjectionMatrix(); this.w = w; this.h = h; },
+  shapeFrom(out, holes) {
+    const s = new THREE.Shape(out.map(p => new THREE.Vector2(p[0], p[1])));
+    holes.forEach(h => s.holes.push(new THREE.Path(h.slice().reverse().map(p => new THREE.Vector2(p[0], p[1])))));
+    return s;
+  },
+  ext(out, holes, depth, mat) { return new THREE.Mesh(new THREE.ExtrudeGeometry(this.shapeFrom(out, holes), { depth, bevelEnabled: false, curveSegments: 6 }), mat); },
+  rebuild() {
+    const k = KIT, T = THREE, root = this.root;
+    while (root.children.length) { const o = root.children.pop(); o.traverse(m => { if (m.geometry) m.geometry.dispose(); }); }
+    const part = id => k.parts.find(p => p.id === id);
+    const wood = new T.MeshPhongMaterial({ color: 0xa8865c, shininess: 12 });
+    const woodEdge = new T.MeshPhongMaterial({ color: 0x8f6f48, shininess: 10 });
+    const foam = new T.MeshPhongMaterial({ color: 0x2b3446, shininess: 2 });
+    const mirror = new T.MeshPhongMaterial({ color: 0xc8d3e0, specular: 0xffffff, shininess: 260 });
+    this.sleeveMat = new T.MeshPhongMaterial({ color: 0x15171c, shininess: 8, transparent: true, opacity: 1 });
+    const { t, f, Wo, Lp, Wi, Di, Wp, Hp, Dp, cy, Lt, s, so, C, tcut } = k;
+    const G = n => { const g = new T.Group(); g.name = n; root.add(g); return g; };
+    this.groups = {};
+    // ---- cradle ----
+    const gBack = this.groups.back = G('back');
+    const back = this.ext(part('back').out, part('back').holes, t, wood); back.rotation.x = -Math.PI / 2; back.position.set(-Wo / 2, 0, 0); gBack.add(back);
+    const bl = new T.Mesh(new T.BoxGeometry(Wi, f, Lp - t), foam); bl.position.set(0, t + f / 2, -t - (Lp - t) / 2); gBack.add(bl);
+    const gFront = this.groups.front = G('front');
+    const fr = this.ext(part('front').out, part('front').holes, t, wood); fr.rotation.x = -Math.PI / 2; fr.position.set(-Wo / 2, t + Di, 0); gFront.add(fr);
+    const ga = part('gasket'); const gm = this.ext(ga.out, ga.holes, f, foam); gm.rotation.x = -Math.PI / 2; gm.position.set(-Wi / 2, t + Di - f, -t); gFront.add(gm);
+    const Zc = -(t + f + cy);
+    [0, 1].forEach(i => { const cl = this.ext(truncTri(0, 0, C, tcut), [triPts(0, 0, so)], t, i ? wood : woodEdge); cl.rotation.x = -Math.PI / 2; cl.position.set(0, t + Di + t * (1 + i), Zc); gFront.add(cl); });
+    const sd = part('side');
+    this.groups.sideL = G('sideL'); this.groups.sideR = G('sideR');
+    [['sideL', -Wo / 2], ['sideR', Wo / 2 - t]].forEach(([n, x]) => {
+      const m = this.ext(sd.out, [], t, woodEdge); m.rotation.y = Math.PI / 2; m.position.set(x, t, 0); this.groups[n].add(m);
+      const li = new T.Mesh(new T.BoxGeometry(f, Di - 2 * f, Lp - t - f), foam);
+      li.position.set(x < 0 ? -Wo / 2 + t + f / 2 : Wo / 2 - t - f / 2, t + Di / 2, -t - f - (Lp - t - f) / 2); this.groups[n].add(li);
+    });
+    const bw = part('bottom'), gBot = this.groups.bottom = G('bottom');
+    const bm = this.ext(bw.out, bw.holes, t, woodEdge); bm.position.set(-Wi / 2, t, -t); gBot.add(bm);
+    const blr = part('botliner'); const blm = this.ext(blr.out, blr.holes, f, foam); blm.position.set(-Wi / 2, t + f, -t - f); gBot.add(blm);
+    // ---- mirror tube ----
+    const gTube = this.groups.tube = G('tube');
+    const y0 = t + Di, inr = s / (2 * SQ3);
+    [[0, 1], [0.8660254, -0.5], [-0.8660254, -0.5]].forEach(([nx, nz]) => {
+      const mm = new T.Mesh(new T.BoxGeometry(s, Lt, k.m), mirror);
+      mm.rotation.y = Math.atan2(nx, nz);
+      mm.position.set(nx * (inr + k.m / 2), y0 + Lt / 2, Zc + nz * (inr + k.m / 2)); gTube.add(mm);
+    });
+    const sl = this.ext(triPts(0, 0, so + 0.8), [triPts(0, 0, so)], Lt, this.sleeveMat); sl.rotation.x = -Math.PI / 2; sl.position.set(0, y0, Zc); gTube.add(sl);
+    // eye collar + cap
+    const gEye = this.groups.eye = G('eye');
+    const ec = this.ext(truncTri(0, 0, C, tcut), [triPts(0, 0, so)], t, woodEdge); ec.rotation.x = -Math.PI / 2; ec.position.set(0, y0 + Lt - t, Zc); gEye.add(ec);
+    const capHole = k.eye === 'full' ? triPts(0, 0, Math.max(10, s - 3)) : circlePts(0, 0, 4.5, 36);
+    const cp = this.ext(truncTri(0, 0, C, tcut), [capHole], t, wood); cp.rotation.x = -Math.PI / 2; cp.position.set(0, y0 + Lt, Zc); gEye.add(cp);
+    // ---- phone ----
+    const gPh = this.groups.phone = G('phone');
+    const rr = Math.min(10, Wp * 0.14);
+    const body = this.ext(roundRectPts(-Wp / 2, 0, Wp, Hp, rr, 8), [], Dp, new T.MeshPhongMaterial({ color: 0x1b1e24, specular: 0x666666, shininess: 60 }));
+    body.rotation.x = -Math.PI / 2; body.position.set(0, t + f, -(t + f)); gPh.add(body);
+    const scrMat = new T.ShaderMaterial({ uniforms: Object.assign({ uScr: { value: new T.Vector2(k.P.SW, k.P.SH) }, uTri: { value: new T.Vector3(k.tri.tx, k.tri.ty, s) }, uCap: { value: k.capS } }, this.U),
+      vertexShader: 'varying vec2 vUv; void main(){ vUv=uv; gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.); }',
+      fragmentShader: 'precision highp float; varying vec2 vUv; uniform vec2 uScr; uniform vec3 uTri; uniform float uCap;' + GLSL_SRC + `
+        float rbox(vec2 p, vec2 b, float r){ vec2 q=abs(p)-b+r; return length(max(q,0.))+min(max(q.x,q.y),0.)-r; }
+        void main(){
+          vec2 mm=vUv*uScr;
+          if(rbox(mm-uScr*.5, uScr*.5, 7.)>0.) { gl_FragColor=vec4(0.02,0.02,0.025,1.); return; }
+          vec3 c=vec3(0.);
+          vec2 p=(mm-uTri.xy)/uTri.z;
+          if(triSD(p)<0.03) c=srcColor(p);
+          if(mm.y>uCap){ // control half mock
+            vec2 q=mm-vec2(0.,uCap);
+            float H=uScr.y-uCap;
+            c=mix(vec3(.045,.06,.085), vec3(.03,.04,.055), q.y/H);
+            vec2 pc=vec2(9.,H-11.); float pr=length(q-pc);
+            if(pr<7.5) c=kaleido((q-pc)/7.5*1.25)*smoothstep(7.5,6.,pr);
+            if(rbox(q-vec2(uScr.x*.55,H-11.), vec2(uScr.x*.28,2.2),1.)<0.) c=vec3(.16,.2,.27);
+            for(int i=0;i<3;i++) for(int j=0;j<2;j++){ vec2 bc=vec2(uScr.x*(.2+.3*float(i)), H-27.-float(j)*9.); if(rbox(q-bc, vec2(uScr.x*.13,3.4),1.6)<0.) c= (i==0&&j==0)? vec3(.49,.95,.86)*.85 : vec3(.09,.11,.15); }
+            for(int i=0;i<2;i++){ float yy=H-48.-float(i)*7.; if(abs(q.y-yy)<.5 && abs(q.x-uScr.x*.5)<uScr.x*.38) c=vec3(.25,.3,.38); if(length(q-vec2(uScr.x*(.35+.2*float(i)),yy))<1.6) c=vec3(.49,.95,.86); }
+          }
+          gl_FragColor=vec4(c,1.);
+        }` });
+    const scr = new T.Mesh(new T.PlaneGeometry(k.P.SW, k.P.SH), scrMat);
+    scr.rotation.x = -Math.PI / 2; scr.position.set(0, t + f + Dp + 0.08, -(t + f) - Hp / 2); gPh.add(scr);
+    // side buttons (approximate): highlight that they stay outside the cradle
+    this.btnMat = new T.MeshPhongMaterial({ color: 0x3bd16f, emissive: 0x0f5a2a });
+    const btn = k.btn, bz = z => -(t + f) - z;
+    [[-1, btn + 2, 13], [-1, btn + 18, 13], [1, btn + 4, 20]].forEach(([sx, from, len]) => {
+      const b = new T.Mesh(new T.BoxGeometry(1.4, Dp * 0.42, len), this.btnMat); b.position.set(sx * (Wp / 2 + 0.6), t + f + Dp / 2, bz(from + len / 2)); gPh.add(b);
+    });
+    // camera bump (back, top) for context
+    const cam = new T.Mesh(new T.BoxGeometry(Wp * 0.42, 1.6, Wp * 0.42), new T.MeshPhongMaterial({ color: 0x23262d, shininess: 50 }));
+    cam.position.set(-Wp * 0.22, t + f - 0.8, -(t + f) - Hp + Wp * 0.26); gPh.add(cam);
+    this.applyLook();
+  },
+  applyLook() {
+    if (!this.sleeveMat) return;
+    const tr = $('xSleeve').checked; this.sleeveMat.opacity = tr ? 0.18 : 1; this.sleeveMat.depthWrite = !tr;
+    this.btnMat.color.set($('xBtn').checked ? 0x3bd16f : 0x2a2d33); this.btnMat.emissive.set($('xBtn').checked ? 0x0f5a2a : 0x000000);
+  },
+  frame(time) {
+    const k = KIT, U = this.U, e = this.explode;
+    U.uT.value = time * 0.9; U.uMode.value = Math.floor(time / 9) % 5;
+    this.a += (this.target - this.a) * 0.035;
+    const g = this.groups, a = this.a;
+    const slide = (1 - Math.min(1, a * 1.02));
+    g.phone.position.x = 0;
+    g.phone.position.z = -(k.Lc + 45) * (slide < 0.001 ? 0 : (1 - Math.pow(1 - slide, 2)));
+    g.back.position.y = -40 * e;
+    g.sideL.position.x = -34 * e; g.sideR.position.x = 34 * e;
+    g.bottom.position.z = 34 * e;
+    g.front.position.y = 40 * e;
+    g.tube.position.y = 80 * e;
+    g.eye.position.y = 120 * e;
+    g.phone.position.y = 2 * e;
+    if ($('xSpin').checked) this.th += 0.004;
+    const c = this.cam, tg = this.tgt;
+    tg.set(0, 55 + 35 * e, -k.Hp * 0.42);
+    c.position.set(tg.x + this.dist * Math.sin(this.th) * Math.cos(this.ph), tg.y + this.dist * Math.sin(this.ph), tg.z + this.dist * Math.cos(this.th) * Math.cos(this.ph));
+    c.lookAt(tg);
+    const R = this.renderer;
+    R.setViewport(0, 0, this.w, this.h); R.setScissorTest(false); R.clear(); R.render(this.scene, c);
+    const sz = Math.min(170, Math.round(Math.min(this.w, this.h) * 0.3)), pad = 14;
+    R.setScissorTest(true); R.setScissor(pad, pad + 18, sz, sz); R.setViewport(pad, pad + 18, sz, sz); R.clear(); R.render(this.eyeScene, this.eyeCam); R.setScissorTest(false);
+    $('eyeLbl').style.bottom = '8px';
+  }
+};
+
+/* =====================================================================
+   Phone app: half the screen under the mirrors, half for editing
+   ===================================================================== */
+const A = {
+  on: false, mode: 0, pal: 0, cal: null, kit: null, t: 0, last: 0, fade: 1, audio: 0, tilt: [0, 0], tiltT: [0, 0],
+  st: { speed: 1, scale: 1, hue: 0, bright: 1.1, auto: false, brush: 18, fade: true, mic: false, tilt: false, shake: false, camOn: false, color: 0 },
+  start(code) {
+    this.on = true; document.body.style.overflow = 'hidden';
+    $('app').hidden = false;
+    let kit = null;
+    if (code) { try { kit = JSON.parse(decodeURIComponent(escape(atob(code)))); } catch (e) {} }
+    if (!kit) kit = store.get('kphone.appkit', null);
+    if (!kit) { const k = computeKit(paramsForModel(this.guessModel())); kit = JSON.parse(decodeURIComponent(escape(atob(kitCode(k))))); }
+    this.setKit(kit);
+    Object.assign(this.st, store.get('kphone.appst', {}));
+    this.mode = store.get('kphone.mode', 0); this.pal = store.get('kphone.pal', 0);
+    if (!this.gl) this.setup();
+    this.syncUI(); this.layout();
+    if (!store.get('kphone.seen', false)) { this.toast('מחליקים את הטלפון לתפסנית. הכיול נמצא בתפריט ☰', 4200); store.set('kphone.seen', true); }
+  },
+  stop() {
+    this.on = false; $('app').hidden = true; document.body.style.overflow = '';
+    this.setMic(false); this.setCam(false);
+    if (this.wake) { try { this.wake.release(); } catch (e) {} this.wake = null; }
+    if (document.fullscreenElement) document.exitFullscreen().catch(() => {});
+  },
+  guessModel() { const ua = navigator.userAgent; if (/iPhone/.test(ua)) return screen.height >= 926 ? 'iphone15plus' : 'iphone15'; if (/Pixel/.test(ua)) return 'pixel8'; return /Android/.test(ua) ? 's24' : 'iphone15'; },
+  setKit(kit) {
+    this.kit = kit; store.set('kphone.appkit', kit);
+    const cals = store.get('kphone.cal', {}); this.cal = Object.assign({ dx: 0, dy: 0, px: 1, sz: 1, flip: false }, cals[kit.id || 'x'] || {});
+    $('kitName').textContent = (kit.n || '') + ' · משולש ' + kit.s + ' מ״מ';
+  },
+  saveCal() { const cals = store.get('kphone.cal', {}); cals[this.kit.id || 'x'] = this.cal; store.set('kphone.cal', cals); this.layout(); },
+  saveSt() { store.set('kphone.appst', this.st); store.set('kphone.mode', this.mode); store.set('kphone.pal', this.pal); },
+  setup() {
+    const cv = $('gl');
+    const gl = this.gl = cv.getContext('webgl', { antialias: false, alpha: false, preserveDrawingBuffer: false });
+    if (!gl) { this.toast('הדפדפן הזה לא תומך ב-WebGL', 6000); return; }
+    const vs = 'attribute vec2 aP; void main(){ gl_Position=vec4(aP,0.,1.); }';
+    const fs = 'precision highp float;' + GLSL_SRC + `
+      uniform vec2 uCen; uniform float uSide, uRotA, uBleed, uCal, uDpr; uniform vec3 uPrev;
+      void main(){
+        vec2 fc=gl_FragCoord.xy;
+        vec2 dp=fc-uPrev.xy; float pr=length(dp);
+        if(uPrev.z>0. && pr<uPrev.z){ vec3 c=kaleido(dp/uPrev.z*1.25)*smoothstep(uPrev.z, uPrev.z*.84, pr); gl_FragColor=vec4(c,1.); return; }
+        vec2 p=rot2(uRotA)*((fc-uCen)/uSide);
+        float sd=triSD(p);
+        vec3 c=vec3(0.);
+        if(sd<uBleed) c=srcColor(p);
+        if(uCal>.5){
+          float px=uDpr/uSide;
+          if(abs(sd)<px*1.2) c=vec3(1.);
+          if((abs(p.x)<px*.8 && abs(p.y)<.04) || (abs(p.y)<px*.8 && abs(p.x)<.04)) c=vec3(1.,.3,.4);
+        }
+        gl_FragColor=vec4(c,1.);
+      }`;
+    const sh = (type, src) => { const s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(s)); return s; };
+    const pr = this.prog = gl.createProgram(); gl.attachShader(pr, sh(gl.VERTEX_SHADER, vs)); gl.attachShader(pr, sh(gl.FRAGMENT_SHADER, fs)); gl.linkProgram(pr);
+    if (!gl.getProgramParameter(pr, gl.LINK_STATUS)) throw new Error(gl.getProgramInfoLog(pr));
+    gl.useProgram(pr);
+    const b = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, b); gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]), gl.STATIC_DRAW);
+    const loc = gl.getAttribLocation(pr, 'aP'); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+    this.u = {}; ['uT', 'uMode', 'uScale', 'uHue', 'uBright', 'uAudio', 'uDrawOn', 'uCamOn', 'uFade', 'uCamAsp', 'uTilt', 'uC1', 'uC2', 'uC3', 'uDraw', 'uCam', 'uCen', 'uSide', 'uRotA', 'uBleed', 'uCal', 'uDpr', 'uPrev'].forEach(n => this.u[n] = gl.getUniformLocation(pr, n));
+    const mkTex = () => { const t = gl.createTexture(); gl.bindTexture(gl.TEXTURE_2D, t); gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, 1, 1, 0, gl.RGBA, gl.UNSIGNED_BYTE, new Uint8Array([0, 0, 0, 0]));
+      [gl.TEXTURE_WRAP_S, gl.TEXTURE_WRAP_T].forEach(p => gl.texParameteri(gl.TEXTURE_2D, p, gl.CLAMP_TO_EDGE)); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR); gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR); return t; };
+    this.texDraw = mkTex(); this.texCam = mkTex();
+    gl.uniform1i(this.u.uDraw, 0); gl.uniform1i(this.u.uCam, 1);
+    this.pad = $('padc'); this.pctx = this.pad.getContext('2d'); this.padDirty = true; this.drawOn = false;
+    this.bindUI();
+    addEventListener('resize', () => this.layout());
+    if (window.visualViewport) visualViewport.addEventListener('resize', () => this.layout());
+    const loop = ts => { requestAnimationFrame(loop); if (this.on) this.frame(ts / 1000); };
+    requestAnimationFrame(loop);
+  },
+  toast(msg, ms) { const t = $('toast'); t.textContent = msg; t.classList.add('on'); clearTimeout(this._tt); this._tt = setTimeout(() => t.classList.remove('on'), ms || 1800); },
+  pxmm() { return innerWidth / (this.kit.sw || 65) * this.cal.px; },
+  layout() {
+    if (!this.on || !this.gl) return;
+    const dpr = Math.min(3, devicePixelRatio || 1), cv = $('gl');
+    cv.width = Math.round(innerWidth * dpr); cv.height = Math.round(innerHeight * dpr); this.dpr = dpr;
+    const k = this.kit, c = this.cal, pm = this.pxmm();
+    const capPx = (k.cap + 1) * pm + Math.abs(c.dy) * pm;
+    const panel = $('panel'); panel.classList.toggle('flip', !!c.flip);
+    panel.style.height = Math.max(200, innerHeight - capPx) + 'px';
+    // triangle centre (CSS px from bottom-left of the viewport)
+    let cx = innerWidth / 2 + (k.tx - k.sw / 2 + c.dx) * pm, cy = (k.ty + c.dy) * pm;
+    if (c.flip) { cx = innerWidth - cx; cy = innerHeight - cy; }
+    this.tri = { cx: cx * dpr, cy: cy * dpr, side: k.s * c.sz * pm * dpr, rot: c.flip ? Math.PI : 0 };
+    this.gl.viewport(0, 0, cv.width, cv.height);
+    $('calInfo').innerHTML = `צלע <span class="mono">${(k.s * c.sz).toFixed(1)}mm</span> · <span class="mono">${pm.toFixed(2)}px/mm</span> · הזזה <span class="mono">${c.dx.toFixed(1)}, ${c.dy.toFixed(1)}mm</span>`;
+    $('mPx').value = c.px; $('mPxV').textContent = Math.round(c.px * 1000) / 10 + '%';
+    $('mSz').value = c.sz; $('mSzV').textContent = Math.round(c.sz * 1000) / 10 + '%';
+    $('mFlip').checked = !!c.flip;
+  },
+  syncUI() {
+    const st = this.st;
+    $('modeBtns').innerHTML = MODES.map((m, i) => `<button data-m="${i}" class="${i === this.mode ? 'on' : ''}">${m}</button>`).join('');
+    $('palBtns').innerHTML = PALS.map((p, i) => `<button data-pl="${i}" class="${i === this.pal ? 'on' : ''}"><i style="background:linear-gradient(90deg,${p[1]},${p[2]},${p[3]})"></i>${p[0]}</button>`).join('');
+    const brushCols = ['#ffffff', '#7cf2dc', '#ff4f7b', '#ffd36b', '#7b5cff', '#3bd16f', '#000000'];
+    $('brushes').innerHTML = brushCols.map((c, i) => `<button data-bc="${i}" class="${i === st.color ? 'on' : ''}" style="background:${c}" aria-label="צבע ${i + 1}"></button>`).join('');
+    this.brushCols = brushCols;
+    $('aSpeed').value = st.speed; $('aScale').value = st.scale; $('aHue').value = st.hue; $('aBright').value = st.bright; $('aBrush').value = st.brush;
+    $('aAuto').checked = st.auto; $('aFade').checked = st.fade; $('aMic').checked = false; $('aTilt').checked = st.tilt; $('aShake').checked = st.shake; $('aCam').checked = false;
+    $('modeName').textContent = MODES[this.mode];
+    fillModelSelect($('mModel')); $('mModel').value = this.kit.id && phoneById(this.kit.id).id === this.kit.id ? this.kit.id : 'iphone15';
+    if (st.tilt) this.setTilt(true);
+  },
+  setMode(i, fromAuto) {
+    i = (i + MODES.length) % MODES.length;
+    if (i === 5 && !this.camStream) { this.setCam(true); }
+    this.nextMode = i; this.fadeDir = -1;
+    document.querySelectorAll('#modeBtns button').forEach(b => b.classList.toggle('on', +b.dataset.m === i));
+    $('modeName').textContent = MODES[i];
+    this.saveSt();
+  },
+  bindUI() {
+    const st = this.st;
+    $('modeBtns').addEventListener('click', e => { const m = e.target.dataset.m; if (m != null) this.setMode(+m); });
+    $('bNext').addEventListener('click', () => this.setMode((this.nextMode ?? this.mode) + 1));
+    $('bPrev').addEventListener('click', () => this.setMode((this.nextMode ?? this.mode) - 1));
+    $('palBtns').addEventListener('click', e => { const b = e.target.closest('[data-pl]'); if (!b) return; this.pal = +b.dataset.pl; document.querySelectorAll('#palBtns button').forEach(x => x.classList.toggle('on', x === b)); this.saveSt(); });
+    $('brushes').addEventListener('click', e => { const b = e.target.dataset.bc; if (b == null) return; st.color = +b; document.querySelectorAll('#brushes button').forEach(x => x.classList.toggle('on', x.dataset.bc === b)); this.saveSt(); });
+    [['aSpeed', 'speed'], ['aScale', 'scale'], ['aHue', 'hue'], ['aBright', 'bright'], ['aBrush', 'brush']].forEach(([id, key]) => $(id).addEventListener('input', e => { st[key] = +e.target.value; this.saveSt(); }));
+    $('aAuto').addEventListener('change', e => { st.auto = e.target.checked; this.autoT = 0; this.saveSt(); });
+    $('aFade').addEventListener('change', e => { st.fade = e.target.checked; this.saveSt(); });
+    $('aMic').addEventListener('change', e => this.setMic(e.target.checked));
+    $('aTilt').addEventListener('change', e => { st.tilt = e.target.checked; this.setTilt(st.tilt); this.saveSt(); });
+    $('aShake').addEventListener('change', e => { st.shake = e.target.checked; this.setTilt(st.tilt || st.shake); this.saveSt(); });
+    $('aCam').addEventListener('change', e => { this.setCam(e.target.checked); if (e.target.checked) this.setMode(5); });
+    $('bClear').addEventListener('click', () => { this.pctx.clearRect(0, 0, 512, 512); this.padDirty = true; this.drawOn = false; });
+    document.querySelectorAll('#phTabs button').forEach(b => b.addEventListener('click', () => {
+      document.querySelectorAll('#phTabs button').forEach(x => x.classList.toggle('on', x === b));
+      document.querySelectorAll('.ph-pane').forEach(p => p.classList.toggle('on', p.id === 'pp-' + b.dataset.p));
+    }));
+    // drawing pad
+    const pad = $('pad'); let last = null;
+    const pt = e => { const r = pad.getBoundingClientRect(); return [(e.clientX - r.left) / r.width * 512, (e.clientY - r.top) / r.height * 512]; };
+    const stroke = (a, b) => { const c = this.pctx; c.globalCompositeOperation = st.color === 6 ? 'destination-out' : 'source-over'; c.strokeStyle = this.brushCols[st.color]; c.lineWidth = st.brush; c.lineCap = 'round'; c.lineJoin = 'round'; c.beginPath(); c.moveTo(a[0], a[1]); c.lineTo(b[0], b[1]); c.stroke(); c.globalCompositeOperation = 'source-over'; this.padDirty = true; this.drawOn = true; };
+    pad.addEventListener('pointerdown', e => { pad.setPointerCapture(e.pointerId); last = pt(e); stroke(last, [last[0] + 0.1, last[1]]); });
+    pad.addEventListener('pointermove', e => { if (!last) return; const p = pt(e); stroke(last, p); last = p; });
+    pad.addEventListener('pointerup', () => last = null); pad.addEventListener('pointercancel', () => last = null);
+    // menu
+    $('bMenu').addEventListener('click', () => $('menu').classList.add('on'));
+    $('bClose').addEventListener('click', () => { $('menu').classList.remove('on'); this.calMode = false; $('mCal').checked = false; });
+    $('mCal').addEventListener('change', e => { this.calMode = e.target.checked; });
+    document.querySelectorAll('[data-n]').forEach(b => b.addEventListener('click', () => {
+      const s = 0.5, n = b.dataset.n, f = this.cal.flip ? -1 : 1;
+      if (n === 'up') this.cal.dy += s * f; if (n === 'down') this.cal.dy -= s * f; if (n === 'right') this.cal.dx += s * f; if (n === 'left') this.cal.dx -= s * f;
+      this.saveCal(); this.calMode = true; $('mCal').checked = true;
+    }));
+    $('mPx').addEventListener('input', e => { this.cal.px = +e.target.value; this.saveCal(); this.calMode = true; $('mCal').checked = true; });
+    $('mSz').addEventListener('input', e => { this.cal.sz = +e.target.value; this.saveCal(); this.calMode = true; $('mCal').checked = true; });
+    $('mFlip').addEventListener('change', e => { this.cal.flip = e.target.checked; this.saveCal(); });
+    $('mModel').addEventListener('change', e => { const k = computeKit(paramsForModel(e.target.value)); this.setKit(JSON.parse(decodeURIComponent(escape(atob(kitCode(k)))))); this.layout(); this.toast('נבחר ' + phoneById(e.target.value).n + '. התבנית צריכה להיות מאותו דגם.', 2600); });
+    $('mWake').addEventListener('change', e => this.setWake(e.target.checked));
+    $('bFull').addEventListener('click', () => {
+      const el = document.documentElement;
+      if (el.requestFullscreen) el.requestFullscreen().then(() => { try { screen.orientation.lock('portrait').catch(() => {}); } catch (e) {} setTimeout(() => this.layout(), 300); }).catch(() => this.toast('מסך מלא לא זמין כאן. באייפון: הוספה למסך הבית.', 3200));
+      else this.toast('מסך מלא לא זמין כאן. באייפון: שיתוף ← הוספה למסך הבית.', 3600);
+    });
+    $('bReset').addEventListener('click', () => { this.cal = { dx: 0, dy: 0, px: 1, sz: 1, flip: false }; this.saveCal(); });
+    $('bExit').addEventListener('click', () => { history.replaceState(null, '', location.pathname); this.stop(); });
+    document.addEventListener('visibilitychange', () => { if (!document.hidden && $('mWake').checked) this.setWake(true); });
+  },
+  setWake(on) {
+    if (on && 'wakeLock' in navigator) navigator.wakeLock.request('screen').then(w => this.wake = w).catch(() => this.toast('המכשיר לא מאפשר להשאיר את המסך דלוק מכאן', 2600));
+    else if (!on && this.wake) { this.wake.release(); this.wake = null; }
+    else if (on) this.toast('המכשיר לא תומך בזה. כבו נעילה אוטומטית בהגדרות.', 2800);
+  },
+  setMic(on) {
+    if (!on) { if (this.micStream) { this.micStream.getTracks().forEach(t => t.stop()); this.micStream = null; } this.an = null; return; }
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) { this.toast('אין גישה למיקרופון כאן (צריך https)', 2600); $('aMic').checked = false; return; }
+    navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: false, noiseSuppression: false, autoGainControl: false } }).then(s => {
+      this.micStream = s; const ac = this.ac || (this.ac = new (window.AudioContext || window.webkitAudioContext)()); ac.resume();
+      const src = ac.createMediaStreamSource(s); this.an = ac.createAnalyser(); this.an.fftSize = 1024; src.connect(this.an); this.abuf = new Uint8Array(this.an.fftSize);
+      this.toast('המיקרופון מקשיב', 1400);
+    }).catch(() => { this.toast('אין הרשאה למיקרופון', 2200); $('aMic').checked = false; });
+  },
+  setCam(on) {
+    const gl = this.gl;
+    if (!on) { if (this.camStream) { this.camStream.getTracks().forEach(t => t.stop()); this.camStream = null; } $('aCam').checked = false; return; }
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) { this.toast('אין גישה למצלמה כאן (צריך https)', 2600); return; }
+    navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment', width: { ideal: 640 }, height: { ideal: 480 } }, audio: false }).then(s => {
+      this.camStream = s; const v = this.video || (this.video = Object.assign(document.createElement('video'), { muted: true, playsInline: true }));
+      v.setAttribute('playsinline', ''); v.srcObject = s; v.play(); $('aCam').checked = true;
+    }).catch(() => { this.toast('אין הרשאה למצלמה', 2200); $('aCam').checked = false; });
+  },
+  setTilt(on) {
+    if (!on || this._tiltBound) return;
+    const bind = () => {
+      this._tiltBound = true;
+      addEventListener('deviceorientation', e => { if (e.gamma == null) return; this.tiltT = [Math.max(-1, Math.min(1, e.gamma / 35)), Math.max(-1, Math.min(1, (e.beta - 40) / 35))]; });
+      let lastShake = 0;
+      addEventListener('devicemotion', e => { const a = e.acceleration; if (!a || !this.st.shake) return; const m = Math.hypot(a.x || 0, a.y || 0, a.z || 0); const now = performance.now(); if (m > 16 && now - lastShake > 1200) { lastShake = now; this.setMode((this.nextMode ?? this.mode) + 1); } });
+    };
+    if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
+      DeviceOrientationEvent.requestPermission().then(r => { if (r === 'granted') bind(); else this.toast('אין הרשאה לחיישן התנועה', 2200); }).catch(() => this.toast('לחצו שוב על המתג כדי לאשר את החיישן', 2400));
+    } else bind();
+  },
+  frame(time) {
+    const gl = this.gl, u = this.u, st = this.st; if (!gl) return;
+    const dt = Math.min(0.05, time - (this.last || time)); this.last = time;
+    this.t += dt * st.speed * (1 + this.audio * 0.8);
+    // mode cross-fade through black
+    if (this.fadeDir === -1) { this.fade -= dt * 3.5; if (this.fade <= 0) { this.fade = 0; this.mode = this.nextMode; this.fadeDir = 1; } }
+    else if (this.fadeDir === 1) { this.fade += dt * 2.5; if (this.fade >= 1) { this.fade = 1; this.fadeDir = 0; } }
+    if (st.auto) { this.autoT = (this.autoT || 0) + dt; if (this.autoT > 20) { this.autoT = 0; let n = (this.mode + 1) % MODES.length; if (n === 5 && !this.camStream) n = 0; this.setMode(n, true); } }
+    // audio level
+    if (this.an) { this.an.getByteTimeDomainData(this.abuf); let s = 0; for (let i = 0; i < this.abuf.length; i++) { const v = (this.abuf[i] - 128) / 128; s += v * v; } const rms = Math.sqrt(s / this.abuf.length); const lv = Math.min(1, rms * 5); this.audio += (lv - this.audio) * (lv > this.audio ? 0.5 : 0.08); }
+    else this.audio *= 0.9;
+    this.tilt[0] += ((st.tilt ? this.tiltT[0] : 0) - this.tilt[0]) * 0.08; this.tilt[1] += ((st.tilt ? this.tiltT[1] : 0) - this.tilt[1]) * 0.08;
+    // drawing layer
+    if (this.drawOn && st.fade) { const c = this.pctx; c.globalCompositeOperation = 'destination-out'; c.fillStyle = 'rgba(0,0,0,' + (dt * 0.35).toFixed(4) + ')'; c.fillRect(0, 0, 512, 512); c.globalCompositeOperation = 'source-over'; this.padDirty = true; this.fadeAcc = (this.fadeAcc || 0) + dt; if (this.fadeAcc > 8) { this.fadeAcc = 0; } }
+    gl.activeTexture(gl.TEXTURE0); gl.bindTexture(gl.TEXTURE_2D, this.texDraw);
+    if (this.padDirty) { gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true); gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, this.pad); this.padDirty = false; }
+    gl.activeTexture(gl.TEXTURE1); gl.bindTexture(gl.TEXTURE_2D, this.texCam);
+    let camOn = 0;
+    if (this.camStream && this.video && this.video.readyState >= 2) { gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, true); gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, this.video); camOn = 1; gl.uniform1f(u.uCamAsp, this.video.videoWidth / Math.max(1, this.video.videoHeight)); }
+    const pal = PALS[this.pal];
+    gl.uniform3fv(u.uC1, hex3(pal[1])); gl.uniform3fv(u.uC2, hex3(pal[2])); gl.uniform3fv(u.uC3, hex3(pal[3]));
+    gl.uniform1f(u.uT, this.t); gl.uniform1f(u.uMode, this.mode); gl.uniform1f(u.uScale, st.scale); gl.uniform1f(u.uHue, st.hue); gl.uniform1f(u.uBright, st.bright);
+    gl.uniform1f(u.uAudio, this.audio); gl.uniform1f(u.uDrawOn, this.drawOn ? 1 : 0); gl.uniform1f(u.uCamOn, camOn); gl.uniform1f(u.uFade, this.fade);
+    gl.uniform2f(u.uTilt, this.tilt[0], this.tilt[1]);
+    const T = this.tri; gl.uniform2f(u.uCen, T.cx, T.cy); gl.uniform1f(u.uSide, T.side); gl.uniform1f(u.uRotA, T.rot);
+    gl.uniform1f(u.uBleed, 1.2 / (this.kit.s * this.cal.sz)); gl.uniform1f(u.uCal, this.calMode ? 1 : 0); gl.uniform1f(u.uDpr, this.dpr);
+    const ph = $('prevHole').getBoundingClientRect();
+    const menuOpen = $('menu').classList.contains('on');
+    if (!menuOpen && ph.width) gl.uniform3f(u.uPrev, (ph.left + ph.width / 2) * this.dpr, (innerHeight - (ph.top + ph.height / 2)) * this.dpr, ph.width / 2 * this.dpr); else gl.uniform3f(u.uPrev, 0, 0, 0);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    if (!menuOpen && ph.width) { // copy the preview disc out from under the panel
+      const pc = this.prevCtx || (this.prevCtx = $('prevHole').getContext('2d')), d = this.dpr, cv = gl.canvas;
+      const sx = ph.left * d, sy = ph.top * d, sw = ph.width * d;
+      pc.clearRect(0, 0, 240, 240); pc.drawImage(cv, sx, sy, sw, sw, 0, 0, 240, 240);
+    }
+  }
+};
+
+/* ---------- routing ---------- */
+function route() {
+  const h = location.hash;
+  if (h.startsWith('#app')) { const m = h.match(/#app=([^&]+)/); A.start(m ? m[1] : null); }
+  else if (A.on) A.stop();
+}
+initTemplate();
+addEventListener('hashchange', route);
+route();
+</script>
+</body>
+</html>
