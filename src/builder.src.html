@@ -93,6 +93,64 @@ td.n { font-family: var(--mono); font-variant-numeric: tabular-nums; }
 code, .mono { font-family: var(--mono); font-size: 12px; }
 #toast { position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%) translateY(20px); background: var(--accent); color: var(--on-accent); padding: 9px 16px; border-radius: 10px; font-weight: 700; opacity: 0; transition: .25s; pointer-events: none; z-index: 20; }
 #toast.on { opacity: 1; transform: translateX(-50%); }
+.topbar3d { position: absolute; top: 12px; inset-inline: 12px; display: flex; gap: 8px; flex-wrap: wrap; align-items: center; pointer-events: none; z-index: 3; }
+.topbar3d > * { pointer-events: auto; }
+.topbar3d .seg button { white-space: nowrap; }
+.topbar3d .seg { background: rgba(8,10,14,.72); backdrop-filter: blur(6px); border-color: rgba(255,255,255,.08); }
+button.chipbox { color: var(--fg); font: 500 12px var(--display); }
+button.chipbox[aria-expanded=true] { border-color: var(--accent); color: var(--accent); }
+.menuwrap { position: relative; }
+.menu { position: absolute; top: calc(100% + 6px); inset-inline-start: 0; width: min(310px, calc(100vw - 32px)); background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 10px; display: grid; gap: 8px; box-shadow: 0 14px 40px rgba(0,0,0,.55); z-index: 6; }
+.menu > button { text-align: start; display: grid; gap: 1px; }
+.menu > button small { color: var(--muted); font-size: 11.5px; font-weight: 400; }
+.menu > button.primary small { color: var(--on-accent); }
+.menu .mrow { display: grid; grid-template-columns: 40px minmax(0, 1fr); align-items: center; gap: 8px; font-size: 12px; color: var(--muted); }
+.menu .hint { margin: 0; }
+.num { display: inline-grid; place-items: center; min-width: 22px; height: 22px; padding: 0 5px; border-radius: 11px; background: var(--accent); color: var(--on-accent); font: 700 11.5px var(--mono); flex: none; }
+.num.buy { background: var(--amber); color: #2a1a00; }
+#plist { position: absolute; top: 62px; inset-inline-end: 12px; width: 280px; max-height: calc(100% - 140px); overflow: auto; background: rgba(12,15,21,.9); backdrop-filter: blur(8px); border: 1px solid var(--line); border-radius: 12px; padding: 6px; z-index: 2; scrollbar-width: thin; }
+#plist h4 { margin: 4px 8px 6px; font-size: 12px; color: var(--accent); display: flex; gap: 6px; }
+#plist h4 small { color: var(--muted); font: 11px var(--mono); }
+#plist .pi { display: grid; grid-template-columns: 26px minmax(0, 1fr) auto; gap: 8px; align-items: center; width: 100%; padding: 6px 8px; border: 0; border-radius: 8px; background: transparent; text-align: start; font-size: 12.5px; }
+#plist .pi b { display: block; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#plist .pi small { display: block; color: var(--muted); font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+#plist .pi .q { font: 11.5px var(--mono); color: var(--muted); }
+#plist .pi:hover { background: #18202b; }
+#plist .pi.on { background: var(--sel); box-shadow: inset 0 0 0 1px var(--accent); }
+#lbl3d { position: absolute; inset: 0; pointer-events: none; overflow: hidden; z-index: 1; }
+#lbl3d span { position: absolute; left: 0; top: 0; display: grid; place-items: center; min-width: 22px; height: 22px; padding: 0 5px; border-radius: 11px; background: var(--accent); color: var(--on-accent); font: 700 11.5px var(--mono); box-shadow: 0 0 0 2px rgba(7,9,13,.75), 0 2px 8px rgba(0,0,0,.5); }
+#lbl3d span.act { background: var(--amber); color: #2a1a00; }
+#lbl3d span.buy { background: var(--amber); color: #2a1a00; }
+#lbl3d span.sel { background: #fff; color: #07090d; }
+#tip3d { position: absolute; pointer-events: none; display: grid; gap: 2px; background: rgba(8,10,14,.94); border: 1px solid var(--line); border-radius: 9px; padding: 8px 10px; font-size: 12px; max-width: 280px; z-index: 4; }
+#tip3d b { display: flex; gap: 6px; align-items: center; font-weight: 600; }
+#tip3d span:not(.num) { color: #c3ccd9; }
+#stepcard { position: absolute; bottom: 64px; inset-inline: 12px; margin-inline: auto; max-width: 760px; background: rgba(12,15,21,.93); backdrop-filter: blur(8px); border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; display: grid; gap: 8px; z-index: 2; max-height: 46%; overflow: auto; }
+#stepcard .sh { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+#stepcard .sh b { font-size: 15px; }
+#stepcard .badge { background: var(--amber); color: #2a1a00; font: 700 11.5px var(--display); padding: 3px 8px; border-radius: 6px; }
+#stepcard .dots { display: flex; gap: 5px; margin-inline-start: auto; }
+#stepcard .dots button { width: 12px; height: 12px; padding: 0; border-radius: 6px; background: #2a3342; border: 0; }
+#stepcard .dots button.done { background: #3f7f74; }
+#stepcard .dots button.on { background: var(--amber); width: 26px; }
+#stepcard p { margin: 0; color: #d3dae5; line-height: 1.6; font-size: 13px; }
+#stepcard .chips { display: flex; gap: 6px; flex-wrap: wrap; }
+#stepcard .pchip { display: inline-flex; gap: 6px; align-items: center; padding: 3px 9px 3px 4px; font-size: 12px; border-radius: 14px; }
+#stepcard .sb { display: flex; gap: 8px; flex-wrap: wrap; }
+#stepcard .sb button:disabled { opacity: .4; cursor: default; }
+#freebar.steps .exp { display: none; }
+#v3d.steps #plist { max-height: calc(100% - 360px); min-height: 120px; }
+#vparts tr[data-num] { cursor: pointer; }
+#vparts tr[data-num]:hover td { background: #121822; }
+@media (max-width: 900px) {
+  #plist { top: auto; bottom: 64px; max-height: 40%; width: min(280px, calc(100% - 24px)); z-index: 4; box-shadow: 0 10px 30px rgba(0,0,0,.6); }
+  #v3d.steps #plist { max-height: 40%; min-height: 0; }
+  #stepcard { bottom: 10px; inset-inline: 8px; max-height: 44%; padding: 10px 12px; gap: 6px; }
+  #stepcard p { font-size: 12.5px; line-height: 1.5; }
+  #stepcard .chips { display: none; }
+  #v3d.steps #freebar { display: none; }
+  .topbar3d .chipbox { padding: 5px 8px; }
+}
 @media (max-width: 900px) {
   body { overflow: auto; }
   #app { height: auto; grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto; }
@@ -115,9 +173,36 @@ code, .mono { font-family: var(--mono); font-size: 12px; }
     <div id="views">
       <section class="view" id="v3d" aria-label="תלת ממד">
         <canvas id="c3d"></canvas>
-        <div class="floatbar">
-          <div class="chipbox"><label for="explode">פירוק</label><input type="range" id="explode" min="0" max="1" step="0.01" value="0"></div>
+        <div id="lbl3d" aria-hidden="true"></div>
+        <div id="tip3d" hidden></div>
+        <div class="topbar3d">
+          <div class="seg" role="group" aria-label="מצב תצוגה"><button type="button" data-mode3d="free" aria-pressed="true">תצוגה חופשית</button><button type="button" data-mode3d="steps" aria-pressed="false">הרכבה צעד-אחר-צעד</button></div>
+          <button type="button" class="chipbox" id="tPlist" aria-expanded="false">רשימת חלקים</button>
+          <label class="chipbox tog"><input type="checkbox" id="labels3d"> מספרים על החלקים</label>
+          <div class="menuwrap"><button type="button" class="chipbox" id="snapBtn" aria-expanded="false">צילום באיכות גבוהה</button>
+            <div class="menu" id="snapMenu" hidden>
+              <div class="mrow"><span>רקע</span><div class="seg" id="snapBg"><button type="button" data-bg="transparent" aria-pressed="false">שקוף</button><button type="button" data-bg="studio" aria-pressed="true">סטודיו בהיר</button><button type="button" data-bg="dark" aria-pressed="false">כהה</button></div></div>
+              <div class="mrow"><span>גודל</span><select id="snapRes"><option value="0">4K לרוחב · 3840×2160</option><option value="1">ריבוע · 2160×2160</option><option value="2">לאורך · 2160×3840</option></select></div>
+              <button type="button" class="primary" id="snapSet">4 זוויות קבועות (ZIP)</button>
+              <button type="button" id="snapNow">המבט הנוכחי (PNG)</button>
+              <p class="hint">חזית, שלושה רבעים, מפורק וחתך. בלי תוויות ובלי ממשק.</p>
+            </div></div>
+          <div class="menuwrap"><button type="button" class="chipbox" id="dlBtn" aria-expanded="false">הורדת קובץ תלת-ממד</button>
+            <div class="menu" id="dlMenu" hidden>
+              <button type="button" data-x3d="glb"><b>GLB</b><small>Blender, טלפון, אתרים. עם צבעים, חריטה ומסך</small></button>
+              <button type="button" data-x3d="3mf"><b>3MF</b><small>הדפסה ו-CAD. כל חלק גוף נפרד עם שם וצבע</small></button>
+              <button type="button" data-x3d="stl"><b>STL</b><small>כל הקופסה בקובץ אחד, ציר Z למעלה</small></button>
+              <button type="button" data-x3d="obj"><b>OBJ + MTL</b><small>כל תוכנת תלת-ממד, חלק לכל אובייקט</small></button>
+              <button type="button" data-x3d="parts"><b>STL לכל חלק</b><small>ZIP, שם הקובץ לפי מספר החלק</small></button>
+              <p class="hint">הכל במילימטרים, במצב מורכב.</p>
+            </div></div>
+        </div>
+        <aside id="plist" hidden aria-label="רשימת חלקים"></aside>
+        <div id="stepcard" hidden></div>
+        <div class="floatbar" id="freebar">
+          <div class="chipbox exp"><label for="explode">פירוק</label><input type="range" id="explode" min="0" max="1" step="0.01" value="0"></div>
           <label class="chipbox tog"><input type="checkbox" id="cutaway" checked> חתך (בלי דופן וגג)</label>
+          <label class="chipbox tog"><input type="checkbox" id="guides3d" checked> קווי עזר</label>
           <label class="chipbox tog"><input type="checkbox" id="spin3d"> סיבוב אוטומטי</label>
           <button type="button" id="resetCam" class="chipbox">איפוס מבט</button>
         </div>
@@ -533,28 +618,98 @@ function drawSource(t) { // stand-in for the studio picture: drifting glass piec
   sx.globalCompositeOperation = "source-over";
 }
 let R3 = null;
+// The 3D bench: soft studio light with shadows on a floor, wood grain and laser-burnt edges, mirrors that reflect the real box
+// (a cube camera inside the tube), numbered parts you can hover and pick, an assembly player that follows the written steps,
+// a smart explode in reverse assembly order with guide lines, and exports (GLB, STL, 3MF, OBJ, 4K renders).
+const STEP_TITLES = ["חיתוך הלוחות", "הכנת המראות", "שלד הקופסה", "הדבקת צינור המראות", "החלקת המראות פנימה", "מסך ומסכה", "חיבור והדלקה", "בדיקה וסגירה"];
+const STEP_TITLES_CELL = { 5: "תא החפצים", 6: "תאורה אחורית" };
+const SNAPRES = [[3840, 2160], [2160, 2160], [2160, 3840]];
+const SHOTS = [
+  { id: "front", name: "חזית", yaw: 0, pitch: .06, dist: .92, ex: 0, cut: false },
+  { id: "three-quarter", name: "שלושה רבעים", yaw: -.65, pitch: .3, dist: 1, ex: 0, cut: false },
+  { id: "exploded", name: "מפורק", yaw: -.78, pitch: .38, dist: 1, ex: 1, cut: false },
+  { id: "cutaway", name: "חתך", yaw: -1.08, pitch: .5, dist: 1.08, ex: 0, cut: true }
+];
+function rng(seed) { return () => { seed |= 0; seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+const GRAIN = {};
+function grainCanvas(hs) { // 1024² tileable board face, spans 400 mm
+  if (GRAIN[hs.id]) return GRAIN[hs.id];
+  const N = 1024, c = document.createElement("canvas"); c.width = c.height = N; const x = c.getContext("2d"), img = x.createImageData(N, N), d = img.data;
+  const base = new THREE.Color(hs.color), r = rng(hs.id.length * 977 + 13), q = f => Math.max(1, Math.round(f * N / TAU)) * TAU / N;
+  const wal = hs.id === "walnut", mdf = hs.id === "mdf";
+  const waves = Array.from({ length: 5 }, () => [q(.002 + r() * .012), r() * TAU, (3 + r() * 10) * (wal ? 1.8 : 1)]);
+  const fRing = q(wal ? .16 : .28), fSlow = q(.025), fFine = q(1.3);
+  const noise = new Float32Array(N); for (let i = 0; i < N; i++) noise[i] = r() - .5;
+  for (let j = 0; j < N; j++) for (let i = 0; i < N; i++) {
+    let y = j; for (const w of waves) y += Math.sin(i * w[0] + w[1]) * w[2];
+    const ring = Math.sin(y * fRing + Math.sin(y * fSlow) * 2.5), fine = Math.sin(y * fFine) * .5;
+    const v = mdf ? noise[(i * 7 + j * 13) % N] * .09 + Math.sin(i * q(.05) + j * q(.03)) * .01 : (ring > .55 ? (ring - .55) * (wal ? .55 : .16) : 0) * -1 + ring * (wal ? .07 : .02) + fine * (wal ? .025 : .015) + noise[(i + j * 31) % N] * .02;
+    const o = (j * N + i) * 4; d[o] = clamp(base.r * 255 * (1 + v), 0, 255); d[o + 1] = clamp(base.g * 255 * (1 + v * 1.08), 0, 255); d[o + 2] = clamp(base.b * 255 * (1 + v * 1.2), 0, 255); d[o + 3] = 255;
+  }
+  x.putImageData(img, 0, 0); return GRAIN[hs.id] = c;
+}
+function edgeCanvas(hs, T) { // a laser-cut edge across the board thickness: burnt plies for plywood, one dark band otherwise
+  const c = document.createElement("canvas"); c.width = 8; c.height = 128; const x = c.getContext("2d");
+  if (hs.id === "acr") { x.fillStyle = hs.edge; x.fillRect(0, 0, 8, 128); return c; }
+  const plies = hs.id === "ply" ? Math.max(3, Math.round(T / 1.4) | 1) : 1, burnt = hs.id === "walnut" ? [38, 24, 15] : hs.id === "mdf" ? [62, 44, 30] : [74, 48, 26];
+  for (let j = 0; j < 128; j++) { const p = (j / 128) * plies, band = Math.floor(p), f = p - band, edge = Math.min(j, 127 - j) / 128;
+    let k = (band % 2 ? .82 : 1) * (1 - .35 * Math.exp(-Math.pow((f - .5) / .5, 8) * 0)) * (.78 + .22 * Math.min(1, edge * 6)); if (hs.id === "ply" && (f < .06 || f > .94)) k *= .7;
+    x.fillStyle = `rgb(${burnt.map(v => Math.round(v * k)).join(",")})`; x.fillRect(0, j, 8, 1); }
+  return c;
+}
+function radialCanvas(inner, outer, size = 256) { const c = document.createElement("canvas"); c.width = c.height = size; const x = c.getContext("2d"), g = x.createRadialGradient(size / 2, size / 2, 0, size / 2, size / 2, size / 2); g.addColorStop(0, inner); g.addColorStop(.3, inner); g.addColorStop(.7, "#555"); g.addColorStop(1, outer); x.fillStyle = g; x.fillRect(0, 0, size, size); return c; }
+function bgCanvas(kind) {
+  const c = document.createElement("canvas"); c.width = 16; c.height = 512; const x = c.getContext("2d"), g = x.createLinearGradient(0, 0, 0, 512);
+  if (kind === "studio") { g.addColorStop(0, "#f1efeb"); g.addColorStop(.62, "#e2ded7"); g.addColorStop(1, "#cfc9bf"); } else { g.addColorStop(0, "#151b27"); g.addColorStop(.6, "#0c1018"); g.addColorStop(1, "#07090d"); }
+  x.fillStyle = g; x.fillRect(0, 0, 16, 512); const t = new THREE.CanvasTexture(c); t.encoding = THREE.sRGBEncoding; return t;
+}
 function init3D() {
   if (!V3.ok) { $("#v3d").insertAdjacentHTML("afterbegin", `<p class="hint" style="padding:20px">התצוגה התלת-ממדית צריכה את ספריית three.js מהרשת. שאר הכלים עובדים.</p>`); return; }
   const cv = $("#c3d"), renderer = new THREE.WebGLRenderer({ canvas: cv, antialias: true, alpha: true });
-  renderer.setPixelRatio(Math.min(2, devicePixelRatio)); renderer.outputEncoding = THREE.sRGBEncoding; renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = .85;
+  renderer.setPixelRatio(Math.min(2, devicePixelRatio)); renderer.outputEncoding = THREE.sRGBEncoding; renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1;
+  renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap; renderer.setClearColor(0x000000, 0);
   const scene = new THREE.Scene(), cam = new THREE.PerspectiveCamera(35, 1, 1, 20000);
-  scene.add(new THREE.HemisphereLight(0xdfe8ff, 0x1a1410, .7));
-  const key = new THREE.DirectionalLight(0xffffff, 1.4); key.position.set(-1, 1.6, 1.4); scene.add(key);
-  const rim = new THREE.DirectionalLight(0x7cf2dc, .5); rim.position.set(1.5, .4, -1); scene.add(rim);
-  // environment for the mirrors: a dim room with a few soft panels
-  const env = new THREE.Scene(); const sky = new THREE.Mesh(new THREE.SphereGeometry(50, 32, 16), new THREE.MeshBasicMaterial({ side: THREE.BackSide, color: 0x1b2230 })); env.add(sky);
-  [[0x7cf2dc, [30, 10, 20]], [0xff7bd5, [-30, 5, -10]], [0xffffff, [0, 40, 0]], [0xffb547, [10, -20, -30]]].forEach(([c, p]) => { const m = new THREE.Mesh(new THREE.PlaneGeometry(22, 22), new THREE.MeshBasicMaterial({ color: c, side: THREE.DoubleSide })); m.position.set(...p); m.lookAt(0, 0, 0); env.add(m); });
-  const pm = new THREE.PMREMGenerator(renderer); const envTex = pm.fromScene(env, .02).texture;
+  scene.add(new THREE.HemisphereLight(0xe4ecff, 0x2b2118, .32));
+  const key = new THREE.DirectionalLight(0xfff1e0, 1.55); key.castShadow = true; key.shadow.mapSize.set(2048, 2048); key.shadow.bias = -.0003; key.shadow.radius = 5; scene.add(key, key.target);
+  const fill = new THREE.DirectionalLight(0xc4d6ff, .32); scene.add(fill);
+  const rim = new THREE.DirectionalLight(0x7cf2dc, .5); scene.add(rim);
+  // studio environment for image-based light: dark room, three soft boxes, a teal and a pink accent
+  const env = new THREE.Scene(), skyG = new THREE.SphereGeometry(50, 32, 16), col = [], pos = skyG.attributes.position;
+  for (let i = 0; i < pos.count; i++) { const y = pos.getY(i) / 50, c = new THREE.Color(0x1d2433).lerp(new THREE.Color(0x0a0c10), clamp(-y, 0, 1)).lerp(new THREE.Color(0x30394a), clamp(y, 0, 1) * .6); col.push(c.r, c.g, c.b); }
+  skyG.setAttribute("color", new THREE.Float32BufferAttribute(col, 3)); env.add(new THREE.Mesh(skyG, new THREE.MeshBasicMaterial({ side: THREE.BackSide, vertexColors: true })));
+  [[0xffffff, [0, 42, 8], 30, 1.6], [0xfff3e2, [-36, 14, 26], 18, 1.2], [0xdfe8ff, [34, 10, 20], 14, .8], [0x7cf2dc, [26, 4, -32], 10, .9], [0xff7bd5, [-30, -2, -30], 9, .7]].forEach(([c, p, s, k]) => {
+    const m = new THREE.Mesh(new THREE.PlaneGeometry(s, s * .7), new THREE.MeshBasicMaterial({ color: new THREE.Color(c).multiplyScalar(k), side: THREE.DoubleSide })); m.position.set(...p); m.lookAt(0, 0, 0); env.add(m); });
+  const pm = new THREE.PMREMGenerator(renderer); const envTex = pm.fromScene(env, .03).texture; scene.environment = envTex;
+  const envRT = new THREE.WebGLCubeRenderTarget(128); new THREE.CubeCamera(.1, 200, envRT).update(renderer, env);
+  // mirrors reflect the box itself: a cube camera in the middle of the mirror tube
+  const mirRT = new THREE.WebGLCubeRenderTarget(256, { generateMipmaps: true, minFilter: THREE.LinearMipmapLinearFilter, encoding: THREE.sRGBEncoding });
+  const mirCam = new THREE.CubeCamera(1, 50000, mirRT); scene.add(mirCam);
   const screenTex = new THREE.CanvasTexture(document.createElement("canvas")); screenTex.encoding = THREE.sRGBEncoding;
-  R3 = { renderer, scene, cam, group: new THREE.Group(), envTex, screenTex, yaw: -.65, pitch: .32, dist: 1, target: new THREE.Vector3(), explode: 0, auto: false };
+  // floor: a soft disc that catches the shadow, and a shadow-only plane for transparent renders
+  const floorA = new THREE.CanvasTexture(radialCanvas("#fff", "#000"));
+  const floor = new THREE.Mesh(new THREE.CircleGeometry(1, 96), new THREE.MeshStandardMaterial({ color: 0x0c0f15, roughness: .95, metalness: 0, envMapIntensity: .25, transparent: true, alphaMap: floorA, depthWrite: false }));
+  floor.rotation.x = -Math.PI / 2; floor.receiveShadow = true; floor.renderOrder = -1; scene.add(floor);
+  const shadowPlane = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), new THREE.ShadowMaterial({ opacity: .32 })); shadowPlane.rotation.x = -Math.PI / 2; shadowPlane.receiveShadow = true; shadowPlane.visible = false; scene.add(shadowPlane);
+  const guideGeo = new THREE.BufferGeometry(); guideGeo.setAttribute("position", new THREE.BufferAttribute(new Float32Array(600 * 3), 3));
+  const guides = new THREE.LineSegments(guideGeo, new THREE.LineDashedMaterial({ color: 0x7cf2dc, dashSize: 6, gapSize: 5, transparent: true, opacity: .75, toneMapped: false })); guides.frustumCulled = false; scene.add(guides);
+  R3 = { renderer, scene, cam, key, fill, rim, envTex, envRT, mirRT, mirCam, screenTex, floor, shadowPlane, guides, group: new THREE.Group(), yaw: -.65, pitch: .32, dist: 1, size: 1,
+    mode: "free", exE: 0, cut: true, guidesOn: true, labelsOn: false, step: 0, stepT: 1, playing: false, hold: 0, sel: null, hov: null, listHov: null, floorY: 0, frame: 0, busy: false,
+    trash: [], info: {}, items: [], ray: new THREE.Raycaster(), mouse: null, needPick: false, bg: "studio", res: 0, tmp: new THREE.Vector3(), tmp2: new THREE.Vector3(), bmin: new THREE.Vector3(), bmax: new THREE.Vector3(), fitC: new THREE.Vector3(), fitR: null };
   scene.add(R3.group);
-  const ptr = new Map(); let pinch = 0, d0 = 1;
-  cv.addEventListener("pointerdown", e => { cv.setPointerCapture(e.pointerId); ptr.set(e.pointerId, [e.clientX, e.clientY]); if (ptr.size === 2) { const [a, b] = [...ptr.values()]; pinch = Math.hypot(a[0] - b[0], a[1] - b[1]); d0 = R3.dist; } });
-  cv.addEventListener("pointermove", e => { const p = ptr.get(e.pointerId); if (!p) return; const dx = e.clientX - p[0], dy = e.clientY - p[1]; p[0] = e.clientX; p[1] = e.clientY;
+  const ptr = new Map(); let pinch = 0, d0 = 1, down = null;
+  cv.addEventListener("pointerdown", e => { cv.setPointerCapture(e.pointerId); ptr.set(e.pointerId, [e.clientX, e.clientY]); down = { x: e.clientX, y: e.clientY, t: performance.now() }; if (ptr.size === 2) { const [a, b] = [...ptr.values()]; pinch = Math.hypot(a[0] - b[0], a[1] - b[1]); d0 = R3.dist; } });
+  cv.addEventListener("pointermove", e => { const p = ptr.get(e.pointerId);
+    if (!p) { if (e.pointerType === "mouse") { const r = cv.getBoundingClientRect(); R3.mouse = [e.clientX - r.left, e.clientY - r.top]; R3.needPick = true; } return; }
+    const dx = e.clientX - p[0], dy = e.clientY - p[1]; p[0] = e.clientX; p[1] = e.clientY;
     if (ptr.size === 2) { const [a, b] = [...ptr.values()]; const d = Math.hypot(a[0] - b[0], a[1] - b[1]); if (pinch) R3.dist = clamp(d0 * pinch / d, .25, 4); return; }
-    R3.yaw -= dx * .008; R3.pitch = clamp(R3.pitch + dy * .006, -1.4, 1.4); });
-  const up = e => { ptr.delete(e.pointerId); if (ptr.size < 2) pinch = 0; }; cv.addEventListener("pointerup", up); cv.addEventListener("pointercancel", up);
+    R3.yaw -= dx * .008; R3.pitch = clamp(R3.pitch + dy * .006, -1.4, 1.4); R3.mouse = null; $("#tip3d").hidden = true; });
+  const up = e => { ptr.delete(e.pointerId); if (ptr.size < 2) pinch = 0;
+    if (e.type === "pointerup" && down && Math.hypot(e.clientX - down.x, e.clientY - down.y) < 6 && performance.now() - down.t < 600) { const r = cv.getBoundingClientRect(); const hit = pick3D(e.clientX - r.left, e.clientY - r.top); selectPart(hit && hit.userData.num !== R3.sel ? hit.userData.num : null, true); }
+    down = null; };
+  cv.addEventListener("pointerup", up); cv.addEventListener("pointercancel", up);
+  cv.addEventListener("pointerleave", () => { R3.mouse = null; R3.hov = null; $("#tip3d").hidden = true; });
   cv.addEventListener("wheel", e => { e.preventDefault(); R3.dist = clamp(R3.dist * Math.exp(e.deltaY * .001), .25, 4); }, { passive: false });
+  init3DUI();
 }
 function shapeFrom(outline, holes) {
   const sh = new THREE.Shape(outline.map(v => new THREE.Vector2(v[0], v[1])));
@@ -568,36 +723,51 @@ function placed(geom, O, U, V, Wd, thick) {
   const m = new THREE.Matrix4().set(U.x, V.x, W.x, o.x, U.y, V.y, W.y, o.y, U.z, V.z, W.z, o.z, 0, 0, 0, 1);
   geom.applyMatrix4(m); geom.computeVertexNormals(); return geom;
 }
-function engraveTexture(part, base, lineCol) {
-  const sc = clamp(1400 / Math.max(part.w, part.h), .5, 6), c = document.createElement("canvas"); c.width = Math.ceil(part.w * sc); c.height = Math.ceil(part.h * sc);
-  const x = c.getContext("2d"); x.fillStyle = base; x.fillRect(0, 0, c.width, c.height);
-  // faint grain
-  x.globalAlpha = .08; x.strokeStyle = "#000"; for (let i = 0; i < 70; i++) { x.beginPath(); const y = Math.random() * c.height; x.moveTo(0, y); x.bezierCurveTo(c.width * .3, y + 6, c.width * .7, y - 6, c.width, y + 3); x.stroke(); } x.globalAlpha = 1;
-  x.strokeStyle = lineCol; x.lineWidth = Math.max(1, .5 * sc); x.globalAlpha = .9;
-  for (const e of part.engrave) { x.beginPath(); e.pts.forEach((v, i) => { const X = v[0] * sc, Y = (part.h - v[1]) * sc; i ? x.lineTo(X, Y) : x.moveTo(X, Y); }); if (e.closed) x.closePath(); x.stroke(); }
-  const t = new THREE.CanvasTexture(c); t.encoding = THREE.sRGBEncoding; t.repeat.set(1 / part.w, 1 / part.h); t.anisotropy = 4; return t;
+function engraveTexture(part, hs) {
+  const sc = clamp(1600 / Math.max(part.w, part.h), .5, 6), c = document.createElement("canvas"); c.width = Math.ceil(part.w * sc); c.height = Math.ceil(part.h * sc);
+  const x = c.getContext("2d"); x.fillStyle = hs.color; x.fillRect(0, 0, c.width, c.height);
+  if (hs.id !== "acr") { const pat = x.createPattern(grainCanvas(hs), "repeat"); if (pat.setTransform) pat.setTransform(new DOMMatrix().scale(sc * 400 / 1024)); x.fillStyle = pat; x.fillRect(0, 0, c.width, c.height); }
+  x.lineCap = x.lineJoin = "round";
+  const pass = (col, w, blur, a) => { x.strokeStyle = col; x.lineWidth = w; x.shadowColor = blur ? col : "transparent"; x.shadowBlur = blur; x.globalAlpha = a;
+    for (const e of part.engrave) { x.beginPath(); e.pts.forEach((v, i) => { const X = v[0] * sc, Y = (part.h - v[1]) * sc; i ? x.lineTo(X, Y) : x.moveTo(X, Y); }); if (e.closed) x.closePath(); x.stroke(); } };
+  if (hs.id === "acr") { pass(hs.line, Math.max(1, .35 * sc), 2 * sc, .35); pass("#e9fffb", Math.max(1, .3 * sc), 0, .85); } // frosted, slightly glowing lines
+  else { pass("rgba(60,32,12,1)", Math.max(1.2, .9 * sc), 1.2 * sc, .35); pass(hs.line, Math.max(1, .45 * sc), 0, .95); } // burnt halo, then the groove
+  const t = new THREE.CanvasTexture(c); t.encoding = THREE.sRGBEncoding; t.repeat.set(1 / part.w, 1 / part.h); t.anisotropy = 8; return t;
 }
+function canvasTex(c, rx, ry, oy = 0) { const t = new THREE.CanvasTexture(c); t.encoding = THREE.sRGBEncoding; t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(rx, ry); t.offset.y = oy; t.anisotropy = 8; R3.trash.push(t); return t; }
+const PART_T = p => p.mat === "card" ? .5 : p.mat === "acrylic" ? 3 : p.mat === "mirror" ? G.t : G.T;
 function rebuild3D() {
   if (!R3) return;
-  const g = R3.group; while (g.children.length) { const c = g.children.pop(); c.geometry?.dispose(); }
-  const s = S, T = G.T, X = G.X, Y = G.Y, Z = G.Z, hs = HOUSING.find(h => h.id === s.housing) || HOUSING[0];
-  const lin = c => new THREE.Color(c).convertSRGBToLinear();
-  const wood = new THREE.MeshStandardMaterial({ color: lin(hs.color), roughness: hs.id === "acr" ? .25 : .75, metalness: 0 });
-  const edgeM = new THREE.MeshStandardMaterial({ color: lin(hs.edge), roughness: .8 });
-  const cardM = new THREE.MeshStandardMaterial({ color: 0x0b0b0d, roughness: .9 });
-  const mirM = new THREE.MeshStandardMaterial({ color: 0xffffff, metalness: 1, roughness: .04, envMap: R3.envTex, envMapIntensity: 1.25, side: THREE.DoubleSide });
-  const backM = new THREE.MeshStandardMaterial({ color: 0x9aa4b2, metalness: .6, roughness: .35, side: THREE.DoubleSide });
-  const acrM = new THREE.MeshPhysicalMaterial({ color: 0xffffff, roughness: .05, transmission: .9, transparent: true, opacity: .35 });
+  const g = R3.group; while (g.children.length) { const c = g.children.pop(); c.geometry?.dispose(); for (const k in c.userData.var || {}) [].concat(c.userData.var[k]).forEach(m => m.dispose()); }
+  R3.trash.forEach(x => x.dispose()); R3.trash = [];
+  const s = S, T = G.T, X = G.X, Y = G.Y, Z = G.Z, hs = HOUSING.find(h => h.id === s.housing) || HOUSING[0], big = Math.max(X, Y);
+  const lin = c => new THREE.Color(c).convertSRGBToLinear(), M = o => { const m = new THREE.MeshStandardMaterial(o); R3.trash.push(m); return m; };
+  const acr = hs.id === "acr";
+  const wood = M(acr ? { color: lin(hs.color), roughness: .14, metalness: 0, envMapIntensity: 1.2 } : { map: canvasTex(grainCanvas(hs), 1 / 400, 1 / 400), roughness: hs.id === "walnut" ? .55 : .7, metalness: 0, envMapIntensity: .7 });
+  const edgeM = M(acr ? { color: lin(hs.edge), roughness: .1, envMapIntensity: 1.4 } : { map: canvasTex(edgeCanvas(hs, T), 1 / 50, 1 / T, -1 / T), roughness: .9, envMapIntensity: .4 });
+  const cardM = M({ color: 0x0b0b0d, roughness: .9, side: THREE.DoubleSide });
+  const mirM = M({ color: 0xffffff, metalness: 1, roughness: .02, envMap: R3.mirRT.texture, envMapIntensity: 1, side: THREE.DoubleSide });
+  const backM = M({ color: 0x8d96a3, metalness: .55, roughness: .4, side: THREE.DoubleSide });
+  const tapeM = M({ color: 0x0d0d0f, roughness: .55, metalness: 0, side: THREE.DoubleSide });
+  const acrM = new THREE.MeshPhysicalMaterial({ color: 0xffffff, roughness: .05, metalness: 0, transmission: .9, transparent: true, opacity: .35, side: THREE.DoubleSide }); R3.trash.push(acrM);
+  const milkM = M({ color: 0xf4f1ea, roughness: .6, transparent: true, opacity: .85 });
   // world: x right, y up, front of the box faces +z. box z (depth from the front face) maps to wz = Z/2 - z
   const V = (x, y, z) => new THREE.Vector3(x, y, z);
-  const add3 = (geom, mat, ex, name, mats) => { const m = new THREE.Mesh(geom, mats || mat); m.userData = { ex: new THREE.Vector3(...ex), name }; g.add(m); return m; };
+  // numbers: one per cut-list row, then the bought parts
+  const rows = cutList(); R3.info = {}; R3.items = [];
+  rows.forEach((r, i) => { R3.items.push({ num: i + 1, name: r.name, dims: `${f1(r.w)}×${f1(r.h)}`, mat: r.mat, qty: r.qty, ids: r.ids }); r.ids.forEach(id => { const p = PARTS.find(q => q.id === id); R3.info[id] = { num: i + 1, title: p ? p.name : r.name, dims: `${f1(r.w)}×${f1(r.h)}×${f1(p ? PART_T(p) : T)} מ״מ`, mat: r.mat, qty: r.qty, note: r.note }; }); });
+  const extra = (id, name, dims) => { const num = R3.items.length + 1; R3.items.push({ num, name, dims, mat: "רכישה", qty: 1, ids: [id], buy: true }); R3.info[id] = { num, title: name, dims, mat: "רכישה", qty: 1, buy: true }; };
+  if (G.scr) extra("screen", "מסך " + G.scr.name, `${f0(G.scr.ow)}×${f0(G.scr.oh)}×${f0(G.scr.t)} מ״מ`);
+  const nMir = G.mirrors.length; extra("tape", "סרט הדבקה שחור לתפרים", `${nMir} × ${f0(G.L)} מ״מ`);
+  if (G.scr) extra("cable", "כבל מסך (HDMI + חשמל)", "≈1.5 מ׳"); else extra("led", "פס LED חם לתאורה אחורית", `${f0(G.cellDisc * 2.2)} מ״מ`);
+  // assembly script: show = step where it first appears, from = offset when it appears, path = [[step, offset]] it reaches at the end of that step
+  const tubeOff = V(0, 0, Z * 1.05 + 40), Z0 = V(0, 0, 0), back = V(0, big * .15, -big * .9);
+  const add3 = (geom, mat, o) => { const m = new THREE.Mesh(geom, mat); m.castShadow = o.shadow !== false; m.receiveShadow = true; m.userData = Object.assign({ base: mat, label: true, guide: true }, o, R3.info[o.pid] || {}); g.add(m); return m; };
   const exGeo = (p) => new THREE.ExtrudeGeometry(shapeFrom(p.outline, p.holes), { depth: p.mat === "card" ? .5 : p.mat === "acrylic" ? 3 : T, bevelEnabled: false, curveSegments: 48 });
   for (const p of PARTS) {
     if (p.mat === "mirror" || p.mirror) continue;
-    const pl = p.place; let geom = exGeo(p), mats = null, mat = p.mat === "card" ? cardM : p.mat === "acrylic" ? acrM : wood;
-    if (p.engrave.length && p.mat === "housing") mats = [new THREE.MeshStandardMaterial({ map: engraveTexture(p, hs.color, hs.line), roughness: hs.id === "acr" ? .3 : .75 }), edgeM];
-    else if (p.mat === "housing") mats = [wood, edgeM];
-    let m;
+    const pl = p.place; let geom = exGeo(p), mat = p.mat === "card" ? cardM : p.mat === "acrylic" ? (p.id === "cellB" ? milkM : acrM) : [wood, edgeM];
+    if (p.engrave.length && p.mat === "housing") mat = [M({ map: (t => (R3.trash.push(t), t))(engraveTexture(p, hs)), roughness: acr ? .2 : .7, envMapIntensity: acr ? 1.2 : .7 }), edgeM];
     if (pl.kind === "xy") geom = placed(geom, V(-X / 2, -Y / 2, Z / 2 - pl.z), V(1, 0, 0), V(0, 1, 0), V(0, 0, -1), T);
     else if (pl.kind === "top") geom = placed(geom, V(-X / 2, Y / 2, Z / 2), V(1, 0, 0), V(0, 0, -1), V(0, -1, 0), T);
     else if (pl.kind === "bottom") geom = placed(geom, V(-X / 2, -Y / 2, Z / 2), V(1, 0, 0), V(0, 0, -1), V(0, 1, 0), T);
@@ -607,12 +777,13 @@ function rebuild3D() {
     else if (pl.kind === "mask") geom = placed(geom, V(-p.w / 2, -p.h / 2, Z / 2 - G.z1), V(1, 0, 0), V(0, 1, 0), V(0, 0, -1), .5);
     else if (pl.kind === "cell") { const z = G.zCell + (pl.which ? 3 + s.cellDepth : 0); geom = placed(geom, V(-p.w / 2, -p.h / 2, Z / 2 - z), V(1, 0, 0), V(0, 1, 0), V(0, 0, -1), 3); }
     else if (pl.kind === "ring") { const z = G.zCell + 3 + pl.which * (s.cellDepth / pl.n); geom = placed(geom, V(-p.w / 2, -p.h / 2, Z / 2 - z), V(1, 0, 0), V(0, 1, 0), V(0, 0, -1), Math.min(T, s.cellDepth / pl.n)); }
-    let ex = pl.ex.map(v => v * Math.max(X, Y) * .55);
-    if (pl.kind === "rib") ex = [0, Math.max(X, Y) * .9, 0];
-    if (pl.kind === "left" || pl.kind === "right") ex = [pl.ex[0] * X * .7, 0, 0];
-    if (pl.kind === "top" || pl.kind === "bottom") ex = [0, pl.ex[1] * Y * .8, 0];
-    m = add3(geom, mat, ex, p.id, mats);
-    if (pl.kind === "rib") m.userData.ex = new THREE.Vector3(0, (pl.spread ? 1 : .6) * Math.max(X, Y) * .85, 0);
+    let ex = V(...pl.ex.map(v => v * big * .55));
+    if (pl.kind === "rib") ex = V(0, (pl.spread ? 1 : .6) * big * .85, 0);
+    if (pl.kind === "left" || pl.kind === "right") ex = V(pl.ex[0] * X * .7, 0, 0);
+    if (pl.kind === "top" || pl.kind === "bottom") ex = V(0, pl.ex[1] * Y * .8, 0);
+    const late = ["top", "back", "overlay"].includes(p.id), inner = ["mask", "cell", "ring"].includes(pl.kind);
+    const anim = inner ? { show: 5, from: back.clone().add(V(0, 0, -(pl.which || 0) * 30)), path: [[5, Z0]] } : { show: 0, from: ex.clone(), path: [[late ? 7 : 2, Z0]] };
+    add3(geom, mat, Object.assign({ pid: p.id, ex, cutaway: p.id === "top" || p.id === "left", inside: inner || pl.kind === "rib" }, anim));
   }
   // mirrors: inner face from near polygon (z0) to far polygon (z1), backing offset outward by t
   for (const mr of G.mirrors) {
@@ -623,39 +794,318 @@ function rebuild3D() {
     const inner = new THREE.BufferGeometry().setFromPoints(face(c)); inner.computeVertexNormals();
     const tris = [...face([d[1], d[0], d[3], d[2]]), ...face([c[0], d[0], d[1], c[1]]), ...face([c[1], d[1], d[2], c[2]]), ...face([c[2], d[2], d[3], c[3]]), ...face([c[3], d[3], d[0], c[0]])];
     const shell = new THREE.BufferGeometry().setFromPoints(tris); shell.computeVertexNormals();
-    const ex = [n[0] * Math.max(X, Y) * .35, n[1] * Math.max(X, Y) * .35, 0];
-    add3(inner, mr.isMirror ? mirM : cardM, ex, "m" + mr.i); add3(shell, mr.isMirror ? backM : cardM, ex, "mb" + mr.i);
+    const ex = V(n[0] * big * .35, n[1] * big * .35, 0), anim = { show: 1, from: ex.clone().multiplyScalar(1.4).add(tubeOff), path: [[3, tubeOff], [4, Z0]] };
+    add3(inner, mr.isMirror ? mirM : cardM, Object.assign({ pid: "m" + mr.i, ex, mirror: mr.isMirror, inside: true }, anim));
+    add3(shell, mr.isMirror ? backM : cardM, Object.assign({ pid: "m" + mr.i, ex, label: false, guide: false, inside: true }, anim));
   }
-  // screen module + lit area
+  // black tape folded over every outside seam of the tube
+  { const P = G.poly, n = P.length, o = G.t + .25, w = Math.min(10, G.D * .08), pts = [];
+    const strip = (k, z) => { const out = []; for (let i = 0; i < n; i++) { const a = P[(i + n - 1) % n], v = P[i], b = P[(i + 1) % n], d1 = norm(sub(v, a)), d2 = norm(sub(b, v)), n1 = [d1[1], -d1[0]], n2 = [d2[1], -d2[0]];
+      const cn = lineX(add(mul(v, k), mul(n1, o)), d1, add(mul(v, k), mul(n2, o)), d2); out.push([sub(cn, mul(d1, w)), cn, add(cn, mul(d2, w))].map(q => V(q[0], q[1], Z / 2 - z))); } return out; };
+    const near = strip(G.k, G.z0 + 4), far = strip(1, G.z1 - 4);
+    for (let i = 0; i < n; i++) for (let j = 0; j < 2; j++) { const a = near[i][j], b = near[i][j + 1], c = far[i][j + 1], d = far[i][j]; pts.push(a, b, c, a, c, d); }
+    const geo = new THREE.BufferGeometry().setFromPoints(pts); geo.computeVertexNormals();
+    add3(geo, tapeM, { pid: "tape", ex: V(0, 0, 0), show: 3, from: tubeOff.clone(), path: [[3, tubeOff], [4, Z0]], guide: false, inside: true, shadow: false }); }
+  // screen module + lit area + cable, or the LED strip behind an object cell
   if (G.scr) {
-    const sc = G.scr, body = new THREE.Mesh(new THREE.BoxGeometry(sc.ow, sc.oh, sc.t), new THREE.MeshStandardMaterial({ color: 0x15171c, roughness: .5 }));
-    body.position.set(0, 0, Z / 2 - (G.zs + sc.t / 2)); body.userData = { ex: new THREE.Vector3(0, 0, -Math.max(X, Y) * .8), name: "screen" }; g.add(body);
+    const sc = G.scr, body = add3(new THREE.BoxGeometry(sc.ow, sc.oh, sc.t), M({ color: 0x15171c, roughness: .45, metalness: .3 }), { pid: "screen", ex: V(0, 0, -big * .8), show: 5, from: back.clone(), path: [[5, Z0]], inside: true });
+    body.position.set(0, 0, Z / 2 - (G.zs + sc.t / 2));
     const cvs = R3.screenTex.image; cvs.width = 512; cvs.height = Math.round(512 * sc.h / sc.w); R3.scrMap = { w: sc.w, h: sc.h };
-    const lit = new THREE.Mesh(new THREE.PlaneGeometry(sc.w, sc.h), new THREE.MeshBasicMaterial({ map: R3.screenTex, toneMapped: false }));
-    lit.position.set(0, 0, Z / 2 - G.zs + .05); lit.userData = { ex: body.userData.ex, name: "lit" }; g.add(lit); R3.screenTex.needsUpdate = true;
-  } else { const l = new THREE.Mesh(new THREE.CircleGeometry(G.cellDisc / 2 - 2, 48), new THREE.MeshBasicMaterial({ map: R3.screenTex, toneMapped: false, transparent: true, opacity: .9 }));
+    const litM = new THREE.MeshBasicMaterial({ map: R3.screenTex, toneMapped: false }); R3.trash.push(litM);
+    const lit = add3(new THREE.PlaneGeometry(sc.w, sc.h), litM, { pid: "screen", lit: true, label: false, guide: false, ex: V(0, 0, -big * .8), show: 5, from: back.clone(), path: [[5, Z0]], shadow: false, inside: true });
+    lit.position.set(0, 0, Z / 2 - G.zs + .05); R3.screenTex.needsUpdate = true;
+    const zb = Z / 2 - G.zBack, hx = X / 2 - T - 26, hy = -Y / 2 + T + 24, zsb = Z / 2 - G.zs - sc.t;
+    const curve = new THREE.CatmullRomCurve3([V(sc.ow * .3, -sc.oh * .3, zsb - 1), V(sc.ow * .3, -sc.oh * .3, zsb - 12), V(hx, hy + 10, (zsb + zb) / 2), V(hx, hy, zb + 4), V(hx, hy, zb - T - 30), V(hx, hy - 8, zb - T - 70), V(hx, -Y / 2 + 3, zb - T - 120), V(hx + 20, -Y / 2 + 3, zb - T - 260)]);
+    add3(new THREE.TubeGeometry(curve, 96, 2.6, 10), M({ color: 0x141414, roughness: .5 }), { pid: "cable", ex: V(0, 0, -big * .5), show: 6, from: V(0, 0, -big * .5), path: [[6, Z0]], inside: true });
+  } else {
     const cvs = R3.screenTex.image; cvs.width = cvs.height = 512; R3.scrMap = { w: G.cellDisc, h: G.cellDisc };
-    l.position.set(0, 0, Z / 2 - (G.zCell + 3 + s.cellDepth / 2)); l.userData = { ex: new THREE.Vector3(0, 0, -Math.max(X, Y) * .9), name: "lit" }; g.add(l); }
-  g.children.forEach(m => { m.userData.home = m.position.clone(); });
-  R3.size = Math.hypot(X, Y, Z); if (!R3.framed) { resetCam(); R3.framed = true; }
-  applyCutaway();
+    const litM = new THREE.MeshBasicMaterial({ map: R3.screenTex, toneMapped: false, transparent: true, opacity: .9 }); R3.trash.push(litM);
+    const l = add3(new THREE.CircleGeometry(G.cellDisc / 2 - 2, 48), litM, { pid: "cellB", lit: true, label: false, guide: false, ex: V(0, 0, -big * .9), show: 5, from: back.clone(), path: [[5, Z0]], shadow: false, inside: true });
+    l.position.set(0, 0, Z / 2 - (G.zCell + 3 + s.cellDepth / 2));
+    const zl = Z / 2 - (G.zCell + 6 + s.cellDepth + Math.min(20, s.backDepth / 2)), led = add3(new THREE.TorusGeometry(G.cellDisc * .36, 2.5, 8, 48), M({ color: 0xfff1d0, emissive: 0xffc677, emissiveIntensity: 1.4, roughness: .4 }), { pid: "led", ex: V(0, 0, -big * .5), show: 6, from: V(0, 0, -big * .5), path: [[6, Z0]], inside: true });
+    led.position.set(0, 0, zl);
+  }
+  g.children.forEach(m => { const u = m.userData; u.home = m.position.clone(); m.geometry.computeBoundingBox(); u.bb = m.geometry.boundingBox; u.center = u.bb.getCenter(new THREE.Vector3());
+    u.stepIn = u.path[u.path.length - 1][0]; u.rank = { 7: 0, 6: 1, 5: 1, 4: 2, 3: 2, 2: 3 }[u.stepIn] ?? 3; });
+  R3.size = Math.hypot(X, Y, Z); R3.tubeC = V(...centroid(G.poly), Z / 2 - (G.z0 + G.z1) / 2);
+  const S3 = R3.size, kc = R3.key.shadow.camera; R3.key.position.set(-.55, 1.25, .9).multiplyScalar(S3 * 1.4); R3.fill.position.set(1.1, .45, .9).multiplyScalar(S3); R3.rim.position.set(1.3, .7, -1.3).multiplyScalar(S3);
+  kc.left = kc.bottom = -S3 * 1.25; kc.right = kc.top = S3 * 1.25; kc.near = S3 * .2; kc.far = S3 * 4; kc.updateProjectionMatrix();
+  R3.shadowPlane.scale.setScalar(S3 * 6); R3.guides.material.dashSize = S3 * .012; R3.guides.material.gapSize = S3 * .009;
+  if (!R3.framed) { resetCam(); R3.framed = true; }
+  R3.floorY = null; R3.fitR = null; renderPlist(); if (R3.mode === "steps") renderStepCard();
 }
-function applyCutaway() { if (!R3) return; const on = $("#cutaway").checked; R3.group.children.forEach(m => { if (["top", "left"].includes(m.userData.name)) m.visible = !on; }); }
+function applyCutaway() { if (R3) R3.cut = $("#cutaway").checked; }
 function resetCam() { if (!R3) return; R3.yaw = -.65; R3.pitch = .32; R3.dist = 1; }
-function drawScreenTex() { // the screen shows the source only inside the mirror polygon, like the studio's screen mode
-  const c = R3.screenTex.image, x = c.getContext("2d"), w = c.width, h = c.height, m = R3.scrMap; x.fillStyle = "#000"; x.fillRect(0, 0, w, h);
-  const s = w / m.w; x.save(); x.translate(w / 2, h / 2); x.scale(s, -s); x.beginPath(); G.poly.forEach((v, i) => i ? x.lineTo(v[0], v[1]) : x.moveTo(v[0], v[1])); x.closePath(); x.clip();
-  const bb = bbox(G.poly); x.scale(1, -1); x.drawImage(SRC, bb.x0, -bb.y1, bb.w, bb.h); x.restore(); R3.screenTex.needsUpdate = true;
+function drawScreenTex(on) { // the screen shows the source only inside the mirror polygon, like the studio's screen mode
+  const c = R3.screenTex.image, x = c.getContext("2d"), w = c.width, h = c.height, m = R3.scrMap; x.fillStyle = on ? "#000" : "#050608"; x.fillRect(0, 0, w, h);
+  if (on) { const s = w / m.w; x.save(); x.translate(w / 2, h / 2); x.scale(s, -s); x.beginPath(); G.poly.forEach((v, i) => i ? x.lineTo(v[0], v[1]) : x.moveTo(v[0], v[1])); x.closePath(); x.clip();
+    const bb = bbox(G.poly); x.scale(1, -1); x.drawImage(SRC, bb.x0, -bb.y1, bb.w, bb.h); x.restore(); }
+  R3.screenTex.needsUpdate = true;
+}
+const ease = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+function offAt(u, k) { if (k < u.show) return u.from; let o = u.from; for (const [s, v] of u.path) if (s <= k) o = v; return o; }
+// positions, visibility and look of every part for the current mode; used by the live view and by the renders
+function pose3D(dt) {
+  const steps = R3.mode === "steps", k = R3.step, t = ease(clamp(R3.stepT, 0, 1)), e = R3.exE, n = 4;
+  let minY = Infinity; const bmin = R3.bmin.set(Infinity, Infinity, Infinity), bmax = R3.bmax.set(-Infinity, -Infinity, -Infinity); const ln = R3.guides.geometry.attributes.position.array; let li = 0;
+  for (const m of R3.group.children) {
+    const u = m.userData; let off, vis = true, ghost = false;
+    if (steps) {
+      vis = k >= u.show; const a = offAt(u, k - 1), b = offAt(u, k); off = R3.tmp.copy(k - 1 < u.show ? u.from : a).lerp(b, t);
+      u.active = u.show === k || u.path.some(p => p[0] === k); ghost = R3.cut && u.cutaway;
+    } else {
+      const st = (u.rank / n) * .78, local = ease(clamp((e - st) / (.22 + .78 / n), 0, 1)); off = R3.tmp.copy(u.ex).multiplyScalar(local); u.active = false;
+      if (R3.cut && u.cutaway) vis = false;
+    }
+    m.position.copy(u.home).add(off); m.visible = vis; u.ghost = ghost;
+    if (vis && !ghost && !u.lit) { minY = Math.min(minY, u.bb.min.y + m.position.y); if (u.pid !== "cable") bmin.min(R3.tmp2.copy(u.bb.min).add(m.position)); if (u.pid !== "cable") bmax.max(R3.tmp2.copy(u.bb.max).add(m.position)); }
+    // guide line from where the part lives to where it is now
+    if (R3.guidesOn && vis && u.guide && off.lengthSq() > 4 && li < 1794) { const a = R3.tmp2.copy(u.center).add(u.home); ln[li++] = a.x; ln[li++] = a.y; ln[li++] = a.z; const b = R3.tmp2.copy(u.center).add(m.position); ln[li++] = b.x; ln[li++] = b.y; ln[li++] = b.z; }
+    let kind = "base";
+    if (ghost) kind = "ghost"; else if (R3.sel != null && u.num === R3.sel) kind = "sel"; else if ((R3.hov ?? R3.listHov) != null && u.num === (R3.hov ?? R3.listHov)) kind = "hov"; else if (steps && u.active) kind = "hl";
+    setVariant(m, kind);
+  }
+  const ga = R3.guides.geometry; ga.attributes.position.needsUpdate = true; ga.setDrawRange(0, li / 3); R3.guides.computeLineDistances(); R3.guides.visible = li > 0;
+  if (!isFinite(minY)) minY = -G.Y / 2; const fy = minY - .6; R3.floorY = R3.floorY == null || !dt ? fy : R3.floorY + (fy - R3.floorY) * Math.min(1, dt * 5);
+  if (isFinite(bmin.x)) { const c = R3.tmp2.addVectors(bmin, bmax).multiplyScalar(.5), rr = bmin.distanceTo(bmax) / 2, f = dt ? Math.min(1, dt * 3) : 1;
+    if (R3.fitR == null || !dt) { R3.fitC.copy(c); R3.fitR = rr; } else { R3.fitC.lerp(c, f); R3.fitR += (rr - R3.fitR) * f; } }
+  R3.floor.position.y = R3.shadowPlane.position.y = R3.floorY; R3.floor.position.x = R3.fitC.x; R3.floor.position.z = R3.fitC.z; R3.floor.scale.setScalar(Math.max(R3.size * 1.2, R3.fitR * 2.6)); R3.key.target.position.set(0, R3.floorY * .3, 0);
+}
+function setVariant(m, kind) {
+  const u = m.userData; if (u.kind === kind) return; u.kind = kind;
+  if (kind === "base" || u.lit) { m.material = u.base; return; }
+  u.var ||= {}; if (!u.var[kind]) u.var[kind] = [].concat(u.base).map(b => { const c = b.clone();
+    if (kind === "ghost") { c.transparent = true; c.opacity = .13; c.depthWrite = false; }
+    else if (c.emissive) { c.emissive = new THREE.Color(kind === "hl" ? 0xffb547 : 0x7cf2dc); c.emissiveIntensity = kind === "sel" ? .45 : kind === "hl" ? .2 : .2; }
+    return c; });
+  m.material = Array.isArray(u.base) ? u.var[kind] : u.var[kind][0];
+}
+function placeCam(W, H, overlays) { // look at the visible parts and back off enough to fit them; shift the picture away from the panels on top of it
+  const { cam } = R3; let ox = 0, oy = 0, room = 1;
+  if (overlays && W) { const pl = $("#plist"), sc = $("#stepcard"), pw = !pl.hidden && W >= 700 ? pl.offsetWidth + 12 : 0, ch = !sc.hidden ? Math.min(H * .55, sc.offsetHeight + 20) : 0;
+    ox = -pw / 2; oy = ch / 2; room = Math.max(W / Math.max(1, W - pw), H / Math.max(1, H - ch - 60)); }
+  const r = Math.max(R3.fitR || R3.size / 2, R3.size * .2), vf = cam.fov * Math.PI / 360, hf = Math.atan(Math.tan(vf) * cam.aspect), d = r / Math.sin(Math.min(vf, hf)) * (W ? .95 : 1.02) * R3.dist * room, c = R3.fitC;
+  cam.position.set(c.x + Math.sin(R3.yaw) * Math.cos(R3.pitch) * d, c.y + Math.sin(R3.pitch) * d, c.z + Math.cos(R3.yaw) * Math.cos(R3.pitch) * d); cam.near = d / 100; cam.far = d * 10; cam.lookAt(c);
+  if (ox || oy) cam.setViewOffset(W, H, ox, oy, W, H); else cam.clearViewOffset();
+  cam.updateProjectionMatrix(); }
+function updateMirrors() { // refresh what the mirrors see; mirrors and tape are hidden while the cube camera looks around
+  const hide = R3.group.children.filter(m => m.userData.pid && /^m\d|^tape$/.test(m.userData.pid) && m.visible); hide.forEach(m => m.visible = false);
+  const r = R3.renderer, au = r.shadowMap.autoUpdate; r.shadowMap.autoUpdate = false; const bg = R3.scene.background; if (!bg) R3.scene.background = R3.envRT.texture;
+  R3.mirCam.position.copy(R3.tubeC); R3.floor.visible = false; R3.mirCam.update(r, R3.scene); R3.floor.visible = R3.bgMode !== "transparent"; R3.scene.background = bg; r.shadowMap.autoUpdate = au; hide.forEach(m => m.visible = true);
 }
 function frame3D(dt) {
+  if (R3.busy) return;
   const v = $("#v3d"), r = v.getBoundingClientRect(); if (!r.width) return;
   const { renderer, cam } = R3, W = Math.round(r.width), H = Math.round(r.height);
-  if (renderer.domElement.width !== Math.round(W * renderer.getPixelRatio())) { renderer.setSize(W, H, false); }
-  cam.aspect = W / H; cam.updateProjectionMatrix();
+  if (renderer.domElement.width !== Math.round(W * renderer.getPixelRatio()) || renderer.domElement.height !== Math.round(H * renderer.getPixelRatio())) renderer.setSize(W, H, false);
+  cam.aspect = W / H;
   if ($("#spin3d").checked) R3.yaw += dt * .25;
-  const e = +$("#explode").value; R3.group.children.forEach(m => m.position.copy(m.userData.home).addScaledVector(m.userData.ex, e));
-  const d = R3.size * 1.45 * R3.dist; cam.position.set(Math.sin(R3.yaw) * Math.cos(R3.pitch) * d, Math.sin(R3.pitch) * d, Math.cos(R3.yaw) * Math.cos(R3.pitch) * d); cam.near = d / 100; cam.far = d * 10; cam.lookAt(0, 0, 0);
-  drawScreenTex(); renderer.render(R3.scene, cam);
+  if (R3.mode === "steps") {
+    if (R3.stepT < 1) R3.stepT = Math.min(1, R3.stepT + dt / (R3.step === 0 ? 1.1 : 1.6));
+    else { R3.stepT += dt * .5; if (R3.playing) { R3.hold += dt; if (R3.hold > 1.8) { if (R3.step < 7) goStep(R3.step + 1); else { R3.playing = false; renderStepCard(); } } } }
+  }
+  pose3D(dt); placeCam(W, H, true);
+  drawScreenTex(R3.mode !== "steps" || R3.step >= 6);
+  if (R3.frame++ % 3 === 0) updateMirrors();
+  if (R3.needPick && R3.mouse) { R3.needPick = false; const hit = pick3D(...R3.mouse); R3.hov = hit ? hit.userData.num : null; showTip(hit); }
+  renderer.render(R3.scene, cam);
+  drawLabels(W, H);
+}
+function pick3D(x, y) {
+  const r = $("#c3d").getBoundingClientRect(); R3.ray.setFromCamera({ x: x / r.width * 2 - 1, y: -(y / r.height) * 2 + 1 }, R3.cam);
+  const hits = R3.ray.intersectObjects(R3.group.children.filter(m => m.visible && !m.userData.ghost), false);
+  return hits.length ? hits[0].object : null;
+}
+function showTip(m) {
+  const tip = $("#tip3d"); if (!m || !R3.mouse) { tip.hidden = true; return; }
+  const i = R3.info[m.userData.pid]; if (!i) { tip.hidden = true; return; }
+  tip.innerHTML = `<b><span class="num${i.buy ? " buy" : ""}">${i.num}</span> ${esc(i.title)}</b><span>${esc(i.dims)}</span><span>${esc(i.mat)}${i.qty > 1 ? ` · כמות ${i.qty}` : ""}</span>${i.note ? `<span>${esc(i.note)}</span>` : ""}`;
+  tip.hidden = false; const W = $("#v3d").clientWidth; tip.style.left = Math.min(W - tip.offsetWidth - 8, R3.mouse[0] + 14) + "px"; tip.style.top = (R3.mouse[1] + 16) + "px";
+}
+function drawLabels(W, H) {
+  const lay = $("#lbl3d"), want = []; const sel = R3.sel, hov = R3.hov ?? R3.listHov;
+  for (const m of R3.group.children) { const u = m.userData; if (!m.visible || !u.label || !u.num || (u.ghost && !u.active)) continue;
+    if (!(R3.labelsOn || u.active || u.num === sel || u.num === hov)) continue;
+    const p = R3.tmp.copy(u.center).add(m.position).project(R3.cam); if (p.z > 1) continue; want.push([u.num, (p.x + 1) / 2 * W, (1 - p.y) / 2 * H, u.active, u.buy]); }
+  while (lay.children.length < want.length) lay.appendChild(document.createElement("span"));
+  [...lay.children].forEach((el, i) => { const w = want[i]; if (!w) { el.style.display = "none"; return; } el.style.display = ""; if (el.textContent !== String(w[0])) el.textContent = w[0];
+    el.className = (w[3] ? "act" : "") + (w[4] ? " buy" : "") + (w[0] === sel ? " sel" : ""); el.style.transform = `translate(${w[1].toFixed(1)}px,${w[2].toFixed(1)}px) translate(-50%,-50%)`; });
+}
+function selectPart(num, from3d) {
+  R3.sel = num; $$("#plist .pi").forEach(b => b.classList.toggle("on", +b.dataset.num === num));
+  if (num != null) { const b = $(`#plist .pi[data-num="${num}"]`); if (b && from3d && !$("#plist").hidden) b.scrollIntoView({ block: "nearest" }); const it = R3.items.find(x => x.num === num); if (from3d && it) toast(`${num} · ${it.name} · ${it.dims} מ״מ`, 1800); }
+}
+function renderPlist() {
+  if (!R3) return; const el = $("#plist");
+  el.innerHTML = `<h4>חלקים <small>${R3.items.length}</small></h4>` + R3.items.map(it => `<button type="button" class="pi${it.num === R3.sel ? " on" : ""}" data-num="${it.num}"><span class="num${it.buy ? " buy" : ""}">${it.num}</span><span><b>${esc(it.name)}</b><small>${esc(it.dims)}${/מ״מ|מ׳/.test(it.dims) ? "" : " מ״מ"} · ${esc(it.mat)}</small></span><span class="q">×${it.qty}</span></button>`).join("");
+}
+function stepTitle(i) { return (!G.scr && STEP_TITLES_CELL[i]) || STEP_TITLES[i]; }
+function renderStepCard() {
+  const el = $("#stepcard"), k = R3.step, txt = steps()[k] || "", nums = [...new Set(R3.group.children.filter(m => m.userData.active && m.userData.num).map(m => m.userData.num))].sort((a, b) => a - b);
+  el.innerHTML = `<div class="sh"><span class="badge">שלב ${k + 1} מתוך 8</span><b>${esc(stepTitle(k))}</b><span class="dots">${STEP_TITLES.map((_, i) => `<button type="button" data-step="${i}" aria-label="שלב ${i + 1}" class="${i === k ? "on" : i < k ? "done" : ""}"></button>`).join("")}</span></div>
+    <p>${esc(txt)}</p>
+    ${nums.length ? `<div class="chips">${nums.map(n => { const it = R3.items.find(x => x.num === n); return it ? `<button type="button" class="pchip" data-num="${n}"><span class="num${it.buy ? " buy" : ""}">${n}</span>${esc(it.name)}${it.qty > 1 ? ` ×${it.qty}` : ""}</button>` : ""; }).join("")}</div>` : ""}
+    <div class="sb"><button type="button" id="stPrev"${k ? "" : " disabled"}>הקודם</button><button type="button" class="primary" id="stPlay">${R3.playing ? "השהיה" : k === 7 && R3.stepT >= 1 ? "נגן מההתחלה" : "נגן הכל"}</button><button type="button" id="stNext"${k < 7 ? "" : " disabled"}>הבא</button><button type="button" id="stReplay">הצג שוב את השלב</button></div>`;
+}
+function goStep(k) { R3.step = clamp(k, 0, 7); R3.stepT = 0; R3.hold = 0; pose3D(0); renderStepCard(); }
+function setMode3D(mode) {
+  R3.mode = mode; $$("[data-mode3d]").forEach(b => b.setAttribute("aria-pressed", b.dataset.mode3d === mode)); $("#stepcard").hidden = mode !== "steps"; $("#v3d").classList.toggle("steps", mode === "steps"); $("#freebar").classList.toggle("steps", mode === "steps");
+  if (mode === "steps") goStep(0); else R3.playing = false;
+}
+function init3DUI() {
+  const v = $("#v3d");
+  $("#explode").addEventListener("input", e => R3.exE = +e.target.value);
+  $("#guides3d").addEventListener("change", e => R3.guidesOn = e.target.checked);
+  $("#labels3d").addEventListener("change", e => R3.labelsOn = e.target.checked);
+  $("#plist").addEventListener("pointerover", e => { const b = e.target.closest(".pi"); R3.listHov = b ? +b.dataset.num : null; });
+  $("#plist").addEventListener("pointerleave", () => R3.listHov = null);
+  const menus = ["snap", "dl"], closeMenus = except => menus.forEach(id => { if (id !== except) { $("#" + id + "Menu").hidden = true; $("#" + id + "Btn").setAttribute("aria-expanded", "false"); } });
+  v.addEventListener("click", e => {
+    const b = e.target.closest("button"); if (!b) return;
+    if (b.dataset.mode3d) return setMode3D(b.dataset.mode3d);
+    if (b.dataset.num && (b.classList.contains("pi") || b.classList.contains("pchip"))) { const n = +b.dataset.num; selectPart(R3.sel === n ? null : n, false); return; }
+    if (b.dataset.step) { R3.playing = false; goStep(+b.dataset.step); return; }
+    if (b.dataset.bg) { R3.bg = b.dataset.bg; $$("#snapBg button").forEach(x => x.setAttribute("aria-pressed", x === b)); return; }
+    if (b.dataset.x3d) { closeMenus(); export3D(b.dataset.x3d); return; }
+    switch (b.id) {
+      case "tPlist": { const p = $("#plist"); p.hidden = !p.hidden; b.setAttribute("aria-expanded", !p.hidden); break; }
+      case "snapBtn": case "dlBtn": { const id = b.id.replace("Btn", ""), m = $("#" + id + "Menu"); closeMenus(id); m.hidden = !m.hidden; b.setAttribute("aria-expanded", !m.hidden); break; }
+      case "snapNow": closeMenus(); snapshot(false); break;
+      case "snapSet": closeMenus(); snapshot(true); break;
+      case "stPrev": R3.playing = false; goStep(R3.step - 1); break;
+      case "stNext": R3.playing = false; goStep(R3.step + 1); break;
+      case "stReplay": R3.playing = false; goStep(R3.step); break;
+      case "stPlay": if (R3.playing) { R3.playing = false; renderStepCard(); } else { R3.playing = true; if (R3.step === 7 && R3.stepT >= 1) goStep(0); else { R3.hold = 0; renderStepCard(); } } break;
+    }
+  });
+  document.addEventListener("pointerdown", e => { if (!e.target.closest(".menuwrap")) closeMenus(); });
+  $("#snapRes").addEventListener("change", e => R3.res = +e.target.value);
+  document.addEventListener("keydown", e => { if (tab !== "v3d" || R3.mode !== "steps" || /INPUT|SELECT|TEXTAREA/.test(e.target.tagName)) return;
+    if (e.key === "ArrowLeft") { R3.playing = false; goStep(R3.step + 1); } else if (e.key === "ArrowRight") { R3.playing = false; goStep(R3.step - 1); } else if (e.key === " " && e.target === document.body) { e.preventDefault(); $("#stPlay")?.click(); } });
+  if (innerWidth > 1300) { $("#plist").hidden = false; $("#tPlist").setAttribute("aria-expanded", "true"); }
+}
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+
+// ---------- renders
+function setBackground(kind) {
+  const sc = R3.scene; R3.bgMode = kind; if (sc.background && sc.background.isTexture && sc.background !== R3.envRT.texture) sc.background.dispose();
+  sc.background = kind === "live" || kind === "transparent" ? null : bgCanvas(kind);
+  R3.floor.visible = kind !== "transparent"; R3.shadowPlane.visible = kind === "transparent";
+  R3.floor.material.color.set(kind === "studio" ? 0xcfc9c0 : 0x0c0f15); R3.renderer.toneMappingExposure = kind === "studio" ? 1.05 : 1;
+}
+async function snapshot(set) {
+  if (!R3 || R3.busy) return; R3.busy = true; toast(set ? "מרנדר 4 זוויות…" : "מרנדר…", 6000); await new Promise(r => setTimeout(r, 60));
+  const r = R3.renderer, [W, H] = SNAPRES[R3.res] || SNAPRES[0], keep = { pr: r.getPixelRatio(), yaw: R3.yaw, pitch: R3.pitch, dist: R3.dist, mode: R3.mode, exE: R3.exE, cut: R3.cut, sel: R3.sel, hov: R3.hov, guides: R3.guidesOn };
+  const files = [], big = s => { R3.key.shadow.mapSize.set(s, s); R3.key.shadow.map?.dispose(); R3.key.shadow.map = null; };
+  try {
+    R3.sel = R3.hov = R3.listHov = null; setBackground(R3.bg); r.setPixelRatio(1); r.setSize(W, H, false); R3.cam.aspect = W / H; big(4096);
+    const shots = set ? SHOTS : [{ id: "view", keep: true }];
+    for (const s of shots) {
+      if (!s.keep) { R3.mode = "free"; R3.exE = s.ex; R3.cut = s.cut; R3.yaw = s.yaw; R3.pitch = s.pitch; R3.dist = s.dist; R3.guidesOn = s.ex > 0; }
+      pose3D(0); placeCam(); drawScreenTex(R3.mode !== "steps" || R3.step >= 6); updateMirrors(); r.render(R3.scene, R3.cam);
+      const url = r.domElement.toDataURL("image/png"), bin = atob(url.split(",")[1]), u8 = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) u8[i] = bin.charCodeAt(i);
+      files.push({ name: `${slug()}-${s.id}-${W}x${H}.png`, data: u8 });
+    }
+  } finally {
+    Object.assign(R3, { yaw: keep.yaw, pitch: keep.pitch, dist: keep.dist, mode: keep.mode, exE: keep.exE, cut: keep.cut, sel: keep.sel, hov: keep.hov, guidesOn: keep.guides });
+    setBackground("live"); r.setPixelRatio(keep.pr); big(2048); R3.busy = false;
+  }
+  if (files.length === 1) saveFile(files[0].name, new Blob([files[0].data], { type: "image/png" })); else saveFile(slug() + `-renders-${W}x${H}.zip`, zip(files));
+}
+
+// ---------- 3D files. Everything is exported assembled, in millimetres (GLB in metres, as glTF expects).
+function partMeshes(withLit) { // [{pid, num, name, mesh, prims:[{mat, start, count}]}] at the assembled position
+  const out = new Map();
+  for (const m of R3.group.children) { const u = m.userData; if (u.lit && !withLit) continue;
+    const key = u.lit ? "lit" : u.pid; if (!out.has(key)) { const i = R3.info[u.pid] || {}; out.set(key, { pid: key, num: i.num || 0, name: u.lit ? "שטח מואר" : i.title || u.pid, meshes: [] }); }
+    out.get(key).meshes.push(m); }
+  return [...out.values()].sort((a, b) => a.num - b.num);
+}
+function eachTri(m, cb) { // cb(a, b, c, matIndex, ia, ib, ic) with world (home) positions
+  const g = m.geometry, p = g.attributes.position, idx = g.index, home = m.userData.home, grp = g.groups.length ? g.groups : [{ start: 0, count: idx ? idx.count : p.count, materialIndex: 0 }];
+  const v = i => new THREE.Vector3(p.getX(i) + home.x, p.getY(i) + home.y, p.getZ(i) + home.z);
+  for (const gr of grp) for (let i = gr.start; i < gr.start + gr.count; i += 3) { const a = idx ? idx.getX(i) : i, b = idx ? idx.getX(i + 1) : i + 1, c = idx ? idx.getX(i + 2) : i + 2; cb(v(a), v(b), v(c), gr.materialIndex || 0, a, b, c); }
+}
+const zUp = v => [v.x, -v.z, v.y]; // y-up world to z-up (printers and CAD)
+function stlBin(list, zeroEach) {
+  const tris = []; for (const p of list) for (const m of p.meshes) eachTri(m, (a, b, c) => tris.push([zUp(a), zUp(b), zUp(c)]));
+  let mn = [1e9, 1e9, 1e9]; for (const t of tris) for (const v of t) for (let k = 0; k < 3; k++) mn[k] = Math.min(mn[k], v[k]);
+  const buf = new ArrayBuffer(84 + tris.length * 50), dv = new DataView(buf); const head = "Kaleidoscope Box Builder, mm"; for (let i = 0; i < head.length; i++) dv.setUint8(i, head.charCodeAt(i));
+  dv.setUint32(80, tris.length, true); let o = 84;
+  for (const t of tris) { const [a, b, c] = t.map(v => [v[0] - mn[0], v[1] - mn[1], v[2] - mn[2]]), u = [b[0] - a[0], b[1] - a[1], b[2] - a[2]], w = [c[0] - a[0], c[1] - a[1], c[2] - a[2]];
+    let n = [u[1] * w[2] - u[2] * w[1], u[2] * w[0] - u[0] * w[2], u[0] * w[1] - u[1] * w[0]]; const l = Math.hypot(...n) || 1; n = n.map(x => x / l);
+    for (const x of [n, a, b, c]) for (let k = 0; k < 3; k++) { dv.setFloat32(o, x[k], true); o += 4; } o += 2; }
+  return new Uint8Array(buf);
+}
+const hexOf = c => "#" + c.clone().convertLinearToSRGB().getHexString().toUpperCase();
+function matColor(mat) { const m = [].concat(mat)[0]; if (m.map && !m.color.equals(new THREE.Color(0xffffff))) return m.color; if (m.map) { const hs = HOUSING.find(h => h.id === S.housing) || HOUSING[0]; return new THREE.Color(hs.color).convertSRGBToLinear(); } return m.color; }
+function threeMF(list) {
+  const xe = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  let mn = [1e9, 1e9, 1e9]; const objs = [];
+  for (const p of list) { const vmap = new Map(), verts = [], tri = [];
+    const id = v => { const z = zUp(v), k = z.map(x => Math.round(x * 1000)).join(","); let i = vmap.get(k); if (i == null) { i = verts.length; vmap.set(k, i); verts.push(z); for (let j = 0; j < 3; j++) mn[j] = Math.min(mn[j], z[j]); } return i; };
+    for (const m of p.meshes) eachTri(m, (a, b, c) => { const t = [id(a), id(b), id(c)]; if (t[0] !== t[1] && t[1] !== t[2] && t[0] !== t[2]) tri.push(t); });
+    objs.push({ p, verts, tri, color: hexOf(matColor(p.meshes[0].userData.base)) }); }
+  let x = `<?xml version="1.0" encoding="UTF-8"?>\n<model unit="millimeter" xml:lang="he-IL" xmlns="http://schemas.microsoft.com/3dmanufacturing/core/2015/02">\n<metadata name="Title">${xe(slug())}</metadata><metadata name="Application">Kaleidoscope Box Builder</metadata>\n<resources>\n<basematerials id="1">${objs.map(o => `<base name="${xe(o.p.name)}" displaycolor="${o.color}FF"/>`).join("")}</basematerials>\n`;
+  objs.forEach((o, i) => { x += `<object id="${i + 2}" type="model" name="${xe(`${o.p.num} ${o.p.name}`)}" pid="1" pindex="${i}"><mesh><vertices>${o.verts.map(v => `<vertex x="${(v[0] - mn[0]).toFixed(3)}" y="${(v[1] - mn[1]).toFixed(3)}" z="${(v[2] - mn[2]).toFixed(3)}"/>`).join("")}</vertices><triangles>${o.tri.map(t => `<triangle v1="${t[0]}" v2="${t[1]}" v3="${t[2]}"/>`).join("")}</triangles></mesh></object>\n`; });
+  x += `</resources>\n<build>${objs.map((o, i) => `<item objectid="${i + 2}"/>`).join("")}</build>\n</model>`;
+  return zip([{ name: "[Content_Types].xml", data: `<?xml version="1.0" encoding="UTF-8"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="model" ContentType="application/vnd.ms-package.3dmanufacturing-3dmodel+xml"/></Types>` },
+    { name: "_rels/.rels", data: `<?xml version="1.0" encoding="UTF-8"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Target="/3D/3dmodel.model" Id="rel0" Type="http://schemas.microsoft.com/3dmanufacturing/2013/01/3dmodel"/></Relationships>` },
+    { name: "3D/3dmodel.model", data: x }]);
+}
+function objFiles(list) {
+  let o = `# Kaleidoscope Box Builder, millimetres, y up\nmtllib ${slug()}.mtl\n`, mtl = "", vi = 1; const mats = new Map();
+  for (const p of list) { o += `o ${String(p.num).padStart(2, "0")}_${p.pid}\n`; let lastMat = null;
+    for (const m of p.meshes) { const base = [].concat(m.userData.base);
+      eachTri(m, (a, b, c, mi) => { const mat = base[mi] || base[0]; let name = mats.get(mat.uuid); if (!name) { name = "mat" + mats.size; mats.set(mat.uuid, name); const col = matColor(mat).clone().convertLinearToSRGB();
+          mtl += `newmtl ${name}\nKd ${col.r.toFixed(4)} ${col.g.toFixed(4)} ${col.b.toFixed(4)}\nKs ${mat.metalness > .5 ? ".9 .9 .9" : ".05 .05 .05"}\nNs ${mat.metalness > .5 ? 800 : 30}\nd ${mat.transparent ? mat.opacity : 1}\n\n`; }
+        if (name !== lastMat) { o += `usemtl ${name}\n`; lastMat = name; }
+        o += `v ${a.x.toFixed(3)} ${a.y.toFixed(3)} ${a.z.toFixed(3)}\nv ${b.x.toFixed(3)} ${b.y.toFixed(3)} ${b.z.toFixed(3)}\nv ${c.x.toFixed(3)} ${c.y.toFixed(3)} ${c.z.toFixed(3)}\nf ${vi} ${vi + 1} ${vi + 2}\n`; vi += 3; }); } }
+  return zip([{ name: slug() + ".obj", data: o }, { name: slug() + ".mtl", data: mtl }, { name: "parts.txt", data: list.map(p => `${p.num}\t${p.pid}\t${p.name}`).join("\n") }]);
+}
+async function glb(list) {
+  const json = { asset: { version: "2.0", generator: "Kaleidoscope Box Builder" }, scene: 0, scenes: [{ name: slug(), nodes: [0] }], nodes: [{ name: slug(), children: [] }], meshes: [], materials: [], accessors: [], bufferViews: [], buffers: [{ byteLength: 0 }], images: [], textures: [], samplers: [{ magFilter: 9729, minFilter: 9987, wrapS: 10497, wrapT: 10497 }] };
+  const chunks = []; let len = 0;
+  const view = (u8, target) => { const bv = { buffer: 0, byteOffset: len, byteLength: u8.byteLength }; if (target) bv.target = target; chunks.push(u8); len += u8.byteLength; const pad = (4 - len % 4) % 4; if (pad) { chunks.push(new Uint8Array(pad)); len += pad; } json.bufferViews.push(bv); return json.bufferViews.length - 1; };
+  const acc = (arr, type, mm) => { const n = { VEC2: 2, VEC3: 3 }[type], a = { bufferView: view(new Uint8Array(arr.buffer), 34962), componentType: 5126, count: arr.length / n, type };
+    if (mm) { const mn = [1e9, 1e9, 1e9], mx = [-1e9, -1e9, -1e9]; for (let i = 0; i < arr.length; i++) { mn[i % 3] = Math.min(mn[i % 3], arr[i]); mx[i % 3] = Math.max(mx[i % 3], arr[i]); } a.min = mn; a.max = mx; }
+    json.accessors.push(a); return json.accessors.length - 1; };
+  const imgs = new Map(), mats = new Map();
+  const image = async (tex) => { if (imgs.has(tex.uuid)) return imgs.get(tex.uuid); const c = tex.image; const blob = await new Promise(r => c.toBlob(r, "image/jpeg", .9)); const u8 = new Uint8Array(await blob.arrayBuffer());
+    json.images.push({ bufferView: view(u8), mimeType: "image/jpeg" }); json.textures.push({ sampler: 0, source: json.images.length - 1 }); const i = json.textures.length - 1; imgs.set(tex.uuid, i); return i; };
+  const material = async (m) => { if (mats.has(m.uuid)) return mats.get(m.uuid);
+    const basic = m.isMeshBasicMaterial, c = basic ? new THREE.Color(0) : m.color, o = { name: m.name || (basic ? "screen" : "mat" + mats.size), pbrMetallicRoughness: { baseColorFactor: [c.r, c.g, c.b, m.transparent ? m.opacity : 1], metallicFactor: basic ? 0 : m.metalness ?? 0, roughnessFactor: basic ? 1 : m.roughness ?? 1 } };
+    if (m.map) { const t = await image(m.map); if (basic) { o.emissiveTexture = { index: t }; o.emissiveFactor = [1, 1, 1]; } else o.pbrMetallicRoughness.baseColorTexture = { index: t }; }
+    if (m.emissive && m.emissiveIntensity && m.emissive.getHex()) o.emissiveFactor = m.emissive.toArray().map(x => Math.min(1, x * m.emissiveIntensity));
+    if (m.transparent && m.opacity < 1) o.alphaMode = "BLEND"; if (m.side === THREE.DoubleSide) o.doubleSided = true;
+    json.materials.push(o); const i = json.materials.length - 1; mats.set(m.uuid, i); return i; };
+  for (const p of list) for (const m of p.meshes) {
+    const g = m.geometry, base = [].concat(m.userData.base), prims = new Map(), P = g.attributes.position, N = g.attributes.normal, UV = g.attributes.uv;
+    eachTri(m, (a, b, c, mi, ia, ib, ic) => { let q = prims.get(mi); if (!q) prims.set(mi, q = { p: [], n: [], t: [] }); const mat = base[mi] || base[0], rep = mat.map ? mat.map.repeat : null, off = mat.map ? mat.map.offset : null;
+      for (const i of [ia, ib, ic]) { q.p.push(P.getX(i) / 1000, P.getY(i) / 1000, P.getZ(i) / 1000); if (N) q.n.push(N.getX(i), N.getY(i), N.getZ(i)); else q.n.push(0, 0, 1);
+        if (UV && rep) q.t.push(UV.getX(i) * rep.x + off.x, 1 - (UV.getY(i) * rep.y + off.y)); } });
+    const primitives = [];
+    for (const [mi, q] of prims) { const mat = base[mi] || base[0], at = { POSITION: acc(new Float32Array(q.p), "VEC3", true), NORMAL: acc(new Float32Array(q.n), "VEC3") }; if (q.t.length) at.TEXCOORD_0 = acc(new Float32Array(q.t), "VEC2");
+      primitives.push({ attributes: at, material: await material(mat) }); }
+    json.meshes.push({ name: p.name, primitives }); const h = m.userData.home;
+    json.nodes.push({ name: `${p.num} ${p.name}`, mesh: json.meshes.length - 1, translation: [h.x / 1000, h.y / 1000, h.z / 1000] }); json.nodes[0].children.push(json.nodes.length - 1);
+  }
+  if (!json.images.length) { delete json.images; delete json.textures; delete json.samplers; }
+  json.buffers[0].byteLength = len;
+  const enc = new TextEncoder(); let js = enc.encode(JSON.stringify(json)); const jpad = (4 - js.length % 4) % 4; if (jpad) { const t = new Uint8Array(js.length + jpad); t.set(js); t.fill(32, js.length); js = t; }
+  const head = new DataView(new ArrayBuffer(20)); const total = 12 + 8 + js.length + 8 + len; head.setUint32(0, 0x46546C67, true); head.setUint32(4, 2, true); head.setUint32(8, total, true); head.setUint32(12, js.length, true); head.setUint32(16, 0x4E4F534A, true);
+  const bh = new DataView(new ArrayBuffer(8)); bh.setUint32(0, len, true); bh.setUint32(4, 0x004E4942, true);
+  return new Blob([head.buffer, js, bh.buffer, ...chunks], { type: "model/gltf-binary" });
+}
+async function export3D(kind) {
+  if (!R3) return; toast("מכין קובץ…", 4000); await new Promise(r => setTimeout(r, 30));
+  try {
+    if (kind === "glb") return saveFile(slug() + ".glb", await glb(partMeshes(true)));
+    if (kind === "stl") return saveFile(slug() + ".stl", new Blob([stlBin(partMeshes(false))], { type: "model/stl" }));
+    if (kind === "3mf") return saveFile(slug() + ".3mf", threeMF(partMeshes(false)));
+    if (kind === "obj") return saveFile(slug() + "-obj.zip", objFiles(partMeshes(false)));
+    if (kind === "parts") { const list = partMeshes(false); return saveFile(slug() + "-parts-stl.zip", zip([...list.map(p => ({ name: `${String(p.num).padStart(2, "0")}-${p.pid}.stl`, data: stlBin([p]) })), { name: "parts.txt", data: "﻿" + list.map(p => `${p.num}\t${p.pid}\t${p.name}`).join("\n") }])); }
+  } catch (e) { console.error(e); toast("הייצוא נכשל: " + e.message, 5000); }
 }
 
 // ---------------------------------------------------------------- 7 · view through the window
@@ -857,7 +1307,7 @@ function drawTrace() {
 // ---------------------------------------------------------------- 8 · parts list, steps, research
 function cutList() {
   const rows = [], seen = new Map();
-  for (const p of PARTS) { const k = p.mat + "|" + p.name.replace(/\d+$/, "") + "|" + f1(p.w) + "|" + f1(p.h); if (seen.has(k)) { seen.get(k).qty++; continue; } const r = { name: p.name.replace(/ \d+$/, ""), mat: MATNAME[p.mat](), w: p.w, h: p.h, qty: 1, note: "" };
+  for (const p of PARTS) { const k = p.mat + "|" + p.name.replace(/\d+$/, "") + "|" + f1(p.w) + "|" + f1(p.h); if (seen.has(k)) { seen.get(k).qty++; seen.get(k).ids.push(p.id); continue; } const r = { name: p.name.replace(/ \d+$/, ""), mat: MATNAME[p.mat](), w: p.w, h: p.h, qty: 1, note: "", ids: [p.id] };
     if (p.mirror && p.mirror.isMirror) r.note = G.k < 1 ? `טרפז: ${f1(p.mirror.nearW)} ליד העין, ${f1(p.mirror.far)} ליד המסך` : "חיתוך בגלגל קרביד, משיכה אחת"; seen.set(k, r); rows.push(r); }
   return rows;
 }
@@ -882,7 +1332,8 @@ function renderParts() {
   const rows = cutList(); const sc = G.scr;
   let h = `<div class="doc"><h2>חלקים, מידות והרכבה</h2>`;
   h += `<div class="warns">${G.warn.length ? G.warn.map(w => `<div class="warn">${esc(w)}</div>`).join("") : `<div class="warn good">התכנון בתוך הטווחים שבוני קליידוסקופים ממליצים עליהם.</div>`}</div>`;
-  h += `<div class="tbl"><table><thead><tr><th>חלק</th><th>חומר</th><th>רוחב</th><th>גובה</th><th>כמות</th><th>הערה</th></tr></thead><tbody>${rows.map(r => `<tr><td>${esc(r.name)}</td><td>${esc(r.mat)}</td><td class="n">${f1(r.w)}</td><td class="n">${f1(r.h)}</td><td class="n">${r.qty}</td><td>${esc(r.note)}</td></tr>`).join("")}</tbody></table></div>`;
+  h += `<p class="hint" style="margin:0">המספרים זהים למספרים בתלת-ממד. לחיצה על שורה מראה את החלק בקופסה.</p><div class="tbl"><table><thead><tr><th>#</th><th>חלק</th><th>חומר</th><th>רוחב</th><th>גובה</th><th>כמות</th><th>הערה</th></tr></thead><tbody>${rows.map((r, i) => `<tr data-num="${i + 1}"><td><span class="num">${i + 1}</span></td><td>${esc(r.name)}</td><td>${esc(r.mat)}</td><td class="n">${f1(r.w)}</td><td class="n">${f1(r.h)}</td><td class="n">${r.qty}</td><td>${esc(r.note)}</td></tr>`).join("")}</tbody></table></div>`;
+  if (R3 && R3.items.some(x => x.buy)) h += `<h3>רכיבים לקנייה</h3><ul>${R3.items.filter(x => x.buy).map(x => `<li><span class="num buy">${x.num}</span> ${esc(x.name)} · ${esc(x.dims)}</li>`).join("")}</ul>`;
   h += `<h3>הגיאומטריה</h3><ul><li>${esc(SYS[S.system].name)}${S.system === "wedge" ? `, זווית ${f1(360 / S.wedgeN)}°, ${S.wedgeN} העתקים` : ""}. ${esc(SYS[S.system].desc)}</li>
     <li>חתך: ${G.poly.map((v, i) => `צלע ${i + 1} ${f1(len(sub(G.poly[(i + 1) % G.poly.length], v)))}`).join(" · ")} מ״מ. מידה גדולה ${f1(G.D)} מ״מ.</li>
     <li>אורך מראות ${f0(G.L)} מ״מ, יחס ${f1(G.ratio)}:1.${G.k < 1 ? ` התחדדות ${S.taper}%: החלון ליד העין קטן פי ${f1(1 / G.k)}, הטיית מראה ${f1(Math.max(...G.mirrors.map(m => m.tilt)))}°.` : ""}</li>
@@ -1028,8 +1479,8 @@ function update(full = true) {
   store.set("builder", S);
   G = build(S); PARTS = makeParts(G); const [SW, SH] = SHEETS[S.sheet] || SHEETS[2]; SHEETS_NOW = nest(PARTS, SW, SH);
   if (full) renderControls();
-  renderSummary(); prepInside(); renderParts(); if (tab === "vcut") renderCut(); else $("#vcut").dataset.stale = "1";
-  rebuild3D(); store.set("box", studioBox());
+  rebuild3D(); renderSummary(); prepInside(); renderParts(); if (tab === "vcut") renderCut(); else $("#vcut").dataset.stale = "1";
+  store.set("box", studioBox());
 }
 $("#presets").innerHTML = PRESETS.map((p, i) => `<button type="button" data-preset="${i}">${esc(p.name)}</button>`).join("");
 document.addEventListener("click", e => {
@@ -1055,6 +1506,7 @@ $("#ctl").addEventListener("input", e => {
 });
 $("#eyeDist").value = S.eyeDist; $("#eyeDist").addEventListener("input", e => { S.eyeDist = +e.target.value; store.set("builder", S); prepInside(); });
 $("#cutaway").addEventListener("change", applyCutaway);
+$("#vparts").addEventListener("click", e => { const tr = e.target.closest("tr[data-num]"); if (!tr || !R3) return; tab = "v3d"; store.set("builderTab", tab); renderTabs(); if (R3.mode === "steps") setMode3D("free"); $("#plist").hidden = false; $("#tPlist").setAttribute("aria-expanded", "true"); selectPart(+tr.dataset.num, true); });
 
 // boot
 renderTabs(); renderResearch(); init3D(); initTracer(); update();
