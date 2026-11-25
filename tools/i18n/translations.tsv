@@ -1,0 +1,1262 @@
+he	en	zh	hi	es	ar
+הגדרות	Settings	设置	सेटिंग्स	Ajustes	الإعدادات
+מחולל קופסת קליידוסקופ: מראות, מעטפת, מסך ופריסה לחיתוך	Kaleidoscope box generator: mirrors, housing, screen and cutting layout	万花筒盒生成器：镜片、外壳、屏幕和切割排版	कैलिडोस्कोप बॉक्स जनरेटर: दर्पण, आवरण, स्क्रीन और कटिंग लेआउट	Generador de cajas caleidoscopio: espejos, carcasa, pantalla y plano de corte	مولّد صندوق المشكال: المرايا، الغلاف، الشاشة ومخطط القص
+תבניות	Templates	模板	टेम्पलेट	Plantillas	القوالب
+תלת ממד	3D	3D	3D	3D	ثلاثي الأبعاد
+מצב תצוגה	View mode	显示模式	दृश्य मोड	Modo de vista	وضع العرض
+תצוגה חופשית	Free view	自由视角	मुक्त दृश्य	Vista libre	عرض حر
+הרכבה צעד-אחר-צעד	Step-by-step assembly	分步组装	चरण-दर-चरण असेंबली	Montaje paso a paso	التجميع خطوة بخطوة
+רשימת חלקים	Parts list	零件清单	पुर्ज़ों की सूची	Lista de piezas	قائمة القطع
+מספרים על החלקים	Numbers on parts	零件编号	पुर्ज़ों पर नंबर	Números en las piezas	أرقام على القطع
+צילום באיכות גבוהה	High-quality render	高清渲染	उच्च गुणवत्ता रेंडर	Render de alta calidad	تصوير عالي الجودة
+רקע	Background	背景	पृष्ठभूमि	Fondo	الخلفية
+שקוף	Transparent	透明	पारदर्शी	Transparente	شفاف
+סטודיו בהיר	Light studio	明亮影棚	उजला स्टूडियो	Estudio claro	استوديو فاتح
+כהה	Dark	深色	गहरा	Oscuro	داكن
+גודל	Size	尺寸	आकार	Tamaño	الحجم
+לרוחב	Landscape	横向	लैंडस्केप	Horizontal	أفقي
+ריבוע	Square	正方形	वर्ग	Cuadrado	مربع
+לאורך	Portrait	纵向	पोर्ट्रेट	Vertical	عمودي
+זוויות קבועות	Fixed angles	固定角度	निश्चित कोण	Ángulos fijos	زوايا ثابتة
+המבט הנוכחי	Current view	当前视角	वर्तमान दृश्य	Vista actual	المنظر الحالي
+חזית, שלושה רבעים, מפורק וחתך. בלי תוויות ובלי ממשק	Front, three-quarter, exploded and section. No labels and no UI	正面、四分之三、爆炸图和剖面。无标签、无界面	सामने, तीन-चौथाई, विस्फोटित और कट। बिना लेबल और बिना इंटरफ़ेस	Frente, tres cuartos, despiece y corte. Sin etiquetas ni interfaz	أمامي، ثلاثة أرباع، مفكك ومقطع. بدون تسميات وبدون واجهة
+הורדת קובץ תלת-ממד	Download 3D file	下载3D文件	3D फ़ाइल डाउनलोड करें	Descargar archivo 3D	تنزيل ملف ثلاثي الأبعاد
+טלפון, אתרים. עם צבעים, חריטה ומסך	Phone, websites. With colors, engraving and screen	手机、网站。含颜色、雕刻和屏幕	फ़ोन, वेबसाइटें। रंग, नक्काशी और स्क्रीन के साथ	Teléfono, webs. Con colores, grabado y pantalla	الهاتف والمواقع. مع الألوان والحفر والشاشة
+הדפסה ו	Printing and	打印和	प्रिंटिंग और	Impresión y	الطباعة و
+כל חלק גוף נפרד עם שם וצבע	Each part a separate body with name and color	每个零件为独立实体，带名称和颜色	हर पुर्ज़ा नाम और रंग के साथ अलग बॉडी	Cada pieza es un cuerpo separado con nombre y color	كل قطعة جسم مستقل باسم ولون
+כל הקופסה בקובץ אחד, ציר	The whole box in one file, axis	整个盒子一个文件，轴	पूरा बॉक्स एक फ़ाइल में, अक्ष	Toda la caja en un archivo, eje	الصندوق كله في ملف واحد، المحور
+למעלה	up	向上	ऊपर	arriba	للأعلى
+כל תוכנת תלת-ממד, חלק לכל אובייקט	Any 3D software, one part per object	任意3D软件，每个对象一个零件	कोई भी 3D सॉफ़्टवेयर, हर ऑब्जेक्ट एक पुर्ज़ा	Cualquier software 3D, una pieza por objeto	أي برنامج ثلاثي الأبعاد، قطعة لكل كائن
+לכל חלק	per part	每个零件	प्रति पुर्ज़ा	por pieza	لكل قطعة
+שם הקובץ לפי מספר החלק	File name by part number	按零件编号命名文件	फ़ाइल नाम पुर्ज़ा नंबर से	Nombre de archivo según número de pieza	اسم الملف حسب رقم القطعة
+הכל במילימטרים, במצב מורכב	All in millimeters, assembled	全部以毫米为单位，组装状态	सब मिलीमीटर में, जुड़ी अवस्था में	Todo en milímetros, montado	الكل بالمليمتر، في وضع مُجمّع
+פירוק	Explode	拆解	अलग करें	Despiece	تفكيك
+חתך	Section	剖面	कट	Corte	مقطع
+בלי דופן וגג	Without side and roof	不显示侧板和顶板	बिना साइड और छत के	Sin lateral ni techo	بدون جانب وسقف
+קווי עזר	Guide lines	辅助线	गाइड लाइनें	Líneas guía	خطوط إرشادية
+סיבוב אוטומטי	Auto-rotate	自动旋转	स्वतः घुमाएँ	Rotación automática	دوران تلقائي
+איפוס מבט	Reset view	重置视角	दृश्य रीसेट	Restablecer vista	إعادة ضبط المنظر
+פריסה לחיתוך	Cutting layout	切割排版	कटिंग लेआउट	Plano de corte	مخطط القص
+מבט דרך החלון	View through the window	透过窗口观看	खिड़की से दृश्य	Vista por la ventana	المنظر عبر النافذة
+מעקב קרניים אמיתי	Real ray tracing	真实光线追踪	वास्तविक रे ट्रेसिंग	Trazado de rayos real	تتبع أشعة حقيقي
+גררו כדי להזיז את העין, גלגלת לקרב	Drag to move the eye, wheel to zoom	拖动移动眼睛，滚轮缩放	आँख हिलाने के लिए खींचें, ज़ूम के लिए व्हील	Arrastra para mover el ojo, rueda para acercar	اسحب لتحريك العين، والعجلة للتقريب
+מרחק העין מהחלון	Eye distance from window	眼睛到窗口的距离	आँख की खिड़की से दूरी	Distancia del ojo a la ventana	بُعد العين عن النافذة
+שדה ראייה	Field of view	视野	दृष्टि क्षेत्र	Campo de visión	مجال الرؤية
+שרטוט שטוח	Flat drawing	平面图	समतल चित्र	Dibujo plano	رسم مسطح
+העתקים בשדה הראייה	Copies in field of view	视野中的副本	दृष्टि क्षेत्र में प्रतियाँ	Copias en el campo de visión	النسخ في مجال الرؤية
+שיקופים עמוקים נראים	Deep reflections visible	可见深层反射	गहरे प्रतिबिंब दिखते हैं	Reflejos profundos visibles	انعكاسات عميقة مرئية
+חלקים והוראות	Parts and instructions	零件和说明	पुर्ज़े और निर्देश	Piezas e instrucciones	القطع والتعليمات
+מחקר	Research	研究	शोध	Investigación	بحث
+מסך נייד	Mobile screen	手机屏幕	मोबाइल स्क्रीन	Pantalla móvil	شاشة محمول
+מידות משלי	My own size	自定义尺寸	मेरा अपना माप	Medidas propias	مقاسات خاصة
+זכוכית מראה חזיתית	Front-surface mirror glass	前表面镜玻璃	फ्रंट-सरफ़ेस दर्पण काँच	Vidrio espejo de primera superficie	زجاج مرآة سطحية أمامية
+מ״מ	mm	毫米	मिमी	mm	مم
+אקריליק מראה חזיתי	Front-surface mirror acrylic	前表面镜亚克力	फ्रंट-सरफ़ेस दर्पण एक्रिलिक	Acrílico espejo de primera superficie	أكريليك مرآة سطحية أمامية
+מראה רגילה	Regular mirror	普通镜子	साधारण दर्पण	Espejo normal	مرآة عادية
+לא מומלץ	Not recommended	不推荐	अनुशंसित नहीं	No recomendado	غير مُوصى به
+דיקט ליבנה	Birch plywood	桦木胶合板	बर्च प्लाईवुड	Contrachapado de abedul	خشب البتولا الرقائقي
+פורניר אגוז	Walnut veneer	胡桃木贴面	अखरोट विनियर	Chapa de nogal	قشرة الجوز
+אקריליק שחור	Black acrylic	黑色亚克力	काला एक्रिलिक	Acrílico negro	أكريليك أسود
+מראות	Mirrors	镜片	दर्पण	Espejos	المرايا
+שדה אינסופי של משושים	Infinite field of hexagons	无限六边形图案	षट्भुजों का अनंत क्षेत्र	Campo infinito de hexágonos	حقل لا نهائي من السداسيات
+העתקים סביב כל קודקוד. הקלאסי, ומתאים לחלון המשולש של המוצר	Copies around each vertex. The classic, fits the product's triangular window	围绕每个顶点的副本。经典款，适合产品的三角窗口	हर शीर्ष के चारों ओर प्रतियाँ। क्लासिक, उत्पाद की त्रिकोणीय खिड़की के लिए उपयुक्त	Copias alrededor de cada vértice. El clásico, encaja con la ventana triangular del producto	نسخ حول كل رأس. الكلاسيكي، ويناسب النافذة المثلثة للمنتج
+רשת ריבועים ואלכסונים	Grid of squares and diagonals	正方形和对角线网格	वर्गों और विकर्णों का ग्रिड	Cuadrícula de cuadrados y diagonales	شبكة مربعات وأقطار
+העתקים סביב הפינה של	Copies around the corner of	副本围绕角	कोने के चारों ओर प्रतियाँ	Copias alrededor de la esquina de	نسخ حول زاوية
+כוכבים של	Stars of	星形	तारे	Estrellas de	نجوم من
+הכי עשיר מבין המשולשים	The richest of the triangles	三角形中最丰富的	त्रिकोणों में सबसे समृद्ध	El más rico de los triángulos	الأغنى بين المثلثات
+מנדלה	Mandala	曼陀罗	मंडल	Mandala	ماندالا
+מנדלה אחת במרכז, בלי ריצוף. הצלע השלישית שחורה	One mandala in the center, no tiling. The third side is black	中央一个曼陀罗，无平铺。第三边为黑色	बीच में एक मंडल, बिना टाइलिंग। तीसरी भुजा काली	Un mandala en el centro, sin teselado. El tercer lado es negro	ماندالا واحدة في المركز بلا تبليط. الضلع الثالث أسود
+רשת ריבועים, כמו מנהרה. פחות מעניין מהמשולשים	Grid of squares, like a tunnel. Less interesting than the triangles	正方形网格，像隧道。不如三角形有趣	वर्गों का ग्रिड, सुरंग जैसा। त्रिकोणों से कम रोचक	Cuadrícula de cuadrados, como un túnel. Menos interesante que los triángulos	شبكة مربعات كالنفق. أقل إثارة من المثلثات
+המוצר	The product	产品	उत्पाद	El producto	المنتج
+מסך	Screen	屏幕	स्क्रीन	Pantalla	شاشة
+כדור תלת-ממדי	3D sphere	3D球体	3D गोला	Esfera 3D	كرة ثلاثية الأبعاد
+מחודד	Tapered	锥形	शंक्वाकार	Cónico	مستدق
+תא חפצים	Object cell	物件仓	वस्तु कक्ष	Celda de objetos	حجيرة الأشياء
+יד קלאסי	Classic handheld	经典手持	क्लासिक हैंडहेल्ड	Clásico de mano	يدوي كلاسيكي
+מיצב	Installation	装置	इंस्टॉलेशन	Instalación	تركيب فني
+מותאם	Custom	自定义	कस्टम	Personalizado	مخصص
+המראות קצרות ביחס לרוחב	The mirrors are short relative to the width	镜片相对宽度太短	दर्पण चौड़ाई के मुकाबले छोटे हैं	Los espejos son cortos respecto al ancho	المرايا قصيرة نسبةً إلى العرض
+פחות מ	less than	小于	से कम	menos de	أقل من
+יהיו מעט שיקופים. כלל האצבע מהקהילה	there will be few reflections. Community rule of thumb	反射会很少。社区经验法则	प्रतिबिंब कम होंगे। समुदाय का सामान्य नियम	habrá pocos reflejos. Regla general de la comunidad	ستكون الانعكاسات قليلة. القاعدة العامة في المجتمع
+למבט ישר	for a straight view	正视时	सीधे देखने के लिए	para vista recta	للنظر المستقيم
+כשמסתכלים בזווית	when looking at an angle	斜视时	कोण से देखने पर	al mirar en ángulo	عند النظر بزاوية
+מראות ארוכות מאוד ביחס לרוחב: התמונה תהיה כהה ותדרוש עדשה	Very long mirrors relative to the width: the image will be dark and need a lens	镜片相对宽度很长：图像会偏暗，需要透镜	चौड़ाई के मुकाबले बहुत लंबे दर्पण: छवि अंधेरी होगी और लेंस चाहिए	Espejos muy largos respecto al ancho: la imagen será oscura y necesitará lente	مرايا طويلة جدًا نسبةً إلى العرض: ستكون الصورة داكنة وتحتاج عدسة
+מראה רגילה מחזירה גם מפני הזכוכית ויוצרת תמונות כפולות. בקהילה משתמשים רק במראה חזיתית	A regular mirror also reflects from the glass surface and creates double images. The community uses only front-surface mirrors	普通镜子在玻璃表面也会反射，产生重影。社区只使用前表面镜	साधारण दर्पण काँच की सतह से भी परावर्तित करता है और दोहरी छवियाँ बनाता है। समुदाय केवल फ्रंट-सरफ़ेस दर्पण इस्तेमाल करता है	Un espejo normal también refleja desde el vidrio y crea imágenes dobles. La comunidad usa solo espejos de primera superficie	المرآة العادية تعكس أيضًا من سطح الزجاج وتصنع صورًا مزدوجة. المجتمع يستخدم المرايا السطحية الأمامية فقط
+המראה הרחבה	The wide mirror	宽镜片	चौड़ा दर्पण	El espejo ancho	المرآة العريضة
+מ״מ: מומלץ זכוכית	mm: glass recommended	毫米：建议用玻璃	मिमी: काँच अनुशंसित	mm: se recomienda vidrio	مم: يُنصح بالزجاج
+מ״מ כדי שלא תתכופף	mm so it doesn't bend	毫米，以免弯曲	मिमी ताकि मुड़े नहीं	mm para que no se doble	مم كي لا تنحني
+אורך	Length	长度	लंबाई	Longitud	الطول
+מ״מ קצר מטווח המיקוד הנוח	mm is shorter than the comfortable focus range	毫米，短于舒适对焦范围	मिमी आरामदायक फ़ोकस सीमा से छोटा है	mm es más corto que el rango de enfoque cómodo	مم أقصر من مدى التركيز المريح
+כ	about	约	लगभग	aprox.	حوالي
+הוסיפו עדשה בחור ההצצה, בערך	Add a lens in the peephole, about	在窥孔中加透镜，约	झाँकने वाले छेद में लेंस लगाएँ, लगभग	Añade una lente en la mirilla, aprox.	أضف عدسة في ثقب الرؤية، حوالي
+דיופטר	diopters	屈光度	डायोप्टर	dioptrías	ديوبتر
+השוליים סביב המראות צרים. המחיצות יהיו שבירות	The margins around the mirrors are narrow. The partitions will be fragile	镜片周围的边距太窄，隔板会很脆弱	दर्पणों के आसपास किनारे संकरे हैं। विभाजक नाज़ुक होंगे	Los márgenes alrededor de los espejos son estrechos. Los tabiques serán frágiles	الهوامش حول المرايا ضيقة. ستكون الحواجز هشة
+השיניים צרות מדי ביחס לעובי הלוח	The teeth are too narrow relative to the board thickness	齿相对板厚太窄	दाँत बोर्ड की मोटाई के मुकाबले बहुत संकरे हैं	Los dientes son demasiado estrechos para el grosor del tablero	الأسنان ضيقة جدًا مقارنةً بسماكة اللوح
+מראות נותנות רשת פשוטה. אם המטרה דקורטיבית, משולש	mirrors give a simple grid. If the goal is decorative, a triangle	面镜片形成简单网格。若追求装饰效果，三角形	दर्पण सरल ग्रिड देते हैं। अगर उद्देश्य सजावटी है, त्रिकोण	espejos dan una cuadrícula simple. Si el objetivo es decorativo, un triángulo	مرايا تعطي شبكة بسيطة. إذا كان الهدف زخرفيًا، فالمثلث
+או	or	或	या	o	أو
+עשירים יותר	are richer	更丰富	अधिक समृद्ध हैं	son más ricos	أغنى
+מראות מחודדות לא מרצפות מישור: התמונה מתעקלת לכדור. התצוגה דרך החלון מראה את הגרסה הישרה בלבד	Tapered mirrors don't tile a plane: the image curves into a sphere. The window view shows only the straight version	锥形镜片不会平铺成平面：图像弯成球体。窗口视图只显示直镜版本	शंक्वाकार दर्पण समतल नहीं भरते: छवि गोले में मुड़ती है। खिड़की दृश्य केवल सीधा संस्करण दिखाता है	Los espejos cónicos no teselan un plano: la imagen se curva en una esfera. La vista por la ventana muestra solo la versión recta	المرايا المستدقة لا تبلّط مستوى: تنحني الصورة إلى كرة. منظر النافذة يعرض النسخة المستقيمة فقط
+חזית	Front	正面	सामने	Frente	الأمام
+לוח קישוט קדמי	Front decorative panel	前装饰板	सामने का सजावटी पैनल	Panel decorativo frontal	اللوح الزخرفي الأمامي
+גב	Back	背面	पीछे	Fondo trasero	الخلف
+גג	Roof	顶板	छत	Techo	السقف
+בסיס	Base	底板	आधार	Base	القاعدة
+דופן שמאל	Left side	左侧板	बायाँ किनारा	Lateral izquierdo	الجانب الأيسر
+דופן ימין	Right side	右侧板	दायाँ किनारा	Lateral derecho	الجانب الأيمن
+מחיצה	Partition	隔板	विभाजक	Tabique	حاجز
+מחיצת מסך	Screen partition	屏幕隔板	स्क्रीन विभाजक	Tabique de pantalla	حاجز الشاشة
+מסכת מסך	Screen mask	屏幕遮罩	स्क्रीन मास्क	Máscara de pantalla	قناع الشاشة
+קרטון שחור	Black cardboard	黑色卡纸	काला कार्डबोर्ड	Cartón negro	كرتون أسود
+מחזיק תא חפצים	Object cell holder	物件仓支架	वस्तु कक्ष होल्डर	Soporte de la celda de objetos	حامل حجيرة الأشياء
+דיסק קדמי שקוף	Clear front disc	透明前盘	पारदर्शी सामने की डिस्क	Disco frontal transparente	قرص أمامي شفاف
+דיסק אחורי חלבי	Frosted back disc	磨砂后盘	धुंधली पीछे की डिस्क	Disco trasero esmerilado	قرص خلفي مصنفر
+טבעת מרווח	Spacer ring	间隔环	स्पेसर रिंग	Anillo separador	حلقة مباعدة
+מראה	Mirror	镜片	दर्पण	Espejo	مرآة
+צלע שחורה	Black side	黑边	काली भुजा	Lado negro	ضلع أسود
+קרטון	Cardboard	卡纸	कार्डबोर्ड	Cartón	كرتون
+קרטון / בריסטול שחור	Black cardboard / bristol	黑卡纸/布里斯托尔纸	काला कार्डबोर्ड / ब्रिस्टल	Cartón / cartulina negra	كرتون / ورق بريستول أسود
+אקריליק	Acrylic	亚克力	एक्रिलिक	Acrílico	أكريليك
+נשמר	Saved	已保存	सहेजा गया	Guardado	تم الحفظ
+חיתוך הלוחות	Cutting the boards	切割板材	बोर्ड काटना	Cortar los tableros	قص الألواح
+הכנת המראות	Preparing the mirrors	准备镜片	दर्पण तैयार करना	Preparar los espejos	تحضير المرايا
+שלד הקופסה	Box frame	盒子框架	बॉक्स ढाँचा	Estructura de la caja	هيكل الصندوق
+הדבקת צינור המראות	Gluing the mirror tube	粘合镜筒	दर्पण ट्यूब चिपकाना	Pegar el tubo de espejos	لصق أنبوب المرايا
+החלקת המראות פנימה	Sliding the mirrors in	将镜片滑入	दर्पण अंदर सरकाना	Deslizar los espejos dentro	إدخال المرايا
+מסך ומסכה	Screen and mask	屏幕和遮罩	स्क्रीन और मास्क	Pantalla y máscara	الشاشة والقناع
+חיבור והדלקה	Connect and power on	连接并开机	जोड़ें और चालू करें	Conectar y encender	التوصيل والتشغيل
+בדיקה וסגירה	Check and close	检查并封盖	जाँचें और बंद करें	Comprobar y cerrar	الفحص والإغلاق
+תא החפצים	The object cell	物件仓	वस्तु कक्ष	La celda de objetos	حجيرة الأشياء
+תאורה אחורית	Backlight	背光	बैकलाइट	Retroiluminación	إضاءة خلفية
+שלושה רבעים	Three-quarter	四分之三	तीन-चौथाई	Tres cuartos	ثلاثة أرباع
+מפורק	Exploded	爆炸图	विस्फोटित	Despiece	مفكك
+התצוגה התלת-ממדית צריכה את ספריית	The 3D view needs the library	3D视图需要库	3D दृश्य को लाइब्रेरी चाहिए	La vista 3D necesita la biblioteca	العرض ثلاثي الأبعاد يحتاج مكتبة
+מהרשת. שאר הכלים עובדים	from the network. The other tools work	来自网络。其他工具正常	नेटवर्क से। बाकी टूल काम करते हैं	de la red. Las demás herramientas funcionan	من الشبكة. باقي الأدوات تعمل
+רכישה	Purchase	购买	ख़रीद	Compra	شراء
+סרט הדבקה שחור לתפרים	Black tape for the seams	接缝用黑胶带	जोड़ों के लिए काला टेप	Cinta negra para las juntas	شريط لاصق أسود للفواصل
+כבל מסך	Screen cable	屏幕线	स्क्रीन केबल	Cable de pantalla	كابل الشاشة
+חשמל	Power	电源	बिजली	Alimentación	الكهرباء
+מ׳	m	米	मी	m	م
+פס	strip	灯带	पट्टी	tira	شريط
+חם לתאורה אחורית	warm for backlight	暖光背光	बैकलाइट के लिए गर्म	cálida para retroiluminación	دافئ للإضاءة الخلفية
+כמות	Quantity	数量	मात्रा	Cantidad	الكمية
+חלקים	parts	零件	पुर्ज़े	piezas	قطع
+שלב	Step	步骤	चरण	Paso	خطوة
+מתוך	of	/	में से	de	من
+הקודם	Previous	上一步	पिछला	Anterior	السابق
+השהיה	Pause	暂停	रोकें	Pausa	إيقاف مؤقت
+נגן מההתחלה	Play from the start	从头播放	शुरू से चलाएँ	Reproducir desde el inicio	تشغيل من البداية
+נגן הכל	Play all	全部播放	सब चलाएँ	Reproducir todo	تشغيل الكل
+הבא	Next	下一步	अगला	Siguiente	التالي
+הצג שוב את השלב	Show the step again	再次显示此步骤	चरण फिर दिखाएँ	Mostrar el paso de nuevo	عرض الخطوة مجددًا
+מרנדר	Rendering	渲染中	रेंडर हो रहा है	Renderizando	جارٍ التصيير
+זוויות	angles	角度	कोण	ángulos	زوايا
+שטח מואר	Lit area	照亮区域	प्रकाशित क्षेत्र	Área iluminada	المساحة المضاءة
+מכין קובץ	Preparing file	正在准备文件	फ़ाइल तैयार हो रही है	Preparando archivo	جارٍ تحضير الملف
+הייצוא נכשל	Export failed	导出失败	निर्यात विफल	La exportación falló	فشل التصدير
+אור	Light	光	प्रकाश	Luz	الضوء
+העין צמודה לחור ההצצה	Eye right at the peephole	眼睛贴近窥孔	आँख झाँकने वाले छेद से सटी	Ojo pegado a la mirilla	العين ملاصقة لثقب الرؤية
+קרבו את העין לחלון	Bring your eye closer to the window	把眼睛靠近窗口	आँख खिड़की के पास लाएँ	Acerca el ojo a la ventana	قرّب عينك من النافذة
+כדי לראות את העיגול הגדול שהמראות יוצרות	to see the big circle the mirrors create	即可看到镜片形成的大圆	दर्पणों से बना बड़ा वृत्त देखने के लिए	para ver el gran círculo que crean los espejos	لرؤية الدائرة الكبيرة التي تصنعها المرايا
+טרפז	Trapezoid	梯形	समलंब	Trapecio	شبه منحرف
+ליד העין	near the eye	靠近眼睛	आँख के पास	junto al ojo	قرب العين
+ליד המסך	near the screen	靠近屏幕	स्क्रीन के पास	junto a la pantalla	قرب الشاشة
+חיתוך בגלגל קרביד, משיכה אחת	Cut with a carbide wheel, single stroke	用硬质合金刀轮切割，一次划过	कार्बाइड व्हील से काटें, एक बार में	Cortar con rueda de carburo, una sola pasada	القص بعجلة كربيد، سحبة واحدة
+חלק,חומר,רוחב	Part,Material,Width	零件,材料,宽度	पुर्ज़ा,सामग्री,चौड़ाई	Pieza,Material,Ancho	القطعة,المادة,العرض
+גובה	Height	高度	ऊँचाई	Altura	الارتفاع
+כמות,הערה	Quantity,Note	数量,备注	मात्रा,टिप्पणी	Cantidad,Nota	الكمية,ملاحظة
+חתכו בלייזר את לוחות המעטפת	Laser-cut the housing boards	激光切割外壳板	आवरण बोर्ड लेज़र से काटें	Corta con láser los tableros de la carcasa	اقطع ألواح الغلاف بالليزر
+קווים אדומים לחיתוך, כחולים לחריטה. כדאי לחתוך קודם ריבוע ניסיון של שן ושקע ולכוון את ה	Red lines to cut, blue to engrave. Cut a test square of tooth and slot first and adjust the	红线切割，蓝线雕刻。先切一个齿槽测试方块并调整	लाल रेखाएँ काटने के लिए, नीली उकेरने के लिए। पहले दाँत और खाँचे का परीक्षण वर्ग काटें और समायोजित करें	Líneas rojas para cortar, azules para grabar. Corta primero un cuadrado de prueba de diente y ranura y ajusta el	خطوط حمراء للقص وزرقاء للحفر. اقطع أولًا مربع تجربة للسن والشق واضبط
+בתוכנת הלייזר	in the laser software	在激光软件中	लेज़र सॉफ़्टवेयर में	en el software del láser	في برنامج الليزر
+הזמינו או חתכו	Order or cut	订购或切割	ऑर्डर करें या काटें	Encarga o corta	اطلب أو اقطع
+מ״מ. כבר הורדנו	mm. We already took off	毫米。已减去	मिमी। हमने पहले ही घटा दिया	mm. Ya restamos	مم. طرحنا مسبقًا
+מ״מ מכל רוחב כדי שהקצוות לא יידחקו. אל תסירו את הניילון המגן עד ההרכבה	mm from each width so the edges don't jam. Don't remove the protective film until assembly	毫米，以免边缘卡住。组装前不要撕掉保护膜	मिमी हर चौड़ाई से ताकि किनारे न फँसें। असेंबली तक सुरक्षा फ़िल्म न हटाएँ	mm de cada ancho para que los bordes no se atasquen. No quites el film protector hasta el montaje	مم من كل عرض كي لا تنحشر الحواف. لا تُزل الغشاء الواقي حتى التجميع
+הרכיבו את הבסיס, שתי הדפנות והחזית	Assemble the base, the two sides and the front	组装底板、两侧板和正面	आधार, दोनों किनारे और सामने का भाग जोड़ें	Monta la base, los dos laterales y el frente	ركّب القاعدة والجانبين والواجهة
+הכניסו את	Insert the	插入	डालें	Inserta los	أدخل
+המחיצות לחריצים בדפנות	partitions into the slots in the sides	个隔板到侧板槽中	विभाजक किनारों के खाँचों में	tabiques en las ranuras de los laterales	الحواجز في شقوق الجانبين
+עוד לא מדביקים את הגג	Don't glue the roof yet	先不要粘顶板	अभी छत न चिपकाएँ	No pegues el techo todavía	لا تلصق السقف بعد
+הניחו את המראות צד אל צד כשהפנים המחזירות כלפי מטה, הצמידו בסרט הדבקה לאורך החיבורים מבחוץ, וקפלו לצורת	Lay the mirrors side by side with the reflective faces down, tape along the joints on the outside, and fold into a	将镜片并排放置，反射面朝下，在外侧沿接缝贴胶带，然后折成	दर्पणों को साथ-साथ रखें, परावर्तक सतह नीचे, बाहर जोड़ों पर टेप लगाएँ, और मोड़ें	Coloca los espejos uno junto a otro con la cara reflectante hacia abajo, pega cinta por fuera a lo largo de las juntas y pliega en forma de	ضع المرايا جنبًا إلى جنب والوجوه العاكسة للأسفل، ألصق شريطًا على الوصلات من الخارج، واطوها على شكل
+משולש	triangle	三角形	त्रिकोण	triángulo	مثلث
+הסירו את הניילון ממש לפני הקיפול	Remove the film right before folding	折叠前再撕掉保护膜	मोड़ने से ठीक पहले फ़िल्म हटाएँ	Quita el film justo antes de plegar	أزل الغشاء قبل الطي مباشرة
+את הצלע השלישית סוגרים בקרטון שחור	Close the third side with black cardboard	第三边用黑卡纸封住	तीसरी भुजा काले कार्डबोर्ड से बंद करें	Cierra el tercer lado con cartón negro	أغلق الضلع الثالث بكرتون أسود
+החליקו את צינור המראות דרך המחיצות עד שהקצה נשען על החזית. השפה של החלון	Slide the mirror tube through the partitions until the end rests on the front. The window rim	将镜筒滑过隔板，直到末端抵住正面。窗口边缘	दर्पण ट्यूब को विभाजकों से सरकाएँ जब तक सिरा सामने टिक न जाए। खिड़की का किनारा	Desliza el tubo de espejos por los tabiques hasta que el extremo apoye en el frente. El borde de la ventana	أدخل أنبوب المرايا عبر الحواجز حتى يستند طرفه على الواجهة. حافة النافذة
+חור ההצצה	the peephole	窥孔	झाँकने वाला छेद	la mirilla	ثقب الرؤية
+מסתירה את קצות המראות. מלאו מרווחים קטנים בספוג דק או בסיליקון, לא בדבק קשיח, כדי שהזכוכית לא תיסדק	hides the mirror edges. Fill small gaps with thin foam or silicone, not hard glue, so the glass doesn't crack	遮住镜片边缘。小缝隙用薄海绵或硅胶填充，不要用硬胶，以免玻璃开裂	दर्पण के किनारे छिपाता है। छोटे अंतराल पतले फोम या सिलिकॉन से भरें, सख़्त गोंद से नहीं, ताकि काँच न टूटे	oculta los bordes de los espejos. Rellena huecos pequeños con espuma fina o silicona, no con pegamento duro, para que el vidrio no se agriete	تخفي حواف المرايا. املأ الفجوات الصغيرة بإسفنج رقيق أو سيليكون، لا بغراء صلب، كي لا يتشقق الزجاج
+הדביקו את מסכת הקרטון השחורה על זכוכית המסך, כשהחור המשולש באמצע, והכניסו את המסך	Stick the black cardboard mask on the screen glass with the triangular hole in the middle, and insert the screen	把黑卡纸遮罩贴在屏幕玻璃上，三角孔居中，然后放入屏幕	काले कार्डबोर्ड मास्क को स्क्रीन काँच पर चिपकाएँ, त्रिकोणीय छेद बीच में, और स्क्रीन डालें	Pega la máscara de cartón negro en el vidrio de la pantalla con el agujero triangular en el centro, e inserta la pantalla	ألصق قناع الكرتون الأسود على زجاج الشاشة والثقب المثلث في المنتصف، وأدخل الشاشة
+מאחורי מחיצת המסך. המראות צריכות לגעת במסכה	behind the screen partition. The mirrors should touch the mask	放在屏幕隔板后面。镜片应接触遮罩	स्क्रीन विभाजक के पीछे। दर्पणों को मास्क छूना चाहिए	detrás del tabique de pantalla. Los espejos deben tocar la máscara	خلف حاجز الشاشة. يجب أن تلامس المرايا القناع
+הכינו את תא החפצים: דיסק שקוף, טבעות מרווח, חרוזים וזכוכיות צבעוניות, ודיסק חלבי. אפשר למלא בשמן מינרלי לתנועה איטית. הניחו את התא מאחורי המחזיק	Prepare the object cell: clear disc, spacer rings, beads and colored glass, and a frosted disc. You can fill it with mineral oil for slow motion. Place the cell behind the holder	准备物件仓：透明盘、间隔环、珠子和彩色玻璃，以及磨砂盘。可注入矿物油以实现慢速流动。将物件仓放在支架后面	वस्तु कक्ष तैयार करें: पारदर्शी डिस्क, स्पेसर रिंग, मोती और रंगीन काँच, और धुंधली डिस्क। धीमी गति के लिए खनिज तेल भर सकते हैं। कक्ष को होल्डर के पीछे रखें	Prepara la celda de objetos: disco transparente, anillos separadores, cuentas y vidrios de colores, y un disco esmerilado. Puedes llenarla con aceite mineral para movimiento lento. Coloca la celda detrás del soporte	حضّر حجيرة الأشياء: قرص شفاف، حلقات مباعدة، خرز وزجاج ملوّن، وقرص مصنفر. يمكن ملؤها بزيت معدني لحركة بطيئة. ضع الحجيرة خلف الحامل
+העבירו את כבל המסך דרך החור בגב. הפעילו את הסטודיו הוויזואלי במצב	Pass the screen cable through the hole in the back. Run the visual studio in	将屏幕线穿过背板孔。在以下模式运行视觉工作室	स्क्रीन केबल पीछे के छेद से निकालें। विज़ुअल स्टूडियो चलाएँ इस मोड में	Pasa el cable de la pantalla por el agujero trasero. Abre el estudio visual en modo	مرّر كابل الشاشة عبر الثقب في الخلف. شغّل الاستوديو المرئي في وضع
+מסך למוצר	Screen for the product	产品屏幕	उत्पाद के लिए स्क्रीन	Pantalla para el producto	شاشة للمنتج
+במסך מלא. הפינות כבר מגיעות מכפתור המעבר כאן, ונשאר רק לכוונן אם צריך	full screen. The corners already come from the transfer button here, you only need to fine-tune if needed	全屏。角点已通过此处的传送按钮传入，必要时微调即可	फ़ुल स्क्रीन में। कोने यहाँ के ट्रांसफ़र बटन से आ चुके हैं, ज़रूरत हो तो बस समायोजित करें	a pantalla completa. Las esquinas ya llegan desde el botón de envío de aquí, solo ajusta si hace falta	بملء الشاشة. الزوايا تصل من زر النقل هنا، ويبقى الضبط الدقيق عند الحاجة
+מקמו תאורה אחורית	Place a backlight	放置背光	बैकलाइट लगाएँ	Coloca una retroiluminación	ضع إضاءة خلفية
+רצועת	strip	灯带	पट्टी	Tira	شريط
+חמה או לבנה	warm or white	暖光或白光	गर्म या सफ़ेद	cálida o blanca	دافئ أو أبيض
+בתא האחורי, בעומק	in the back compartment, at a depth of	在后仓中，深度	पीछे के खाने में, गहराई	en el compartimento trasero, a una profundidad de	في الحجيرة الخلفية، على عمق
+מ״מ, כדי שהאור יתפזר דרך הדיסק החלבי	mm, so the light diffuses through the frosted disc	毫米，让光线透过磨砂盘扩散	मिमी, ताकि रोशनी धुंधली डिस्क से फैले	mm, para que la luz se difunda por el disco esmerilado	مم، ليتوزع الضوء عبر القرص المصنفر
+בדקו דרך החלון שהתפרים בין המראות דקים ושאין תמונה כפולה. אחר כך הדביקו את הגג והגב	Check through the window that the seams between the mirrors are thin and there's no double image. Then glue the roof and the back	透过窗口检查镜片间接缝细且无重影。然后粘上顶板和背板	खिड़की से जाँचें कि दर्पणों के बीच जोड़ पतले हैं और दोहरी छवि नहीं है। फिर छत और पीछे का भाग चिपकाएँ	Comprueba por la ventana que las juntas entre espejos son finas y no hay imagen doble. Luego pega el techo y el fondo	تحقق عبر النافذة أن الفواصل بين المرايا رفيعة ولا توجد صورة مزدوجة. ثم ألصق السقف والخلف
+ואת לוח הקישוט הקדמי	and the front decorative panel	以及前装饰板	और सामने का सजावटी पैनल	y el panel decorativo frontal	واللوح الزخرفي الأمامي
+קופסת קליידוסקופ	Kaleidoscope box	万花筒盒	कैलिडोस्कोप बॉक्स	Caja caleidoscopio	صندوق المشكال
+מידות חוץ	Outer dimensions	外部尺寸	बाहरी माप	Medidas exteriores	الأبعاد الخارجية
+אורך מראות	Mirror length	镜片长度	दर्पण की लंबाई	Longitud de espejos	طول المرايا
+יחס	Ratio	比例	अनुपात	Proporción	النسبة
+רשימת חיתוך	Cut list	切割清单	कटिंग सूची	Lista de corte	قائمة القص
+חלקים, מידות והרכבה	Parts, dimensions and assembly	零件、尺寸和组装	पुर्ज़े, माप और असेंबली	Piezas, medidas y montaje	القطع والأبعاد والتجميع
+התכנון בתוך הטווחים שבוני קליידוסקופים ממליצים עליהם	The design is within the ranges kaleidoscope builders recommend	设计在万花筒制作者推荐的范围内	डिज़ाइन कैलिडोस्कोप निर्माताओं की अनुशंसित सीमाओं में है	El diseño está dentro de los rangos que recomiendan los constructores de caleidoscopios	التصميم ضمن النطاقات التي يوصي بها صانعو المشكال
+המספרים זהים למספרים בתלת-ממד. לחיצה על שורה מראה את החלק בקופסה	The numbers match the numbers in 3D. Clicking a row shows the part in the box	编号与3D中一致。点击某行会在盒中显示该零件	नंबर 3D के नंबरों जैसे ही हैं। पंक्ति पर क्लिक करने से बॉक्स में पुर्ज़ा दिखता है	Los números coinciden con los del 3D. Al pulsar una fila se muestra la pieza en la caja	الأرقام مطابقة لأرقام العرض الثلاثي. النقر على صف يُظهر القطعة في الصندوق
+חלק	Part	零件	पुर्ज़ा	Pieza	القطعة
+חומר	Material	材料	सामग्री	Material	المادة
+רוחב	Width	宽度	चौड़ाई	Ancho	العرض
+הערה	Note	备注	टिप्पणी	Nota	ملاحظة
+רכיבים לקנייה	Parts to buy	需购买部件	ख़रीदने के पुर्ज़े	Componentes a comprar	مكونات للشراء
+הגיאומטריה	Geometry	几何	ज्यामिति	Geometría	الهندسة
+זווית	Angle	角度	कोण	Ángulo	الزاوية
+העתקים	Copies	副本	प्रतियाँ	Copias	النسخ
+צלע	Side	边	भुजा	Lado	الضلع
+מ״מ. מידה גדולה	mm. Large dimension	毫米。大尺寸	मिमी। बड़ा माप	mm. Medida mayor	مم. البُعد الكبير
+מ״מ, יחס	mm, ratio	毫米，比例	मिमी, अनुपात	mm, proporción	مم، النسبة
+התחדדות	Taper	锥度	शंकुता	Conicidad	الاستدقاق
+החלון ליד העין קטן פי	The window near the eye is smaller by a factor of	靠近眼睛的窗口缩小倍数	आँख के पास की खिड़की छोटी है गुना	La ventana junto al ojo es más pequeña por un factor de	النافذة قرب العين أصغر بمعامل
+הטיית מראה	Mirror tilt	镜片倾斜	दर्पण झुकाव	Inclinación del espejo	ميل المرآة
+מעטפת: חוץ	Housing: outside	外壳：外部	आवरण: बाहर	Carcasa: exterior	الغلاف: الخارج
+מ״מ, פנים	mm, inside	毫米，内部	मिमी, अंदर	mm, interior	مم، الداخل
+מ״מ, לוח	mm, board	毫米，板	मिमी, बोर्ड	mm, tablero	مم، اللوح
+מ״מ, שן	mm, tooth	毫米，齿	मिमी, दाँत	mm, diente	مم، السن
+מ״מ. המשולש תופס	mm. The triangle takes up	毫米。三角形占	मिमी। त्रिकोण घेरता है	mm. El triángulo ocupa	مم. يشغل المثلث
+מידה ידנית	Manual size	手动尺寸	मैनुअल माप	Medida manual	مقاس يدوي
+ממנו	of it	其中	उसका	de ella	منها
+פינות החלון על המסך בפיקסלים	Window corners on the screen in pixels	屏幕上窗口角点（像素）	स्क्रीन पर खिड़की के कोने पिक्सेल में	Esquinas de la ventana en la pantalla en píxeles	زوايا النافذة على الشاشة بالبكسل
+תא חפצים: קוטר	Object cell: diameter	物件仓：直径	वस्तु कक्ष: व्यास	Celda de objetos: diámetro	حجيرة الأشياء: القطر
+מ״מ, עומק	mm, depth	毫米，深度	मिमी, गहराई	mm, profundidad	مم، العمق
+הרכבה	Assembly	组装	असेंबली	Montaje	التجميع
+מה למדנו מעולם בוני הקליידוסקופים	What we learned from the world of kaleidoscope builders	我们从万花筒制作者那里学到的	कैलिडोस्कोप निर्माताओं की दुनिया से हमने क्या सीखा	Lo que aprendimos del mundo de los constructores de caleidoscopios	ما تعلمناه من عالم صانعي المشكال
+סרקנו את אגודת	We surveyed the society	我们调研了协会	हमने सोसाइटी का अध्ययन किया	Revisamos la sociedad	استعرضنا جمعية
+הקהילה הבינלאומית של אמני הקליידוסקופ	the international community of kaleidoscope artists	国际万花筒艺术家社区	कैलिडोस्कोप कलाकारों का अंतरराष्ट्रीय समुदाय	la comunidad internacional de artistas del caleidoscopio	المجتمع الدولي لفناني المشكال
+מדריכי בנייה של יוצרים, את פורום	makers' build guides, the forum	制作者的制作指南、论坛	निर्माताओं की बिल्ड गाइड, फ़ोरम	guías de construcción de creadores, el foro	أدلة بناء من الصانعين، ومنتدى
+חיתוך לייזר	laser cutting	激光切割	लेज़र कटिंग	corte láser	القص بالليزر
+ופרויקטים פתוחים של	and open projects of	以及开源项目	और खुले प्रोजेक्ट	y proyectos abiertos de	ومشاريع مفتوحة لـ
+ו	and	和	और	y	و
+הערכים בכלי נקבעו לפי זה	The tool's values were set accordingly	工具中的数值据此设定	टूल के मान इसी आधार पर तय किए गए	Los valores de la herramienta se fijaron según esto	تم ضبط قيم الأداة وفق ذلك
+אורך ורוחב	Length and width	长度和宽度	लंबाई और चौड़ाई	Longitud y ancho	الطول والعرض
+כלל האצבע: אורך המראות לפחות פי	Rule of thumb: mirror length at least	经验法则：镜片长度至少为	सामान्य नियम: दर्पण की लंबाई कम से कम	Regla general: longitud de espejos al menos	القاعدة العامة: طول المرايا على الأقل
+מהמידה הגדולה של החלון, למבט ישר. במבט בזווית של כ	times the window's large dimension, for a straight view. At an angle of about	倍窗口大尺寸（正视）。斜视约	गुना खिड़की के बड़े माप का, सीधे देखने के लिए। लगभग इस कोण पर	veces la medida mayor de la ventana, para vista recta. En un ángulo de unos	ضعف البُعد الكبير للنافذة، للنظر المستقيم. عند زاوية نحو
+מספיק יחס של	a ratio of ... is enough	比例足够	का अनुपात काफ़ी है	basta una proporción de	تكفي نسبة
+אבל המראות צריכות להיות רחבות יותר. ברירת המחדל כאן היא	but the mirrors need to be wider. The default here is	但镜片需要更宽。此处默认值为	लेकिन दर्पण चौड़े होने चाहिए। यहाँ डिफ़ॉल्ट है	pero los espejos deben ser más anchos. El valor por defecto aquí es	لكن يجب أن تكون المرايا أعرض. القيمة الافتراضية هنا
+כי בקופסה מסתכלים מקרוב ובזווית	because in the box you look up close and at an angle	因为在盒子里是近距离斜着看	क्योंकि बॉक्स में पास से और कोण पर देखते हैं	porque en la caja se mira de cerca y en ángulo	لأننا في الصندوق ننظر عن قرب وبزاوية
+אינץ׳	inch	英寸	इंच	pulgada	بوصة
+זה האורך שבו רוב האנשים ממקדים בלי עדשה. קצר או ארוך מזה צריך עדשה בחור ההצצה. הכלי מציע עדשה כשצריך	That's the length at which most people focus without a lens. Shorter or longer needs a lens in the peephole. The tool suggests a lens when needed	这是多数人无需透镜即可对焦的长度。更短或更长需在窥孔加透镜。工具会在需要时建议透镜	यह वह लंबाई है जिस पर ज़्यादातर लोग बिना लेंस फ़ोकस करते हैं। छोटी या लंबी हो तो झाँकने वाले छेद में लेंस चाहिए। ज़रूरत पर टूल लेंस सुझाता है	Es la longitud a la que la mayoría enfoca sin lente. Más corto o más largo necesita una lente en la mirilla. La herramienta sugiere una lente cuando hace falta	هذا هو الطول الذي يركّز عنده معظم الناس بلا عدسة. الأقصر أو الأطول يحتاج عدسة في ثقب الرؤية. تقترح الأداة عدسة عند الحاجة
+רוחב המראה לא משנה את התמונה כל עוד הוא גדול מהחלון. מראות רחבות מכניסות יותר אור	The mirror width doesn't change the image as long as it's larger than the window. Wide mirrors let in more light	只要镜片宽于窗口，宽度不影响图像。宽镜片进光更多	जब तक दर्पण खिड़की से बड़ा है, उसकी चौड़ाई छवि नहीं बदलती। चौड़े दर्पण ज़्यादा रोशनी लाते हैं	El ancho del espejo no cambia la imagen mientras sea mayor que la ventana. Los espejos anchos dejan entrar más luz	عرض المرآة لا يغيّر الصورة ما دام أكبر من النافذة. المرايا العريضة تُدخل ضوءًا أكثر
+בשתי מראות, הזווית צריכה לחלק	With two mirrors, the angle must divide	两面镜片时，角度必须整除	दो दर्पणों में, कोण को विभाजित करना चाहिए	Con dos espejos, el ángulo debe dividir	في مرآتين، يجب أن تقسم الزاوية
+למספר זוגי	into an even number	为偶数	सम संख्या में	en un número par	إلى عدد زوجي
+נותן	gives	得到	देता है	da	يعطي
+מספר אי-זוגי יוצר תפרים שבורים. מתחת ל	An odd number creates broken seams. Below	奇数会产生断裂接缝。低于	विषम संख्या टूटे जोड़ बनाती है। इससे नीचे	Un número impar crea juntas rotas. Por debajo de	العدد الفردي يصنع فواصل مكسورة. تحت
+הפתח נעשה צר מאוד	the opening gets very narrow	开口会变得很窄	छेद बहुत संकरा हो जाता है	la abertura se vuelve muy estrecha	تصبح الفتحة ضيقة جدًا
+בשלוש מראות, סכום הזוויות	With three mirrors, the sum of the angles	三面镜片时，角度之和	तीन दर्पणों में, कोणों का योग	Con tres espejos, la suma de los ángulos	في ثلاث مرايا، مجموع الزوايا
+ורק שלושה משולשים מרצפים בלי שבירה	and only three triangles tile without breaks	且只有三种三角形能无断裂平铺	और केवल तीन त्रिकोण बिना टूट के भरते हैं	y solo tres triángulos teselan sin cortes	وثلاثة مثلثات فقط تبلّط بلا انكسار
+זה מה שהכלי מציע	That's what the tool offers	这正是工具提供的	यही टूल देता है	Eso es lo que ofrece la herramienta	وهذا ما تقدمه الأداة
+מעקמת את התמונה לכדור. התחדדות קטנה יותר נותנת כדור גדול יותר	curves the image into a sphere. A smaller taper gives a bigger sphere	使图像弯成球体。锥度越小球体越大	छवि को गोले में मोड़ता है। कम शंकुता बड़ा गोला देती है	curva la imagen en una esfera. Menos conicidad da una esfera mayor	يحني الصورة إلى كرة. الاستدقاق الأصغر يعطي كرة أكبر
+כל המקורות מסכימים: מראה חזיתית	All sources agree: front-surface mirror	所有资料一致：前表面镜	सभी स्रोत सहमत हैं: फ्रंट-सरफ़ेस दर्पण	Todas las fuentes coinciden: espejo de primera superficie	كل المصادر تتفق: مرآة سطحية أمامية
+כי מראה רגילה מחזירה גם מהזכוכית ויוצרת תמונות כפולות. כ	because a regular mirror also reflects from the glass and creates double images. About	因为普通镜子也会从玻璃反射，产生重影。约	क्योंकि साधारण दर्पण काँच से भी परावर्तित करता है और दोहरी छवियाँ बनाता है। लगभग	porque un espejo normal también refleja desde el vidrio y crea imágenes dobles. Aprox.	لأن المرآة العادية تعكس أيضًا من الزجاج وتصنع صورًا مزدوجة. حوالي
+אור הולך לאיבוד בכל החזרה, וזה מצטבר	light is lost with every reflection, and it adds up	每次反射都会损失光线，并且会累积	हर परावर्तन में रोशनी खोती है, और यह जुड़ती जाती है	de luz se pierde en cada reflexión, y se acumula	من الضوء يضيع في كل انعكاس، ويتراكم ذلك
+חותכים בגלגל קרביד, משיכה אחת, ולא משייפים. כל המראות באותו מידה בדיוק. נוגעים רק בקצוות	Cut with a carbide wheel, one stroke, and don't sand. All mirrors exactly the same size. Touch only the edges	用硬质合金刀轮一次划切，不要打磨。所有镜片尺寸完全一致。只接触边缘	कार्बाइड व्हील से एक बार में काटें, घिसें नहीं। सभी दर्पण बिल्कुल एक माप के। केवल किनारे छुएँ	Corta con rueda de carburo, una pasada, sin lijar. Todos los espejos exactamente iguales. Tócalos solo por los bordes	اقطع بعجلة كربيد سحبة واحدة ولا تصنفر. كل المرايا بالمقاس نفسه تمامًا. المسها من الحواف فقط
+מחברים בסרט הדבקה, סיליקון או דבק חם, ומרפדים בתוך הצינור כדי שהזכוכית לא תזוז ולא תיסדק	Join with tape, silicone or hot glue, and pad inside the tube so the glass doesn't move or crack	用胶带、硅胶或热熔胶连接，并在筒内加衬垫，防止玻璃移动或开裂	टेप, सिलिकॉन या गर्म गोंद से जोड़ें, और ट्यूब के अंदर गद्दी लगाएँ ताकि काँच न हिले न टूटे	Une con cinta, silicona o pegamento caliente, y acolcha dentro del tubo para que el vidrio no se mueva ni se agriete	اربط بشريط أو سيليكون أو غراء ساخن، وبطّن داخل الأنبوب كي لا يتحرك الزجاج أو يتشقق
+תא חפצים ותאורה	Object cell and lighting	物件仓和照明	वस्तु कक्ष और प्रकाश	Celda de objetos e iluminación	حجيرة الأشياء والإضاءة
+תא נוזלי מתמלא בשמן מינרלי או סיליקון	A liquid cell is filled with mineral oil or silicone	液体仓注入矿物油或硅油	तरल कक्ष खनिज तेल या सिलिकॉन से भरा जाता है	Una celda líquida se llena con aceite mineral o silicona	تُملأ الحجيرة السائلة بزيت معدني أو سيليكون
+גליצרין סופג לחות	glycerin absorbs moisture	甘油会吸湿	ग्लिसरीन नमी सोखती है	la glicerina absorbe humedad	الجلسرين يمتص الرطوبة
+ונסגר בדבק	and sealed with glue	并用胶密封	और गोंद से सील किया जाता है	y se sella con pegamento	ويُغلق بالغراء
+אור מלא, לא חם מדי, ולא שמש ישירה	Full light, not too warm, and no direct sun	充足光线，不要太暖，避免阳光直射	भरपूर रोशनी, बहुत गर्म नहीं, और सीधी धूप नहीं	Luz plena, no demasiado cálida, y sin sol directo	ضوء كامل، غير دافئ جدًا، وبلا شمس مباشرة
+במוצר שלנו המסך מחליף את תא החפצים. לכן הוא מציג רק את התא המקורי, והמראות האמיתיות עושות את השיקוף. כך עובד מצב	In our product the screen replaces the object cell. So it shows only the original cell, and the real mirrors do the reflecting. That's how this mode works	在我们的产品中，屏幕取代物件仓。因此它只显示原始单元，真实镜片负责反射。这就是此模式的原理	हमारे उत्पाद में स्क्रीन वस्तु कक्ष की जगह लेती है। इसलिए वह केवल मूल कक्ष दिखाती है, और असली दर्पण प्रतिबिंब बनाते हैं। यह मोड ऐसे काम करता है	En nuestro producto la pantalla sustituye la celda de objetos. Por eso muestra solo la celda original, y los espejos reales hacen el reflejo. Así funciona el modo	في منتجنا تحل الشاشة محل حجيرة الأشياء. لذا تعرض الخلية الأصلية فقط، والمرايا الحقيقية تقوم بالانعكاس. هكذا يعمل وضع
+בסטודיו הוויזואלי	in the visual studio	在视觉工作室中	विज़ुअल स्टूडियो में	en el estudio visual	في الاستوديو المرئي
+מקורות	Sources	资料来源	स्रोत	Fuentes	المصادر
+שאלות נפוצות	FAQ	常见问题	सामान्य प्रश्न	Preguntas frecuentes	الأسئلة الشائعة
+ניסויים במראות, זוויות והתחדדות	Experiments with mirrors, angles and taper	镜片、角度和锥度实验	दर्पण, कोण और शंकुता के प्रयोग	Experimentos con espejos, ángulos y conicidad	تجارب على المرايا والزوايا والاستدقاق
+קליידוסקופ ענק	Giant kaleidoscope	巨型万花筒	विशाल कैलिडोस्कोप	Caleidoscopio gigante	مشكال عملاق
+חיתוך מראות חזיתיות	Cutting front-surface mirrors	切割前表面镜	फ्रंट-सरफ़ेस दर्पण काटना	Cortar espejos de primera superficie	قص المرايا السطحية الأمامية
+קופסת	Box	盒子	बॉक्स	Caja	صندوق
+מראות בלייזר	laser mirrors	激光镜片	लेज़र दर्पण	espejos láser	مرايا ليزر
+קליידוסקופ מודפס עם תאורה	Printed kaleidoscope with lighting	带照明的打印万花筒	प्रकाश के साथ प्रिंटेड कैलिडोस्कोप	Caleidoscopio impreso con iluminación	مشكال مطبوع مع إضاءة
+קוד הקופסה הועתק. בסטודיו: לשונית פלט, הדבקה	Box code copied. In the studio: Output tab, paste	盒子代码已复制。在工作室中：输出标签，粘贴	बॉक्स कोड कॉपी हुआ। स्टूडियो में: आउटपुट टैब, पेस्ट	Código de la caja copiado. En el estudio: pestaña Salida, pegar	تم نسخ رمز الصندوق. في الاستوديو: تبويب الإخراج، لصق
+פתחו את הסטודיו והדביקו את הקוד מלשונית חלקים	Open the studio and paste the code from the Parts tab	打开工作室，粘贴零件标签中的代码	स्टूडियो खोलें और पुर्ज़े टैब से कोड पेस्ट करें	Abre el estudio y pega el código de la pestaña Piezas	افتح الاستوديو والصق الرمز من تبويب القطع
+מערכת המראות	Mirror system	镜片系统	दर्पण प्रणाली	Sistema de espejos	نظام المرايا
+סוג	Type	类型	प्रकार	Tipo	النوع
+התחדדות לעין	Taper to the eye	向眼睛锥缩	आँख की ओर शंकुता	Conicidad hacia el ojo	الاستدقاق نحو العين
+מנסרה ישרה. מעל	Straight prism. Above	直棱镜。高于	सीधा प्रिज़्म। इससे ऊपर	Prisma recto. Por encima de	منشور مستقيم. فوق
+התמונה מתעקלת לכדור	the image curves into a sphere	图像弯成球体	छवि गोले में मुड़ती है	la imagen se curva en una esfera	تنحني الصورة إلى كرة
+מקור התמונה	Image source	图像来源	छवि स्रोत	Fuente de imagen	مصدر الصورة
+מסך מאחורי המראות	Screen behind the mirrors	镜片后的屏幕	दर्पणों के पीछे स्क्रीन	Pantalla detrás de los espejos	شاشة خلف المرايا
+שטח מואר רוחב	Lit area width	发光区宽度	प्रकाशित क्षेत्र चौड़ाई	Ancho del área iluminada	عرض المساحة المضاءة
+שטח מואר גובה	Lit area height	发光区高度	प्रकाशित क्षेत्र ऊँचाई	Alto del área iluminada	ارتفاع المساحة المضاءة
+מסגרת רוחב	Frame width	边框宽度	फ़्रेम चौड़ाई	Ancho del marco	عرض الإطار
+מסגרת גובה	Frame height	边框高度	फ़्रेम ऊँचाई	Alto del marco	ارتفاع الإطار
+עובי מסך	Screen thickness	屏幕厚度	स्क्रीन मोटाई	Grosor de pantalla	سماكة الشاشة
+רזולוציה	Resolution	分辨率	रिज़ॉल्यूशन	Resolución	الدقة
+החתך ממלא את המסך	The section fills the screen	截面填满屏幕	कट स्क्रीन भरता है	El corte llena la pantalla	المقطع يملأ الشاشة
+ניצול המסך	Screen usage	屏幕利用率	स्क्रीन उपयोग	Uso de la pantalla	استغلال الشاشة
+מידה גדולה	Large dimension	大尺寸	बड़ा माप	Medida mayor	البُعد الكبير
+עומק תא	Cell depth	仓深度	कक्ष गहराई	Profundidad de la celda	عمق الحجيرة
+אורך וצפייה	Length and viewing	长度与观看	लंबाई और देखना	Longitud y visión	الطول والمشاهدة
+אורך לפי יחס	Length by ratio	按比例的长度	अनुपात से लंबाई	Longitud por proporción	الطول حسب النسبة
+אורך ידני	Manual length	手动长度	मैनुअल लंबाई	Longitud manual	طول يدوي
+יחס אורך:רוחב	Length:width ratio	长宽比	लंबाई:चौड़ाई अनुपात	Proporción largo:ancho	نسبة الطول:العرض
+למבט בזווית	for an angled view	斜视时	कोण से देखने के लिए	para vista en ángulo	للنظر بزاوية
+חלון מלא	Full window	完整窗口	पूरी खिड़की	Ventana completa	نافذة كاملة
+חור הצצה	Peephole	窥孔	झाँकने का छेद	Mirilla	ثقب الرؤية
+שפה מסתירה	Hiding rim	遮挡边缘	छिपाने वाला किनारा	Borde oculto	حافة مخفية
+קוטר חור	Hole diameter	孔径	छेद का व्यास	Diámetro del agujero	قطر الثقب
+חומרים	Materials	材料	सामग्री	Materiales	المواد
+הפחתה ברוחב	Width reduction	宽度缩减	चौड़ाई में कमी	Reducción de ancho	تقليل العرض
+מעטפת	Housing	外壳	आवरण	Carcasa	الغلاف
+עובי לוח	Board thickness	板厚	बोर्ड मोटाई	Grosor del tablero	سماكة اللوح
+רוחב שן	Tooth width	齿宽	दाँत चौड़ाई	Ancho del diente	عرض السن
+אוטו	Auto	自动	ऑटो	Auto	تلقائي
+מעטפת וקישוט	Housing and decoration	外壳与装饰	आवरण और सजावट	Carcasa y decoración	الغلاف والزخرفة
+שוליים	Margins	边距	किनारे	Márgenes	الهوامش
+מחיצות	Partitions	隔板	विभाजक	Tabiques	الحواجز
+תא אחורי	Back compartment	后仓	पीछे का खाना	Compartimento trasero	الحجيرة الخلفية
+מקום לאלקטרוניקה, לכבלים או לתאורה	Room for electronics, cables or lighting	放置电子元件、线缆或照明的空间	इलेक्ट्रॉनिक्स, केबल या प्रकाश के लिए जगह	Espacio para electrónica, cables o iluminación	مكان للإلكترونيات أو الكابلات أو الإضاءة
+חריטה	Engraving	雕刻	नक्काशी	Grabado	الحفر
+פרח החיים	Flower of life	生命之花	जीवन का फूल	Flor de la vida	زهرة الحياة
+רשת משולשים	Triangle grid	三角网格	त्रिकोण ग्रिड	Cuadrícula de triángulos	شبكة مثلثات
+קרני שמש	Sunrays	太阳光芒	सूर्य किरणें	Rayos de sol	أشعة الشمس
+מסגרות	Frames	框线	फ़्रेम	Marcos	إطارات
+בלי	None	无	कोई नहीं	Ninguno	بلا
+לוח קישוט בחזית	Front decorative panel	前装饰板	सामने का सजावटी पैनल	Panel decorativo frontal	لوح زخرفي في الواجهة
+ייצור	Production	生产	उत्पादन	Fabricación	الإنتاج
+גודל לוח לייזר	Laser bed size	激光板尺寸	लेज़र बोर्ड आकार	Tamaño de la cama láser	حجم لوح الليزر
+קופסה בתלת-ממד	3D box	3D盒子	3D बॉक्स	Caja 3D	صندوق ثلاثي الأبعاد
+חלקים והרכבה	Parts and assembly	零件与组装	पुर्ज़े और असेंबली	Piezas y montaje	القطع والتجميع
+הורדת חבילת ייצור	Download production pack	下载生产包	उत्पादन पैक डाउनलोड करें	Descargar paquete de fabricación	تنزيل حزمة الإنتاج
+של הלוחות	of the boards	板材的	बोर्डों का	de los tableros	للألواح
+חיתוך	Cutting	切割	कटिंग	Corte	القص
+לוחות מעטפת בגודל	housing boards sized	外壳板尺寸	आवरण बोर्ड आकार	tableros de carcasa de	ألواح غلاف بحجم
+מ״מ. המראות מוצגות כתבנית	mm. The mirrors are shown as a template	毫米。镜片以模板显示	मिमी। दर्पण टेम्पलेट के रूप में दिखाए गए हैं	mm. Los espejos se muestran como plantilla	مم. تُعرض المرايا كقالب
+לחיתוך זכוכית או להזמנה מזגג. הקבצים בקנה מידה	for cutting glass or ordering from a glazier. Files at scale	用于切割玻璃或向玻璃店订购。文件比例	काँच काटने या ग्लेज़ियर से ऑर्डर के लिए। फ़ाइलें पैमाने पर	para cortar vidrio o encargar a un cristalero. Archivos a escala	لقص الزجاج أو الطلب من زجّاج. الملفات بمقياس
+במילימטרים	in millimeters	以毫米为单位	मिलीमीटर में	en milímetros	بالمليمتر
+גדול מהלוח, צריך לוח מיוחד	larger than the bed, needs a special board	大于板材，需要特殊板	बोर्ड से बड़ा, विशेष बोर्ड चाहिए	mayor que la cama, necesita un tablero especial	أكبر من اللوح، يحتاج لوحًا خاصًا
+תבנית	Template	模板	टेम्पलेट	Plantilla	قالب
+לזגג	for the glazier	给玻璃店	ग्लेज़ियर के लिए	para el cristalero	للزجّاج
+קופסה, מ״מ	Box, mm	盒子，毫米	बॉक्स, मिमी	Caja, mm	الصندوق، مم
+אורך מראה	Mirror length	镜片长度	दर्पण लंबाई	Longitud del espejo	طول المرآة
+רוחבי מראות	Mirror widths	镜片宽度	दर्पण चौड़ाइयाँ	Anchos de espejos	عروض المرايا
+לוחות לחיתוך	Boards to cut	待切板材	काटने के बोर्ड	Tableros a cortar	ألواح للقص
+הערות	Notes	备注	टिप्पणियाँ	Notas	ملاحظات
+המוצר מוכן	Product ready	产品就绪	उत्पाद तैयार	Producto listo	المنتج جاهز
+מעבר לסטודיו הוויזואלי	Go to the visual studio	前往视觉工作室	विज़ुअल स्टूडियो पर जाएँ	Ir al estudio visual	الانتقال إلى الاستوديو المرئي
+קליידוסקופ	Kaleidoscope	万花筒	कैलिडोस्कोप	Caleidoscopio	المشكال
+סטודיו	Studio	工作室	स्टूडियो	Estudio	استوديو
+לשוניות הסטודיו	Studio tabs	工作室标签	स्टूडियो टैब	Pestañas del estudio	تبويبات الاستوديو
+העבר את הפאנל לצד השני	Move the panel to the other side	将面板移到另一侧	पैनल को दूसरी ओर ले जाएँ	Mover el panel al otro lado	انقل اللوحة إلى الجانب الآخر
+הסתר את הפאנל	Hide the panel	隐藏面板	पैनल छिपाएँ	Ocultar el panel	إخفاء اللوحة
+פאנל	Panel	面板	पैनल	Panel	اللوحة
+תצוגת הקליידוסקופ	Kaleidoscope view	万花筒视图	कैलिडोस्कोप दृश्य	Vista del caleidoscopio	عرض المشكال
+טראק הדגמה	Demo track	演示曲目	डेमो ट्रैक	Pista de demostración	مقطوعة تجريبية
+מקש	Key	按键	कुंजी	Tecla	مفتاح
+מסך הופעה	Performance screen	演出屏幕	प्रदर्शन स्क्रीन	Pantalla de actuación	شاشة العرض
+מסך מלא	Full screen	全屏	फ़ुल स्क्रीन	Pantalla completa	ملء الشاشة
+נגן	Player	播放器	प्लेयर	Reproductor	المشغّل
+סגור את הנגן	Close the player	关闭播放器	प्लेयर बंद करें	Cerrar el reproductor	إغلاق المشغّل
+פתח את כל הכרטיסיות	Expand all cards	展开所有卡片	सभी कार्ड खोलें	Abrir todas las tarjetas	فتح كل البطاقات
+פתח הכל	Expand all	全部展开	सब खोलें	Abrir todo	فتح الكل
+קפל את כל הכרטיסיות	Collapse all cards	折叠所有卡片	सभी कार्ड समेटें	Plegar todas las tarjetas	طي كل البطاقات
+קפל הכל	Collapse all	全部折叠	सब समेटें	Plegar todo	طي الكل
+מנסרה קלאסית	Classic prism	经典棱镜	क्लासिक प्रिज़्म	Prisma clásico	منشور كلاسيكي
+שלוש מראות ב־	Three mirrors at	三面镜片，角度	तीन दर्पण, कोण	Tres espejos a	ثلاث مرايا بزاوية
+גליפים הולוגרפיים כמו בנייר שבקופסה	Holographic glyphs like the paper in the box	全息字符，像盒中的纸	बॉक्स के कागज़ जैसे होलोग्राफ़िक ग्लिफ़	Glifos holográficos como el papel de la caja	رموز هولوغرافية كالورق في الصندوق
+חרוזי זכוכית	Glass beads	玻璃珠	काँच के मोती	Cuentas de vidrio	خرز زجاجي
+חרוזים שנופלים לפי הטיית הטלפון, כמו קליידוסקופ ביד	Beads that fall as you tilt the phone, like a handheld kaleidoscope	随手机倾斜而落下的珠子，像手持万花筒	फ़ोन झुकाने पर गिरते मोती, हाथ के कैलिडोस्कोप जैसे	Cuentas que caen al inclinar el teléfono, como un caleidoscopio de mano	خرز يسقط مع إمالة الهاتف، كالمشكال اليدوي
+הכדור	The sphere	球体	गोला	La esfera	الكرة
+עומדים בתוך הכדור, אור ירוק־זהב על דפוס פרח החיים	Standing inside the sphere, green-gold light on the flower of life pattern	站在球体内，绿金色光照在生命之花图案上	गोले के अंदर खड़े, जीवन के फूल पर हरा-सुनहरा प्रकाश	De pie dentro de la esfera, luz verde-dorada sobre la flor de la vida	الوقوف داخل الكرة، ضوء أخضر ذهبي على نقش زهرة الحياة
+משולשי מראה	Mirror triangles	镜面三角	दर्पण त्रिकोण	Triángulos de espejo	مثلثات المرايا
+הכדור מבחוץ	The sphere from outside	球体外观	बाहर से गोला	La esfera desde fuera	الكرة من الخارج
+הכדור כולו, עם תפרי המראות ופרח החיים	The whole sphere, with the mirror seams and the flower of life	整个球体，带镜面接缝和生命之花	पूरा गोला, दर्पण जोड़ों और जीवन के फूल के साथ	La esfera entera, con las juntas de espejo y la flor de la vida	الكرة كلها، مع فواصل المرايا وزهرة الحياة
+דאון טמפו	Downtempo	慢拍	डाउनटेम्पो	Downtempo	داون تيمبو
+סחף איטי	Slow drift	缓慢漂移	धीमा बहाव	Deriva lenta	انجراف بطيء
+מנסרה של	Prism of	棱镜	प्रिज़्म	Prisma de	منشور من
+מראות שמסתובבת לאט, זרימה רכה, הד זום ואדוות על הסאב	mirrors turning slowly, soft flow, zoom echo and ripples on the sub	镜片缓慢旋转，柔和流动，缩放回声，低音涟漪	दर्पण धीरे घूमते हुए, नरम बहाव, ज़ूम गूँज और सब पर लहरें	espejos que giran despacio, flujo suave, eco de zoom y ondas en el sub	مرايا تدور ببطء، تدفق ناعم، صدى تكبير وتموجات مع الباص العميق
+נשימה בכדור	Breathing in the sphere	球中呼吸	गोले में साँस	Respiración en la esfera	تنفّس في الكرة
+בתוך הכדור, פרח החיים נושם עם הפד, מסלולים שמתרחבים עם הבס	inside the sphere, the flower of life breathes with the pad, orbits that widen with the bass	在球体内，生命之花随铺底音呼吸，轨道随低音扩展	गोले के अंदर, जीवन का फूल पैड के साथ साँस लेता है, बास के साथ फैलती कक्षाएँ	dentro de la esfera, la flor de la vida respira con el pad, órbitas que se abren con el bajo	داخل الكرة، تتنفس زهرة الحياة مع الخلفية الصوتية، ومدارات تتسع مع الباص
+דיו במים	Ink in water	水中墨	पानी में स्याही	Tinta en agua	حبر في الماء
+פלזמה רכה ב	Soft plasma in	柔和等离子	नरम प्लाज़्मा	Plasma suave en	بلازما ناعمة في
+מראות שנשברות, תנועה של דיו במים	mirrors that break, motion of ink in water	镜片破碎，水中墨的流动	टूटते दर्पण, पानी में स्याही की गति	espejos que se rompen, movimiento de tinta en agua	مرايا تنكسر، حركة الحبر في الماء
+כיפה מבפנים	Dome from inside	穹顶内部	अंदर से गुंबद	Cúpula por dentro	القبة من الداخل
+עומדים בתוך כדור ענק, סימטריית איקוסהדרון	Standing inside a giant sphere, icosahedral symmetry	站在巨大球体内，二十面体对称	विशाल गोले के अंदर, विंशफलकीय समरूपता	De pie dentro de una esfera gigante, simetría icosaédrica	الوقوف داخل كرة عملاقة، تناظر عشروني الوجوه
+ניצוצות בקיק	Sparks on the kick	底鼓火花	किक पर चिंगारियाँ	Chispas en el bombo	شرارات مع الطبلة
+כדור מראות	Mirror ball	镜面球	दर्पण गेंद	Bola de espejos	كرة مرايا
+דרופ	Drop	高潮	ड्रॉप	Drop	الذروة
+כדור דיסקו שמשקף את הקליידוסקופ, נצנוצים על כל ביט	A disco ball reflecting the kaleidoscope, sparkles on every beat	迪斯科球反射万花筒，每拍闪烁	कैलिडोस्कोप को दर्शाती डिस्को गेंद, हर बीट पर चमक	Una bola de discoteca que refleja el caleidoscopio, destellos en cada golpe	كرة ديسكو تعكس المشكال، وتلمع مع كل نبضة
+משולשים	Triangles	三角形	त्रिकोण	Triángulos	مثلثات
+־	-	-	-	-	-
+עם רשת משולשים שנדלקת בקיק, כמו אריחי הכיפה	with a triangle grid that lights up on the kick, like the dome tiles	三角网格随底鼓亮起，像穹顶瓷砖	त्रिकोण ग्रिड के साथ जो किक पर जलता है, गुंबद की टाइलों जैसा	con una cuadrícula de triángulos que se enciende con el bombo, como las baldosas de la cúpula	مع شبكة مثلثات تضيء مع الطبلة، مثل بلاطات القبة
+מיפוי לב	Heart mapping	心跳映射	हृदय मैपिंग	Mapeo del corazón	تخطيط القلب
+פעימת לב	Heartbeat	心跳	दिल की धड़कन	Latido	نبض القلب
+לבבות שנפתחים מהמרכז על כל פעימה, מנדלה של	hearts opening from the center on every beat, a mandala of	每次心跳从中心绽放的心形，曼陀罗	हर धड़कन पर बीच से खुलते दिल, मंडल	corazones que se abren desde el centro en cada latido, un mandala de	قلوب تنفتح من المركز مع كل نبضة، ماندالا من
+טבעות	Rings	环	छल्ले	Anillos	حلقات
+טבעות שמתכנסות ללב, במנסרה של	rings converging into the heart, in a prism of	汇聚到心形的环，棱镜	दिल में सिमटते छल्ले, प्रिज़्म में	anillos que convergen en el corazón, en un prisma de	حلقات تتجمع في القلب، في منشور من
+מראות שנשברת כמו אמיתית	mirrors that breaks like a real one	镜片像真的一样破碎	दर्पण जो असली की तरह टूटता है	espejos que se rompe como uno real	مرايا ينكسر كالحقيقي
+לייזרים במנסרה	Lasers in the prism	棱镜中的激光	प्रिज़्म में लेज़र	Láseres en el prisma	ليزر في المنشور
+מניפת לייזרים שמסתובבת עם הביט, פיצול	A fan of lasers spinning with the beat, split	激光扇随节拍旋转，分裂	बीट के साथ घूमता लेज़र पंखा, विभाजन	Un abanico de láseres que gira con el ritmo, división	مروحة ليزر تدور مع الإيقاع، انقسام
+וסטרוב בדרופ	and strobe on the drop	高潮时频闪	और ड्रॉप पर स्ट्रोब	y estroboscopio en el drop	وستروب عند الذروة
+מנהרה	Tunnel	隧道	सुरंग	Túnel	نفق
+משולשים שנפתחים מהמרכז על כל ביט, בתוך מנסרה של	triangles opening from the center on every beat, inside a prism of	每拍从中心展开的三角形，在棱镜中	हर बीट पर बीच से खुलते त्रिकोण, प्रिज़्म के अंदर	triángulos que se abren desde el centro en cada golpe, dentro de un prisma de	مثلثات تنفتح من المركز مع كل نبضة، داخل منشور من
+מוזיקה	Music	音乐	संगीत	Música	الموسيقى
+זיקוקים בכדור	Fireworks in the sphere	球中烟花	गोले में आतिशबाज़ी	Fuegos artificiales en la esfera	ألعاب نارية في الكرة
+זיקוק על כל ביט, מתפוצץ בתוך כדור של	a firework on every beat, exploding inside a sphere of	每拍一束烟花，在球中绽放	हर बीट पर आतिशबाज़ी, गोले के अंदर फटती	un fuego artificial en cada golpe, que estalla dentro de una esfera de	ألعاب نارية مع كل نبضة، تنفجر داخل كرة من
+עותקים	copies	副本	प्रतियाँ	copias	نسخ
+אקולייזר מנדלה	Mandala equalizer	曼陀罗均衡器	मंडल इक्वलाइज़र	Ecualizador mandala	معادل ماندالا
+הספקטרום של השיר כמנדלה של	the song's spectrum as a mandala of	歌曲频谱化作曼陀罗	गीत का स्पेक्ट्रम मंडल के रूप में	el espectro de la canción como un mandala de	طيف الأغنية كماندالا من
+עותקים, מסלולים נושמים עם הבס	copies, orbits breathing with the bass	副本，轨道随低音呼吸	प्रतियाँ, बास के साथ साँस लेती कक्षाएँ	copias, órbitas que respiran con el bajo	نسخ، مدارات تتنفس مع الباص
+פלזמה היפרבולית	Hyperbolic plasma	双曲等离子	अतिपरवलयिक प्लाज़्मा	Plasma hiperbólico	بلازما زائدية
+שדות צבע רכים בריצוף	soft color fields in a tiling	平铺中的柔和色场	टाइलिंग में नरम रंग क्षेत्र	campos de color suaves en un teselado	حقول لون ناعمة في تبليط
+אדוות על הבס	ripples on the bass	低音涟漪	बास पर लहरें	ondas con el bajo	تموجات مع الباص
+לב פועם בכדור	Beating heart in a sphere	球中跳动的心	गोले में धड़कता दिल	Corazón latiendo en una esfera	قلب نابض في كرة
+כדור מראות שנושם עם הדופק, לבבות בכל פעימה	A mirror ball breathing with the pulse, hearts on every beat	随脉搏呼吸的镜面球，每次心跳出现心形	नब्ज़ के साथ साँस लेती दर्पण गेंद, हर धड़कन पर दिल	Una bola de espejos que respira con el pulso, corazones en cada latido	كرة مرايا تتنفس مع النبض، وقلوب مع كل نبضة
+מתמטיקה	Math	数学	गणित	Matemáticas	رياضيات
+יותר מדי מראות	Too many mirrors	镜片太多	बहुत ज़्यादा दर्पण	Demasiados espejos	مرايا كثيرة جدًا
+משולשים סביב כל קודקוד: הריצוף ההיפרבולי שסוגר את מה שמראות אמיתיות לא יכולות	triangles around each vertex: the hyperbolic tiling that closes what real mirrors can't	个三角形围绕每个顶点：双曲平铺完成真实镜片做不到的闭合	त्रिकोण हर शीर्ष के चारों ओर: अतिपरवलयिक टाइलिंग जो वह बंद करती है जो असली दर्पण नहीं कर सकते	triángulos alrededor de cada vértice: el teselado hiperbólico que cierra lo que los espejos reales no pueden	مثلثات حول كل رأس: التبليط الزائدي الذي يُغلق ما لا تستطيعه المرايا الحقيقية
+טלפון	Phone	手机	फ़ोन	Teléfono	الهاتف
+המצלמה בתוך המראות	The camera inside the mirrors	镜中摄像头	दर्पणों के अंदर कैमरा	La cámara dentro de los espejos	الكاميرا داخل المرايا
+מה שהמצלמה רואה נכנס למשולש. מטים את הטלפון כדי לסובב	What the camera sees goes into the triangle. Tilt the phone to rotate	摄像头看到的画面进入三角形。倾斜手机即可旋转	कैमरा जो देखता है वह त्रिकोण में आता है। घुमाने के लिए फ़ोन झुकाएँ	Lo que ve la cámara entra en el triángulo. Inclina el teléfono para girar	ما تراه الكاميرا يدخل المثلث. أمِل الهاتف للتدوير
+מראות שוות	equal mirrors	等边镜片	समान दर्पण	espejos iguales	مرايا متساوية
+בכל פינה	at every corner	每个角	हर कोने पर	en cada esquina	في كل زاوية
+כך בנויה המנסרה שלך: המשולש מתמלא בלי תפרים לכל הכיוונים	This is how your prism is built: the triangle fills without seams in every direction	你的棱镜就是这样构成的：三角形向各个方向无缝填满	आपका प्रिज़्म ऐसे बना है: त्रिकोण हर दिशा में बिना जोड़ के भरता है	Así está construido tu prisma: el triángulo llena sin juntas en todas direcciones	هكذا بُني منشورك: يمتلئ المثلث بلا فواصل في كل الاتجاهات
+עוד משולש שסוגר את המישור. נוצרת רשת של ריבועים ואלכסונים	Another triangle that closes the plane. A grid of squares and diagonals forms	另一个能闭合平面的三角形。形成正方形和对角线网格	एक और त्रिकोण जो समतल बंद करता है। वर्गों और विकर्णों का ग्रिड बनता है	Otro triángulo que cierra el plano. Se forma una cuadrícula de cuadrados y diagonales	مثلث آخر يُغلق المستوى. تتكوّن شبكة مربعات وأقطار
+המשולש השלישי והאחרון שסוגר בלי שבירה	The third and last triangle that closes without breaking	第三个也是最后一个无断裂闭合的三角形	तीसरा और अंतिम त्रिकोण जो बिना टूटे बंद होता है	El tercer y último triángulo que cierra sin romperse	المثلث الثالث والأخير الذي يُغلق بلا انكسار
+עותקים סביב כל כוכב	copies around each star	副本围绕每颗星	हर तारे के चारों ओर प्रतियाँ	copias alrededor de cada estrella	نسخ حول كل نجمة
+מראות בריבוע	Square mirrors	方形镜片	वर्ग में दर्पण	Espejos en cuadrado	مرايا مربعة
+ריצוף פשוט, כמו חלון במנהרה של מראות	Simple tiling, like a window in a tunnel of mirrors	简单平铺，像镜子隧道中的窗户	सरल टाइलिंग, दर्पणों की सुरंग में खिड़की जैसी	Teselado simple, como una ventana en un túnel de espejos	تبليط بسيط، كنافذة في نفق من المرايا
+מנסרה	Prism	棱镜	प्रिज़्म	Prisma	منشور
+מראות ומעלה	mirrors and up	面及以上镜片	दर्पण और अधिक	espejos o más	مرايا فأكثر
+מצולע משוכלל כזה לא מרצף את המישור, ולכן ההשתקפויות נשברות וחופפות, בדיוק כמו בצינור מראות אמיתי	A regular polygon like this doesn't tile the plane, so the reflections break and overlap, just like in a real mirror tube	这样的正多边形无法平铺平面，因此反射会断裂和重叠，就像真实的镜筒	ऐसा नियमित बहुभुज समतल नहीं भरता, इसलिए प्रतिबिंब टूटते और ओवरलैप होते हैं, बिल्कुल असली दर्पण ट्यूब की तरह	Un polígono regular así no tesela el plano, por eso los reflejos se rompen y se solapan, igual que en un tubo de espejos real	مضلع منتظم كهذا لا يبلّط المستوى، لذا تنكسر الانعكاسات وتتداخل، تمامًا كما في أنبوب مرايا حقيقي
+שתי מראות בזווית	Two mirrors at an angle	两面成角镜片	कोण पर दो दर्पण	Dos espejos en ángulo	مرآتان بزاوية
+המנדלה הקלאסית: עותקים סביב נקודה אחת, בלי ריצוף	The classic mandala: copies around one point, no tiling	经典曼陀罗：围绕一点的副本，无平铺	क्लासिक मंडल: एक बिंदु के चारों ओर प्रतियाँ, बिना टाइलिंग	El mandala clásico: copias alrededor de un punto, sin teselado	الماندالا الكلاسيكية: نسخ حول نقطة واحدة، بلا تبليط
+היפרבולי	Hyperbolic	双曲	अतिपरवलयिक	Hiperbólico	زائدي
+מראות מעוקלות	Curved mirrors	曲面镜	घुमावदार दर्पण	Espejos curvos	مرايا منحنية
+מה שמראות שטוחות לא יכולות	What flat mirrors can't	平面镜做不到的	जो समतल दर्पण नहीं कर सकते	Lo que los espejos planos no pueden	ما لا تستطيعه المرايا المسطحة
+כשסביב קודקוד נפגשים	When around a vertex meet	当围绕一个顶点相遇	जब एक शीर्ष के चारों ओर मिलते हैं	Cuando alrededor de un vértice se juntan	عندما تلتقي حول رأس
+משולשים ומעלה, הם נסגרים רק על מרחב מעוקל. מוצג בדיסק פואנקרה	triangles or more, they close only on a curved space. Shown in a Poincaré disk	个或更多三角形时，它们只能在弯曲空间中闭合。以庞加莱圆盘显示	या अधिक त्रिकोण, वे केवल वक्र स्थान पर बंद होते हैं। पोंकारे डिस्क में दिखाया गया	triángulos o más, solo cierran en un espacio curvo. Se muestra en un disco de Poincaré	مثلثات أو أكثر، فإنها لا تنغلق إلا في فضاء منحنٍ. معروض في قرص بوانكاريه
+כדור ענק	Giant sphere	巨型球体	विशाल गोला	Esfera gigante	كرة عملاقة
+מבחוץ	from outside	外部	बाहर से	desde fuera	من الخارج
+מראות שעוברות דרך מרכז כדור	mirrors passing through the center of a sphere	面穿过球心的镜片	गोले के केंद्र से गुज़रते दर्पण	espejos que pasan por el centro de una esfera	مرايا تمر عبر مركز كرة
+הקליידוסקופ עוטף כדור שלם	The kaleidoscope wraps a whole sphere	万花筒包裹整个球体	कैलिडोस्कोप पूरे गोले को लपेटता है	El caleidoscopio envuelve una esfera entera	المشكال يلفّ كرة كاملة
+עותקים לפי הסימטריה	copies by symmetry	按对称的副本	समरूपता के अनुसार प्रतियाँ	copias según la simetría	نسخ حسب التناظر
+מבפנים	from inside	内部	अंदर से	desde dentro	من الداخل
+עומדים בתוך הכדור	Standing inside the sphere	站在球体内	गोले के अंदर खड़े	De pie dentro de la esfera	الوقوف داخل الكرة
+כמו מתחת לכיפת הטכנודרום. גוררים או מטים את הטלפון כדי להסתכל מסביב	like under the Technodrome dome. Drag or tilt the phone to look around	就像在科技穹顶下。拖动或倾斜手机环顾四周	जैसे टेक्नोड्रोम गुंबद के नीचे। चारों ओर देखने के लिए खींचें या फ़ोन झुकाएँ	como bajo la cúpula del Technodrome. Arrastra o inclina el teléfono para mirar alrededor	كأنك تحت قبة التكنودروم. اسحب أو أمِل الهاتف للنظر حولك
+דיסקו	Disco	迪斯科	डिस्को	Disco	ديسكو
+כל אריח הוא מראה קטנה שמשקפת את העולם הקליידוסקופי, ונוצץ על הביט	Each tile is a small mirror reflecting the kaleidoscopic world, and sparkles on the beat	每块瓷砖都是一面小镜子，反射万花筒世界，并随节拍闪烁	हर टाइल एक छोटा दर्पण है जो कैलिडोस्कोपिक दुनिया दर्शाता है, और बीट पर चमकता है	Cada baldosa es un pequeño espejo que refleja el mundo caleidoscópico y destella con el ritmo	كل بلاطة مرآة صغيرة تعكس العالم المشكالي، وتلمع مع الإيقاع
+פלט	Output	输出	आउटपुट	Salida	الإخراج
+הפלט למסך שמאחורי המראות	The output for the screen behind the mirrors	镜片后屏幕的输出	दर्पणों के पीछे स्क्रीन के लिए आउटपुट	La salida para la pantalla detrás de los espejos	الإخراج للشاشة خلف المرايا
+מוצג רק התא המקורי, בלי שיקופים: המראות האמיתיות עושות את השאר. גוררים את	Only the original cell is shown, without reflections: the real mirrors do the rest. Drag the	只显示原始单元，无反射：真实镜片完成其余部分。拖动	केवल मूल कक्ष दिखाया जाता है, बिना प्रतिबिंब: बाकी असली दर्पण करते हैं। खींचें	Solo se muestra la celda original, sin reflejos: los espejos reales hacen el resto. Arrastra las	تُعرض الخلية الأصلية فقط، بلا انعكاسات: المرايا الحقيقية تقوم بالباقي. اسحب
+הפינות כדי ליישר לחלון של הקופסה	corners to align with the box window	个角对齐盒子窗口	कोने बॉक्स की खिड़की से मिलाने के लिए	esquinas para alinearlas con la ventana de la caja	الزوايا لمحاذاتها مع نافذة الصندوق
+הדפדפן לא תומך ב	The browser doesn't support	浏览器不支持	ब्राउज़र समर्थन नहीं करता	El navegador no admite	المتصفح لا يدعم
+שגיאת שיידר	Shader error	着色器错误	शेडर त्रुटि	Error de shader	خطأ في المظلّل
+הולוגרמה	Hologram	全息	होलोग्राम	Holograma	هولوغرام
+זכוכית צבעונית	Stained glass	彩色玻璃	रंगीन काँच	Vidriera	زجاج ملوّن
+טכנודרום	Technodrome	科技穹顶	टेक्नोड्रोम	Technodrome	تكنودروم
+קרח	Ice	冰	बर्फ़	Hielo	جليد
+ירוק־זהב	Green-gold	绿金	हरा-सुनहरा	Verde-dorado	أخضر ذهبي
+אש	Fire	火	आग	Fuego	نار
+זה לא נראה כמו קישור	That doesn't look like a link	这看起来不像链接	यह लिंक जैसा नहीं दिखता	Eso no parece un enlace	لا يبدو هذا رابطًا
+לא מתנגן מקובץ מקומי. הפעילו דרך	doesn't play from a local file. Run it via	无法从本地文件播放。请通过	लोकल फ़ाइल से नहीं चलता। चलाएँ इसके ज़रिए	no se reproduce desde un archivo local. Ábrelo mediante	لا يعمل من ملف محلي. شغّله عبر
+השרת המקומי	the local server	本地服务器	लोकल सर्वर	el servidor local	الخادم المحلي
+השיר נטען. לחצו	Song loaded. Click	歌曲已加载。点击	गीत लोड हुआ। क्लिक करें	Canción cargada. Pulsa	تم تحميل الأغنية. انقر
+האזן לטאב	Listen to tab	监听标签页	टैब सुनें	Escuchar pestaña	الاستماع إلى التبويب
+ובחרו את הטאב הזה עם	and choose this tab with	并选择此标签页，勾选	और यह टैब चुनें साथ में	y elige esta pestaña con	واختر هذا التبويب مع
+שתף גם את האודיו	Also share audio	同时共享音频	ऑडियो भी साझा करें	Compartir también el audio	مشاركة الصوت أيضًا
+האזנה לטאב זמינה רק ב	Tab listening is only available in	标签页监听仅可用于	टैब सुनना केवल इसमें उपलब्ध है	Escuchar la pestaña solo está disponible en	الاستماع إلى التبويب متاح فقط في
+במחשב	on a computer	电脑上	कंप्यूटर पर	en un ordenador	على الحاسوب
+לא שותף אודיו. בחרו טאב וסמנו	No audio shared. Choose a tab and check	未共享音频。选择标签页并勾选	ऑडियो साझा नहीं हुआ। टैब चुनें और चिह्नित करें	No se compartió audio. Elige una pestaña y marca	لم تتم مشاركة صوت. اختر تبويبًا وفعّل
+שתף גם את האודיו של הטאב	Also share tab audio	同时共享标签页音频	टैब का ऑडियो भी साझा करें	Compartir también el audio de la pestaña	مشاركة صوت التبويب أيضًا
+מאזין לטאב. ה	Listening to tab. The	正在监听标签页。	टैब सुन रहे हैं।	Escuchando la pestaña. El	يتم الاستماع إلى التبويب.
+יינעל אחרי כמה קיקים	will lock after a few kicks	几个底鼓后锁定	कुछ किक के बाद लॉक होगा	se fijará tras unos cuantos bombos	سيُثبت بعد بضع ضربات طبلة
+השיתוף בוטל	Sharing cancelled	共享已取消	साझा करना रद्द	Compartir cancelado	أُلغيت المشاركة
+הדגמת טכנו	Techno demo	科技舞曲演示	टेक्नो डेमो	Demo techno	عرض تكنو
+דרופ בתיבה	Drop in bar	高潮于小节	ड्रॉप बार में	Drop en el compás	الذروة في المازورة
+הדגמת דאון טמפו	Downtempo demo	慢拍演示	डाउनटेम्पो डेमो	Demo downtempo	عرض داون تيمبو
+חוזר מלא בתיבה	Full chorus in bar	完整副歌于小节	पूरा कोरस बार में	Estribillo completo en el compás	اللازمة الكاملة في المازورة
+המיקרופון מאזין	Microphone is listening	麦克风正在聆听	माइक्रोफ़ोन सुन रहा है	El micrófono escucha	الميكروفون يستمع
+אין גישה למיקרופון. פתחו את הסטודיו מכתובת	No microphone access. Open the studio from an address	无法访问麦克风。请从以下地址打开工作室	माइक्रोफ़ोन की पहुँच नहीं। स्टूडियो इस पते से खोलें	Sin acceso al micrófono. Abre el estudio desde una dirección	لا وصول إلى الميكروفون. افتح الاستوديو من عنوان
+או מהשרת המקומי	or from the local server	或从本地服务器	या लोकल सर्वर से	o desde el servidor local	أو من الخادم المحلي
+מנגן	Playing	正在播放	चल रहा है	Reproduciendo	قيد التشغيل
+זמין רק ב	Only available in	仅可用于	केवल इसमें उपलब्ध	Solo disponible en	متاح فقط في
+מחובר	Connected	已连接	जुड़ा हुआ	Conectado	متصل
+כניסות	inputs	输入	इनपुट	entradas	مدخلات
+מאבלטון קובע את ה	from Ableton sets the	来自Ableton，设定	Ableton से तय करता है	desde Ableton fija el	من Ableton يحدد
+לא נמצאו כניסות	No inputs found	未找到输入	कोई इनपुट नहीं मिला	No se encontraron entradas	لم يتم العثور على مدخلات
+אין הרשאת	No permission for	无权限：	अनुमति नहीं	Sin permiso de	لا يوجد إذن لـ
+לא התקבל אישור לחיישנים	Sensor permission was not granted	未获得传感器权限	सेंसर की अनुमति नहीं मिली	No se concedió permiso para los sensores	لم يُمنح إذن المستشعرات
+החיישנים לא שולחים נתונים. בטלפון צריך לפתוח מכתובת	The sensors aren't sending data. On a phone you need to open from an address	传感器没有发送数据。手机上需从以下地址打开	सेंसर डेटा नहीं भेज रहे। फ़ोन पर इस पते से खोलना होगा	Los sensores no envían datos. En el teléfono hay que abrir desde una dirección	المستشعرات لا ترسل بيانات. في الهاتف يجب الفتح من عنوان
+המצלמה זמינה רק בכתובת	The camera is only available at an address	摄像头仅可在以下地址使用	कैमरा केवल इस पते पर उपलब्ध है	La cámara solo está disponible en una dirección	الكاميرا متاحة فقط في عنوان
+או בשרת המקומי	or on the local server	或在本地服务器上	या लोकल सर्वर पर	o en el servidor local	أو على الخادم المحلي
+אין גישה למצלמה	No camera access	无法访问摄像头	कैमरा की पहुँच नहीं	Sin acceso a la cámara	لا وصول إلى الكاميرا
+הניחו אצבע על העדשה האחורית והפנס	Place a finger on the back lens and the flash	将手指放在后摄像头和闪光灯上	पीछे के लेंस और फ़्लैश पर उँगली रखें	Pon un dedo sobre la lente trasera y el flash	ضع إصبعًا على العدسة الخلفية والفلاش
+הניחו אצבע על העדשה, ליד מקור אור חזק	Place a finger on the lens, near a strong light source	将手指放在镜头上，靠近强光源	लेंस पर उँगली रखें, तेज़ रोशनी के पास	Pon un dedo sobre la lente, cerca de una luz fuerte	ضع إصبعًا على العدسة، قرب مصدر ضوء قوي
+אין שליטה בפנס בדפדפן הזה	No flash control in this browser	此浏览器无法控制闪光灯	इस ब्राउज़र में फ़्लैश नियंत्रण नहीं	Sin control del flash en este navegador	لا تحكم في الفلاش في هذا المتصفح
+הקופסה עודכנה מהמחולל	The box was updated from the builder	盒子已从生成器更新	बॉक्स जनरेटर से अपडेट हुआ	La caja se actualizó desde el generador	تم تحديث الصندوق من المولّد
+הקופסה מהמחולל נטענה: מראות ופינות המסך	The box from the builder was loaded: mirrors and screen corners	已加载生成器中的盒子：镜片和屏幕角点	जनरेटर से बॉक्स लोड हुआ: दर्पण और स्क्रीन के कोने	Se cargó la caja del generador: espejos y esquinas de pantalla	تم تحميل الصندوق من المولّد: المرايا وزوايا الشاشة
+מקור	Source	来源	स्रोत	Fuente	المصدر
+שכבות	Layers	图层	परतें	Capas	الطبقات
+בונה אפקטים	Effect builder	效果构建器	इफ़ेक्ट बिल्डर	Constructor de efectos	منشئ التأثيرات
+כיתוב	Caption	字幕	कैप्शन	Texto	التسمية
+חלקיקים	Particles	粒子	कण	Partículas	الجسيمات
+מוזיקה ולב	Music and heart	音乐与心跳	संगीत और दिल	Música y corazón	الموسيقى والقلب
+מופע סלפי	Selfie show	自拍秀	सेल्फ़ी शो	Show de selfies	عرض السيلفي
+פריסטים	Presets	预设	प्रीसेट	Preajustes	الإعدادات المسبقة
+מערכת מראות	Mirror system	镜片系统	दर्पण प्रणाली	Sistema de espejos	نظام المرايا
+צורה	Shape	形状	आकार	Forma	الشكل
+מספר מראות	Number of mirrors	镜片数量	दर्पणों की संख्या	Número de espejos	عدد المرايا
+צלעות	sides	边	भुजाएँ	lados	أضلاع
+סביב קודקוד	around a vertex	围绕顶点	शीर्ष के चारों ओर	alrededor de un vértice	حول رأس
+הצירוף הזה לא היפרבולי	This combination isn't hyperbolic	此组合不是双曲的	यह संयोजन अतिपरवलयिक नहीं है	Esta combinación no es hiperbólica	هذا التركيب ليس زائديًا
+צריך	needs	需要	चाहिए	se necesita	يلزم
+נסו	Try	试试	आज़माएँ	Prueba	جرّب
+סימטריה	Symmetry	对称	समरूपता	Simetría	التناظر
+טטרהדרון	Tetrahedron	四面体	चतुष्फलक	Tetraedro	رباعي الوجوه
+אוקטהדרון	Octahedron	八面体	अष्टफलक	Octaedro	ثماني الوجوه
+איקוסהדרון	Icosahedron	二十面体	विंशफलक	Icosaedro	عشروني الوجوه
+זום	Zoom	缩放	ज़ूम	Zoom	التكبير
+סיבוב הצינור	Tube rotation	镜筒旋转	ट्यूब घुमाव	Rotación del tubo	دوران الأنبوب
+אובדן בהחזרה	Reflection loss	反射损失	परावर्तन हानि	Pérdida por reflexión	فقد الانعكاس
+מראות אמיתיות	Real mirrors	真实镜片	असली दर्पण	Espejos reales	مرايا حقيقية
+מעקב קרניים: כל קרן יוצאת מהעין, עוברת בחלון ונשברת על המראות עד שהיא פוגעת במסך, כמו בקופסה האמיתית. קרבו את העין כדי לראות את העיגול הגדול שנוצר במשולש	Ray tracing: each ray leaves the eye, passes the window and bounces off the mirrors until it hits the screen, like in the real box. Bring your eye closer to see the big circle that forms in the triangle	光线追踪：每条光线从眼睛出发，穿过窗口，在镜片间反射直到照到屏幕，就像真实的盒子。靠近眼睛可看到三角形中形成的大圆	रे ट्रेसिंग: हर किरण आँख से निकलती है, खिड़की से गुज़रती है और दर्पणों से टकराती है जब तक स्क्रीन पर न पहुँचे, असली बॉक्स की तरह। त्रिकोण में बनने वाला बड़ा वृत्त देखने के लिए आँख पास लाएँ	Trazado de rayos: cada rayo sale del ojo, pasa por la ventana y rebota en los espejos hasta llegar a la pantalla, como en la caja real. Acerca el ojo para ver el gran círculo que se forma en el triángulo	تتبع الأشعة: كل شعاع يخرج من العين ويمر بالنافذة وينعكس على المرايا حتى يصل الشاشة، كما في الصندوق الحقيقي. قرّب عينك لرؤية الدائرة الكبيرة التي تتكوّن في المثلث
+הפעלת אפקט מראות אמיתי	Turn on the real mirror effect	开启真实镜片效果	असली दर्पण प्रभाव चालू करें	Activar el efecto de espejos reales	تفعيل تأثير المرايا الحقيقية
+אורך המראות	Mirror length	镜片长度	दर्पण लंबाई	Longitud de espejos	طول المرايا
+פי רוחב	times the width	倍宽度	गुना चौड़ाई	veces el ancho	ضعف العرض
+קווי תפר	Seam lines	接缝线	जोड़ रेखाएँ	Líneas de junta	خطوط الفواصل
+צבע ותגובה	Color and response	颜色与响应	रंग और प्रतिक्रिया	Color y respuesta	اللون والاستجابة
+פעימה בזום	Zoom pulse	缩放脉冲	ज़ूम पल्स	Pulso de zoom	نبضة تكبير
+הבזק בביט	Flash on beat	节拍闪光	बीट पर फ़्लैश	Destello en el golpe	وميض مع النبضة
+גוון	Hue	色相	रंगत	Tono	درجة اللون
+רוויה	Saturation	饱和度	संतृप्ति	Saturación	التشبع
+בהירות	Brightness	亮度	चमक	Brillo	السطوع
+אפקטים למוזיקה	Music effects	音乐效果	संगीत प्रभाव	Efectos musicales	تأثيرات موسيقية
+פיצול	Split	分裂	विभाजन	División	انقسام
+בקיק	on the kick	随底鼓	किक पर	en el bombo	مع الطبلة
+אדוות בס	Bass ripples	低音涟漪	बास लहरें	Ondas de bajo	تموجات الباص
+הד זום	Zoom echo	缩放回声	ज़ूम गूँज	Eco de zoom	صدى التكبير
+סטרוב בדרופ	Strobe on the drop	高潮频闪	ड्रॉप पर स्ट्रोब	Estroboscopio en el drop	ستروب عند الذروة
+מה שבתוך המנסרה	What's inside the prism	棱镜中的内容	प्रिज़्म के अंदर क्या है	Lo que hay dentro del prisma	ما بداخل المنشور
+זה התא שהמראות משכפלות. במסך של המוצר, זה בדיוק מה שמוצג מאחורי המראות	This is the cell the mirrors duplicate. On the product screen, this is exactly what's shown behind the mirrors	这是镜片复制的单元。在产品屏幕上，这正是镜片后显示的内容	यह वह कक्ष है जिसे दर्पण दोहराते हैं। उत्पाद की स्क्रीन पर यही दर्पणों के पीछे दिखता है	Es la celda que los espejos duplican. En la pantalla del producto, es exactamente lo que se muestra detrás de los espejos	هذه هي الخلية التي تكررها المرايا. على شاشة المنتج، هذا بالضبط ما يُعرض خلف المرايا
+שחור	Black	黑色	काला	Negro	أسود
+הילות צבע	Color halos	彩色光晕	रंग आभामंडल	Halos de color	هالات لونية
+אקולייזר מעגלי	Circular equalizer	环形均衡器	गोलाकार इक्वलाइज़र	Ecualizador circular	معادل دائري
+מנהרת משולשים	Triangle tunnel	三角隧道	त्रिकोण सुरंग	Túnel de triángulos	نفق المثلثات
+מניפת לייזרים	Laser fan	激光扇	लेज़र पंखा	Abanico láser	مروحة ليزر
+פלזמה	Plasma	等离子	प्लाज़्मा	Plasma	بلازما
+טבעות לב	Heart rings	心形环	दिल के छल्ले	Anillos de corazón	حلقات القلب
+פלטה	Palette	调色板	पैलेट	Paleta	لوحة الألوان
+שובל	Trail	拖尾	निशान	Estela	الأثر
+מצלמה ומדיה	Camera and media	摄像头与媒体	कैमरा और मीडिया	Cámara y medios	الكاميرا والوسائط
+עצור מצלמה	Stop camera	停止摄像头	कैमरा रोकें	Detener cámara	إيقاف الكاميرا
+מצלמה	Camera	摄像头	कैमरा	Cámara	الكاميرا
+החלף מצלמה	Switch camera	切换摄像头	कैमरा बदलें	Cambiar cámara	تبديل الكاميرا
+תמונה / וידאו	Image / video	图片/视频	छवि / वीडियो	Imagen / vídeo	صورة / فيديو
+מערכת חלקיקים	Particle system	粒子系统	कण प्रणाली	Sistema de partículas	نظام الجسيمات
+גליפים הולוגרפיים	Holographic glyphs	全息字符	होलोग्राफ़िक ग्लिफ़	Glifos holográficos	رموز هولوغرافية
+כוח משיכה	Gravity	重力	गुरुत्वाकर्षण	Gravedad	الجاذبية
+ניצוצות על הקיק	Sparks on the kick	底鼓火花	किक पर चिंगारियाँ	Chispas en el bombo	شرارات مع الطبلة
+זרימה	Flow	流动	प्रवाह	Flujo	التدفق
+לבבות על הפעימה	Hearts on the beat	心跳出心形	धड़कन पर दिल	Corazones en el latido	قلوب مع النبضة
+זיקוקים על הביט	Fireworks on the beat	节拍烟花	बीट पर आतिशबाज़ी	Fuegos artificiales en el golpe	ألعاب نارية مع الإيقاع
+מסלולים שנושמים עם הבס	Orbits breathing with the bass	随低音呼吸的轨道	बास के साथ साँस लेती कक्षाएँ	Órbitas que respiran con el bajo	مدارات تتنفس مع الباص
+ברקים על הגבוהים	Lightning on the highs	高音闪电	ऊँचे स्वरों पर बिजली	Rayos en los agudos	برق مع الحادّة
+מהירות	Speed	速度	गति	Velocidad	السرعة
+תגובה למוזיקה	Music response	音乐响应	संगीत प्रतिक्रिया	Respuesta a la música	الاستجابة للموسيقى
+זוהר	Glow	辉光	चमक	Brillo	التوهج
+כן	Yes	是	हाँ	Sí	نعم
+לא	No	否	नहीं	No	لا
+פיצוץ	Burst	爆发	विस्फोट	Explosión	انفجار
+אפס חלקיקים	Reset particles	重置粒子	कण रीसेट करें	Reiniciar partículas	إعادة ضبط الجسيمات
+כל חלקיק נמשך גם על ידי הטלפון	Each particle is also pulled by the phone	每个粒子也会被手机牵引	हर कण फ़ोन से भी खिंचता है	Cada partícula también es atraída por el teléfono	كل جسيم ينجذب أيضًا بالهاتف
+חרוזים	Beads	珠子	मोती	Cuentas	خرز
+נופלים לפי ההטיה	fall with the tilt	随倾斜下落	झुकाव के साथ गिरते हैं	caen con la inclinación	تسقط مع الإمالة
+ניצוצות	Sparks	火花	चिंगारियाँ	Chispas	شرارات
+מתפוצצים על הקיק ועל ניעור	burst on the kick and on shake	随底鼓和摇晃爆开	किक और हिलाने पर फटती हैं	estallan con el bombo y al agitar	تنفجر مع الطبلة والهز
+לבבות	Hearts	心形	दिल	Corazones	قلوب
+נפתחים על פעימת הלב	open on the heartbeat	随心跳绽放	दिल की धड़कन पर खुलते हैं	se abren con el latido	تنفتح مع نبضة القلب
+מקור קול	Sound source	声音来源	ध्वनि स्रोत	Fuente de sonido	مصدر الصوت
+הדגמה	Demo	演示	डेमो	Demo	عرض تجريبي
+סגנון ההדגמה	Demo style	演示风格	डेमो शैली	Estilo de la demo	نمط العرض التجريبي
+טכנו	Techno	科技舞曲	टेक्नो	Techno	تكنو
+שיר	Song	歌曲	गीत	Canción	أغنية
+מיקרופון	Microphone	麦克风	माइक्रोफ़ोन	Micrófono	الميكروفون
+קישור	Link	链接	लिंक	Enlace	رابط
+טען	Load	加载	लोड करें	Cargar	تحميل
+מדביקים קישור, השיר מתנגן בנגן הקטן על התצוגה, ואז	Paste a link, the song plays in the small player on the view, then	粘贴链接，歌曲在视图上的小播放器中播放，然后	लिंक पेस्ट करें, गीत दृश्य पर छोटे प्लेयर में चलता है, फिर	Pega un enlace, la canción suena en el pequeño reproductor sobre la vista, y luego	الصق رابطًا، تعمل الأغنية في المشغّل الصغير فوق العرض، ثم
+בוחרים את הטאב הזה ומסמנים	choose this tab and check	选择此标签页并勾选	यह टैब चुनें और चिह्नित करें	elige esta pestaña y marca	اختر هذا التبويب وفعّل
+אותו כפתור עובד גם עם	The same button also works with	同一按钮也适用于	यही बटन इसके साथ भी काम करता है	El mismo botón también funciona con	الزر نفسه يعمل أيضًا مع
+בטאב אחר. עובד ב	in another tab. Works in	在其他标签页中。适用于	दूसरे टैब में। काम करता है	en otra pestaña. Funciona en	في تبويب آخر. يعمل في
+במחשב, דרך השרת המקומי	on a computer, via the local server	电脑上，通过本地服务器	कंप्यूटर पर, लोकल सर्वर के ज़रिए	en un ordenador, mediante el servidor local	على الحاسوب، عبر الخادم المحلي
+קיק	Kick	底鼓	किक	Bombo	طبلة
+בס	Bass	低音	बास	Bajo	باص
+אמצע	Mids	中音	मध्य	Medios	المتوسطة
+גבוהים	Highs	高音	ऊँचे	Agudos	الحادّة
+רווח	Space	空格	स्पेस	Espacio	مسافة
+זיהוי	Detect	检测	पहचान	Detectar	اكتشاف
+אוטומטי מהקיק	auto from the kick	按底鼓自动	किक से स्वतः	automático por el bombo	تلقائي من الطبلة
+דרופ עכשיו	Drop now	立即高潮	अभी ड्रॉप	Drop ahora	الذروة الآن
+אוטומטי: מחליף פריסט כל כמה תיבות ובכל דרופ	Auto: changes preset every few bars and on every drop	自动：每隔几小节及每次高潮切换预设	ऑटो: हर कुछ बार और हर ड्रॉप पर प्रीसेट बदलता है	Auto: cambia de preajuste cada pocos compases y en cada drop	تلقائي: يغيّر الإعداد كل بضع مازورات ومع كل ذروة
+תיבות לכל מעבר	bars per change	每次切换的小节数	हर बदलाव के बार	compases por cambio	مازورات لكل تبديل
+כמו בטכנודרום: קיק, בס, אמצע וגבוהים מניעים את המראות	Like at the Technodrome: kick, bass, mids and highs drive the mirrors	就像在科技穹顶：底鼓、低音、中音和高音驱动镜片	टेक्नोड्रोम की तरह: किक, बास, मध्य और ऊँचे दर्पणों को चलाते हैं	Como en el Technodrome: bombo, bajo, medios y agudos mueven los espejos	كما في التكنودروم: الطبلة والباص والمتوسطة والحادّة تحرّك المرايا
+מאבלטון נועל את הקצב, והתווים	from Ableton locks the tempo, and the notes	来自Ableton锁定节奏，音符	Ableton से टेम्पो लॉक करता है, और नोट्स	desde Ableton fija el tempo, y las notas	من Ableton يثبّت الإيقاع، والنوتات
+הפריסט הבא	Next preset	下一个预设	अगला प्रीसेट	Siguiente preajuste	الإعداد التالي
+הבזק	Flash	闪光	फ़्लैश	Destello	وميض
+מפעילים אירועים	trigger events	触发事件	घटनाएँ चलाते हैं	disparan eventos	تُطلق أحداثًا
+מקור הדופק	Pulse source	脉搏来源	नब्ज़ स्रोत	Fuente del pulso	مصدر النبض
+מקצב המוזיקה	From the music's tempo	来自音乐节奏	संगीत की लय से	Del tempo de la música	من إيقاع الموسيقى
+קבוע	Fixed	固定	स्थिर	Fijo	ثابت
+אצבע על המצלמה	Finger on the camera	手指放在摄像头上	कैमरा पर उँगली	Dedo en la cámara	إصبع على الكاميرا
+דופק	Pulse	脉搏	नब्ज़	Pulso	النبض
+פעימות בדקה	beats per minute	次/分钟	प्रति मिनट धड़कन	latidos por minuto	نبضة في الدقيقة
+עצור מדידה	Stop measuring	停止测量	माप रोकें	Detener medición	إيقاف القياس
+מדוד דופק	Measure pulse	测量脉搏	नब्ज़ मापें	Medir pulso	قياس النبض
+גל הדופק	Pulse wave	脉搏波	नब्ज़ तरंग	Onda del pulso	موجة النبض
+הפעימה	The beat	心跳	धड़कन	El latido	النبضة
+לאב־דאב, כמו ב	lub-dub, like in	扑通扑通，就像	लब-डब, जैसे	lub-dub, como en	دقة مزدوجة، كما في
+מניעה את הלבבות, את טבעות הלב ואת הזום. במדידה מהמצלמה מניחים אצבע על העדשה האחורית, והקליידוסקופ פועם עם הלב האמיתי	drives the hearts, the heart rings and the zoom. When measuring from the camera, place a finger on the back lens, and the kaleidoscope beats with your real heart	驱动心形、心形环和缩放。用摄像头测量时，将手指放在后镜头上，万花筒会随你真实的心跳跳动	दिलों, दिल के छल्लों और ज़ूम को चलाती है। कैमरे से मापते समय पीछे के लेंस पर उँगली रखें, और कैलिडोस्कोप आपके असली दिल के साथ धड़कता है	mueve los corazones, los anillos de corazón y el zoom. Al medir con la cámara, pon un dedo en la lente trasera y el caleidoscopio late con tu corazón real	تحرّك القلوب وحلقات القلب والتكبير. عند القياس بالكاميرا ضع إصبعًا على العدسة الخلفية، فينبض المشكال مع قلبك الحقيقي
+חיישני תנועה	Motion sensors	运动传感器	गति सेंसर	Sensores de movimiento	مستشعرات الحركة
+חיישנים פעילים	Sensors active	传感器已启用	सेंसर सक्रिय	Sensores activos	المستشعرات مفعّلة
+הפעל חיישנים	Enable sensors	启用传感器	सेंसर चालू करें	Activar sensores	تفعيل المستشعرات
+הטיה מסובבת את המראות ואת הכדור	Tilt rotates the mirrors and the sphere	倾斜旋转镜片和球体	झुकाव दर्पण और गोले को घुमाता है	La inclinación gira los espejos y la esfera	الإمالة تدير المرايا والكرة
+הטיה מטה את כוח המשיכה של החלקיקים	Tilt sets the particles' gravity	倾斜改变粒子重力	झुकाव कणों का गुरुत्व बदलता है	La inclinación orienta la gravedad de las partículas	الإمالة توجّه جاذبية الجسيمات
+ניעור	Shake	摇晃	हिलाना	Agitar	الهز
+באייפון מופיעה בקשת אישור. החיישנים והמצלמה עובדים רק בכתובת	On iPhone a permission prompt appears. Sensors and camera only work at an address	iPhone上会弹出授权请求。传感器和摄像头仅在以下地址工作	iPhone पर अनुमति माँगी जाती है। सेंसर और कैमरा केवल इस पते पर काम करते हैं	En iPhone aparece una solicitud de permiso. Los sensores y la cámara solo funcionan en una dirección	في iPhone يظهر طلب إذن. المستشعرات والكاميرا تعمل فقط في عنوان
+או בשרת המקומי. בלי טלפון, גוררים על התצוגה	or on the local server. Without a phone, drag on the view	或在本地服务器上。没有手机时，在视图上拖动	या लोकल सर्वर पर। फ़ोन के बिना, दृश्य पर खींचें	o en el servidor local. Sin teléfono, arrastra sobre la vista	أو على الخادم المحلي. بدون هاتف، اسحب على العرض
+מצלמה כמקור	Camera as source	摄像头作为来源	कैमरा स्रोत के रूप में	Cámara como fuente	الكاميرا كمصدر
+מצלמה אחורית	Back camera	后置摄像头	पीछे का कैमरा	Cámara trasera	الكاميرا الخلفية
+מצלמת סלפי	Selfie camera	自拍摄像头	सेल्फ़ी कैमरा	Cámara de selfie	كاميرا السيلفي
+שקיפות מצלמה	Camera opacity	摄像头不透明度	कैमरा अपारदर्शिता	Opacidad de la cámara	عتامة الكاميرا
+מה שהמצלמה רואה נכנס לתא שבין המראות. מצלמת סלפי מתהפכת כמו מראה	What the camera sees goes into the cell between the mirrors. The selfie camera flips like a mirror	摄像头看到的画面进入镜片间的单元。自拍摄像头像镜子一样翻转	कैमरा जो देखता है वह दर्पणों के बीच के कक्ष में जाता है। सेल्फ़ी कैमरा दर्पण की तरह उलटता है	Lo que ve la cámara entra en la celda entre los espejos. La cámara de selfie se invierte como un espejo	ما تراه الكاميرا يدخل الخلية بين المرايا. كاميرا السيلفي تنقلب كالمرآة
+שלי	Mine	我的	मेरे	Míos	خاصتي
+שמור את המצב הנוכחי	Save the current state	保存当前状态	वर्तमान स्थिति सहेजें	Guardar el estado actual	حفظ الحالة الحالية
+עוד אין פריסטים שמורים. כוונו מצב ושמרו אותו כאן	No saved presets yet. Tune a state and save it here	还没有保存的预设。调好状态后在此保存	अभी कोई सहेजे प्रीसेट नहीं। स्थिति सेट करें और यहाँ सहेजें	Aún no hay preajustes guardados. Ajusta un estado y guárdalo aquí	لا توجد إعدادات محفوظة بعد. اضبط حالة واحفظها هنا
+של המצב	of the state	状态的	स्थिति का	del estado	للحالة
+העתק	Copy	复制	कॉपी	Copiar	نسخ
+טען מה	Load what	加载	लोड करें	Cargar	تحميل
+ברירת מחדל	Default	默认	डिफ़ॉल्ट	Predeterminado	افتراضي
+קופסה מהמחולל	Box from the builder	来自生成器的盒子	जनरेटर से बॉक्स	Caja del generador	صندوق من المولّد
+פינות	Corners	角点	कोने	Esquinas	الزوايا
+קופסה	Box	盒子	बॉक्स	Caja	الصندوق
+מ״מ, מראות	mm, mirrors	毫米，镜片	मिमी, दर्पण	mm, espejos	مم، المرايا
+מצב המראות בסימולציה והפינות במסך למוצר נלקחו מהתכנון	The mirror mode in the simulation and the corners on the product screen were taken from the design	模拟中的镜片模式和产品屏幕上的角点取自设计	सिमुलेशन में दर्पण मोड और उत्पाद स्क्रीन के कोने डिज़ाइन से लिए गए	El modo de espejos de la simulación y las esquinas de la pantalla del producto se tomaron del diseño	وضع المرايا في المحاكاة وزوايا شاشة المنتج أُخذت من التصميم
+בונים את הקופסה ב	Build the box in	在此构建盒子	बॉक्स बनाएँ इसमें	Construye la caja en	ابنِ الصندوق في
+ולוחצים	and click	然后点击	और क्लिक करें	y pulsa	وانقر
+מעבר לסטודיו	Go to studio	前往工作室	स्टूडियो पर जाएँ	Ir al estudio	الانتقال إلى الاستوديو
+הפינות והמראות מגיעים לכאן לבד	The corners and mirrors arrive here by themselves	角点和镜片会自动传到这里	कोने और दर्पण यहाँ अपने आप आते हैं	Las esquinas y los espejos llegan aquí solos	تصل الزوايا والمرايا إلى هنا تلقائيًا
+או הדביקו כאן קוד	or paste a code here	或在此粘贴代码	या यहाँ कोड पेस्ट करें	o pega un código aquí	أو الصق رمزًا هنا
+טען קוד קופסה	Load box code	加载盒子代码	बॉक्स कोड लोड करें	Cargar código de caja	تحميل رمز الصندوق
+פתח את מחולל הקופסה	Open the box builder	打开盒子生成器	बॉक्स जनरेटर खोलें	Abrir el generador de cajas	فتح مولّد الصندوق
+מסך המוצר	Product screen	产品屏幕	उत्पाद स्क्रीन	Pantalla del producto	شاشة المنتج
+במנסרה האמיתית המראות עושות את השיקוף. המסך שמאחוריהן צריך להציג רק את התא עצמו, בתוך משולש שיושב בדיוק על חלון הקופסה	In the real prism the mirrors do the reflecting. The screen behind them should show only the cell itself, inside a triangle that sits exactly on the box window	在真实棱镜中，镜片负责反射。其后的屏幕只需显示单元本身，位于正好对准盒子窗口的三角形内	असली प्रिज़्म में दर्पण प्रतिबिंब बनाते हैं। उनके पीछे की स्क्रीन को केवल कक्ष दिखाना चाहिए, एक त्रिकोण में जो बॉक्स की खिड़की पर ठीक बैठे	En el prisma real los espejos reflejan. La pantalla detrás solo debe mostrar la celda, dentro de un triángulo que encaje exactamente en la ventana de la caja	في المنشور الحقيقي تقوم المرايا بالانعكاس. على الشاشة خلفها أن تعرض الخلية فقط، داخل مثلث يطابق نافذة الصندوق تمامًا
+עבור למצב מסך למוצר	Switch to product screen mode	切换到产品屏幕模式	उत्पाद स्क्रीन मोड पर जाएँ	Cambiar al modo pantalla del producto	التبديل إلى وضع شاشة المنتج
+סימולציה של המראות	Mirror simulation	镜片模拟	दर्पण सिमुलेशन	Simulación de espejos	محاكاة المرايا
+הצג פינות לכיול	Show calibration corners	显示校准角点	कैलिब्रेशन कोने दिखाएँ	Mostrar esquinas de calibración	إظهار زوايا المعايرة
+אפס פינות	Reset corners	重置角点	कोने रीसेट करें	Restablecer esquinas	إعادة ضبط الزوايا
+גוררים את הפינות	Drag the corners	拖动角点	कोने खींचें	Arrastra las esquinas	اسحب الزوايا
+על החלון. הכיול נשמר בדפדפן. אחר כך	onto the window. Calibration is saved in the browser. Then	到窗口上。校准保存在浏览器中。然后	खिड़की पर। कैलिब्रेशन ब्राउज़र में सहेजा जाता है। फिर	sobre la ventana. La calibración se guarda en el navegador. Después	على النافذة. تُحفظ المعايرة في المتصفح. ثم
+הקלטה	Recording	录制	रिकॉर्डिंग	Grabación	التسجيل
+עצור הקלטה	Stop recording	停止录制	रिकॉर्डिंग रोकें	Detener grabación	إيقاف التسجيل
+הקלט וידאו	Record video	录制视频	वीडियो रिकॉर्ड करें	Grabar vídeo	تسجيل فيديو
+צילום מסך	Screenshot	截图	स्क्रीनशॉट	Captura	لقطة شاشة
+הווידאו עם הסאונד נטען כמו שהוא ב	The video with sound loads as is in	带声音的视频按原样加载于	ध्वनि सहित वीडियो जैसा है वैसा लोड होता है	El vídeo con sonido se carga tal cual en	يُحمَّل الفيديو مع الصوت كما هو في
+של הטכנודרום	of the Technodrome	科技穹顶的	टेक्नोड्रोम का	del Technodrome	للتكنودروم
+טען וידאו / תמונה	Load video / image	加载视频/图片	वीडियो / छवि लोड करें	Cargar vídeo / imagen	تحميل فيديو / صورة
+וב	and in	以及	और में	y en	وفي
+טען וידאו	Load video	加载视频	वीडियो लोड करें	Cargar vídeo	تحميل فيديو
+עצור הדגמה	Stop demo	停止演示	डेमो रोकें	Detener demo	إيقاف العرض التجريبي
+הועתק	Copied	已复制	कॉपी हुआ	Copiado	تم النسخ
+סמנו והעתיקו ידנית	Select and copy manually	请手动选择并复制	चुनें और ख़ुद कॉपी करें	Selecciona y copia a mano	حدّد وانسخ يدويًا
+נטען	Loaded	已加载	लोड हुआ	Cargado	تم التحميل
+ה	The	该	यह	El	الـ
+לא תקין	invalid	无效	अमान्य	no válido	غير صالح
+הקוד לא תקין	The code is invalid	代码无效	कोड अमान्य है	El código no es válido	الرمز غير صالح
+מסך מלא לא זמין כאן	Full screen isn't available here	此处无法全屏	यहाँ फ़ुल स्क्रीन उपलब्ध नहीं	La pantalla completa no está disponible aquí	ملء الشاشة غير متاح هنا
+אוטומטי פועל	Auto on	自动已开	ऑटो चालू	Auto activado	التلقائي يعمل
+אוטומטי כבוי	Auto off	自动已关	ऑटो बंद	Auto desactivado	التلقائي متوقف
+הדפדפן לא תומך בהקלטה	The browser doesn't support recording	浏览器不支持录制	ब्राउज़र रिकॉर्डिंग का समर्थन नहीं करता	El navegador no admite grabar	المتصفح لا يدعم التسجيل
+מקליט… לחצו שוב כדי לעצור	Recording… click again to stop	录制中…再次点击停止	रिकॉर्ड हो रहा है… रोकने के लिए फिर क्लिक करें	Grabando… pulsa otra vez para detener	جارٍ التسجيل… انقر مجددًا للإيقاف
+משיכה לסלפי	Pull for selfie	自拍牵引	सेल्फ़ी के लिए खिंचाव	Atracción para selfie	سحب للسيلفي
+מערבולת	Swirl	漩涡	भँवर	Remolino	دوامة
+אדוות	Ripples	涟漪	लहरें	Ondas	تموجات
+נמס	Melt	融化	पिघलना	Derretir	ذوبان
+שברי מראה	Mirror shards	镜面碎片	दर्पण के टुकड़े	Fragmentos de espejo	شظايا المرآة
+מצלמת המחשב	Computer camera	电脑摄像头	कंप्यूटर कैमरा	Cámara del ordenador	كاميرا الحاسوب
+המצלמה שנבחרה לא נמצאה. עובר למצלמת ברירת המחדל	The selected camera wasn't found. Switching to the default camera	未找到所选摄像头。切换到默认摄像头	चुना गया कैमरा नहीं मिला। डिफ़ॉल्ट कैमरे पर जा रहे हैं	No se encontró la cámara elegida. Cambiando a la cámara predeterminada	لم يتم العثور على الكاميرا المختارة. التحويل إلى الكاميرا الافتراضية
+אין גישה למצלמה. אשרו גישה בדפדפן	No camera access. Allow access in the browser	无法访问摄像头。请在浏览器中允许访问	कैमरा की पहुँच नहीं। ब्राउज़र में अनुमति दें	Sin acceso a la cámara. Permite el acceso en el navegador	لا وصول إلى الكاميرا. اسمح بالوصول في المتصفح
+למופע הסלפי	for the selfie show	用于自拍秀	सेल्फ़ी शो के लिए	para el show de selfies	لعرض السيلفي
+המופע פעיל. מחכה למישהו שיתקרב	The show is on. Waiting for someone to come close	演出进行中。等待有人靠近	शो चालू है। किसी के पास आने का इंतज़ार	El show está activo. Esperando a que alguien se acerque	العرض يعمل. بانتظار أن يقترب أحد
+טוען את זיהוי הפנים	Loading face detection	正在加载人脸识别	चेहरा पहचान लोड हो रही है	Cargando detección de caras	جارٍ تحميل التعرّف على الوجه
+זיהוי הפנים לא נטען. עובד לפי תנועה מול המצלמה	Face detection didn't load. Working by motion in front of the camera	人脸识别未加载。改为按摄像头前的动作工作	चेहरा पहचान लोड नहीं हुई। कैमरे के सामने गति से काम कर रहे हैं	La detección de caras no cargó. Funciona por movimiento frente a la cámara	لم يُحمَّل التعرّف على الوجه. يعمل حسب الحركة أمام الكاميرا
+התקרבו	Come closer	靠近一点	पास आइए	Acércate	اقترب
+כבוי	Off	关闭	बंद	Apagado	متوقف
+מישהו קרוב, מחזיק	Someone is close, holding	有人靠近，保持中	कोई पास है, रुका हुआ	Alguien está cerca, aguantando	شخص قريب، ثابت
+רואה פנים, מחכה שיתקרבו	Sees a face, waiting for them to come closer	看到人脸，等待靠近	चेहरा दिख रहा है, पास आने का इंतज़ार	Ve una cara, esperando a que se acerque	يرى وجهًا، بانتظار أن يقترب
+מחכה למישהו שיתקרב	Waiting for someone to come close	等待有人靠近	किसी के पास आने का इंतज़ार	Esperando a que alguien se acerque	بانتظار أن يقترب أحد
+ספירה לאחור	Countdown	倒计时	उलटी गिनती	Cuenta atrás	العد التنازلي
+מצלם	Taking photo	拍摄中	फ़ोटो ले रहे हैं	Haciendo foto	جارٍ التصوير
+מופע	Show	演出	शो	Show	العرض
+חשיפה	Reveal	显现	प्रकटीकरण	Revelado	الكشف
+התפוררות	Crumbling	碎裂	बिखरना	Desmoronamiento	التفتت
+הפסקה עד המבקר הבא	Pause until the next visitor	暂停，等待下一位访客	अगले आगंतुक तक विराम	Pausa hasta el siguiente visitante	توقف حتى الزائر التالي
+צילום	Photo	拍照	फ़ोटो	Foto	التصوير
+מופע דקה	Minute show	一分钟秀	एक मिनट का शो	Show de un minuto	عرض الدقيقة
+סיום	End	结束	समाप्त	Fin	النهاية
+בדפדפן	in the browser	在浏览器中	ब्राउज़र में	en el navegador	في المتصفح
+של הדפדפן	of the browser	浏览器的	ब्राउज़र का	del navegador	الخاص بالمتصفح
+גיבוי: תנועה	Fallback: motion	备用：动作	बैकअप: गति	Respaldo: movimiento	احتياطي: الحركة
+טוען	Loading	加载中	लोड हो रहा है	Cargando	جارٍ التحميل
+לא נטען	didn't load	未加载	लोड नहीं हुआ	no cargó	لم يُحمَّل
+פנים	face	人脸	चेहरा	cara	وجه
+מהרוחב	of the width	宽度的	चौड़ाई का	del ancho	من العرض
+מופעים	Shows	演出次数	शो	Shows	العروض
+המצלמה כבויה	The camera is off	摄像头已关闭	कैमरा बंद है	La cámara está apagada	الكاميرا متوقفة
+מופע סלפי אוטומטי	Automatic selfie show	自动自拍秀	स्वचालित सेल्फ़ी शो	Show de selfies automático	عرض سيلفي تلقائي
+מצלמה מול המיצג מזהה פנים. מי שמתקרב ונשאר רגע מקבל ספירה לאחור, סלפי, ומופע שבו הפנים שלו נמשכות, זורמות ומתפוררות בתוך המראות. הכול רץ בדפדפן, ושום תמונה לא יוצאת מהמחשב	A camera facing the installation detects faces. Whoever comes close and stays a moment gets a countdown, a selfie, and a show where their face is pulled, flows and crumbles inside the mirrors. Everything runs in the browser, and no picture leaves the computer	面向装置的摄像头识别人脸。靠近并停留片刻的人会看到倒计时、拍下自拍，并观看自己的脸在镜中被拉伸、流动并碎裂的演出。一切都在浏览器中运行，任何照片都不会离开电脑	इंस्टॉलेशन के सामने कैमरा चेहरे पहचानता है। जो पास आकर थोड़ा रुकता है उसे उलटी गिनती, सेल्फ़ी, और एक शो मिलता है जिसमें उसका चेहरा दर्पणों के अंदर खिंचता, बहता और बिखरता है। सब ब्राउज़र में चलता है, और कोई तस्वीर कंप्यूटर से बाहर नहीं जाती	Una cámara frente a la instalación detecta caras. Quien se acerca y se queda un momento recibe una cuenta atrás, un selfie y un show donde su cara se estira, fluye y se desmorona dentro de los espejos. Todo funciona en el navegador y ninguna imagen sale del ordenador	كاميرا أمام العمل الفني تتعرّف على الوجوه. من يقترب ويبقى لحظة يحصل على عدّ تنازلي وسيلفي وعرض يُسحب فيه وجهه ويتدفق ويتفتت داخل المرايا. كل شيء يعمل في المتصفح، ولا تخرج أي صورة من الحاسوب
+עצור את המופע	Stop the show	停止演出	शो रोकें	Detener el show	إيقاف العرض
+הפעל מופע סלפי	Start selfie show	开始自拍秀	सेल्फ़ी शो शुरू करें	Iniciar show de selfies	تشغيل عرض السيلفي
+מופע דקה עכשיו	Minute show now	立即一分钟秀	अभी एक मिनट का शो	Show de un minuto ahora	عرض الدقيقة الآن
+צלם עכשיו	Take photo now	立即拍照	अभी फ़ोटो लें	Hacer foto ahora	التقط الآن
+מסך מלא למיצג	Full screen for the installation	装置全屏	इंस्टॉलेशन के लिए फ़ुल स्क्रीन	Pantalla completa para la instalación	ملء الشاشة للعمل الفني
+תצוגה מקדימה של המצלמה וזיהוי הפנים	Camera preview and face detection	摄像头预览与人脸识别	कैमरा पूर्वावलोकन और चेहरा पहचान	Vista previa de cámara y detección de caras	معاينة الكاميرا والتعرّف على الوجه
+להפעיל את המופע לבד בכל פתיחה של הדף	Start the show automatically every time the page opens	每次打开页面时自动开始演出	पेज खुलने पर हर बार शो अपने आप शुरू करें	Iniciar el show solo cada vez que se abre la página	تشغيل العرض تلقائيًا عند كل فتح للصفحة
+רענן רשימה	Refresh list	刷新列表	सूची रीफ़्रेश करें	Actualizar lista	تحديث القائمة
+היפוך כמו מראה	Mirror flip	镜像翻转	दर्पण की तरह उलटें	Invertir como espejo	قلب كالمرآة
+מצלמת	camera	摄像头	कैमरा	Cámara	كاميرا
+מחברים לפני שפותחים את הדף	Connect it before opening the page	打开页面前先连接	पेज खोलने से पहले जोड़ें	Conéctala antes de abrir la página	صِلها قبل فتح الصفحة
+או לוחצים	or click	或点击	या क्लिक करें	o pulsa	أو انقر
+בוחרים אותה כאן, והבחירה נשמרת. אם מנתקים אותה באמצע, הדף מתחבר אליה שוב לבד	Choose it here, and the choice is saved. If you disconnect it midway, the page reconnects to it by itself	在此选择，选择会被保存。中途断开时，页面会自动重新连接	इसे यहाँ चुनें, और चुनाव सहेजा जाता है। बीच में अलग करें तो पेज अपने आप फिर जुड़ता है	Elígela aquí y la elección se guarda. Si la desconectas a mitad, la página se vuelve a conectar sola	اخترها هنا ويُحفظ الاختيار. إذا فصلتها في المنتصف، تعيد الصفحة الاتصال بها تلقائيًا
+זיהוי פנים והפעלה	Face detection and trigger	人脸识别与触发	चेहरा पहचान और ट्रिगर	Detección de caras y disparo	التعرّف على الوجه والتشغيل
+קרבה להפעלה	Trigger distance	触发距离	ट्रिगर निकटता	Cercanía para disparar	قرب التشغيل
+זמן עמידה	Dwell time	停留时间	रुकने का समय	Tiempo de espera	مدة الوقوف
+שנ׳	s	秒	से	s	ث
+הפסקה בין מופעים	Pause between shows	演出间隔	शो के बीच विराम	Pausa entre shows	فاصل بين العروض
+לחכות שהמבקר יתרחק לפני מופע חדש	Wait for the visitor to move away before a new show	等访客离开后再开始新演出	नए शो से पहले आगंतुक के दूर जाने का इंतज़ार	Esperar a que el visitante se aleje antes de un nuevo show	انتظار ابتعاد الزائر قبل عرض جديد
+השתקפות חיה בהתקרבות	Live reflection when approaching	靠近时实时映像	पास आने पर जीवंत प्रतिबिंब	Reflejo en vivo al acercarse	انعكاس حي عند الاقتراب
+רמזים על המסך: התקרבו	On-screen hints: come closer	屏幕提示：靠近	स्क्रीन पर संकेत: पास आइए	Pistas en pantalla: acércate	تلميحات على الشاشة: اقترب
+היא רוחב הפנים מתוך רוחב התמונה: הפס הכתום בתצוגה המקדימה הוא המבקר, הקו הטורקיז הוא הסף	is the face width out of the image width: the orange bar in the preview is the visitor, the turquoise line is the threshold	是人脸宽度占图像宽度的比例：预览中的橙色条是访客，青绿色线是阈值	छवि चौड़ाई में चेहरे की चौड़ाई है: पूर्वावलोकन में नारंगी पट्टी आगंतुक है, फ़िरोज़ी रेखा सीमा है	es el ancho de la cara respecto al ancho de la imagen: la barra naranja de la vista previa es el visitante, la línea turquesa es el umbral	هو عرض الوجه من عرض الصورة: الشريط البرتقالي في المعاينة هو الزائر، والخط الفيروزي هو العتبة
+בערך מטר מהמצלמה	about a meter from the camera	离摄像头约一米	कैमरे से लगभग एक मीटर	a un metro de la cámara aprox.	حوالي متر من الكاميرا
+סוג המופע	Show type	演出类型	शो का प्रकार	Tipo de show	نوع العرض
+סלפי אחד ואפקטים	One selfie and effects	一张自拍加效果	एक सेल्फ़ी और प्रभाव	Un selfie y efectos	سيلفي واحد وتأثيرات
+סלפי ומוזיקה	Selfie and music	自拍与音乐	सेल्फ़ी और संगीत	Selfie y música	سيلفي وموسيقى
+ארבעה צילומים על הביט, כמו בתא צילום	Four shots on the beat, like a photo booth	随节拍拍四张，像照相亭	बीट पर चार फ़ोटो, फ़ोटो बूथ की तरह	Cuatro fotos al ritmo, como un fotomatón	أربع لقطات على الإيقاع، كما في كشك التصوير
+ושאטר	and shutter	和快门	और शटर	y obturador	والغالق
+ואחריהם דקה שבה הסלפי מתחלפים כל שתי תיבות בין	followed by a minute where the selfies change every two bars between	之后一分钟内，自拍每两小节切换于	उसके बाद एक मिनट जिसमें सेल्फ़ी हर दो बार में बदलती हैं	seguidas de un minuto en que los selfies cambian cada dos compases entre	ويليها دقيقة تتبدّل فيها صور السيلفي كل مازورتين بين
+יחד עם המראות והפריסטים של הסטודיו. הפסקול דאון טמפו	along with the studio's mirrors and presets. The soundtrack is downtempo	搭配工作室的镜片和预设。配乐为慢拍	स्टूडियो के दर्पणों और प्रीसेट के साथ। साउंडट्रैक डाउनटेम्पो है	junto con los espejos y preajustes del estudio. La banda sonora es downtempo	مع مرايا الاستوديو وإعداداته. الموسيقى التصويرية داون تيمبو
+עם שאטר ופעמון לכל צילום ובכל מעבר, ודרופ באמצע	with a shutter and bell for each shot and each transition, and a drop in the middle	每次拍摄和转场都有快门和铃声，中间有高潮	हर फ़ोटो और हर बदलाव पर शटर और घंटी, और बीच में ड्रॉप	con obturador y campana en cada foto y cada transición, y un drop en el medio	مع غالق وجرس لكل لقطة وكل انتقال، وذروة في المنتصف
+להחליף מראות ופריסטים עם המוזיקה	Switch mirrors and presets with the music	随音乐切换镜片和预设	संगीत के साथ दर्पण और प्रीसेट बदलें	Cambiar espejos y preajustes con la música	تبديل المرايا والإعدادات مع الموسيقى
+להקליט כל מופע לסרטון ולהוריד אותו בסוף	Record every show to a video and download it at the end	将每场演出录成视频并在结束时下载	हर शो को वीडियो में रिकॉर्ड करें और अंत में डाउनलोड करें	Grabar cada show en vídeo y descargarlo al final	تسجيل كل عرض كفيديو وتنزيله في النهاية
+סרטון מ	Video from	视频来自	वीडियो से	Vídeo de	فيديو من
+תמונות	photos	张照片	तस्वीरें	fotos	صور
+לא צריך מצלמה: בוחרים עד	No camera needed: choose up to	无需摄像头：最多选择	कैमरे की ज़रूरत नहीं: चुनें अधिकतम	No hace falta cámara: elige hasta	لا حاجة لكاميرا: اختر حتى
+תמונות, המופע רץ ומוקלט, והסרטון	photos, the show runs and is recorded, and the video	张照片，演出运行并录制，视频	तस्वीरें, शो चलता और रिकॉर्ड होता है, और वीडियो	fotos, el show se reproduce y se graba, y el vídeo	صور، يعمل العرض ويُسجَّل، والفيديو
+עם הסאונד	with sound	带声音	ध्वनि के साथ	con sonido	مع الصوت
+יורד בסוף	downloads at the end	在结束时下载	अंत में डाउनलोड होता है	se descarga al final	يُنزَّل في النهاية
+הם הפסקול של המופע	are the show's soundtrack	是演出的配乐	शो का साउंडट्रैक हैं	son la banda sonora del show	هي الموسيقى التصويرية للعرض
+המופע	The show	演出	शो	El show	العرض
+גודל הפנים בתא	Face size in the cell	单元中人脸大小	कक्ष में चेहरे का आकार	Tamaño de la cara en la celda	حجم الوجه في الخلية
+עוצמת הסלפי	Selfie strength	自拍强度	सेल्फ़ी तीव्रता	Intensidad del selfie	قوة السيلفي
+פריסט למופע	Preset for the show	演出预设	शो के लिए प्रीसेट	Preajuste para el show	إعداد للعرض
+המצב הנוכחי	Current state	当前状态	वर्तमान स्थिति	Estado actual	الحالة الحالية
+סדר אפקטים אקראי בכל מופע	Random effect order each show	每场演出随机效果顺序	हर शो में प्रभावों का यादृच्छिक क्रम	Orden aleatorio de efectos en cada show	ترتيب عشوائي للتأثيرات في كل عرض
+לזכור את	Remember the	记住	याद रखें	Recordar los	تذكّر
+הסלפי האחרונים	latest selfies	最近的自拍	नवीनतम सेल्फ़ी	últimos selfies	آخر صور السيلفي
+בזיכרון בלבד	in memory only	仅存于内存	केवल मेमोरी में	solo en memoria	في الذاكرة فقط
+ולהציג אותם כשאין אף אחד	and show them when nobody is around	并在无人时展示	और जब कोई न हो तब दिखाएँ	y mostrarlos cuando no hay nadie	وعرضها حين لا يوجد أحد
+שמור את הסלפי האחרון	Save the last selfie	保存最后一张自拍	अंतिम सेल्फ़ी सहेजें	Guardar el último selfie	حفظ آخر سيلفي
+החלקיקים של המופע מקבלים את הצבעים מהפנים. במצב	The show's particles take their colors from the face. In mode	演出粒子从人脸取色。在此模式	शो के कण चेहरे से रंग लेते हैं। मोड में	Las partículas del show toman los colores de la cara. En el modo	تأخذ جسيمات العرض ألوانها من الوجه. في وضع
+הסלפי נכנס לתא שמאחורי המראות האמיתיות. למיצג בלי מגע: פותחים את	the selfie goes into the cell behind the real mirrors. For a touch-free installation: open	自拍进入真实镜片后的单元。无接触装置：打开	सेल्फ़ी असली दर्पणों के पीछे के कक्ष में जाती है। बिना छुए इंस्टॉलेशन के लिए: खोलें	el selfie entra en la celda tras los espejos reales. Para una instalación sin contacto: abre	يدخل السيلفي الخلية خلف المرايا الحقيقية. لعمل فني بلا لمس: افتح
+והמופע מתחיל לבד	and the show starts by itself	演出会自动开始	और शो अपने आप शुरू होता है	y el show empieza solo	ويبدأ العرض تلقائيًا
+מכין את הפסקול	Preparing the soundtrack	正在准备配乐	साउंडट्रैक तैयार हो रहा है	Preparando la banda sonora	جارٍ تحضير الموسيقى التصويرية
+קומיקס	Comic	漫画	कॉमिक	Cómic	قصص مصورة
+צבעי מים	Watercolor	水彩	जलरंग	Acuarela	ألوان مائية
+דיו	Ink	墨水	स्याही	Tinta	حبر
+פופ ארט	Pop art	波普艺术	पॉप आर्ट	Pop art	فن البوب
+ניאון	Neon	霓虹	नियॉन	Neón	نيون
+רישום בעיפרון	Pencil sketch	铅笔素描	पेंसिल स्केच	Boceto a lápiz	رسم بالرصاص
+ויטראז׳	Stained glass	彩色玻璃窗	रंगीन काँच	Vitral	زجاج معشّق
+בחרו	Choose	选择	चुनें	Elige	اختر
+עד	up to	最多	अधिकतम	hasta	حتى
+מכין את התמונות	Preparing the photos	正在准备照片	तस्वीरें तैयार हो रही हैं	Preparando las fotos	جارٍ تحضير الصور
+לא הצלחתי לקרוא את התמונות	Couldn't read the photos	无法读取照片	तस्वीरें पढ़ नहीं सके	No se pudieron leer las fotos	تعذّرت قراءة الصور
+מופע דקה מ	Minute show from	一分钟秀，来自	एक मिनट का शो, से	Show de un minuto con	عرض الدقيقة من
+תמונות. מקליט, והסרטון יירד בסוף	photos. Recording, and the video will download at the end	张照片。正在录制，视频将在结束时下载	तस्वीरें। रिकॉर्ड हो रहा है, और वीडियो अंत में डाउनलोड होगा	fotos. Grabando, y el vídeo se descargará al final	صور. جارٍ التسجيل، وسيُنزَّل الفيديو في النهاية
+רגיל	Normal	正常	सामान्य	Normal	عادي
+הוספת אור	Add light	叠加光	प्रकाश जोड़ें	Añadir luz	إضافة ضوء
+הכפלה	Multiply	正片叠底	गुणा	Multiplicar	ضرب
+שכבת־על	Overlay	叠加	ओवरले	Superponer	تراكب
+אור רך	Soft light	柔光	मृदु प्रकाश	Luz suave	ضوء ناعم
+אור חזק	Hard light	强光	तीव्र प्रकाश	Luz fuerte	ضوء قوي
+הפרש	Difference	差值	अंतर	Diferencia	الفرق
+החרגה	Exclusion	排除	बहिष्करण	Exclusión	الاستبعاد
+הבהרת צבע	Color dodge	颜色减淡	रंग डॉज	Sobreexponer color	تفتيح اللون
+צבע	Color	颜色	रंग	Color	اللون
+מחיקה	Erase	擦除	मिटाएँ	Borrar	مسح
+מסכה	Mask	遮罩	मास्क	Máscara	قناع
+ביט	Beat	节拍	बीट	Ritmo	الإيقاع
+לב	Heart	心跳	दिल	Corazón	القلب
+קול	Voice	声音	आवाज़	Voz	الصوت
+גל איטי	Slow wave	慢波	धीमी लहर	Onda lenta	موجة بطيئة
+פלטת הסטודיו	Studio palette	工作室调色板	स्टूडियो पैलेट	Paleta del estudio	لوحة ألوان الاستوديو
+קשת זורמת	Flowing rainbow	流动彩虹	बहता इंद्रधनुष	Arcoíris fluido	قوس قزح متدفق
+צבע אחד	One color	单色	एक रंग	Un color	لون واحد
+הצג את הפאנל	Show the panel	显示面板	पैनल दिखाएँ	Mostrar el panel	إظهار اللوحة
+טקסט	Text	文字	टेक्स्ट	Texto	نص
+אפקט על מה שמתחת	Effect on what's below	作用于下方内容的效果	नीचे वाले पर प्रभाव	Efecto sobre lo de abajo	تأثير على ما تحته
+הוספת שכבה	Add layer	添加图层	परत जोड़ें	Añadir capa	إضافة طبقة
+אפקט	Effect	效果	प्रभाव	Efecto	تأثير
+כל שכבה נכנסת לתא שבין המראות, מעל הסצנה. השכבה העליונה ברשימה מצוירת אחרונה. גוררים שורה כדי לשנות סדר	Each layer goes into the cell between the mirrors, above the scene. The top layer in the list is drawn last. Drag a row to reorder	每个图层都进入镜片间的单元，位于场景之上。列表最上方的图层最后绘制。拖动行可调整顺序	हर परत दर्पणों के बीच कक्ष में, दृश्य के ऊपर जाती है। सूची की सबसे ऊपरी परत अंत में बनती है। क्रम बदलने के लिए पंक्ति खींचें	Cada capa entra en la celda entre los espejos, sobre la escena. La capa superior de la lista se dibuja la última. Arrastra una fila para reordenar	كل طبقة تدخل الخلية بين المرايا، فوق المشهد. الطبقة العليا في القائمة تُرسم أخيرًا. اسحب صفًا لتغيير الترتيب
+הסתר	Hide	隐藏	छिपाएँ	Ocultar	إخفاء
+הצג	Show	显示	दिखाएँ	Mostrar	إظهار
+את	the	该	को	la	الـ
+העלה	Move up	上移	ऊपर ले जाएँ	Subir	نقل للأعلى
+הורד	Move down	下移	नीचे ले जाएँ	Bajar	نقل للأسفل
+שכפל	Duplicate	复制	प्रतिलिपि	Duplicar	تكرار
+מחק	Delete	删除	हटाएँ	Eliminar	حذف
+ערימת השכבות	Layer stack	图层堆栈	परतों का ढेर	Pila de capas	كومة الطبقات
+הצג או הסתר את הסצנה	Show or hide the scene	显示或隐藏场景	दृश्य दिखाएँ या छिपाएँ	Mostrar u ocultar la escena	إظهار المشهد أو إخفاؤه
+הסצנה	The scene	场景	दृश्य	La escena	المشهد
+רקע, חלקיקים, מצלמה ומדיה מלשונית מקור	Background, particles, camera and media from the Source tab	来自来源标签的背景、粒子、摄像头和媒体	स्रोत टैब से पृष्ठभूमि, कण, कैमरा और मीडिया	Fondo, partículas, cámara y medios de la pestaña Fuente	الخلفية والجسيمات والكاميرا والوسائط من تبويب المصدر
+שקיפות הסצנה	Scene opacity	场景不透明度	दृश्य अपारदर्शिता	Opacidad de la escena	عتامة المشهد
+מיזוג הסצנה	Scene blend	场景混合	दृश्य मिश्रण	Fusión de la escena	مزج المشهد
+עוד אין שכבות. התחילו ב	No layers yet. Start with	还没有图层。从这里开始	अभी कोई परत नहीं। शुरू करें	Aún no hay capas. Empieza con	لا توجد طبقات بعد. ابدأ بـ
+ב	in	在	में	en	في
+או ב	or with	或	या	o con	أو بـ
+שזורם על כל התמונה	that flows over the whole image	流过整个画面	जो पूरी छवि पर बहता है	que fluye sobre toda la imagen	يتدفق على الصورة كلها
+מאפייני השכבה	Layer properties	图层属性	परत गुण	Propiedades de la capa	خصائص الطبقة
+שם	Name	名称	नाम	Nombre	الاسم
+שקיפות	Opacity	不透明度	अपारदर्शिता	Opacidad	العتامة
+מיזוג	Blend	混合	मिश्रण	Fusión	المزج
+מיקום ימינה	Position right	向右位置	दाईं ओर स्थिति	Posición derecha	الموضع يمينًا
+מיקום למטה	Position down	向下位置	नीचे स्थिति	Posición abajo	الموضع للأسفل
+סיבוב	Rotation	旋转	घुमाव	Rotación	الدوران
+סיבוב רציף	Continuous rotation	持续旋转	लगातार घुमाव	Rotación continua	دوران مستمر
+מגיב ל	Responds to	响应	प्रतिक्रिया	Responde a	يستجيب لـ
+עוצמת התגובה	Response strength	响应强度	प्रतिक्रिया तीव्रता	Intensidad de respuesta	قوة الاستجابة
+נעול לתא המראות	Locked to the mirror cell	锁定到镜片单元	दर्पण कक्ष से लॉक	Bloqueado a la celda de espejos	مثبّت بخلية المرايا
+מסתובב איתו	rotates with it	随之旋转	उसके साथ घूमता है	gira con ella	يدور معها
+הטקסט	The text	文字内容	टेक्स्ट	El texto	النص
+גודל אות	Font size	字号	अक्षर आकार	Tamaño de letra	حجم الخط
+עובי	Weight	粗细	मोटाई	Grosor	السماكة
+בינוני	Medium	中等	मध्यम	Medio	متوسط
+עבה	Bold	粗体	मोटा	Grueso	عريض
+עיגול	Circle	圆形	वृत्त	Círculo	دائرة
+שורה	Line	直线	पंक्ति	Línea	سطر
+קו מתאר	Outline	轮廓	रूपरेखा	Contorno	خط خارجي
+פרח	Flower	花	फूल	Flor	زهرة
+כוכב	Star	星形	तारा	Estrella	نجمة
+מצולע	Polygon	多边形	बहुभुज	Polígono	مضلع
+קרניים	Rays	射线	किरणें	Rayos	أشعة
+נקודות במסלול	Dots in orbit	轨道点	कक्षा में बिंदु	Puntos en órbita	نقاط في مدار
+רדיוס	Radius	半径	त्रिज्या	Radio	نصف القطر
+עובי קו	Line width	线宽	रेखा मोटाई	Grosor de línea	سماكة الخط
+מילוי	Fill	填充	भराव	Relleno	التعبئة
+עגול	Round	圆形	गोल	Redondo	دائري
+קווי	Linear	线性	रैखिक	Lineal	خطي
+מניפה	Fan	扇形	पंखा	Abanico	مروحة
+בחירת צבע	Pick color	选择颜色	रंग चुनें	Elegir color	اختيار اللون
+התאמה	Fit	适配	फ़िट	Ajuste	الملاءمة
+ממלא את התא	Fills the cell	填满单元	कक्ष भरता है	Llena la celda	يملأ الخلية
+משולש בווידאו	Triangle in the video	视频中的三角形	वीडियो में त्रिकोण	Triángulo en el vídeo	مثلث في الفيديو
+משולש המראות	Mirror triangle	镜片三角形	दर्पण त्रिकोण	Triángulo de espejos	مثلث المرايا
+סיבוב המשולש	Triangle rotation	三角形旋转	त्रिकोण घुमाव	Rotación del triángulo	دوران المثلث
+קודקוד למעלה	Vertex up	顶点朝上	शीर्ष ऊपर	Vértice arriba	الرأس للأعلى
+היפוך מראה	Mirror flip	镜像翻转	दर्पण उलटाव	Invertir como espejo	قلب كالمرآة
+החלף קובץ	Replace file	替换文件	फ़ाइल बदलें	Reemplazar archivo	استبدال الملف
+טען קובץ	Load file	加载文件	फ़ाइल लोड करें	Cargar archivo	تحميل ملف
+קבצים לא נשמרים בדפדפן. אחרי רענון טוענים אותם שוב	Files aren't saved in the browser. After a refresh, load them again	文件不会保存在浏览器中。刷新后需重新加载	फ़ाइलें ब्राउज़र में सहेजी नहीं जातीं। रीफ़्रेश के बाद फिर लोड करें	Los archivos no se guardan en el navegador. Tras recargar, vuelve a cargarlos	لا تُحفظ الملفات في المتصفح. بعد التحديث حمّلها مجددًا
+הפעל מצלמה	Turn on camera	打开摄像头	कैमरा चालू करें	Activar cámara	تشغيل الكاميرا
+עריכת הכיתוב	Edit the caption	编辑字幕	कैप्शन संपादित करें	Editar el texto	تحرير التسمية
+האפקט	The effect	该效果	प्रभाव	El efecto	التأثير
+אפקט על השכבה	Effect on the layer	作用于图层的效果	परत पर प्रभाव	Efecto sobre la capa	تأثير على الطبقة
+ערוך את האפקט בבונה	Edit the effect in the builder	在构建器中编辑效果	बिल्डर में प्रभाव संपादित करें	Editar el efecto en el constructor	تحرير التأثير في المنشئ
+שאיבה למרכז	Pull to center	向中心吸入	केंद्र की ओर खिंचाव	Atraer al centro	سحب إلى المركز
+קליידו פנימי	Inner kaleido	内部万花筒	आंतरिक कैलिडो	Calidoscopio interior	مشكال داخلي
+גל	Wave	波浪	लहर	Onda	موجة
+פיקסלים	Pixels	像素	पिक्सेल	Píxeles	بكسلات
+מראה כפולה	Double mirror	双重镜像	दोहरा दर्पण	Espejo doble	مرآة مزدوجة
+עדשה	Lens	透镜	लेंस	Lente	عدسة
+סיבוב גוון	Hue rotate	色相旋转	रंगत घुमाव	Rotar tono	تدوير اللون
+פוסטר	Poster	海报化	पोस्टर	Póster	ملصق
+קווי ניאון	Neon lines	霓虹线条	नियॉन रेखाएँ	Líneas de neón	خطوط نيون
+היפוך	Invert	反相	उलटें	Invertir	عكس
+הבזק בקיק	Flash on the kick	底鼓闪光	किक पर फ़्लैश	Destello en el bombo	وميض مع الطبلة
+קשת צבעים	Color rainbow	彩虹色	रंगों का इंद्रधनुष	Arcoíris de colores	قوس ألوان
+בלי זרימה	No flow	无流动	कोई प्रवाह नहीं	Sin flujo	بلا تدفق
+זרימה אורגנית	Organic flow	有机流动	जैविक प्रवाह	Flujo orgánico	تدفق عضوي
+התפשטות החוצה	Spread outward	向外扩散	बाहर फैलाव	Expansión hacia fuera	انتشار للخارج
+שאיבה פנימה	Pull inward	向内吸入	अंदर खिंचाव	Atracción hacia dentro	سحب للداخل
+רוח בכיוון	Wind in a direction	定向风	दिशा में हवा	Viento en una dirección	رياح باتجاه
+חום עולה	Rising heat	热气上升	उठती गर्मी	Calor ascendente	حرارة صاعدة
+גלקסיה ספירלית	Spiral galaxy	螺旋星系	सर्पिल आकाशगंगा	Galaxia espiral	مجرة حلزونية
+מעל: השכבה משאירה שובל	Over: the layer leaves a trail	上方：图层留下拖尾	ऊपर: परत निशान छोड़ती है	Encima: la capa deja estela	فوق: الطبقة تترك أثرًا
+מיזוג: כל התמונה נמרחת	Blend: the whole image smears	混合：整个画面被涂抹	मिश्रण: पूरी छवि फैलती है	Fusión: toda la imagen se difumina	مزج: الصورة كلها تنطمس
+הבהיר מבין השניים	Lighter of the two	两者中较亮的	दोनों में से हल्का	El más claro de los dos	الأفتح بين الاثنين
+מריחת כיתוב	Caption smear	字幕涂抹	कैप्शन धब्बा	Difuminado del texto	انطماس التسمية
+נהר צבעים	River of colors	色彩之河	रंगों की नदी	Río de colores	نهر الألوان
+גלקסיה	Galaxy	星系	आकाशगंगा	Galaxia	مجرة
+שברים בקיק	Shards on the kick	底鼓碎片	किक पर टुकड़े	Fragmentos en el bombo	شظايا مع الطبلة
+ניאון פועם	Pulsing neon	脉动霓虹	धड़कता नियॉन	Neón pulsante	نيون نابض
+חלום	Dream	梦境	सपना	Sueño	حلم
+ספריית אפקטים	Effect library	效果库	प्रभाव पुस्तकालय	Biblioteca de efectos	مكتبة التأثيرات
+חדש	New	新建	नया	Nuevo	جديد
+שחזר את המקוריים	Restore the originals	恢复原始效果	मूल पुनर्स्थापित करें	Restaurar los originales	استعادة الأصلية
+שם האפקט	Effect name	效果名称	प्रभाव का नाम	Nombre del efecto	اسم التأثير
+האפקט בנוי מ	The effect is made of	该效果由以下组成	प्रभाव बना है	El efecto está hecho de	يتكوّن التأثير من
+שרשרת	a chain	一条链	एक श्रृंखला	una cadena	سلسلة
+של עיוותים וצבעים, ומ	of distortions and colors, and of	扭曲和颜色，以及	विकृतियों और रंगों की, और	de distorsiones y colores, y de	من التشويهات والألوان، ومن
+בכל פריים התמונה הקודמת נדחפת לאורך שדה, משנה גוון ונמרחת, והפריים החדש נכנס מעליה. אלה אותן אבני בניין של מנוע מופע הסלפי	Every frame the previous image is pushed along a field, shifts hue and smears, and the new frame comes in on top. These are the same building blocks as the selfie show engine	每一帧中，上一帧图像沿着场被推动、改变色相并涂抹，新帧叠加在上面。这些与自拍秀引擎使用的构件相同	हर फ़्रेम में पिछली छवि एक क्षेत्र के साथ धकेली जाती है, रंगत बदलती और फैलती है, और नया फ़्रेम ऊपर आता है। ये वही बिल्डिंग ब्लॉक हैं जो सेल्फ़ी शो इंजन में हैं	En cada fotograma la imagen anterior se empuja a lo largo de un campo, cambia de tono y se difumina, y el nuevo fotograma entra encima. Son los mismos bloques que el motor del show de selfies	في كل إطار تُدفع الصورة السابقة على طول حقل، ويتغيّر لونها وتنطمس، ويدخل الإطار الجديد فوقها. هذه هي لبنات محرك عرض السيلفي نفسها
+משיכה, מערבולת, זרימה, אדוות, נמס, שברים, הולוגרמה	pull, swirl, flow, ripples, melt, shards, hologram	吸入、漩涡、流动、涟漪、融化、碎片、全息	खिंचाव, भँवर, प्रवाह, लहरें, पिघलना, टुकड़े, होलोग्राम	atracción, remolino, flujo, ondas, derretir, fragmentos, holograma	سحب، دوامة، تدفق، تموجات، ذوبان، شظايا، هولوغرام
+פתוחות לעריכה	open for editing	可编辑	संपादन के लिए खुले	abiertos para editar	متاحة للتحرير
+תצוגה חיה	Live view	实时预览	लाइव दृश्य	Vista en vivo	عرض حي
+האפקט על התא	Effect on the cell	作用于单元的效果	कक्ष पर प्रभाव	Efecto sobre la celda	التأثير على الخلية
+האפקט על הסצנה	Effect on the scene	作用于场景的效果	दृश्य पर प्रभाव	Efecto sobre la escena	التأثير على المشهد
+שדה הזרימה	Flow field	流场	प्रवाह क्षेत्र	Campo de flujo	حقل التدفق
+הזרימה שהאפקט יוצר	The flow the effect creates	效果产生的流动	प्रभाव से बनने वाला प्रवाह	El flujo que crea el efecto	التدفق الذي يصنعه التأثير
+העלה שלב	Move step up	上移步骤	चरण ऊपर करें	Subir paso	نقل الخطوة للأعلى
+מחק שלב	Delete step	删除步骤	चरण हटाएँ	Eliminar paso	حذف الخطوة
+עוצמה	Strength	强度	तीव्रता	Intensidad	الشدة
+צפיפות	Density	密度	घनत्व	Densidad	الكثافة
+הוסף שלב	Add step	添加步骤	चरण जोड़ें	Añadir paso	إضافة خطوة
+הזרימה	The flow	流动	प्रवाह	El flujo	التدفق
+שדה	Field	场	क्षेत्र	Campo	الحقل
+זיכרון	Memory	记忆	स्मृति	Memoria	الذاكرة
+אורך השובל	Trail length	拖尾长度	निशान की लंबाई	Longitud de la estela	طول الأثر
+גודל המערבולות	Swirl size	漩涡大小	भँवर का आकार	Tamaño de los remolinos	حجم الدوامات
+מהירות השדה	Field speed	场速度	क्षेत्र गति	Velocidad del campo	سرعة الحقل
+כיוון הרוח	Wind direction	风向	हवा की दिशा	Dirección del viento	اتجاه الرياح
+שינוי צבע בזרימה	Color shift in flow	流动中的颜色变化	प्रवाह में रंग बदलाव	Cambio de color en el flujo	تغيّر اللون في التدفق
+מריחה	Smear	涂抹	धब्बा	Difuminado	الانطماس
+הכנסת הפריים	Frame insertion	帧注入	फ़्रेम प्रविष्टि	Entrada del fotograma	إدخال الإطار
+בלי זרימה האפקט רק מעוות וצובע, בלי זיכרון בין פריימים	With no flow the effect only distorts and colors, with no memory between frames	无流动时，效果只扭曲和上色，帧间无记忆	प्रवाह के बिना प्रभाव केवल विकृत और रंगता है, फ़्रेमों के बीच कोई स्मृति नहीं	Sin flujo el efecto solo distorsiona y colorea, sin memoria entre fotogramas	بلا تدفق يقتصر التأثير على التشويه والتلوين، بلا ذاكرة بين الإطارات
+שימוש באפקט	Using the effect	使用效果	प्रभाव का उपयोग	Usar el efecto	استخدام التأثير
+החל על כל התמונה	Apply to the whole image	应用到整个画面	पूरी छवि पर लागू करें	Aplicar a toda la imagen	تطبيق على الصورة كلها
+הצמד לשכבה	Attach to layer	附加到图层	परत से जोड़ें	Asociar a la capa	ربط بالطبقة
+הנבחרת	selected	所选	चयनित	seleccionada	المحددة
+הצמד לכיתוב	Attach to caption	附加到字幕	कैप्शन से जोड़ें	Asociar al texto	ربط بالتسمية
+על כל התמונה	On the whole image	作用于整个画面	पूरी छवि पर	En toda la imagen	على الصورة كلها
+מוסיף שכבת אפקט מעל הכול	adds an effect layer above everything	在最上方添加效果图层	सबसे ऊपर प्रभाव परत जोड़ता है	añade una capa de efecto encima de todo	يضيف طبقة تأثير فوق كل شيء
+הצמדה לשכבה	Attach to a layer	附加到图层	परत से जोड़ना	Asociar a una capa	الربط بطبقة
+מריצה את האפקט רק על השכבה	runs the effect only on the layer	仅在该图层上运行效果	प्रभाव केवल परत पर चलाता है	aplica el efecto solo a la capa	يشغّل التأثير على الطبقة فقط
+למשל טקסט שנמרח וזורם בלי למרוח את הרקע	for example text that smears and flows without smearing the background	例如文字被涂抹流动而不涂抹背景	जैसे टेक्स्ट जो पृष्ठभूमि को फैलाए बिना फैलता और बहता है	por ejemplo texto que se difumina y fluye sin difuminar el fondo	مثلًا نص ينطمس ويتدفق دون طمس الخلفية
+של האפקט	of the effect	效果的	प्रभाव का	del efecto	للتأثير
+עותק	copy	副本	प्रति	copia	نسخة
+נוספה שכבת אפקט	Effect layer added	已添加效果图层	प्रभाव परत जोड़ी गई	Capa de efecto añadida	تمت إضافة طبقة تأثير
+האפקט הוצמד ל	The effect was attached to	效果已附加到	प्रभाव जोड़ा गया	El efecto se asoció a	تم ربط التأثير بـ
+האפקט הוצמד לכיתוב	The effect was attached to the caption	效果已附加到字幕	प्रभाव कैप्शन से जोड़ा गया	El efecto se asoció al texto	تم ربط التأثير بالتسمية
+מיובא	imported	已导入	आयातित	importado	مستورد
+ברוכים הבאים לקליידוסקופ	Welcome to Kaleidoscope	欢迎来到万花筒	कैलिडोस्कोप में आपका स्वागत है	Bienvenido a Kaleidoscope	مرحبًا بكم في المشكال
+כדור עם כיתוב סובב	Sphere with rotating caption	带旋转字幕的球体	घूमते कैप्शन वाला गोला	Esfera con texto giratorio	كرة مع تسمية دوّارة
+טבעת	Ring	环	छल्ला	Anillo	حلقة
+קשת בקודקוד	Arc at the vertex	顶点处弧形	शीर्ष पर चाप	Arco en el vértice	قوس عند الرأس
+פס רץ	Running strip	滚动条	चलती पट्टी	Banda corrida	شريط متحرك
+מילים שמתפוצצות	Exploding words	爆炸文字	फटते शब्द	Palabras que estallan	كلمات تنفجر
+מריחה גדולה	Big smear	大幅涂抹	बड़ा धब्बा	Gran difuminado	انطماس كبير
+מקשיב	Listening	聆听中	सुन रहे हैं	Escuchando	يستمع
+דברו אל המיקרופון	Speak into the microphone	对着麦克风说话	माइक्रोफ़ोन में बोलें	Habla al micrófono	تحدّث إلى الميكروفون
+הדפדפן לא תומך בזיהוי דיבור. נסו	The browser doesn't support speech recognition. Try	浏览器不支持语音识别。请尝试	ब्राउज़र वाक् पहचान का समर्थन नहीं करता। आज़माएँ	El navegador no admite reconocimiento de voz. Prueba	المتصفح لا يدعم التعرّف على الكلام. جرّب
+או הקלידו בשורה החיה	or type in the live line	或在实时栏中输入	या लाइव पंक्ति में टाइप करें	o escribe en la línea en vivo	أو اكتب في السطر الحي
+אין הרשאה למיקרופון או לשירות הדיבור. זה עובד רק בכתובת	No permission for the microphone or speech service. It only works at an address	没有麦克风或语音服务权限。仅在以下地址可用	माइक्रोफ़ोन या वाक् सेवा की अनुमति नहीं। यह केवल इस पते पर काम करता है	Sin permiso para el micrófono o el servicio de voz. Solo funciona en una dirección	لا إذن للميكروفون أو لخدمة الكلام. يعمل فقط في عنوان
+זיהוי הדיבור צריך חיבור לאינטרנט	Speech recognition needs an internet connection	语音识别需要联网	वाक् पहचान के लिए इंटरनेट चाहिए	El reconocimiento de voz necesita conexión a internet	التعرّف على الكلام يحتاج اتصالًا بالإنترنت
+השפה לא נתמכת בדפדפן הזה	The language isn't supported in this browser	此浏览器不支持该语言	यह भाषा इस ब्राउज़र में समर्थित नहीं	El idioma no es compatible con este navegador	اللغة غير مدعومة في هذا المتصفح
+לא הצלחתי להפעיל את זיהוי הדיבור	Couldn't start speech recognition	无法启动语音识别	वाक् पहचान शुरू नहीं हो सकी	No se pudo iniciar el reconocimiento de voz	تعذّر تشغيل التعرّف على الكلام
+מקשיב… דברו עכשיו	Listening… speak now	聆听中…请说话	सुन रहे हैं… अब बोलें	Escuchando… habla ahora	يستمع… تحدّث الآن
+כאן יופיע מה שנאמר	What's said will appear here	说的话会显示在这里	जो कहा जाएगा यहाँ दिखेगा	Lo que se diga aparecerá aquí	سيظهر هنا ما يُقال
+מופע כיתוב חי: דברו, והמילים נכנסות למראות	Live caption show: speak, and the words enter the mirrors	实时字幕秀：说话，文字进入镜中	लाइव कैप्शन शो: बोलें, और शब्द दर्पणों में आते हैं	Show de texto en vivo: habla y las palabras entran en los espejos	عرض التسميات الحي: تحدّث فتدخل الكلمات المرايا
+מקליט את המשולש… לחצו שוב כדי לעצור	Recording the triangle… click again to stop	正在录制三角形…再次点击停止	त्रिकोण रिकॉर्ड हो रहा है… रोकने के लिए फिर क्लिक करें	Grabando el triángulo… pulsa otra vez para detener	جارٍ تسجيل المثلث… انقر مجددًا للإيقاف
+כיתוב מסתובב על הכדור	Caption rotating on the sphere	球体上的旋转字幕	गोले पर घूमता कैप्शन	Texto girando en la esfera	تسمية تدور على الكرة
+הכיתוב נכתב בתוך המשולש, נעול למראות	The caption is written inside the triangle, locked to the mirrors	字幕写在三角形内，锁定到镜片	कैप्शन त्रिकोण के अंदर लिखा है, दर्पणों से लॉक	El texto se escribe dentro del triángulo, bloqueado a los espejos	تُكتب التسمية داخل المثلث، مثبّتة بالمرايا
+ומסתובב יחד עם הביט. במראות הוא נסגר לטבעת שמקיפה את הכדור שהמבקר רואה. הכי מדויק במצב	and rotates with the beat. In the mirrors it closes into a ring around the sphere the visitor sees. Most accurate in mode	并随节拍旋转。在镜中它闭合成环绕访客所见球体的环。最精确的模式是	और बीट के साथ घूमता है। दर्पणों में यह आगंतुक को दिखने वाले गोले के चारों ओर छल्ला बनता है। सबसे सटीक इस मोड में	y gira con el ritmo. En los espejos se cierra en un anillo alrededor de la esfera que ve el visitante. Más preciso en el modo	ويدور مع الإيقاع. في المرايا تنغلق في حلقة حول الكرة التي يراها الزائر. الأدق في وضع
+עם	with	配合	के साथ	con	مع
+או במסך למוצר	or in product screen	或在产品屏幕中	या उत्पाद स्क्रीन में	o en pantalla del producto	أو في شاشة المنتج
+הכיתוב מוצג	Caption shown	字幕已显示	कैप्शन दिख रहा है	Texto visible	التسمية معروضة
+הצג כיתוב	Show caption	显示字幕	कैप्शन दिखाएँ	Mostrar texto	إظهار التسمية
+הצג כמו במיצג	Show as in the installation	按装置效果显示	इंस्टॉलेशन जैसा दिखाएँ	Mostrar como en la instalación	العرض كما في العمل الفني
+רדיוס הטבעת	Ring radius	环半径	छल्ले की त्रिज्या	Radio del anillo	نصف قطر الحلقة
+גודל הכדור	Sphere size	球体大小	गोले का आकार	Tamaño de la esfera	حجم الكرة
+הטיית הטבעת	Ring tilt	环倾斜	छल्ले का झुकाव	Inclinación del anillo	ميل الحلقة
+כיוון ומהירות	Direction and speed	方向与速度	दिशा और गति	Dirección y velocidad	الاتجاه والسرعة
+מהירות סיבוב	Rotation speed	旋转速度	घुमाव गति	Velocidad de rotación	سرعة الدوران
+מסונכרן לביט	Synced to the beat	与节拍同步	बीट से सिंक	Sincronizado con el ritmo	متزامن مع الإيقاع
+תיבות לסיבוב שלם	bars per full rotation	每整圈小节数	पूरे घुमाव के बार	compases por vuelta completa	مازورات لكل دورة كاملة
+גרפיקה מתחלפת: צורה חדשה כל כמה תיבות	Changing graphics: a new shape every few bars	变换图形：每隔几小节换新形状	बदलते ग्राफ़िक्स: हर कुछ बार में नया आकार	Gráficos cambiantes: una forma nueva cada pocos compases	رسوم متبدّلة: شكل جديد كل بضع مازورات
+תיבות לכל צורה	bars per shape	每个形状的小节数	हर आकार के बार	compases por forma	مازورات لكل شكل
+כיתוב חי מהדיבור	Live caption from speech	语音实时字幕	वाणी से लाइव कैप्शन	Texto en vivo desde la voz	تسمية حية من الكلام
+מופע כיתוב חי	Live caption show	实时字幕秀	लाइव कैप्शन शो	Show de texto en vivo	عرض التسميات الحي
+עצור האזנה	Stop listening	停止聆听	सुनना रोकें	Dejar de escuchar	إيقاف الاستماع
+האזן לדיבור	Listen to speech	聆听语音	वाणी सुनें	Escuchar la voz	الاستماع إلى الكلام
+מקור הטקסט	Text source	文字来源	टेक्स्ट स्रोत	Fuente del texto	مصدر النص
+טקסט קבוע	Fixed text	固定文字	स्थिर टेक्स्ट	Texto fijo	نص ثابت
+דיבור חי	Live speech	实时语音	लाइव वाणी	Voz en vivo	كلام حي
+שפת הדיבור	Speech language	语音语言	वाणी की भाषा	Idioma de la voz	لغة الكلام
+עברית	Hebrew	希伯来语	हिब्रू	Hebreo	العبرية
+או הקלידו משפט ולחצו	or type a sentence and click	或输入一句话并点击	या एक वाक्य लिखें और क्लिक करें	o escribe una frase y pulsa	أو اكتب جملة وانقر
+שלח	Send	发送	भेजें	Enviar	إرسال
+נקה	Clear	清除	साफ़ करें	Borrar	مسح
+מילים בטבעת	Words in the ring	环中字数	छल्ले में शब्द	Palabras en el anillo	كلمات في الحلقة
+עוצמת הקול מגדילה את הכיתוב	Voice volume enlarges the caption	声音越大字幕越大	आवाज़ की तीव्रता कैप्शन बड़ा करती है	El volumen de la voz agranda el texto	علوّ الصوت يكبّر التسمية
+כשהמיקרופון הוא מקור הקול	when the microphone is the sound source	当麦克风为声音来源时	जब माइक्रोफ़ोन ध्वनि स्रोत हो	cuando el micrófono es la fuente de sonido	عندما يكون الميكروفون مصدر الصوت
+הדיבור הופך לטקסט בזמן אמת, וכל משפט נכנס למראות: מילים מתפוצצות מהמרכז, נמרחות ומשנות צבע לפי האפקט שמוצמד לכיתוב. ב	Speech turns into text in real time, and every sentence enters the mirrors: words explode from the center, smear and change color according to the effect attached to the caption. In	语音实时转为文字，每句话都会进入镜中：文字从中心爆开，按附加到字幕的效果涂抹并变色。在	वाणी वास्तविक समय में टेक्स्ट बनती है, और हर वाक्य दर्पणों में जाता है: शब्द केंद्र से फटते हैं, कैप्शन से जुड़े प्रभाव के अनुसार फैलते और रंग बदलते हैं। इसमें	La voz se convierte en texto en tiempo real y cada frase entra en los espejos: las palabras estallan desde el centro, se difuminan y cambian de color según el efecto asociado al texto. En	يتحوّل الكلام إلى نص في الوقت الحقيقي، وتدخل كل جملة المرايا: تنفجر الكلمات من المركز وتنطمس وتتغير ألوانها حسب التأثير المربوط بالتسمية. في
+הקול נשלח לשירות הזיהוי של	the voice is sent to the recognition service of	语音会发送到以下识别服务	आवाज़ इसकी पहचान सेवा को भेजी जाती है	la voz se envía al servicio de reconocimiento de	يُرسل الصوت إلى خدمة التعرّف لدى
+ולכן צריך אינטרנט; ב	so internet is needed; in	因此需要联网；在	इसलिए इंटरनेट चाहिए; इसमें	por eso hace falta internet; en	لذا يلزم الإنترنت؛ في
+הזיהוי יכול לרוץ במכשיר	recognition can run on the device	识别可在设备上运行	पहचान डिवाइस पर चल सकती है	el reconocimiento puede funcionar en el dispositivo	يمكن أن يعمل التعرّف على الجهاز
+הדפדפן הזה לא תומך בזיהוי דיבור. ב	This browser doesn't support speech recognition. In	此浏览器不支持语音识别。在	यह ब्राउज़र वाक् पहचान का समर्थन नहीं करता। इसमें	Este navegador no admite reconocimiento de voz. En	هذا المتصفح لا يدعم التعرّف على الكلام. في
+זה עובד. בינתיים אפשר להקליד בשורה למעלה	it works. Meanwhile you can type in the line above	可以使用。同时你可以在上方栏中输入	यह काम करता है। तब तक ऊपर की पंक्ति में टाइप कर सकते हैं	funciona. Mientras tanto puedes escribir en la línea de arriba	يعمل. في الأثناء يمكنك الكتابة في السطر أعلاه
+אפקט על הכיתוב	Effect on the caption	作用于字幕的效果	कैप्शन पर प्रभाव	Efecto sobre el texto	تأثير على التسمية
+בונה האפקטים	The effect builder	效果构建器	प्रभाव बिल्डर	El constructor de efectos	منشئ التأثيرات
+וידאו משולש למראות	Triangle video for the mirrors	镜片用三角形视频	दर्पणों के लिए त्रिकोण वीडियो	Vídeo triangular para los espejos	فيديو مثلث للمرايا
+וידאו שבו המשולש ממלא את הפריים	A video where the triangle fills the frame	三角形填满画面的视频	ऐसा वीडियो जिसमें त्रिकोण फ़्रेम भरता है	Un vídeo donde el triángulo llena el encuadre	فيديو يملأ فيه المثلث الإطار
+קודקוד למעלה באמצע, הבסיס לאורך התחתית	vertex up in the middle, base along the bottom	顶点在上方中间，底边沿底部	शीर्ष ऊपर बीच में, आधार नीचे के साथ	vértice arriba en el centro, base a lo largo de abajo	الرأس للأعلى في المنتصف، والقاعدة على طول الأسفل
+נמתח בדיוק על התא שבין המראות, והכיתוב רץ מעליו. אפשר גם להקליט את התא כמו שהמראות רואות אותו, כקובץ למסך שמאחורי המראות	stretches exactly over the cell between the mirrors, and the caption runs over it. You can also record the cell as the mirrors see it, as a file for the screen behind the mirrors	精确铺满镜片间的单元，字幕在其上滚动。也可以按镜片所见录制单元，作为镜片后屏幕的文件	दर्पणों के बीच कक्ष पर ठीक फैलता है, और कैप्शन उसके ऊपर चलता है। आप कक्ष को वैसे भी रिकॉर्ड कर सकते हैं जैसे दर्पण देखते हैं, दर्पणों के पीछे स्क्रीन के लिए फ़ाइल के रूप में	se estira exactamente sobre la celda entre los espejos y el texto corre encima. También puedes grabar la celda tal como la ven los espejos, como archivo para la pantalla detrás de ellos	يتمدد بالضبط على الخلية بين المرايا، وتجري التسمية فوقه. يمكنك أيضًا تسجيل الخلية كما تراها المرايا، كملف للشاشة خلفها
+טען וידאו משולש	Load triangle video	加载三角形视频	त्रिकोण वीडियो लोड करें	Cargar vídeo triangular	تحميل فيديو مثلث
+הקלט וידאו משולש	Record triangle video	录制三角形视频	त्रिकोण वीडियो रिकॉर्ड करें	Grabar vídeo triangular	تسجيل فيديو مثلث
+יש כיתוב אחד. אפשר להוסיף שכבת טקסט	There is one caption. You can add a text layer	已有一个字幕。可添加文字图层	एक कैप्शन है। आप टेक्स्ट परत जोड़ सकते हैं	Hay un texto. Puedes añadir una capa de texto	توجد تسمية واحدة. يمكنك إضافة طبقة نص
+עם מראות אמיתיות, כמו שהמבקר רואה	with real mirrors, as the visitor sees it	配合真实镜片，按访客所见	असली दर्पणों के साथ, जैसा आगंतुक देखता है	con espejos reales, como lo ve el visitante	مع مرايا حقيقية، كما يراه الزائر
+קורא את הדופק… השאירו את האצבע בלי לזוז	Reading the pulse… keep your finger still	正在读取脉搏…请保持手指不动	नब्ज़ पढ़ रहे हैं… उँगली स्थिर रखें	Leyendo el pulso… mantén el dedo quieto	جارٍ قراءة النبض… أبقِ إصبعك ثابتًا
+לא מזוהה אצבע. כסו את העדשה האחורית כולה	No finger detected. Cover the whole back lens	未检测到手指。请盖住整个后镜头	उँगली नहीं मिली। पूरा पीछे का लेंस ढकें	No se detecta el dedo. Cubre toda la lente trasera	لم يُكتشف إصبع. غطِّ العدسة الخلفية كلها
+ממתין לנתונים מהחיישן	Waiting for sensor data	等待传感器数据	सेंसर डेटा की प्रतीक्षा	Esperando datos del sensor	بانتظار بيانات المستشعر
+כבויים	Off	关闭	बंद	Apagados	متوقفة
+חיישנים	Sensors	传感器	सेंसर	Sensores	المستشعرات
+קליידוסקופ לטלפון	Phone kaleidoscope	手机万花筒	फ़ोन कैलिडोस्कोप	Caleidoscopio para el teléfono	مشكال للهاتف
+תבנית לבניית קליידוסקופ קטן שנצמד לסמארטפון: חצי מסך מקרין לתוך המראות, והחצי השני נשאר בחוץ לעריכה, מצבים ותפריט	A template for building a small kaleidoscope that clips onto a smartphone: half the screen projects into the mirrors, and the other half stays outside for editing, modes and menu	制作可夹在智能手机上的小万花筒的模板：半个屏幕投射进镜片，另一半留在外面用于编辑、模式和菜单	स्मार्टफ़ोन पर लगने वाला छोटा कैलिडोस्कोप बनाने का टेम्पलेट: आधी स्क्रीन दर्पणों में दिखती है, और बाकी आधी बाहर संपादन, मोड और मेनू के लिए रहती है	Una plantilla para construir un pequeño caleidoscopio que se acopla al smartphone: media pantalla proyecta dentro de los espejos y la otra mitad queda fuera para editar, modos y menú	قالب لبناء مشكال صغير يُثبَّت على الهاتف الذكي: نصف الشاشة يُعرض داخل المرايا، والنصف الآخر يبقى بالخارج للتحرير والأوضاع والقائمة
+הכלים	Tools	工具	टूल्स	Herramientas	الأدوات
+תבנית לטלפון	Phone template	手机模板	फ़ोन टेम्पलेट	Plantilla para teléfono	قالب للهاتف
+מדריך	Guide	指南	गाइड	Guía	الدليل
+ערכה קטנה	Mini kit	迷你套件	छोटी किट	Mini kit	مجموعة صغيرة
+סמארטפון	Smartphone	智能手机	स्मार्टफ़ोन	Smartphone	هاتف ذكي
+קליידוסקופ שנצמד לטלפון	A kaleidoscope that clips onto your phone	夹在手机上的万花筒	फ़ोन पर लगने वाला कैलिडोस्कोप	Un caleidoscopio que se acopla al teléfono	مشكال يُثبَّت على الهاتف
+תפסנית מרופדת נכנסת על החצי התחתון של הטלפון. החצי הזה מקרין משולש אחד לתוך המראות, והחצי העליון נשאר בחוץ לעריכה, החלפת מצבים ותפריט. בוחרים דגם, מורידים את התבנית, ופותחים את האפליקציה בטלפון	A padded cradle slides over the bottom half of the phone. That half projects one triangle into the mirrors, and the top half stays outside for editing, switching modes and the menu. Choose a model, download the template, and open the app on the phone	带衬垫的夹座套在手机下半部分。这一半向镜片中投射一个三角形，上半部分留在外面用于编辑、切换模式和菜单。选择机型，下载模板，然后在手机上打开应用	गद्दीदार क्रेडल फ़ोन के निचले आधे हिस्से पर चढ़ता है। यह आधा हिस्सा दर्पणों में एक त्रिकोण दिखाता है, और ऊपरी आधा बाहर संपादन, मोड बदलने और मेनू के लिए रहता है। मॉडल चुनें, टेम्पलेट डाउनलोड करें, और फ़ोन पर ऐप खोलें	Un soporte acolchado se encaja en la mitad inferior del teléfono. Esa mitad proyecta un triángulo dentro de los espejos y la mitad superior queda fuera para editar, cambiar de modo y el menú. Elige un modelo, descarga la plantilla y abre la app en el teléfono	حامل مبطّن ينزلق على النصف السفلي من الهاتف. هذا النصف يعرض مثلثًا واحدًا داخل المرايا، والنصف العلوي يبقى بالخارج للتحرير وتبديل الأوضاع والقائمة. اختر الطراز، نزّل القالب، وافتح التطبيق على الهاتف
+פתיחת האפליקציה בטלפון	Open the app on the phone	在手机上打开应用	फ़ोन पर ऐप खोलें	Abrir la app en el teléfono	فتح التطبيق على الهاتف
+לתבנית החיתוך	To the cutting template	前往切割模板	कटिंग टेम्पलेट पर	A la plantilla de corte	إلى قالب القص
+להדגמת התלת-ממד	To the 3D demo	前往3D演示	3D डेमो पर	A la demo 3D	إلى العرض ثلاثي الأبعاد
+הטלפון	The phone	手机	फ़ोन	El teléfono	الهاتف
+רוחב המסך	Screen width	屏幕宽度	स्क्रीन चौड़ाई	Ancho de pantalla	عرض الشاشة
+גובה המסך	Screen height	屏幕高度	स्क्रीन ऊँचाई	Alto de pantalla	ارتفاع الشاشة
+הכפתור הנמוך מהתחתית	Lowest button from the bottom	最低按键距底部	नीचे से सबसे निचला बटन	Botón más bajo desde abajo	أدنى زر من الأسفل
+המרחק מתחתית הטלפון לקצה התחתון של הכפתור הנמוך בצד. המספרים בדגמים משוערים, כדאי למדוד	The distance from the bottom of the phone to the lower edge of the lowest side button. The model numbers are estimates, it's worth measuring	从手机底部到最低侧键下边缘的距离。机型数值为估算，建议实际测量	फ़ोन के नीचे से सबसे निचले साइड बटन के निचले किनारे तक की दूरी। मॉडलों की संख्याएँ अनुमानित हैं, मापना बेहतर है	La distancia desde la base del teléfono hasta el borde inferior del botón lateral más bajo. Los valores de los modelos son aproximados, conviene medir	المسافة من أسفل الهاتف إلى الحافة السفلية لأدنى زر جانبي. أرقام الطرازات تقديرية، يُستحسن القياس
+עובי כיסוי	Case thickness	手机壳厚度	कवर मोटाई	Grosor de la funda	سماكة الغطاء
+התפסנית	The cradle	夹座	क्रेडल	El soporte	الحامل
+אורך התפסנית	Cradle length	夹座长度	क्रेडल लंबाई	Longitud del soporte	طول الحامل
+אוטומטי	Automatic	自动	स्वचालित	Automático	تلقائي
+עובי הלוח	Board thickness	板厚	बोर्ड मोटाई	Grosor del tablero	سماكة اللوح
+עובי ריפוד	Padding thickness	衬垫厚度	गद्दी मोटाई	Grosor del acolchado	سماكة البطانة
+מרווח חיכוך	Friction gap	摩擦间隙	घर्षण अंतर	Holgura de fricción	فجوة الاحتكاك
+המראות	The mirrors	镜片	दर्पण	Los espejos	المرايا
+צלע המשולש	Triangle side	三角形边长	त्रिकोण भुजा	Lado del triángulo	ضلع المثلث
+עובי המראה	Mirror thickness	镜片厚度	दर्पण मोटाई	Grosor del espejo	سماكة المرآة
+אורך : צלע	Length : side	长度 : 边长	लंबाई : भुजा	Longitud : lado	الطول : الضلع
+עינית עם חור הצצה	Eyepiece with peephole	带窥孔的目镜	झाँकने वाले छेद के साथ आईपीस	Ocular con mirilla	عدسة عينية مع ثقب رؤية
+חד ועגול	sharp and round	清晰且圆	तेज़ और गोल	nítido y redondo	حاد ودائري
+עינית פתוחה	Open eyepiece	开放目镜	खुला आईपीस	Ocular abierto	عدسة عينية مفتوحة
+משולש מלא	full triangle	完整三角形	पूरा त्रिकोण	triángulo completo	مثلث كامل
+גיליון	Sheet	纸张	शीट	Hoja	الورقة
+הדפסה	Print	打印	प्रिंट	Imprimir	طباعة
+לייזר	Laser	激光	लेज़र	Láser	ليزر
+תבנית לחיתוך	Cutting template	切割模板	कटिंग टेम्पलेट	Plantilla de corte	قالب القص
+הדגמת תלת-ממד	3D demo	3D演示	3D डेमो	Demo 3D	عرض ثلاثي الأبعاد
+אפליקציה בטלפון	App on the phone	手机应用	फ़ोन पर ऐप	App en el teléfono	التطبيق على الهاتف
+הדפסה בגודל אמיתי	Print at actual size	按实际尺寸打印	वास्तविक आकार में प्रिंट	Imprimir a tamaño real	طباعة بالحجم الحقيقي
+כל הגיליונות	All sheets	全部纸张	सभी शीट	Todas las hojas	كل الأوراق
+ללייזר	for laser	用于激光	लेज़र के लिए	para láser	لليزر
+קובץ תכנון	Design file	设计文件	डिज़ाइन फ़ाइल	Archivo de diseño	ملف التصميم
+קיפול / חריטה	Fold / engrave	折叠/雕刻	मोड़ / नक्काशी	Plegar / grabar	طي / حفر
+הערות, לא לחתוך	Notes, do not cut	备注，勿切	टिप्पणियाँ, न काटें	Notas, no cortar	ملاحظات، لا تقص
+טוען תלת-ממד	Loading 3D	正在加载3D	3D लोड हो रहा है	Cargando 3D	جارٍ تحميل العرض الثلاثي
+החלקת הטלפון לתפסנית	Sliding the phone into the cradle	将手机滑入夹座	फ़ोन को क्रेडल में सरकाना	Deslizar el teléfono en el soporte	إدخال الهاتف في الحامل
+פירוק לחלקים	Exploded into parts	拆分成零件	पुर्ज़ों में अलग	Despiece en piezas	تفكيك إلى قطع
+שרוול שקוף	Transparent sleeve	透明套筒	पारदर्शी आस्तीन	Funda transparente	غلاف شفاف
+לראות את המראות	to see the mirrors	以查看镜片	दर्पण देखने के लिए	para ver los espejos	لرؤية المرايا
+הדגשת הכפתורים החופשיים	Highlight the free buttons	突出显示空出的按键	खाली बटन हाइलाइट करें	Resaltar los botones libres	إبراز الأزرار الحرّة
+מבט דרך העינית	View through the eyepiece	透过目镜观看	आईपीस से दृश्य	Vista por el ocular	المنظر عبر العدسة العينية
+ריפוד בכל נקודת מגע	Padding at every contact point	每个接触点都有衬垫	हर संपर्क बिंदु पर गद्दी	Acolchado en cada punto de contacto	بطانة عند كل نقطة تلامس
+קצף	foam	泡棉	फोम	espuma	إسفنج
+בין הלוחות לטלפון, מכל ארבעת הצדדים. עץ או אקריליק לא נוגעים בזכוכית או במסגרת	between the boards and the phone, on all four sides. Wood or acrylic never touches the glass or the frame	在板与手机之间，四边都有。木头或亚克力不会接触玻璃或边框	बोर्डों और फ़ोन के बीच, चारों ओर। लकड़ी या एक्रिलिक काँच या फ़्रेम को नहीं छूते	entre los tableros y el teléfono, por los cuatro lados. La madera o el acrílico no tocan el vidrio ni el marco	بين الألواح والهاتف، من الجوانب الأربعة. لا يلامس الخشب أو الأكريليك الزجاج أو الإطار
+המראות לא נוגעות במסך	The mirrors don't touch the screen	镜片不接触屏幕	दर्पण स्क्रीन को नहीं छूते	Los espejos no tocan la pantalla	المرايا لا تلامس الشاشة
+קצות המראות נחים על אטם הקצף, כ	The mirror ends rest on the foam gasket, about	镜片末端搁在泡棉垫圈上，约	दर्पणों के सिरे फोम गैस्केट पर टिकते हैं, लगभग	Los extremos de los espejos apoyan en la junta de espuma, aprox.	تستند أطراف المرايا على حشوة الإسفنج، حوالي
+מ״מ מעל הזכוכית	mm above the glass	毫米，高于玻璃	मिमी काँच से ऊपर	mm sobre el vidrio	مم فوق الزجاج
+כפתורים, מצלמות ושקע חופשיים	Buttons, cameras and port free	按键、摄像头和接口均空出	बटन, कैमरे और पोर्ट खाली	Botones, cámaras y puerto libres	الأزرار والكاميرات والمنفذ حرّة
+התפסנית נעצרת מתחת לכפתור הנמוך. בתחתית יש חלון לשקע, לרמקולים ולדחיפה	The cradle stops below the lowest button. At the bottom there's a window for the port, the speakers and pushing	夹座止于最低按键下方。底部有接口、扬声器和推出用的窗口	क्रेडल सबसे निचले बटन के नीचे रुकता है। नीचे पोर्ट, स्पीकर और धकेलने के लिए खिड़की है	El soporte se detiene bajo el botón más bajo. Abajo hay una ventana para el puerto, los altavoces y empujar	يتوقف الحامل تحت أدنى زر. في الأسفل نافذة للمنفذ والسماعات وللدفع
+חיכוך, בלי דבק	Friction, no glue	靠摩擦，不用胶	घर्षण, बिना गोंद	Fricción, sin pegamento	احتكاك بلا غراء
+שום דבר לא נדבק לטלפון. נכנס ביד, יוצא בדחיפת אגודל דרך החריץ התחתון	Nothing sticks to the phone. It goes in by hand and comes out with a thumb push through the bottom slot	手机上不粘任何东西。用手推入，用拇指从底部槽口推出	फ़ोन पर कुछ नहीं चिपकता। हाथ से अंदर जाता है, नीचे के खाँचे से अँगूठे से धकेलकर निकलता है	Nada se pega al teléfono. Entra a mano y sale empujando con el pulgar por la ranura inferior	لا شيء يلتصق بالهاتف. يدخل باليد ويخرج بدفعة إبهام عبر الشق السفلي
+מסך פתוח לעריכה	Screen open for editing	屏幕开放用于编辑	संपादन के लिए खुली स्क्रीन	Pantalla abierta para editar	شاشة مفتوحة للتحرير
+החצי העליון של המסך נשאר בחוץ, למגע, לתפריט ולהחלפת מצבים	The top half of the screen stays outside, for touch, the menu and switching modes	屏幕上半部分留在外面，用于触控、菜单和切换模式	स्क्रीन का ऊपरी आधा बाहर रहता है, स्पर्श, मेनू और मोड बदलने के लिए	La mitad superior de la pantalla queda fuera, para tocar, el menú y cambiar de modo	يبقى النصف العلوي من الشاشة بالخارج، للّمس والقائمة وتبديل الأوضاع
+טוען קוד	Loading code	正在加载代码	कोड लोड हो रहा है	Cargando código	جارٍ تحميل الرمز
+פותחים בטלפון	Open on the phone	在手机上打开	फ़ोन पर खोलें	Abrir en el teléfono	افتح على الهاتف
+סורקים את הקוד בטלפון שעליו תשב התפסנית. הקישור נושא איתו את המידות מהתבנית, כך שהמשולש נופל בדיוק מתחת למראות	Scan the code with the phone the cradle will sit on. The link carries the template's dimensions, so the triangle lands exactly under the mirrors	用将装夹座的手机扫描代码。链接携带模板尺寸，使三角形正好落在镜片下方	उस फ़ोन से कोड स्कैन करें जिस पर क्रेडल लगेगा। लिंक टेम्पलेट के माप साथ ले जाता है, ताकि त्रिकोण ठीक दर्पणों के नीचे आए	Escanea el código con el teléfono donde irá el soporte. El enlace lleva las medidas de la plantilla, para que el triángulo caiga justo bajo los espejos	امسح الرمز بالهاتف الذي سيُركَّب عليه الحامل. يحمل الرابط أبعاد القالب، ليقع المثلث تمامًا تحت المرايا
+פתיחה כאן	Open here	在此打开	यहाँ खोलें	Abrir aquí	افتح هنا
+הסטודיו המלא בחצי מסך	The full studio in half screen	半屏完整工作室	आधी स्क्रीन में पूरा स्टूडियो	El estudio completo en media pantalla	الاستوديو الكامل في نصف الشاشة
+העתקת הקישור	Copy the link	复制链接	लिंक कॉपी करें	Copiar el enlace	نسخ الرابط
+שתי אפשרויות בטלפון	Two options on the phone	手机上的两种选择	फ़ोन पर दो विकल्प	Dos opciones en el teléfono	خياران على الهاتف
+האפליקציה הקלה	The light app	轻量应用	हल्का ऐप	La app ligera	التطبيق الخفيف
+כל הלשוניות של הסטודיו, סנכרון למוזיקה, ומופע הסלפי במצלמה הקדמית עם כמה שניות להחזיר את הטלפון לתפסנית	All the studio tabs, music sync, and the selfie show on the front camera with a few seconds to put the phone back in the cradle	所有工作室标签、音乐同步，以及前置摄像头自拍秀，并留出几秒把手机放回夹座	स्टूडियो के सभी टैब, संगीत सिंक, और सामने के कैमरे पर सेल्फ़ी शो, फ़ोन को क्रेडल में वापस रखने के लिए कुछ सेकंड के साथ	Todas las pestañas del estudio, sincronía con la música y el show de selfies con la cámara frontal, con unos segundos para volver a poner el teléfono en el soporte	كل تبويبات الاستوديو، ومزامنة الموسيقى، وعرض السيلفي بالكاميرا الأمامية مع ثوانٍ لإعادة الهاتف إلى الحامل
+מה יש באפליקציה	What's in the app	应用内容	ऐप में क्या है	Qué hay en la app	ما في التطبيق
+חצי תחתון	Bottom half	下半部分	निचला आधा	Mitad inferior	النصف السفلي
+משולש המקור מתחת למראות, כל השאר שחור	The source triangle under the mirrors, everything else black	镜片下方的源三角形，其余全黑	दर्पणों के नीचे स्रोत त्रिकोण, बाकी सब काला	El triángulo fuente bajo los espejos, todo lo demás negro	مثلث المصدر تحت المرايا، والباقي أسود
+חצי עליון	Top half	上半部分	ऊपरी आधा	Mitad superior	النصف العلوي
+תצוגה חיה של מה שהעין רואה	A live view of what the eye sees	眼睛所见的实时预览	आँख जो देखती है उसका लाइव दृश्य	Una vista en vivo de lo que ve el ojo	عرض حي لما تراه العين
+מצבים, ציור באצבע לתוך המשולש, פלטות, מהירות וגודל	modes, finger drawing into the triangle, palettes, speed and size	模式、手指绘入三角形、调色板、速度和大小	मोड, त्रिकोण में उँगली से चित्र, पैलेट, गति और आकार	modos, dibujo con el dedo en el triángulo, paletas, velocidad y tamaño	أوضاع، رسم بالإصبع داخل المثلث، لوحات ألوان، سرعة وحجم
+מיקרופון שמגיב למוזיקה, הטיית הטלפון מזיזה את התמונה, ניעור מחליף מצב, מצלמה אחורית כמקור	microphone that responds to music, tilting the phone moves the image, shaking changes mode, back camera as source	麦克风响应音乐，倾斜手机移动图像，摇晃切换模式，后摄像头作为来源	संगीत पर प्रतिक्रिया देने वाला माइक्रोफ़ोन, फ़ोन झुकाने से छवि हिलती है, हिलाने से मोड बदलता है, पीछे का कैमरा स्रोत	micrófono que responde a la música, inclinar el teléfono mueve la imagen, agitarlo cambia de modo, cámara trasera como fuente	ميكروفون يستجيب للموسيقى، إمالة الهاتف تحرّك الصورة، الهز يغيّر الوضع، الكاميرا الخلفية كمصدر
+תפריט	Menu	菜单	मेनू	Menú	القائمة
+דגם טלפון, כיול בעין דרך העינית, הפיכת צד, מסך מלא ומסך דלוק, ומעבר לסטודיו המלא	phone model, calibration by eye through the eyepiece, side flip, full screen and screen on, and a switch to the full studio	手机型号、透过目镜目视校准、翻转方向、全屏和屏幕常亮，以及切换到完整工作室	फ़ोन मॉडल, आईपीस से आँख द्वारा कैलिब्रेशन, दिशा उलटना, फ़ुल स्क्रीन और स्क्रीन चालू, और पूरे स्टूडियो पर जाना	modelo de teléfono, calibración a ojo por el ocular, voltear lado, pantalla completa y pantalla encendida, y paso al estudio completo	طراز الهاتف، معايرة بالعين عبر العدسة العينية، قلب الجهة، ملء الشاشة وإبقاؤها مضاءة، والانتقال إلى الاستوديو الكامل
+באייפון אין מסך מלא בדפדפן. כדי להסתיר את סרגל	On iPhone there's no full screen in the browser. To hide the bar	iPhone浏览器没有全屏。要隐藏工具栏	iPhone पर ब्राउज़र में फ़ुल स्क्रीन नहीं है। बार छिपाने के लिए	En iPhone no hay pantalla completa en el navegador. Para ocultar la barra	في iPhone لا يوجد ملء شاشة في المتصفح. لإخفاء شريط
+שיתוף	Share	共享	शेयर	Compartir	مشاركة
+הוספה למסך הבית	Add to Home Screen	添加到主屏幕	होम स्क्रीन में जोड़ें	Añadir a pantalla de inicio	إضافة إلى الشاشة الرئيسية
+ופותחים משם	and open from there	并从那里打开	और वहाँ से खोलें	y abre desde ahí	وافتح من هناك
+ראשי	Home	首页	मुख्य	Inicio	الرئيسية
+מחולל הקופסה	Box builder	盒子生成器	बॉक्स जनरेटर	Generador de cajas	مولّد الصندوق
+מדריך הטלפון	Phone guide	手机指南	फ़ोन गाइड	Guía del teléfono	دليل الهاتف
+מה שרואים דרך העינית	What you see through the eyepiece	透过目镜看到的	आईपीस से जो दिखता है	Lo que se ve por el ocular	ما تراه عبر العدسة العينية
+נוזל	Liquid	液体	तरल	Líquido	سائل
+בעיגול: מה שרואים בעינית	In the circle: what you see in the eyepiece	圆中：目镜中所见	वृत्त में: आईपीस में जो दिखता है	En el círculo: lo que ves en el ocular	في الدائرة: ما تراه في العدسة العينية
+מצב קודם	Previous mode	上一个模式	पिछला मोड	Modo anterior	الوضع السابق
+מצב הבא	Next mode	下一个模式	अगला मोड	Modo siguiente	الوضع التالي
+מצבים	Modes	模式	मोड	Modos	الأوضاع
+עריכה	Edit	编辑	संपादन	Editar	تحرير
+החלפה אוטומטית	Auto switch	自动切换	स्वतः बदलाव	Cambio automático	تبديل تلقائي
+כל	every	每	हर	cada	كل
+שניות, עם מעבר רך	seconds, with a soft transition	秒，柔和过渡	सेकंड, नरम बदलाव के साथ	segundos, con transición suave	ثانية، مع انتقال ناعم
+מכחול	Brush	画笔	ब्रश	Pincel	الفرشاة
+דהייה	Fade	淡出	फीका	Desvanecer	التلاشي
+ניקוי הציור	Clear drawing	清除绘画	चित्र साफ़ करें	Borrar dibujo	مسح الرسم
+מציירים באצבע בתוך המשולש. הציור נכנס למראות מיד, מעל המצב הנוכחי	Draw with your finger inside the triangle. The drawing goes into the mirrors immediately, above the current mode	在三角形内用手指绘画。绘画会立即进入镜中，叠加在当前模式之上	त्रिकोण के अंदर उँगली से चित्र बनाएँ। चित्र तुरंत दर्पणों में जाता है, वर्तमान मोड के ऊपर	Dibuja con el dedo dentro del triángulo. El dibujo entra en los espejos al instante, sobre el modo actual	ارسم بإصبعك داخل المثلث. يدخل الرسم المرايا فورًا، فوق الوضع الحالي
+התמונה פועמת עם המוזיקה בחדר	The image pulses with the music in the room	图像随房间里的音乐脉动	छवि कमरे के संगीत के साथ धड़कती है	La imagen late con la música de la sala	تنبض الصورة مع الموسيقى في الغرفة
+הטיה	Tilt	倾斜	झुकाव	Inclinación	الإمالة
+הטיית הטלפון מזיזה את הדפוס	Tilting the phone moves the pattern	倾斜手机移动图案	फ़ोन झुकाने से पैटर्न हिलता है	Inclinar el teléfono mueve el patrón	إمالة الهاتف تحرّك النقش
+ניעור קל עובר למצב הבא	A light shake goes to the next mode	轻摇切换到下一个模式	हल्का हिलाना अगले मोड पर जाता है	Una sacudida suave pasa al modo siguiente	هزة خفيفة تنقل إلى الوضع التالي
+מה שמול הטלפון נכנס למראות	What's in front of the phone goes into the mirrors	手机前方的景物进入镜中	फ़ोन के सामने जो है वह दर्पणों में जाता है	Lo que está frente al teléfono entra en los espejos	ما أمام الهاتف يدخل المرايا
+כאן נכנסת התפסנית	The cradle goes here	夹座放在这里	क्रेडल यहाँ लगता है	Aquí entra el soporte	هنا يدخل الحامل
+סגירה	Close	关闭	बंद करें	Cerrar	إغلاق
+מצב כיול	Calibration mode	校准模式	कैलिब्रेशन मोड	Modo calibración	وضع المعايرة
+קו לבן סביב המשולש. מסתכלים בעינית ומזיזים עד שהקווים נעלמים בתפרים	A white line around the triangle. Look through the eyepiece and nudge until the lines vanish into the seams	三角形周围有白线。透过目镜观察并微调，直到线条消失在接缝中	त्रिकोण के चारों ओर सफ़ेद रेखा। आईपीस से देखें और तब तक खिसकाएँ जब तक रेखाएँ जोड़ों में गायब न हो जाएँ	Una línea blanca alrededor del triángulo. Mira por el ocular y ajusta hasta que las líneas desaparezcan en las juntas	خط أبيض حول المثلث. انظر عبر العدسة العينية وحرّك حتى تختفي الخطوط في الفواصل
+למטה	Down	向下	नीचे	Abajo	للأسفل
+ימינה	Right	向右	दाएँ	Derecha	يمينًا
+שמאלה	Left	向左	बाएँ	Izquierda	يسارًا
+קנה מידה	Scale	缩放比例	पैमाना	Escala	المقياس
+גודל משולש	Triangle size	三角形大小	त्रिकोण आकार	Tamaño del triángulo	حجم المثلث
+תפסנית למעלה	Cradle on top	夹座在上方	क्रेडल ऊपर	Soporte arriba	الحامل في الأعلى
+כשהתפסנית יושבת על הקצה העליון של הטלפון	When the cradle sits on the top edge of the phone	当夹座装在手机上端时	जब क्रेडल फ़ोन के ऊपरी किनारे पर हो	Cuando el soporte está en el borde superior del teléfono	عندما يكون الحامل على الحافة العلوية للهاتف
+מסך דלוק	Screen on	屏幕常亮	स्क्रीन चालू	Pantalla encendida	الشاشة مضاءة
+הטלפון לא נכבה באמצע	The phone doesn't turn off midway	手机不会中途熄屏	फ़ोन बीच में बंद नहीं होता	El teléfono no se apaga a mitad	لا ينطفئ الهاتف في المنتصف
+איפוס כיול	Reset calibration	重置校准	कैलिब्रेशन रीसेट करें	Restablecer calibración	إعادة ضبط المعايرة
+חזרה לתבנית ולאתר	Back to the template and the site	返回模板和网站	टेम्पलेट और साइट पर वापस	Volver a la plantilla y al sitio	العودة إلى القالب والموقع
+מידות אחרות	Other dimensions	其他尺寸	अन्य माप	Otras medidas	أبعاد أخرى
+מזינים ידנית	enter manually	手动输入	हाथ से दर्ज करें	introducir a mano	إدخال يدوي
+התפסנית מגיעה לגובה הכפתור הנמוך. מקצרים את	The cradle reaches the height of the lowest button. Shorten the	夹座达到最低按键的高度。缩短	क्रेडल सबसे निचले बटन की ऊँचाई तक पहुँचता है। छोटा करें	El soporte llega a la altura del botón más bajo. Acorta el	يصل الحامل إلى ارتفاع أدنى زر. قصّر
+או מודדים שוב את הכפתור	or measure the button again	或重新测量按键	या बटन फिर से मापें	o vuelve a medir el botón	أو قِس الزر مجددًا
+המשולש קטן מ	The triangle is smaller than	三角形小于	त्रिकोण इससे छोटा है	El triángulo mide menos de	المثلث أصغر من
+מ״מ. הדפוס יעבוד, אבל נראה צפוף. שקלו טלפון גדול יותר או תפסנית ארוכה יותר	mm. The pattern will work, but look crowded. Consider a bigger phone or a longer cradle	毫米。图案可用，但会显得拥挤。可考虑更大的手机或更长的夹座	मिमी। पैटर्न काम करेगा, पर भीड़भाड़ वाला दिखेगा। बड़ा फ़ोन या लंबा क्रेडल सोचें	mm. El patrón funcionará, pero se verá apretado. Considera un teléfono más grande o un soporte más largo	مم. سيعمل النقش لكنه سيبدو مزدحمًا. فكّر في هاتف أكبر أو حامل أطول
+הצלע גדולה מהשטח שמתחת לתפסנית	The side is larger than the area under the cradle	边长大于夹座下方的区域	भुजा क्रेडल के नीचे के क्षेत्र से बड़ी है	El lado es mayor que el área bajo el soporte	الضلع أكبر من المساحة تحت الحامل
+חלק מהמשולש ייפול מחוץ למסך או מתחת לשפה	part of the triangle will fall outside the screen or under the rim	三角形的一部分会落在屏幕外或边缘下	त्रिकोण का कुछ हिस्सा स्क्रीन से बाहर या किनारे के नीचे जाएगा	parte del triángulo quedará fuera de la pantalla o bajo el borde	سيقع جزء من المثلث خارج الشاشة أو تحت الحافة
+צינור קצר מ	Tube shorter than	镜筒短于	ट्यूब इससे छोटी	Tubo más corto de	أنبوب أقصر من
+מ״מ: לרוב העיניים קשה למקד כל כך קרוב. הגדילו את היחס אורך : צלע	mm: most eyes find it hard to focus that close. Increase the length : side ratio	毫米：多数眼睛难以在这么近对焦。请增大长度 : 边长比例	मिमी: ज़्यादातर आँखों को इतने पास फ़ोकस करना मुश्किल होता है। लंबाई : भुजा अनुपात बढ़ाएँ	mm: a la mayoría de los ojos les cuesta enfocar tan cerca. Aumenta la proporción longitud : lado	مم: يصعب على معظم العيون التركيز بهذا القرب. زِد نسبة الطول : الضلع
+צינור ארוך מאוד ביחס לצלע: יותר החזרות, התמונה כהה יותר בשוליים	Tube very long relative to the side: more reflections, the image is darker at the edges	镜筒相对边长很长：反射更多，边缘图像更暗	भुजा के मुकाबले बहुत लंबी ट्यूब: अधिक परावर्तन, किनारों पर छवि गहरी	Tubo muy largo respecto al lado: más reflejos, la imagen es más oscura en los bordes	أنبوب طويل جدًا نسبةً إلى الضلع: انعكاسات أكثر، والصورة أغمق عند الأطراف
+הצווארון בולט	The collar sticks out	套环突出	कॉलर बाहर निकलता है	El collar sobresale	الطوق يبرز
+מ״מ מעבר לתפסנית, מעל המסך ולא נוגע בו. האפליקציה מתחשבת בזה	mm beyond the cradle, above the screen and not touching it. The app accounts for this	毫米超出夹座，位于屏幕上方且不接触屏幕。应用已考虑这一点	मिमी क्रेडल से आगे, स्क्रीन के ऊपर और उसे छुए बिना। ऐप इसका ध्यान रखता है	mm más allá del soporte, sobre la pantalla sin tocarla. La app lo tiene en cuenta	مم خارج الحامل، فوق الشاشة دون ملامستها. يأخذ التطبيق ذلك بالحسبان
+מידות המסך גדולות ממידות הטלפון. בדקו את השדות	The screen dimensions are bigger than the phone's. Check the fields	屏幕尺寸大于手机尺寸。请检查字段	स्क्रीन के माप फ़ोन से बड़े हैं। फ़ील्ड जाँचें	Las medidas de pantalla son mayores que las del teléfono. Revisa los campos	أبعاد الشاشة أكبر من أبعاد الهاتف. تحقّق من الحقول
+לוח קדמי	Front board	前板	सामने का बोर्ड	Tablero frontal	اللوح الأمامي
+עם חלון	with window	带窗口	खिड़की के साथ	con ventana	مع نافذة
+לוח אחורי	Back board	后板	पीछे का बोर्ड	Tablero trasero	اللوح الخلفي
+דופן צד	Side wall	侧板	साइड दीवार	Pared lateral	الجدار الجانبي
+דופן תחתונה	Bottom wall	底板	निचली दीवार	Pared inferior	الجدار السفلي
+חלון לשקע	Port window	接口窗口	पोर्ट खिड़की	Ventana del puerto	نافذة المنفذ
+צווארון למראות	Mirror collar	镜片套环	दर्पण कॉलर	Collar de espejos	طوق المرايا
+עינית	Eyepiece	目镜	आईपीस	Ocular	العدسة العينية
+אטם קדמי	Front gasket	前垫圈	सामने का गैस्केट	Junta frontal	الحشوة الأمامية
+ריפוד אחורי	Back padding	后衬垫	पीछे की गद्दी	Acolchado trasero	البطانة الخلفية
+ריפוד צד	Side padding	侧衬垫	साइड गद्दी	Acolchado lateral	البطانة الجانبية
+ריפוד תחתון	Bottom padding	底衬垫	निचली गद्दी	Acolchado inferior	البطانة السفلية
+שרוול לצינור	Tube sleeve	镜筒套	ट्यूब आस्तीन	Funda del tubo	غلاف الأنبوب
+מראה חזיתית	Front-surface mirror	前表面镜	फ्रंट-सरफ़ेस दर्पण	Espejo de primera superficie	مرآة سطحية أمامية
+לוח	Board	板	बोर्ड	Tablero	لوح
+קרטון / נייר	Cardboard / paper	卡纸/纸	कार्डबोर्ड / कागज़	Cartón / papel	كرتون / ورق
+בדקו בסרגל לפני החיתוך	Check with a ruler before cutting	切割前用尺子核对	काटने से पहले रूलर से जाँचें	Comprueba con una regla antes de cortar	تحقق بالمسطرة قبل القص
+אורורה	Aurora	极光	ऑरोरा	Aurora	الشفق
+שקיעה	Sunset	日落	सूर्यास्त	Atardecer	غروب
+אוקיינוס	Ocean	海洋	महासागर	Océano	المحيط
+לילך	Lilac	丁香	लाइलैक	Lila	ليلكي
+מונו	Mono	单色	मोनो	Mono	أحادي
+גלים	Waves	波浪	लहरें	Olas	أمواج
+זכוכית	Glass	玻璃	काँच	Vidrio	زجاج
+אורך הצינור	Tube length	镜筒长度	ट्यूब लंबाई	Longitud del tubo	طول الأنبوب
+מסתירה מהמסך	hides from the screen	遮住屏幕	स्क्रीन से छिपाता है	oculta de la pantalla	يحجب من الشاشة
+גובה כולל	Total height	总高度	कुल ऊँचाई	Altura total	الارتفاع الكلي
+הכול מסתדר: הכפתורים חופשיים, המשולש בתוך המסך, והצינור באורך נוח למיקוד	Everything fits: the buttons are free, the triangle is inside the screen, and the tube is a comfortable length for focusing	一切就绪：按键空出，三角形在屏幕内，镜筒长度便于对焦	सब ठीक है: बटन खाली हैं, त्रिकोण स्क्रीन के अंदर है, और ट्यूब फ़ोकस के लिए आरामदायक लंबाई की है	Todo encaja: los botones quedan libres, el triángulo está dentro de la pantalla y el tubo tiene una longitud cómoda para enfocar	كل شيء مناسب: الأزرار حرّة، والمثلث داخل الشاشة، والأنبوب بطول مريح للتركيز
+מידות	Dimensions	尺寸	माप	Medidas	الأبعاد
+סרט הדבקה שחור	Black tape	黑胶带	काला टेप	Cinta negra	شريط لاصق أسود
+בד או נייר	Fabric or paper	布或纸	कपड़ा या कागज़	Tela o papel	قماش أو ورق
+מדפיסים או חותכים	Print or cut	打印或切割	प्रिंट करें या काटें	Imprime o corta	اطبع أو اقطع
+בהדפסה בוחרים	When printing choose	打印时选择	प्रिंट करते समय चुनें	Al imprimir elige	عند الطباعة اختر
+גודל אמיתי	Actual size	实际尺寸	वास्तविक आकार	Tamaño real	الحجم الحقيقي
+ובודקים את קו ה	and check the line of	并检查以下线	और रेखा जाँचें	y comprueba la línea de	وتحقق من خط
+מ״מ בסרגל. בלייזר: אדום חיתוך, כחול חריטה קלה, ירוק לא לחתוך	mm with a ruler. On the laser: red cut, blue light engrave, green don't cut	毫米（用尺子）。激光：红色切割，蓝色轻雕，绿色不切	मिमी रूलर से। लेज़र पर: लाल काटना, नीला हल्की नक्काशी, हरा न काटें	mm con una regla. En el láser: rojo corte, azul grabado suave, verde no cortar	مم بالمسطرة. في الليزر: الأحمر قص، الأزرق حفر خفيف، الأخضر لا يُقص
+מרכיבים את התפסנית	Assemble the cradle	组装夹座	क्रेडल जोड़ें	Monta el soporte	ركّب الحامل
+שתי דפנות הצד והדופן התחתונה נכנסות בשיניים ללוח האחורי, ואז הלוח הקדמי מלמעלה. דבק עץ או דבק מגע בשוליים בלבד	The two side walls and the bottom wall slot with teeth into the back board, then the front board goes on top. Wood glue or contact glue on the edges only	两块侧板和底板用齿插入后板，然后装上前板。仅在边缘使用木胶或接触胶	दोनों साइड दीवारें और निचली दीवार दाँतों से पीछे के बोर्ड में जाती हैं, फिर सामने का बोर्ड ऊपर। केवल किनारों पर लकड़ी का गोंद या कॉन्टैक्ट गोंद	Las dos paredes laterales y la inferior encajan con dientes en el tablero trasero, luego el frontal encima. Cola de madera o de contacto solo en los bordes	يدخل الجداران الجانبيان والجدار السفلي بالأسنان في اللوح الخلفي، ثم اللوح الأمامي من الأعلى. غراء خشب أو غراء تلامس على الحواف فقط
+מרפדים	Pad it	加衬垫	गद्दी लगाएँ	Acolcha	بطّن
+מדביקים את הקצף על הדפנות, על הלוח האחורי ועל צד הפנים של הלוח הקדמי. החלון באטם הקדמי חייב להתיישר עם החלון בלוח	Stick the foam on the walls, on the back board and on the inner side of the front board. The window in the front gasket must line up with the window in the board	将泡棉贴在侧板、后板和前板内侧。前垫圈上的窗口必须与板上的窗口对齐	फोम को दीवारों, पीछे के बोर्ड और सामने के बोर्ड के अंदरूनी हिस्से पर चिपकाएँ। सामने के गैस्केट की खिड़की बोर्ड की खिड़की से मिलनी चाहिए	Pega la espuma en las paredes, en el tablero trasero y en la cara interior del frontal. La ventana de la junta frontal debe alinearse con la del tablero	ألصق الإسفنج على الجدران وعلى اللوح الخلفي وعلى الجهة الداخلية للوح الأمامي. يجب أن تتطابق نافذة الحشوة الأمامية مع نافذة اللوح
+מנסים את הטלפון בלי מראות	Try the phone without mirrors	先不装镜片试装手机	बिना दर्पण के फ़ोन आज़माएँ	Prueba el teléfono sin espejos	جرّب الهاتف بلا مرايا
+הטלפון צריך להיכנס בדחיפה עדינה ולא ליפול כשהופכים. רפוי: עוד שכבת קצף דקה מאחור. צפוף: משייפים את הקצף, לא את הטלפון	The phone should go in with a gentle push and not fall out when flipped. Loose: another thin layer of foam at the back. Tight: sand the foam, not the phone	手机应轻推即可装入，翻转时不掉落。太松：后面再加一层薄泡棉。太紧：打磨泡棉，而不是手机	फ़ोन हल्के धक्के से अंदर जाना चाहिए और उलटने पर गिरना नहीं चाहिए। ढीला: पीछे फोम की एक और पतली परत। तंग: फोम घिसें, फ़ोन नहीं	El teléfono debe entrar con un empujón suave y no caerse al darle la vuelta. Flojo: otra capa fina de espuma detrás. Apretado: lija la espuma, no el teléfono	يجب أن يدخل الهاتف بدفعة لطيفة ولا يسقط عند القلب. إن كان رخوًا: طبقة إسفنج رقيقة أخرى في الخلف. إن كان ضيقًا: اصنفر الإسفنج لا الهاتف
+מקפלים את המראות	Fold the mirrors	折叠镜片	दर्पण मोड़ें	Pliega los espejos	اطوِ المرايا
+שלוש המראות צד אל צד, הצד המחזיר כלפי מטה, סרט לאורך שני התפרים מבחוץ, ומקפלים למשולש. הניילון יורד רק עכשיו	The three mirrors side by side, reflective side down, tape along the two seams on the outside, and fold into a triangle. The film comes off only now	三面镜片并排，反射面朝下，在外侧沿两条接缝贴胶带，折成三角形。现在才撕掉保护膜	तीनों दर्पण साथ-साथ, परावर्तक ओर नीचे, बाहर दोनों जोड़ों पर टेप, और त्रिकोण में मोड़ें। फ़िल्म अब ही हटाएँ	Los tres espejos uno junto a otro, cara reflectante abajo, cinta por fuera en las dos juntas, y pliega en triángulo. El film se quita solo ahora	المرايا الثلاث جنبًا إلى جنب، الوجه العاكس للأسفل، شريط على الفاصلين من الخارج، واطوها مثلثًا. يُزال الغشاء الآن فقط
+עוטפים בשרוול	Wrap in the sleeve	套上套筒	आस्तीन में लपेटें	Envuelve con la funda	غلّف بالغلاف
+השרוול מתקפל על הקווים הכחולים ונסגר בלשונית. הוא מגן על קצוות הזכוכית ומחשיך את הצינור	The sleeve folds on the blue lines and closes with a tab. It protects the glass edges and darkens the tube	套筒沿蓝线折叠并用舌片封口。它保护玻璃边缘并使镜筒变暗	आस्तीन नीली रेखाओं पर मुड़ती है और टैब से बंद होती है। यह काँच के किनारों की रक्षा करती है और ट्यूब को अंधेरा करती है	La funda se pliega por las líneas azules y se cierra con una pestaña. Protege los bordes del vidrio y oscurece el tubo	ينطوي الغلاف على الخطوط الزرقاء ويُغلق بلسان. يحمي حواف الزجاج ويُعتم الأنبوب
+מחברים את הצינור	Attach the tube	安装镜筒	ट्यूब जोड़ें	Coloca el tubo	ثبّت الأنبوب
+מדביקים שני צווארונים זה על זה מעל החלון. מחליקים את הצינור דרך הצווארונים עד שהוא נח על הקצף, לא על הזכוכית	Glue two collars on top of each other over the window. Slide the tube through the collars until it rests on the foam, not on the glass	在窗口上方将两个套环叠粘。把镜筒滑过套环，直到搁在泡棉上，而不是玻璃上	खिड़की के ऊपर दो कॉलर एक के ऊपर एक चिपकाएँ। ट्यूब को कॉलरों से सरकाएँ जब तक वह फोम पर टिके, काँच पर नहीं	Pega dos collares uno sobre otro encima de la ventana. Desliza el tubo por los collares hasta que apoye en la espuma, no en el vidrio	ألصق طوقين فوق بعضهما فوق النافذة. أدخل الأنبوب عبر الطوقين حتى يستند على الإسفنج لا على الزجاج
+סוגרים בעינית	Close with the eyepiece	装上目镜	आईपीस से बंद करें	Cierra con el ocular	أغلق بالعدسة العينية
+הצווארון השלישי והעינית מודבקים יחד ונלבשים על הקצה העליון של הצינור	The third collar and the eyepiece are glued together and slipped onto the top end of the tube	第三个套环与目镜粘在一起，套在镜筒上端	तीसरा कॉलर और आईपीस साथ चिपकाकर ट्यूब के ऊपरी सिरे पर पहनाए जाते हैं	El tercer collar y el ocular se pegan juntos y se encajan en el extremo superior del tubo	يُلصق الطوق الثالث والعدسة العينية معًا ويُركَّبان على الطرف العلوي للأنبوب
+מכיילים	Calibrate	校准	कैलिब्रेट करें	Calibra	عايِر
+פותחים את האפליקציה בטלפון, מחליקים אותו לתפסנית, ובתפריט	Open the app on the phone, slide it into the cradle, and in the menu	在手机上打开应用，将手机滑入夹座，在菜单中	फ़ोन पर ऐप खोलें, उसे क्रेडल में सरकाएँ, और मेनू में	Abre la app en el teléfono, deslízalo en el soporte y en el menú	افتح التطبيق على الهاتف، أدخله في الحامل، وفي القائمة
+מצב כיול מזיזים עד שהקו הלבן נעלם בתפרים	calibration mode nudge until the white line vanishes into the seams	校准模式下微调，直到白线消失在接缝中	कैलिब्रेशन मोड में खिसकाएँ जब तक सफ़ेद रेखा जोड़ों में गायब न हो जाए	en modo calibración ajusta hasta que la línea blanca desaparezca en las juntas	في وضع المعايرة حرّك حتى يختفي الخط الأبيض في الفواصل
+לא הצלחתי ליצור קוד	Couldn't create a code	无法生成代码	कोड नहीं बन सका	No se pudo crear un código	تعذّر إنشاء رمز
+העתיקו את הקישור	Copy the link	请复制链接	लिंक कॉपी करें	Copia el enlace	انسخ الرابط
+לא הצלחתי לטעון את קוד ה	Couldn't load the code	无法加载代码	कोड लोड नहीं हो सका	No se pudo cargar el código	تعذّر تحميل رمز
+הקישור	The link	链接	लिंक	El enlace	الرابط
+לא הצלחתי לטעון את	Couldn't load	无法加载	लोड नहीं हो सका	No se pudo cargar	تعذّر تحميل
+מחליקים את הטלפון לתפסנית. הכיול נמצא בתפריט	Slide the phone into the cradle. Calibration is in the menu	将手机滑入夹座。校准在菜单中	फ़ोन को क्रेडल में सरकाएँ। कैलिब्रेशन मेनू में है	Desliza el teléfono en el soporte. La calibración está en el menú	أدخل الهاتف في الحامل. المعايرة في القائمة
+הדפדפן הזה לא תומך ב	This browser doesn't support	此浏览器不支持	यह ब्राउज़र समर्थन नहीं करता	Este navegador no admite	هذا المتصفح لا يدعم
+הזזה	Move	移动	हिलाना	Mover	تحريك
+נבחר	Selected	已选择	चयनित	Seleccionado	المحدد
+התבנית צריכה להיות מאותו דגם	The template must be for the same model	模板必须是同一型号	टेम्पलेट उसी मॉडल का होना चाहिए	La plantilla debe ser del mismo modelo	يجب أن يكون القالب للطراز نفسه
+מסך מלא לא זמין כאן. באייפון: הוספה למסך הבית	Full screen isn't available here. On iPhone: Add to Home Screen	此处无法全屏。iPhone上：添加到主屏幕	यहाँ फ़ुल स्क्रीन उपलब्ध नहीं। iPhone पर: होम स्क्रीन में जोड़ें	La pantalla completa no está disponible aquí. En iPhone: Añadir a pantalla de inicio	ملء الشاشة غير متاح هنا. في iPhone: إضافة إلى الشاشة الرئيسية
+מסך מלא לא זמין כאן. באייפון: שיתוף	Full screen isn't available here. On iPhone: Share	此处无法全屏。iPhone上：共享	यहाँ फ़ुल स्क्रीन उपलब्ध नहीं। iPhone पर: शेयर	La pantalla completa no está disponible aquí. En iPhone: Compartir	ملء الشاشة غير متاح هنا. في iPhone: مشاركة
+המכשיר לא מאפשר להשאיר את המסך דלוק מכאן	The device doesn't allow keeping the screen on from here	设备不允许从此处保持屏幕常亮	डिवाइस यहाँ से स्क्रीन चालू रखने की अनुमति नहीं देता	El dispositivo no permite mantener la pantalla encendida desde aquí	لا يسمح الجهاز بإبقاء الشاشة مضاءة من هنا
+המכשיר לא תומך בזה. כבו נעילה אוטומטית בהגדרות	The device doesn't support this. Turn off auto-lock in settings	设备不支持此功能。请在设置中关闭自动锁定	डिवाइस इसका समर्थन नहीं करता। सेटिंग्स में ऑटो-लॉक बंद करें	El dispositivo no lo admite. Desactiva el bloqueo automático en ajustes	الجهاز لا يدعم ذلك. أوقف القفل التلقائي في الإعدادات
+אין גישה למיקרופון כאן	No microphone access here	此处无法访问麦克风	यहाँ माइक्रोफ़ोन की पहुँच नहीं	Sin acceso al micrófono aquí	لا وصول إلى الميكروفون هنا
+המיקרופון מקשיב	Microphone is listening	麦克风正在聆听	माइक्रोफ़ोन सुन रहा है	El micrófono escucha	الميكروفون يستمع
+אין הרשאה למיקרופון	No microphone permission	没有麦克风权限	माइक्रोफ़ोन की अनुमति नहीं	Sin permiso de micrófono	لا إذن للميكروفون
+אין גישה למצלמה כאן	No camera access here	此处无法访问摄像头	यहाँ कैमरा की पहुँच नहीं	Sin acceso a la cámara aquí	لا وصول إلى الكاميرا هنا
+אין הרשאה למצלמה	No camera permission	没有摄像头权限	कैमरा की अनुमति नहीं	Sin permiso de cámara	لا إذن للكاميرا
+אין הרשאה לחיישן התנועה	No motion sensor permission	没有运动传感器权限	गति सेंसर की अनुमति नहीं	Sin permiso del sensor de movimiento	لا إذن لمستشعر الحركة
+לחצו שוב על המתג כדי לאשר את החיישן	Tap the switch again to allow the sensor	再次点击开关以允许传感器	सेंसर की अनुमति के लिए स्विच फिर दबाएँ	Pulsa el interruptor otra vez para permitir el sensor	انقر المفتاح مجددًا للسماح بالمستشعر
+סלפי	Selfie	自拍	सेल्फ़ी	Selfie	سيلفي
+סוג מופע	Show type	演出类型	शो प्रकार	Tipo de show	نوع العرض
+סלפי ואפקטים	Selfie and effects	自拍与效果	सेल्फ़ी और प्रभाव	Selfie y efectos	سيلفي وتأثيرات
+דקה	Minute	一分钟	मिनट	Minuto	دقيقة
+זמן להחזרת הטלפון	Time to put the phone back	放回手机的时间	फ़ोन वापस रखने का समय	Tiempo para volver a poner el teléfono	وقت إعادة الهاتف
+כיול	Calibration	校准	कैलिब्रेशन	Calibración	المعايرة
+חזרה לאפליקציה הפשוטה	Back to the simple app	返回简易应用	सरल ऐप पर वापस	Volver a la app sencilla	العودة إلى التطبيق البسيط
+תפסנית על הקצה העליון של הטלפון	Cradle on the top edge of the phone	夹座在手机上端	फ़ोन के ऊपरी किनारे पर क्रेडल	Soporte en el borde superior del teléfono	الحامل على الحافة العلوية للهاتف
+באייפון: שיתוף	On iPhone: Share	iPhone上：共享	iPhone पर: शेयर	En iPhone: Compartir	في iPhone: مشاركة
+ביטול	Cancel	取消	रद्द करें	Cancelar	إلغاء
+פותח את המצלמה הקדמית	Opening the front camera	正在打开前置摄像头	सामने का कैमरा खुल रहा है	Abriendo la cámara frontal	جارٍ فتح الكاميرا الأمامية
+אין גישה למצלמה. צריך לאשר אותה בדפדפן	No camera access. You need to allow it in the browser	无法访问摄像头。需要在浏览器中允许	कैमरा की पहुँच नहीं। ब्राउज़र में अनुमति देनी होगी	Sin acceso a la cámara. Hay que permitirla en el navegador	لا وصول إلى الكاميرا. يجب السماح بها في المتصفح
+ובכתובת	and at an address	并在以下地址	और इस पते पर	y en una dirección	وفي عنوان
+מחייכים למצלמה	Smile at the camera	对着镜头微笑	कैमरे की ओर मुस्कुराएँ	Sonríe a la cámara	ابتسم للكاميرا
+התחלה עכשיו	Start now	立即开始	अभी शुरू करें	Empezar ahora	ابدأ الآن
+מחזירים את הטלפון לתפסנית ומסתכלים בעינית	Put the phone back in the cradle and look through the eyepiece	把手机放回夹座，透过目镜观看	फ़ोन को क्रेडल में वापस रखें और आईपीस से देखें	Vuelve a poner el teléfono en el soporte y mira por el ocular	أعد الهاتف إلى الحامل وانظر عبر العدسة العينية
+המופע לא זמין בדפדפן הזה	The show isn't available in this browser	此浏览器无法使用该演出	यह शो इस ब्राउज़र में उपलब्ध नहीं	El show no está disponible en este navegador	العرض غير متاح في هذا المتصفح
+מצב טלפון	Phone mode	手机模式	फ़ोन मोड	Modo teléfono	وضع الهاتف
+מ״מ. הכיול בכפתור	mm. Calibration via the button	毫米。通过按钮校准	मिमी। बटन से कैलिब्रेशन	mm. Calibración con el botón	مم. المعايرة عبر الزر
+פתיחת הסטודיו המלא בחצי המסך	Open the full studio in half screen	在半屏中打开完整工作室	आधी स्क्रीन में पूरा स्टूडियो खोलें	Abrir el estudio completo en media pantalla	فتح الاستوديو الكامل في نصف الشاشة
+מקור ומצלמה	Source and camera	来源与摄像头	स्रोत और कैमरा	Fuente y cámara	المصدر والكاميرا
+כל כלי העריכה של הסטודיו, מסודרים לחצי המסך שמחוץ לתפסנית. המשולש נשאר באותו מקום מתחת למראות, והכיול של הטלפון נשמר. בסטודיו	All the studio's editing tools, arranged for the half of the screen outside the cradle. The triangle stays in the same place under the mirrors, and the phone's calibration is kept. In the studio	工作室的所有编辑工具，为夹座外的半屏重新排列。三角形保持在镜片下的同一位置，手机校准保留。在工作室中	स्टूडियो के सभी संपादन टूल, क्रेडल के बाहर की आधी स्क्रीन के लिए व्यवस्थित। त्रिकोण दर्पणों के नीचे उसी जगह रहता है, और फ़ोन का कैलिब्रेशन बना रहता है। स्टूडियो में	Todas las herramientas de edición del estudio, ordenadas para la media pantalla fuera del soporte. El triángulo se queda en el mismo sitio bajo los espejos y se conserva la calibración del teléfono. En el estudio	كل أدوات تحرير الاستوديو، مرتّبة لنصف الشاشة خارج الحامل. يبقى المثلث في المكان نفسه تحت المرايا، وتُحفظ معايرة الهاتف. في الاستوديو
+פותח עריכה על כל המסך עם תצוגה של מה שרואים בעינית	opens full-screen editing with a preview of what you see in the eyepiece	打开全屏编辑，并预览目镜中所见	पूरी स्क्रीन पर संपादन खोलता है, आईपीस में दिखने वाले का पूर्वावलोकन सहित	abre la edición a pantalla completa con una vista previa de lo que ves en el ocular	يفتح التحرير بملء الشاشة مع معاينة لما تراه في العدسة العينية
+אפקטים	Effects	效果	प्रभाव	Efectos	التأثيرات
+עריכה במסך מלא, עם תצוגה של מה שרואים בעינית	Full-screen editing, with a preview of what you see in the eyepiece	全屏编辑，预览目镜中所见	पूरी स्क्रीन पर संपादन, आईपीस में दिखने वाले के पूर्वावलोकन के साथ	Edición a pantalla completa, con vista previa de lo que ves en el ocular	تحرير بملء الشاشة، مع معاينة لما تراه في العدسة العينية
+בטלפון המראות אמיתיות	On the phone the mirrors are real	手机上的镜片是真实的	फ़ोन पर दर्पण असली हैं	En el teléfono los espejos son reales	في الهاتف المرايا حقيقية
+בתפסנית	in the cradle	在夹座中	क्रेडल में	en el soporte	في الحامل
+המסך מציג רק את התא שבתוך המנסרה. כדי לראות כאן את הקליידוסקופ המלא לוחצים	The screen shows only the cell inside the prism. To see the full kaleidoscope here, tap	屏幕只显示棱镜内的单元。要在此查看完整万花筒，请点击	स्क्रीन केवल प्रिज़्म के अंदर का कक्ष दिखाती है। यहाँ पूरा कैलिडोस्कोप देखने के लिए दबाएँ	La pantalla muestra solo la celda dentro del prisma. Para ver aquí el caleidoscopio completo, pulsa	تعرض الشاشة الخلية داخل المنشور فقط. لرؤية المشكال الكامل هنا، انقر
+מראה א	Mirror A	镜片 A	दर्पण A	Espejo A	مرآة A
+מראה ב	Mirror B	镜片 B	दर्पण B	Espejo B	مرآة B
+מראה ג	Mirror C	镜片 C	दर्पण C	Espejo C	مرآة C
+מראה ד	Mirror D	镜片 D	दर्पण D	Espejo D	مرآة D
+מראה ה	Mirror E	镜片 E	दर्पण E	Espejo E	مرآة E
+מראה ו	Mirror F	镜片 F	दर्पण F	Espejo F	مرآة F
+מראה ז	Mirror G	镜片 G	दर्पण G	Espejo G	مرآة G
+מראה ח	Mirror H	镜片 H	दर्पण H	Espejo H	مرآة H

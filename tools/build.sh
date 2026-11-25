@@ -3,7 +3,7 @@
 set -e
 cd "$(dirname "$0")/.."
 python3 - <<'PY'
-head = '<!doctype html><html lang="he" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#07090d"><link rel="stylesheet" href="fonts/fonts.css"></head><body>\n'
+head = '<!doctype html><html lang="he" dir="rtl"><head><meta charset="utf-8"><script src="assets/i18n.js"></script><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#07090d"><link rel="stylesheet" href="fonts/fonts.css"></head><body>\n'
 s = open('src/builder.src.html', encoding='utf-8').read()
 three = open('src/three.min.js', encoding='utf-8').read()
 tag = '<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>'
