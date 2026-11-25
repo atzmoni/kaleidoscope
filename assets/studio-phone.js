@@ -36,6 +36,9 @@
   };
   BOX = null;
   P.mode = "screen"; calib = false;
+  // ?tab=layers opens the studio on that tab (the phone app's studio pane links straight to a tool)
+  const askTab = qs.get("tab") || (location.hash.match(/ktab=([a-z]+)/) || [])[1];
+  if (askTab && TABS.some(t => t[0] === askTab)) tab = askTab;
 
   // ---------- layout ----------
   const css = document.createElement("style");
@@ -46,8 +49,8 @@
   body.phonekit.flip #panel{order:1;border-bottom:0;border-top:1px solid var(--line)}
   body.phonekit #hud,body.phonekit #stageBtns,body.phonekit #panel .brand{display:none!important}
   body.phonekit #toast{position:fixed;top:calc(8px + env(safe-area-inset-top,0px));bottom:auto;z-index:60}
-  #phBar{display:flex;flex-wrap:nowrap;gap:5px;align-items:center;padding:6px 8px;padding-top:calc(6px + env(safe-area-inset-top,0px));overflow-x:auto;border-bottom:1px solid var(--line);background:var(--panel)}
-  #phBar button,#phBar select{white-space:nowrap;width:auto;min-width:0;font:inherit;font-size:13px;border-radius:9px;padding:6px 8px;border:1px solid var(--line);background:var(--well,#0b0e14);color:var(--fg)}
+  #phBar{display:flex;flex-wrap:nowrap;gap:4px;align-items:center;padding:5px 6px;padding-top:calc(5px + env(safe-area-inset-top,0px));scrollbar-width:none;overflow-x:auto;border-bottom:1px solid var(--line);background:var(--panel)}
+  #phBar button,#phBar select{white-space:nowrap;width:auto;min-width:0;font:inherit;font-size:12.5px;border-radius:9px;padding:6px 7px;border:1px solid var(--line);background:var(--well,#0b0e14);color:var(--fg)}
   #phBar button.primary{background:var(--accent,#7cf2dc);color:#032620;border-color:transparent;font-weight:700}
   #phBar .sp{flex:1}
   #phCal{display:none;grid-template-columns:repeat(4,1fr);gap:6px;padding:6px 10px 8px;border-bottom:1px solid var(--line);background:var(--panel)}
@@ -55,6 +58,29 @@
   #phCal button{font:inherit;font-size:13px;border-radius:9px;padding:7px 0;border:1px solid var(--line);background:var(--well,#0b0e14);color:var(--fg)}
   #phCal label{grid-column:1/-1;display:flex;gap:8px;align-items:center;font-size:12.5px;color:var(--muted,#9aa5b6)}
   #phCal label input{flex:1}
+  /* the whole desk, packed for the half of the screen that stays outside the cradle */
+  body.phonekit #panelHead{display:none!important}
+  body.phonekit #panel{min-height:0;overflow:hidden}
+  body.phonekit #tabs{flex:none;gap:0;padding:2px 4px 0;background:var(--panel);scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
+  body.phonekit #tabs::-webkit-scrollbar{display:none}
+  body.phonekit #tabs button{flex:none;display:flex;flex-direction:column;align-items:center;gap:1px;min-width:54px;padding:5px 7px 6px;font-size:10.5px;font-weight:600;line-height:1.15;scroll-snap-align:center}
+  body.phonekit #tabs button svg{width:19px;height:19px}
+  body.phonekit #tabs button[aria-selected="true"]{color:var(--accent)}
+  body.phonekit #tabbody{flex:1;min-height:0;padding:8px 8px calc(16px + env(safe-area-inset-bottom,0px));gap:7px;overscroll-behavior:contain}
+  body.phonekit section.grp.card{border-radius:10px;padding:0 10px 10px;gap:8px}
+  body.phonekit section.grp.card > h3{margin:0 -10px}
+  body.phonekit button.fold{padding:10px 10px 4px;font-size:11.5px}
+  body.phonekit section.grp.fold > button.fold,body.phonekit section.grp.fold > h3 > button.fold{padding-bottom:10px}
+  body.phonekit .ctl{grid-template-columns:88px minmax(0,1fr) 38px;gap:6px}
+  body.phonekit .ctl label{font-size:12.5px;line-height:1.2}
+  body.phonekit input[type=range]{height:30px;touch-action:pan-y}
+  body.phonekit .chips button{padding:8px 8px}
+  body.phonekit .note{font-size:12px}
+  body.phonekit .phHide{display:none!important}
+  .phNote{margin:0;font-size:12.5px;color:var(--muted,#9aa5b6);line-height:1.45}
+  .phNote b{color:var(--fg)}
+  #phBar button.on{background:var(--accent,#7cf2dc);color:#032620;border-color:transparent}
+  body.phExpand #stageWrap{border-top:1px solid var(--line)}
   #phOv{position:fixed;inset:0;z-index:80;background:#000;display:none;flex-direction:column;align-items:center;justify-content:center;gap:14px;color:#fff;text-align:center;padding:20px;font-family:Heebo,system-ui,sans-serif}
   #phOv.on{display:flex}
   #phOv video{width:min(86vw,62vh);aspect-ratio:1;object-fit:cover;border-radius:50%;transform:scaleX(-1);box-shadow:0 0 0 3px rgba(124,242,220,.5)}
@@ -73,9 +99,10 @@
   const panel = document.getElementById("panel");
   const bar = document.createElement("div"); bar.id = "phBar";
   bar.innerHTML = `<button type="button" class="primary" id="phSelfie">📸 סלפי</button>
-    <select id="phMode" aria-label="סוג מופע"><option value="classic">סלפי ואפקטים</option><option value="minute">דקה · 4 סלפי</option></select>
+    <select id="phMode" aria-label="סוג מופע"><option value="classic">סלפי · אפקטים</option><option value="minute">דקה · 4 סלפי</option></select>
     <select id="phBack" aria-label="זמן להחזרת הטלפון">${[3, 5, 8, 10, 12, 15, 20].map(s => `<option value="${s}">⏱ ${s} שנ׳</option>`).join("")}</select>
     <span class="sp"></span>
+    <button type="button" id="phBig" aria-pressed="false" title="עריכה במסך מלא, עם תצוגה של מה שרואים בעינית">⤢ עריכה</button>
     <button type="button" id="phCalB" aria-label="כיול">כיול</button>
     <button type="button" id="phFull" aria-label="מסך מלא">⛶</button>
     <a id="phExit" href="phone#app" style="text-decoration:none"><button type="button" aria-label="חזרה לאפליקציה הפשוטה">✕</button></a>`;
@@ -93,7 +120,46 @@
   $p("phBack").value = String(opt.back);
   $p("phMode").onchange = e => { P.selfMode = e.target.value; save(); if (typeof render === "function") render(); };
   $p("phBack").onchange = e => { opt.back = +e.target.value; saveOpt(); };
-  $p("phCalB").onclick = () => { calRow.classList.toggle("on"); showOutline = calRow.classList.contains("on"); layout(); };
+  $p("phCalB").onclick = () => { if (big) setBig(false); calRow.classList.toggle("on"); showOutline = calRow.classList.contains("on"); layout(); };
+  // "edit on the whole screen": phone out of the cradle, the desk takes most of the screen and the stage shows
+  // the finished kaleidoscope (what the eye sees through the mirrors) instead of the raw triangle
+  let big = false;
+  function setBig(on) {
+    big = !!on; document.body.classList.toggle("phExpand", big);
+    const b = $p("phBig"); b.classList.toggle("on", big); b.setAttribute("aria-pressed", String(big));
+    if (big) { calRow.classList.remove("on"); showOutline = false; }
+    P.mode = big ? "tri60" : "screen"; // the cradle holds a 60° prism
+    if (typeof render === "function") render();
+    layout();
+  }
+  $p("phBig").onclick = () => setBig(!big);
+
+  // one card open at a time: opening a card folds the others, and the opened card scrolls into view
+  const body = document.getElementById("tabbody");
+  body.addEventListener("click", e => {
+    const b = e.target.closest("button.fold"); if (!b) return;
+    setTimeout(() => {
+      const s = b.closest("section.grp"); if (!s || s.classList.contains("fold")) return;
+      body.querySelectorAll("section.grp.card:not(.fold)").forEach(o => { if (o !== s) { const ob = o.querySelector("button.fold"); if (ob) ob.click(); } });
+      s.scrollIntoView({ block: "nearest", behavior: "smooth" });
+    }, 0);
+  });
+  // after every desk render: keep only the first open card open, and swap phone-irrelevant cards for a short note
+  function tidy() {
+    const sel = document.querySelector("#tabs [aria-selected=\"true\"]");
+    if (sel && sel.scrollIntoView) sel.scrollIntoView({ block: "nearest", inline: "center" });
+    if (!body.firstElementChild) return;
+    [...body.querySelectorAll("section.grp.card:not(.fold)")].slice(1).forEach(o => { const ob = o.querySelector("button.fold"); if (ob) ob.click(); });
+    const chips = body.querySelector("[data-mode]"), sec = chips && chips.closest("section.grp");
+    if (sec && !big) {
+      [...sec.children].forEach(c => { if (!c.matches("h3")) c.classList.add("phHide"); });
+      const n = document.createElement("p"); n.className = "phNote";
+      n.innerHTML = `בטלפון המראות אמיתיות: <b>משולש 60° בתפסנית</b>. המסך מציג רק את התא שבתוך המנסרה. כדי לראות כאן את הקליידוסקופ המלא לוחצים <b>⤢ עריכה</b>.`;
+      sec.appendChild(n);
+    }
+  }
+  let tidyQueued = false;
+  new MutationObserver(() => { if (tidyQueued) return; tidyQueued = true; requestAnimationFrame(() => { tidyQueued = false; tidy(); }); }).observe(body, { childList: true });
   $p("phFull").onclick = () => { const el = document.documentElement; try { (el.requestFullscreen || el.webkitRequestFullscreen).call(el)?.then?.(() => { try { screen.orientation.lock("portrait").catch(() => {}); } catch (e) {} }).catch?.(() => toast("באייפון: שיתוף ← הוספה למסך הבית")); } catch (e) { toast("באייפון: שיתוף ← הוספה למסך הבית"); } };
   calRow.addEventListener("click", e => {
     const n = e.target.dataset && e.target.dataset.n; if (!n) return;
@@ -124,6 +190,14 @@
 
   function layout() {
     const W = innerWidth, H = innerHeight, pm = W / (kit.sw || 65) * cal.px;
+    if (big) { // preview: a third of the screen shows the finished kaleidoscope, the desk gets the rest
+      const bot = Math.round(Math.max(150, H * .32));
+      document.body.classList.remove("flip");
+      document.documentElement.style.setProperty("--phBot", bot + "px");
+      document.documentElement.style.setProperty("--phTop", (H - bot) + "px");
+      requestAnimationFrame(() => { lastTri = null; TRI = [[.5, .1], [.25, .9], [.75, .9]]; if (typeof resize === "function") resize(); drawOutline(); });
+      return;
+    }
     const capPx = Math.min(H - 180, (kit.cap + 1 + Math.abs(cal.dy)) * pm);
     document.body.classList.toggle("flip", !!cal.flip);
     document.documentElement.style.setProperty("--phBot", Math.round(capPx) + "px");
@@ -150,7 +224,7 @@
 
   // the phone has real mirrors on top of it: always output the raw cell
   setInterval(() => {
-    if (P.mode !== "screen") { P.mode = "screen"; if (typeof render === "function") render(); }
+    if (!big && P.mode !== "screen") { P.mode = "screen"; if (typeof render === "function") render(); }
     if (BOX) BOX = null;
     calib = false;
   }, 300);
@@ -233,8 +307,10 @@
   $p("phSelfie").onclick = () => {
     if (typeof SFX === "undefined" || !SFX) { toast("המופע לא זמין בדפדפן הזה (WebGL)"); return; }
     if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) { toast("המצלמה זמינה רק בכתובת https"); return; }
+    if (big) setBig(false);
     beep(880, .05); selfieFlow();
   };
 
+  if (typeof render === "function") render(); // moves the tab strip into the panel (body.phonekit) and opens the asked tab
   toast(`מצב טלפון · ${kit.n || ""} · משולש ${kit.s} מ״מ. הכיול בכפתור "כיול".`, 3800);
 })();

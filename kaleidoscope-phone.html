@@ -105,6 +105,12 @@ input[type=range]{width:100%;accent-color:var(--accent)}
 .modes{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
 .modes button{background:#121722;border:1px solid #232b3a;color:var(--fg);border-radius:12px;padding:8px 4px;font:inherit;font-size:14px}
 .modes button.on{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent);color:var(--accent);font-weight:700}
+.ph-tabs button[data-p="studio"]{flex:1.25;color:var(--accent);border-color:rgba(124,242,220,.45)}
+.ph-tabs button[data-p="studio"].on{color:var(--on-accent)}
+.stools{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.stools button{background:#121722;border:1px solid #232b3a;color:var(--fg);border-radius:12px;padding:8px 2px 7px;font:inherit;font-size:12px;display:flex;flex-direction:column;align-items:center;gap:3px;line-height:1.15}
+.stools button i{font-style:normal;font-size:19px;line-height:1}
+.stools button.wide{grid-column:span 4;flex-direction:row;justify-content:center;gap:8px;font-size:14.5px;font-weight:700;background:var(--accent);color:var(--on-accent);border-color:var(--accent);padding:10px}
 .row{display:flex;align-items:center;gap:8px;margin:7px 0}
 .row label{flex:none;width:74px;color:#cfd7e3;font-size:13.5px}
 .row input[type=range]{flex:1}
@@ -279,6 +285,7 @@ input[type=range]{width:100%;accent-color:var(--accent)}
       <button data-p="edit">עריכה</button>
       <button data-p="color">צבע</button>
       <button data-p="sense">חיישנים</button>
+      <button data-p="studio">סטודיו ✦</button>
     </div>
     <div class="ph-body">
       <div class="ph-pane on" id="pp-modes">
@@ -303,6 +310,20 @@ input[type=range]{width:100%;accent-color:var(--accent)}
         <div class="row"><label>גודל</label><input type="range" id="aScale" min="0.4" max="3" step="0.01" value="1"></div>
         <div class="row"><label>גוון</label><input type="range" id="aHue" min="0" max="1" step="0.005" value="0"></div>
         <div class="row"><label>בהירות</label><input type="range" id="aBright" min="0.3" max="1.8" step="0.01" value="1.1"></div>
+      </div>
+      <div class="ph-pane" id="pp-studio">
+        <div class="stools" id="studioTools">
+          <button class="wide" data-st="">🎛 פתיחת הסטודיו המלא בחצי המסך</button>
+          <button data-st="layers"><i>☰</i>שכבות</button>
+          <button data-st="fx"><i>✦</i>בונה אפקטים</button>
+          <button data-st="caption"><i>Aa</i>כיתוב</button>
+          <button data-st="particles"><i>✺</i>חלקיקים</button>
+          <button data-st="music"><i>♫</i>מוזיקה ולב</button>
+          <button data-st="source"><i>▣</i>מקור ומצלמה</button>
+          <button data-st="presets"><i>★</i>פריסטים</button>
+          <button data-st="selfie"><i>📸</i>מופע סלפי</button>
+        </div>
+        <p class="hint">כל כלי העריכה של הסטודיו, מסודרים לחצי המסך שמחוץ לתפסנית. המשולש נשאר באותו מקום מתחת למראות, והכיול של הטלפון נשמר. בסטודיו, <b>⤢ עריכה</b> פותח עריכה על כל המסך עם תצוגה של מה שרואים בעינית.</p>
       </div>
       <div class="ph-pane" id="pp-sense">
         <div class="tg"><div>מיקרופון<small>התמונה פועמת עם המוזיקה בחדר</small></div><input type="checkbox" class="sw" id="aMic"></div>
@@ -1133,7 +1154,9 @@ const A = {
       else this.toast('מסך מלא לא זמין כאן. באייפון: שיתוף ← הוספה למסך הבית.', 3600);
     });
     $('bReset').addEventListener('click', () => { this.cal = { dx: 0, dy: 0, px: 1, sz: 1, flip: false }; this.saveCal(); });
-    $('bStudio').addEventListener('click', () => { location.href = 'studio?phone=' + btoa(unescape(encodeURIComponent(JSON.stringify(this.kit)))).replace(/=+$/, ''); });
+    const toStudio = t => { location.href = 'studio?phone=' + btoa(unescape(encodeURIComponent(JSON.stringify(this.kit)))).replace(/=+$/, '') + (t ? '&tab=' + t : ''); };
+    $('bStudio').addEventListener('click', () => toStudio(''));
+    $('studioTools').addEventListener('click', e => { const b = e.target.closest('[data-st]'); if (b) toStudio(b.dataset.st); });
     $('bExit').addEventListener('click', () => { history.replaceState(null, '', location.pathname); this.stop(); });
     document.addEventListener('visibilitychange', () => { if (!document.hidden && $('mWake').checked) this.setWake(true); });
   },
